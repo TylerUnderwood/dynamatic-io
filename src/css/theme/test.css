@@ -1,13 +1,5 @@
-@layer theme {
-    :root {
-        --color-primary: blue;
-    }
-}
-
-$color-primary: var(--color-primary);
-
 .theme {
-    color: $color-red;
+    color: $color-primary;
 
     & .color {
         color: red;

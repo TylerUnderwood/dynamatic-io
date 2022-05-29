@@ -19,7 +19,7 @@ defineProps({
 </template>
 
 <style>
-@import "../css/components/header.pcss";
+@import "../css/components/header.css";
 
 .nothing {
   color: $color-red;

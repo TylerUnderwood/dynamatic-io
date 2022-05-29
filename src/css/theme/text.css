@@ -1,0 +1,6 @@
+p {
+    line-height: 1.6;
+    font-weight: normal;
+    font-family: var(--font-copy, Roboto), ui-sans-serif, sans-serif;
+    color: var(--color-copy);
+}
