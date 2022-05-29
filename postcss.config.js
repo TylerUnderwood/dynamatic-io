@@ -1,20 +1,12 @@
 const { theme } = require('./config/theme');
-
-const getTheme = () => {
-  variables = {}
-  for ( const color in theme.colors ) {
-    let value = theme.colors[color];
-    variables[`color-${color}`] = value;
-  };
-  return variables;
-}
+const simplifyVars = require('./config/simplify-vars')
 
 module.exports = {
   syntax: 'postcss-scss',
   plugins: {
     'postcss-mixins': {},
     'postcss-simple-vars': {
-      variables: getTheme(),
+      variables: simplifyVars( theme ),
     },
     'tailwindcss/nesting': 'postcss-nesting',
     tailwindcss: {},
