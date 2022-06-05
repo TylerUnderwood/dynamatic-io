@@ -1,30 +1,19 @@
 <script setup>
 import Theme from "./components/style/Theme.vue"
 import Header from "./components/Header.vue";
-import TheWelcome from "./components/TheWelcome.vue";
+import Footer from "./components/Footer.vue";
+import Page from "./components/templates/Page.vue";
 import Utilities from "./components/style/Utilities.vue"
 </script>
 
 <template>
-  <Theme/>
+  <Theme />
 
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="./assets/logo.svg"
-      width="125"
-      height="125"
-    />
+  <Header />
 
-    <div class="wrapper">
-      <Header msg="You did it!" />
-    </div>
-  </header>
+  <Page />
 
-  <main>
-    <TheWelcome />
-  </main>
+  <Footer />
 
-  <Utilities/>
+  <Utilities />
 </template>

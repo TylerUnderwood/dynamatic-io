@@ -13,6 +13,14 @@
   border-color: currentColor;
 }
 
+::selection {
+  background: var(--color-primaryy, #aa000080);
+}
+
+::-moz-selection {
+  background: var(--color-primaryy, #aa000080);
+}
+
 [hidden] {
   display: none !important;
 }
@@ -22,6 +30,7 @@
 }
 
 html {
+  accent-color: var(--color-primaryy, #aa0000);
   /* @include fluid-value(font-size, $min_width, $max_width, $font_min, $font_max); */
   overflow-x: clip;
   overflow-y: auto;
@@ -32,10 +41,10 @@ html {
   /* Remove scrollbar */
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
