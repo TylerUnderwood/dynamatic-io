@@ -14,11 +14,15 @@
 }
 
 ::selection {
-  background: var(--color-primaryy, #aa000080);
+  background: var(--color-primary, #aa000080);
 }
 
 ::-moz-selection {
-  background: var(--color-primaryy, #aa000080);
+  background: var(--color-primary, #aa000080);
+}
+
+:target {
+  outline: 2px 2px solid var(--color-primary, #aa0000);
 }
 
 [hidden] {
@@ -30,7 +34,7 @@
 }
 
 html {
-  accent-color: var(--color-primaryy, #aa0000);
+  accent-color: var(--color-primary, #aa0000);
   /* @include fluid-value(font-size, $min_width, $max_width, $font_min, $font_max); */
   overflow-x: clip;
   overflow-y: auto;
@@ -50,7 +54,7 @@ html::-webkit-scrollbar {
 body {
   margin: 0;
   background-color: var(--color-base, #fdfdfe);
-  tab-size: 2;
+  tab-size: 4;
   line-height: 1;
   font-size: 1rem;
   font-weight: normal;

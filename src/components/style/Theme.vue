@@ -1,7 +1,19 @@
 <template>
-  <div id="someElementId">
-    <p>color {{ theme.colors.red }}</p>
-    <input type="checkbox">
+  <div id="themeSettings">
+    <details>
+      <summary>Theme Vars</summary>
+      <code>
+        <pre>
+{{ createThemeVars( theme ) }}
+        </pre>
+      </code>
+    </details>
+    <p>
+      azure
+      <mark :style="{backgroundColor: theme.colors.azure}">
+        {{ theme.colors.azure }}
+      </mark>
+    </p>
   </div>
 </template>
 
@@ -17,7 +29,7 @@ export default {
 
       for ( const key in obj ) {
         cssVars += `--${key}: ${obj[key]};`;
-        if (key !== Object.keys(obj)[Object.keys(obj).length - 1]) cssVars += '\n\t';
+        if (key !== Object.keys(obj)[Object.keys(obj).length - 1]) cssVars += '\n';
       }
 
       return cssVars;
@@ -44,4 +56,9 @@ export default {
 </style>
 <style>
 @import "../../css/components/index.css";
+
+mark::before,
+mark::after {
+  content: "\00a0";
+}
 </style>

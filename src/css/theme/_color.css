@@ -1,33 +1,31 @@
-@layer theme {
-    :root {
-        --color-dark-primary: blue;
-        --color-dark-secondary: purple;
+:root {
+    --color-dark-primary: blue;
+    --color-dark-secondary: purple;
 
-        --color-dark-accent: blue;
-        --color-dark-highlight: purple;
+    --color-dark-accent: lime;
+    --color-dark-highlight: yellow;
 
-        --color-dark-base: #484848;
-        --color-dark-offset: #404040;
-        --color-dark-contrast: #383838;
+    --color-dark-base: #484848;
+    --color-dark-offset: #404040;
+    --color-dark-contrast: #383838;
 
-        --color-dark-heading: #333333;
-        --color-dark-text: #333333;
-        --color-dark-copy: #333333;
+    --color-dark-heading: #333333;
+    --color-dark-text: #333333;
+    --color-dark-copy: #333333;
 
-        --color-dark-link: #333333;
-        --color-dark-link-hover: #333333;
-        --color-dark-link-active: #333333;
-    }
-    :root {
-        --color-light-primary: blue;
-        --color-light-secondary: purple;
-        --color-light-accent: blue;
-        --color-light-highlight: purple;
-        --color-light-base: #ffffff;
-        --color-light-offset: #f8f8f8;
-        --color-light-contrast: #eeeeee;
-        --color-light-markup: #dddddd;
-    }
+    --color-dark-link: #333333;
+    --color-dark-link-hover: #333333;
+    --color-dark-link-active: #333333;
+}
+:root {
+    --color-light-primary: blue;
+    --color-light-secondary: purple;
+    --color-light-accent: blue;
+    --color-light-highlight: purple;
+    --color-light-base: #ffffff;
+    --color-light-offset: #f8f8f8;
+    --color-light-contrast: #eeeeee;
+    --color-light-markup: #dddddd;
 }
 
 @define-mixin theme $type {
@@ -41,27 +39,24 @@
     --color-markup: var(--color-$(type)-markup);
 }
 
-@layer theme.auto {
-    @media (prefers-color-scheme: dark) {
-        .theme-auto,
-        [data-theme="auto"] {
-            @mixin theme dark;
-        }
-    }
-    @media (prefers-color-scheme: light) {
-        .theme-auto,
-        [data-theme="auto"] {
-            @mixin theme light;
-        }
-    }
-}
-@layer theme.type {
-    .theme-dark,
-    [data-theme="dark"] {
+@media (prefers-color-scheme: dark) {
+    .theme-preferred,
+    [data-theme="preferred"] {
         @mixin theme dark;
     }
-    .theme-light,
-    [data-theme="light"] {
+}
+@media (prefers-color-scheme: light) {
+    .theme-preferred,
+    [data-theme="preferred"] {
         @mixin theme light;
     }
+}
+
+.theme-dark,
+[data-theme="dark"] {
+    @mixin theme dark;
+}
+.theme-light,
+[data-theme="light"] {
+    @mixin theme light;
 }
