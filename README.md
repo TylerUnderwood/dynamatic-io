@@ -1,4 +1,4 @@
-# Dynamatic Boilerplate (Vue3, Vite)
+# Dynamatic Boilerplate
 
 Dynamatic is a modern design system & boilerplate, built from external theme tokens.
 
