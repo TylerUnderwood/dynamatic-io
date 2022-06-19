@@ -1,5 +1,9 @@
 # Dynamatic Boilerplate (Vue3, Vite)
 
+Dynamatic is a modern design system & boilerplate, built from external theme tokens.
+
+## Vue Setup
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
