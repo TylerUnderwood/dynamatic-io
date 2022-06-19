@@ -1,5 +1,5 @@
 <template>
-
+    <noscript>Tools and Utilities</noscript>
 </template>
 
 <style>

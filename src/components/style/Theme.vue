@@ -1,5 +1,5 @@
 <template>
-  <div id="themeSettings">
+  <div id="themeSettings" style="order: 99">
     <details>
       <summary>Theme Vars</summary>
       <code>
@@ -18,13 +18,13 @@
 </template>
 
 <script>
-import simplifyVars from '@config/simplify-vars';
+import themeVars from '@config/theme-vars';
 
 export default {
   methods: {
     createCssVars( theme ) {
       let cssVars = '';
-      const obj = simplifyVars( theme );
+      const obj = themeVars( theme );
 
       for ( const key in obj ) {
         cssVars += `--${key}: ${obj[key]};`;
@@ -36,9 +36,11 @@ export default {
   },
 
   async created() {
-    document.getElementById('theme-styles').innerHTML = `:root {
-      ${this.createCssVars(theme)}
-    }`;
+    document.getElementById('theme-styles').innerHTML = `
+      :root {
+        ${this.createCssVars(theme)}
+      }
+    `;
   },
 
   data() { return {

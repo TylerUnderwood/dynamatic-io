@@ -1,11 +1,3 @@
-.theme {
-    color: $color-primary;
-
-    & .color {
-        color: red;
-    }
-}
-
 @define-mixin icon $network, $color: blue {
     .icon.is-$(network) {
         color: $color;
