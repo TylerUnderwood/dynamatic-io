@@ -4,7 +4,7 @@
 
 <template>
   <div class="greetings">
-    <h1 class="color-green">Hello</h1>
+    <h1 class="text-azure">Hello</h1>
     <h3>
       You’ve successfully created a project with
       <a target="_blank" href="https://vitejs.dev/">Vite</a> +
@@ -14,9 +14,5 @@
 </template>
 
 <style>
-@import "../css/components/_header.css";
-
-.nothing {
-  color: $color-red;
-}
+@import "@styles/components/_header.css";
 </style>

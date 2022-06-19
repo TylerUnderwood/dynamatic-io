@@ -4,7 +4,7 @@
       <summary>Theme Vars</summary>
       <code>
         <pre>
-{{ createThemeVars( theme ) }}
+{{ createCssVars( theme ) }}
         </pre>
       </code>
     </details>
@@ -18,12 +18,11 @@
 </template>
 
 <script>
-import theme from './../../../config/theme.json';
-import simplifyVars from './../../../config/simplify-json-vars';
+import simplifyVars from '@config/simplify-vars';
 
 export default {
   methods: {
-    createThemeVars( theme ) {
+    createCssVars( theme ) {
       let cssVars = '';
       const obj = simplifyVars( theme );
 
@@ -36,9 +35,9 @@ export default {
     }
   },
 
-  created() {
-    document.getElementById('themeStyles').innerHTML = `:root {
-      ${this.createThemeVars(theme)}
+  async created() {
+    document.getElementById('theme-styles').innerHTML = `:root {
+      ${this.createCssVars(theme)}
     }`;
   },
 
@@ -49,13 +48,13 @@ export default {
 </script>
 
 <style>
-@import "../../css/theme/index.css";
+@import "@styles/theme/index.css";
 </style>
 <style>
-@import "../../css/base/index.css";
+@import "@styles/base/index.css";
 </style>
 <style>
-@import "../../css/components/index.css";
+@import "@styles/components/index.css";
 
 mark::before,
 mark::after {

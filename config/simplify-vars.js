@@ -1,29 +1,26 @@
-const pluralize = require('pluralize');
+'use strict'
+import pluralize from 'pluralize';
 
-module.exports = ( theme ) => {
+const simplifyVars = ( theme ) => {
   let variables = {}
-  let stack = '';
 
-  const addVars = (obj) => {
+  const addVars = ( obj, prefix ) => {
     for ( const key in obj ) {
       let value = obj[key];
 
       if (typeof value === 'object' && value !== null) {
-        stack += `${pluralize(key, 1)}-`;
-        addVars(value);
-      }
-
-      if (typeof value === 'string' && value !== null) {
-        variables[stack + key] = value;
-      }
-
-      if (Object.keys(obj).pop() === key) {
-        stack = '';
+        addVars(value, (prefix + `${pluralize(key, 1)}-`));
+      } else if (typeof value === 'array' && value !== null) {
+        value.forEach((item, index) => addVars(item, prefix + toString(index)) );
+      } else {
+        variables[prefix + key] = value;
       }
     };
-  };
+  }
 
-  addVars(theme);
+  addVars(theme, '');
 
   return variables;
 };
+
+export default simplifyVars;

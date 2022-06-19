@@ -3,8 +3,8 @@
 </template>
 
 <style>
-@import "../../css/tools/index.css";
+@import "@styles/tools/index.css";
 </style>
 <style>
-@import "../../css/utilities/index.css";
+@import "@styles/utilities/index.css";
 </style>
