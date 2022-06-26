@@ -14,15 +14,15 @@
 }
 
 ::selection {
-  background: var(--color-primary, #aa000080);
+  background: var(--palet-accent);
 }
 
 ::-moz-selection {
-  background: var(--color-primary, #aa000080);
+  background: var(--palet-accent);
 }
 
 :target {
-  outline: 2px 2px solid var(--color-primary, #aa0000);
+  outline: 2px 2px solid var(--palet-accent);
 }
 
 [hidden] {
@@ -34,7 +34,7 @@
 }
 
 html {
-  accent-color: var(--color-primary, #aa0000);
+  accent-color: var(--palet-accent);
   /* @include fluid-value(font-size, $min_width, $max_width, $font_min, $font_max); */
   overflow-x: clip;
   overflow-y: auto;
@@ -53,14 +53,14 @@ html::-webkit-scrollbar {
 
 body {
   margin: 0;
-  background-color: var(--color-base, #fdfdfe);
+  background-color: var(--palet-base);
   tab-size: 4;
   line-height: 1;
   font-size: 1rem;
   font-weight: normal;
-  font-family: var(--font-markup), system-ui, sans-serif;
+  font-family: var(--font), system-ui, sans-serif;
   text-rendering: optimizeLegibility;
-  color: var(--color-markup, #22222b);
+  color: var(--palet-text);
 }
 
 

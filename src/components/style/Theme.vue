@@ -6,13 +6,20 @@
         <summary><h3 class="m-2">{{ cline }}</h3></summary>
         <code v-for="token, name in category" class="block mt-2">
           <span>{{ name }}: </span>
-          <mark :style="{backgroundColor: token}">
+          <mark v-if="/^#/.test(token)" :style="{backgroundColor: token}">
             <span
-              v-if="['dark','light'].some(s => name.includes(s))"
-              style="color: white; mix-blend-mode: difference;">
+              v-if="['color-dark','color-light'].some(s => name.includes(s))"
+              style="color: white; mix-blend-mode: difference;"
+            >
               {{ token }}
             </span>
             <span v-else>{{ token }}</span>
+          </mark>
+          <mark v-else-if="/^--/.test(token)" :style="{backgroundColor: `var(${token})`}">
+            <span>{{ token }}</span>
+          </mark>
+          <mark v-else>
+            <span>{{ token }}</span>
           </mark>
         </code>
       </details>
@@ -27,27 +34,29 @@ import tokensNative from '@config/tokens-native';
 export default {
   methods: {
     tokenList( category ) {
-      console.log(category, 'list');
-      let tokenss = '';
-      category.forEach(token => { tokenss += token + '\n' });
-      return tokenss;
+      let tokensStyles = '';
+      category.forEach((token, index) => {
+        tokensStyles += token + (index < category.length - 1 ? '\n    ' : '');
+      });
+      return tokensStyles;
     },
 
-    buildCssVars( tokens ) {
-      console.log(tokens, 'build');
-      for ( const category in tokens ) { return `
-        @layer theme.${category} {
-          :root {
-            ${this.tokenList( tokens[category] )}
-          }
-        }
-      `};
+    buildCssVars( themeTokens ) {
+      let themeStyles = '';
+      for ( const category in themeTokens ) { themeStyles +=
+`@layer theme.${category} {
+  :root {
+    ${this.tokenList( themeTokens[category] )}
+  }
+}\n\n`
+      };
+      return themeStyles;
     }
   },
 
   created() {
-    console.log(tokensNative, 'create');
     document.getElementById('theme-styles').innerHTML = this.buildCssVars( tokensNative );
+    console.log(this.buildCssVars( tokensNative ));
   },
 
   data() { return {
@@ -79,7 +88,7 @@ mark::after {
 summary {
   display: flex;
   cursor: pointer;
-  background-color: rgb(0 0 0 / 0.2);
+  background-color: rgb(0 0 0 / 0.1);
   border-bottom: solid 2px currentColor;
 }
 details > details {

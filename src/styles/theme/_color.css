@@ -1,42 +1,31 @@
 :root {
-    --color-dark-primary: blue;
-    --color-dark-secondary: purple;
-
-    --color-dark-accent: lime;
-    --color-dark-highlight: yellow;
-
-    --color-dark-base: #484848;
-    --color-dark-offset: #404040;
-    --color-dark-contrast: #383838;
-
-    --color-dark-heading: #333333;
-    --color-dark-text: #333333;
-    --color-dark-copy: #333333;
-
-    --color-dark-link: #333333;
-    --color-dark-link-hover: #333333;
-    --color-dark-link-active: #333333;
-}
-:root {
-    --color-light-primary: blue;
-    --color-light-secondary: purple;
-    --color-light-accent: blue;
-    --color-light-highlight: purple;
-    --color-light-base: #ffffff;
-    --color-light-offset: #f8f8f8;
-    --color-light-contrast: #eeeeee;
-    --color-light-markup: #dddddd;
+    --palet-primary: blue;
+    --palet-secondary: purple;
+    --palet-accent: lime;
+    --palet-base: #ffffff;
+    --palet-offset: #f8f8f8;
+    --palet-contrast: #eeeeee;
+    --palet-heading: #080808;
+    --palet-text: #222222;
+    --palet-copy: #333333;
+    --palet-link: blue;
+    --palet-link-hover: lime;
+    --palet-link-active: purple;
 }
 
 @define-mixin theme $type {
-    --color-primary: var(--color-$(type)-primary);
-    --color-secondary: var(--color-$(type)-secondary);
-    --color-accent: var(--color-$(type)-accent);
-    --color-highlight: var(--color-$(type)-highlight);
-    --color-base: var(--color-$(type)-base);
-    --color-offset: var(--color-$(type)-offset);
-    --color-contrast: var(--color-$(type)-contrast);
-    --color-markup: var(--color-$(type)-markup);
+    --palet-primary: var(--palet-$(type)-primary);
+    --palet-secondary: var(--palet-$(type)-secondary);
+    --palet-accent: var(--palet-$(type)-accent);
+    --palet-base: var(--palet-$(type)-base);
+    --palet-offset: var(--palet-$(type)-offset);
+    --palet-contrast: var(--palet-$(type)-contrast);
+    --palet-heading: var(--palet-$(type)-heading);
+    --palet-text: var(--palet-$(type)-text);
+    --palet-copy: var(--palet-$(type)-copy);
+    --palet-link: var(--palet-$(type)-link);
+    --palet-link-hover: var(--palet-$(type)-link-hover);
+    --palet-link-active: var(--palet-$(type)-link-active);
 }
 
 @media (prefers-color-scheme: dark) {

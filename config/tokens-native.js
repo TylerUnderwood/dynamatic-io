@@ -9,7 +9,11 @@ const nativeTokensGenerator = ( tokens ) => {
     let values = tokens[category];
 
     for ( const key in values ) {
-      variables.push(`--${key}: ${values[key]};`);
+      if (/^--/.test(values[key])) {
+        variables.push(`--${key}: var(${values[key]});`);
+      } else {
+        variables.push(`--${key}: ${values[key]};`);
+      }
     };
 
     categories[category] = variables;
