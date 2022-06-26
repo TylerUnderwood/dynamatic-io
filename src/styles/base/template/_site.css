@@ -5,24 +5,24 @@
 */
 
 *,
-*::before,
-*::after {
+::before,
+::after {
   box-sizing: border-box;
-  border-width: 0;
-  border-style: solid;
-  border-color: currentColor;
+}
+
+[show-boxes] *,
+[show-boxes] ::before,
+[show-boxes] ::after {
+  outline: 1px solid currentColor;
 }
 
 ::selection {
   background: var(--palet-accent);
 }
 
-::-moz-selection {
-  background: var(--palet-accent);
-}
-
 :target {
-  outline: 2px 2px solid var(--palet-accent);
+  outline: 2px solid var(--palet-accent);
+  outline-offset: 2px;
 }
 
 [hidden] {
@@ -62,7 +62,6 @@ body {
   text-rendering: optimizeLegibility;
   color: var(--palet-text);
 }
-
 
 /* this will, at the least, fill the viewport and gives the template structure */
 #app {

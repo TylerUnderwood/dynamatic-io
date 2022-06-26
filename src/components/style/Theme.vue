@@ -56,7 +56,6 @@ export default {
 
   created() {
     document.getElementById('theme-styles').innerHTML = this.buildCssVars( tokensNative );
-    console.log(this.buildCssVars( tokensNative ));
   },
 
   data() { return {
