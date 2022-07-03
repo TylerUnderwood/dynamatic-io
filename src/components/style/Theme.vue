@@ -69,8 +69,8 @@ export default {
 <style>
 @import "@styles/theme/index.css";
 </style>
-<style>
-@import "@styles/base/index.css";
+<style lang="scss">
+@import "@styles/base/index.scss";
 </style>
 <style>
 @import "@styles/components/index.css";

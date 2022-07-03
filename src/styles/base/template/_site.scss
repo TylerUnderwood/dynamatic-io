@@ -1,3 +1,5 @@
+@use '../../functions' as func;
+
 /*
 |––––––––––––––––––––––––––––––––––––––––––––––––––
 | BASE: Template
@@ -34,8 +36,8 @@
 }
 
 html {
+  @include func.scale-fluid-rule(font-size, 480px, 1280px, 16px, 20px);
   accent-color: var(--palet-accent);
-  /* @include fluid-value(font-size, $min_width, $max_width, $font_min, $font_max); */
   overflow-x: clip;
   overflow-y: auto;
 
