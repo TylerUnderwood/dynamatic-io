@@ -12,6 +12,8 @@ body {
     --button-active: var(--input-active);
     --button-face: var(--theme-base);
     --button-height: var(--input-height);
+    --button-timing: var(--input-timing);
+    --button-easing: var(--input-easing);
 }
 
 button {
@@ -24,26 +26,6 @@ button {
   font-size: inherit;
   color: inherit;
   cursor: pointer;
-  /*
-  type
-    bordered
-    stealth
-  state
-    hover
-    active
-    focus
-    visited
-  size
-    tall
-    thin
-  shape
-    stout
-    square
-    full
-  scheme
-    warn
-    error
-  */
 }
 
 .button {
@@ -54,7 +36,9 @@ button {
   flex: 0 0 auto;
   overflow: clip;
   outline: none;
-  border: 2px solid transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
   border-radius: var(--input-round);
   min-width: 8em;
   height: var(--button-height);
@@ -66,13 +50,16 @@ button {
   text-decoration: none;
   font-size: inherit;
   color: var(--button-face);
-  transition: border-color 300ms ease,
-              background-color 300ms ease,
-              color 300ms ease;
+  transition-property: border-color, background-color, color;
+  transition-duration: var(--button-timing);
+  transition-timing-function: var(--button-easing);
   user-select: none;
   cursor: pointer;
 
   // [active] first so :hover overrides it
+  &--active,
+  &:active,
+  &:visited,
   &[active] {
     border-color: var(--button-active);
     background-color: var(--button-active);
@@ -88,6 +75,7 @@ button {
   }
 
   // [stealth]
+  &--stealth,
   &[stealth] {
     border-color: transparent;
     background-color: transparent;
@@ -102,6 +90,7 @@ button {
   }
 
   // [disabled] last so it overrides all
+  &--disabled,
   &[disabled] {
     border-color: transparent;
     background-color: var(--button-color);
