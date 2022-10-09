@@ -50,16 +50,28 @@
     --theme-primary: var(--#{$type}-primary);
     --theme-secondary: var(--#{$type}-secondary);
     --theme-accent: var(--#{$type}-accent);
+    --theme-input: var(--#{$type}-input);
+    --theme-marker: var(--#{$type}-marker);
+    --theme-muted: var(--#{$type}-muted);
     --theme-base: var(--#{$type}-base);
     --theme-offset: var(--#{$type}-offset);
     --theme-contrast: var(--#{$type}-contrast);
     --theme-head: var(--#{$type}-head);
     --theme-face: var(--#{$type}-face);
     --theme-body: var(--#{$type}-body);
-    --theme-input: var(--#{$type}-input);
-    --theme-marker: var(--#{$type}-marker);
-    --theme-muted: var(--#{$type}-muted);
     color-scheme: $type;
+}
+
+/* ===== Light Mode ===== */
+@media (prefers-color-scheme: light) {
+    [data-theme="auto"] {
+        @include theme( light );
+    }
+}
+
+[data-theme="normal"],
+[data-theme="light"] {
+    @include theme( light );
 }
 
 /* ===== Dark Mode ===== */
@@ -71,15 +83,4 @@
 
 [data-theme="dark"] {
     @include theme( dark );
-}
-
-/* ===== Light Mode ===== */
-@media (prefers-color-scheme: light) {
-    [data-theme="auto"] {
-        @include theme( light );
-    }
-}
-
-[data-theme="light"] {
-    @include theme( light );
 }

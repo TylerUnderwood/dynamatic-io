@@ -4,16 +4,9 @@
 |–––––––––––––––––––––––––
 */
 
-// @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&family=Roboto+Mono:wght@300;500;700&family=Roboto:wght@100;300;500;700;900&display=swap');
-// :root {
-//     --theme-head-font: "Roboto Condensed";
-//     --theme-font: "Roboto";
-//     --theme-meta-font: "Roboto Mono";
-// }
-
 :root {
-    --heading-font: var(--theme-head-font, "Arial", sans-serif);
-    --font: var(--theme-font, "Arial", sans-serif);
+    --head-font: var(--theme-head-font, "Arial", sans-serif);
+    --face-font: var(--theme-face-font, "Arial", sans-serif);
     --meta-font: var(--theme-meta-font, "Arial", sans-serif);
     --break-size: 1.6rem;
     --tab-size: 2.0rem;

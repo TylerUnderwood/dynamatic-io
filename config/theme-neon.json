@@ -52,6 +52,14 @@
     "hover": "--jade",
     "active": "--royal-purple"
   },
+  "imports": {
+    "fonts": "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&family=Roboto+Mono:wght@300;500;700&family=Roboto:wght@100;300;500;700;900&display=swap"
+  },
+  "fonts": {
+    "head-font": "Roboto Condensed",
+    "body-font": "Roboto",
+    "meta-font": "Roboto Mono"
+  },
   "screens": {
     "sm": "480px",
     "md": "768px",

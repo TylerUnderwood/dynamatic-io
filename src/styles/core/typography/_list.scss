@@ -57,7 +57,7 @@ ol {
 .Markup li {
   position: relative;
   display: list-item;
-  margin: -0.3em 0 -0.35em;
+  margin: 0;
   padding: 0;
   font-size: 1rem;
   line-height: 1.4;
@@ -67,6 +67,7 @@ ol {
 .List > .List__item,
 .Markup ul > li,
 .Markup ol > li {
+  margin: -0.3em 0 -0.35em;
   padding-left: var(--list-tab);
 
   &::before {
