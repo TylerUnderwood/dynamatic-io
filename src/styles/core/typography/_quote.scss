@@ -24,20 +24,21 @@ cite {
   margin: 0;
   width: 100%;
   max-width: var(--copy-max);
-  border-left: var(--quote-line) solid  var(--theme-primary);
-  border-radius: var(--quote-line);
-  padding: 0 0 0 calc(var(--tab-size) - var(--quote-line));
+  border-left: var(--quote-border-width) solid var(--theme-primary);
+  border-radius: var(--quote-border-width);
+  padding: 0 0 0 calc(var(--tab-size) - var(--quote-border-width));
   line-height: 1.4;
   font-size: 1.2rem;
-  --quote-line: 4px;
+  --quote-border-width: 4px;
 }
 
-.Markup blockquote {
+.Rhythm blockquote {
   &:not(:first-child) {
     margin-top: var(--break-size);
   }
 }
 
+.Rhythm blockquote > p,
 .q-clip {
   @include f.clip(-0.25em, -0.25em);
   line-height: 1.4 !important;

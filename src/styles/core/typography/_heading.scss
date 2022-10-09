@@ -30,53 +30,48 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--theme-heading);
 }
 
-.Markup h1,
-.Markup h2,
-.Markup h3,
-.Markup h4,
-.Markup h5,
-.Markup h6 {
+.Rhythm h1,
+.Rhythm h2,
+.Rhythm h3,
+.Rhythm h4,
+.Rhythm h5,
+.Rhythm h6 {
   &:not(:first-child) {
     margin-top: var(--break-size);
   }
 }
 
-.h-clip {
-  @include f.clip(-0.18em, -0.25em);
-  line-height: 1.2 !important;
-}
-
-.H1,
+.h1,
 .Markup h1 {
   font-size: 3.6rem;
   color: var(--theme-heading);
 }
 
-.H2,
+.h2,
 .Markup h2 {
   font-size: 2.4rem;
   color: var(--theme-heading);
 }
 
-.H3,
+.h3,
 .Markup h3 {
   font-size: 2.0rem;
   color: var(--theme-heading);
 }
 
-.H4,
+.h4,
 .Markup h4 {
   font-size: 1.6rem;
   color: var(--theme-heading);
 }
 
-.H5,
+.h5,
 .Markup h5 {
   font-size: 1.6rem;
   color: var(--theme-primary);
 }
 
-.H6,
+.h6,
 .Markup h6 {
   font-size: 1.6rem;
   color: var(--grey);

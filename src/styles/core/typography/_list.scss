@@ -64,11 +64,6 @@ ol {
   list-style: inherit;
 }
 
-.l-clip {
-  @include f.clip(-0.3em, -0.35em);
-  line-height: 1.4 !important;
-}
-
 .List > .List__item,
 .Markup ul > li,
 .Markup ol > li {
@@ -80,7 +75,6 @@ ol {
     top: 0;
     left: 0;
     width: var(--list-tab);
-    text-indent: 0;
     color: var(--marker-color);
     counter-increment: list;
   }
@@ -90,7 +84,7 @@ ol {
 .List--bullet > .List__item,
 .Markup ul > li {
   &::before {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     line-height: 1.4rem;
     content: "\2022";
   }
@@ -111,48 +105,7 @@ ol {
   }
 }
 
-.List--bigCheckmark {
-  --list-gap: 1.5rem;
-  --list-tab: 36px;
-
-  & > .List__item::before {
-    left: -7px;
-    top: -7px;
-    font-size: 24px;
-    content: "\2713";
-  }
-}
-
-// .List--unordered {
-//   position: relative;
-
-//   &::before {
-//     position: absolute;
-//     top: 0.35em;
-//     left: 0;
-//     width: 6px;
-//     height: 6px;
-//     border-radius: 1px;
-//     background-color: var(--marker-color);
-//     content: '';
-//   }
-// }
-
-// Custom marker on List__item
-.List > .List__item[marker]::before {
-  content: attr(marker);
-}
-
 // Custom marker on List
 .List[style*="--marker"] > .List__item::before {
   content: var(--marker);
-}
-
-// How I would like it to work, but this doesn't work :sad-face:
-.List[marker] {
-  --marker: attr(marker);
-
-  & > .List__item::before {
-    content: var(--marker);
-  }
 }

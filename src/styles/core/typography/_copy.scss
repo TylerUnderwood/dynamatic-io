@@ -24,18 +24,15 @@ p {
   color: var(--theme-copy);
 }
 
-.Markup p {
-  &:not(:first-child) {
-    margin-top: var(--break-size);
-  }
+.Rhythm p:not(:first-child) {
+  margin-top: var(--break-size);
 }
 
-.Rhythm > p:first-child {
-  text-indent: var(--tab-size);
-}
-
-.Rhythm > p,
-.p-clip {
+.Rhythm > p {
   @include f.clip(-0.3em, -0.45em);
   line-height: 1.6 !important;
+}
+
+.Rhythm__block:first-child > p:first-child {
+  text-indent: var(--tab-size);
 }

@@ -3,7 +3,7 @@ import Theme from "@/components/Theme.vue";
 import SkipToMain from "@/components/SkipToMain.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
-import Page from "@/components/templates/Page.vue";
+import Page from "@/templates/Page.vue";
 import Utilities from "@/components/Utilities.vue";
 </script>
 
