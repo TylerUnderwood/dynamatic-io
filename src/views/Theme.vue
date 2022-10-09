@@ -41,13 +41,13 @@ export default {
 
     buildCssVars( themeTokens ) {
       let themeStyles = '';
-      for ( const category in themeTokens ) { themeStyles +=
-`@layer theme {
+      for ( const category in themeTokens ) { themeStyles += `
+@layer theme {
   :root {
     ${this.tokenList( themeTokens[category] )}
   }
-}\n\n`
-      };
+}\n\n
+      `};
       return themeStyles;
     }
   },

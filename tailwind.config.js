@@ -1,4 +1,4 @@
-const theme = require('./config/theme.json');
+const theme = require('./config/palet.json');
 
 module.exports = {
   content: [

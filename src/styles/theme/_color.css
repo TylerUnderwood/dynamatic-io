@@ -1,51 +1,53 @@
 :root {
-    --palet-primary: blue;
-    --palet-secondary: purple;
-    --palet-accent: lime;
-    --palet-base: #ffffff;
-    --palet-offset: #f8f8f8;
-    --palet-contrast: #eeeeee;
-    --palet-heading: #080808;
-    --palet-text: #222222;
-    --palet-copy: #333333;
-    --palet-link: blue;
-    --palet-link-hover: lime;
-    --palet-link-active: purple;
+    --theme-primary: blue;
+    --theme-secondary: navy;
+    --theme-accent: purple;
+    --theme-base: #ffffff;
+    --theme-offset: #f8f8f8;
+    --theme-contrast: #eeeeee;
+    --theme-heading: #080808;
+    --theme-text: #222222;
+    --theme-copy: #333333;
+    --theme-link: blue;
+    --theme-link-hover: navy;
+    --theme-link-active: purple;
 }
 
 @define-mixin theme $type {
-    --palet-primary: var(--palet-$(type)-primary);
-    --palet-secondary: var(--palet-$(type)-secondary);
-    --palet-accent: var(--palet-$(type)-accent);
-    --palet-base: var(--palet-$(type)-base);
-    --palet-offset: var(--palet-$(type)-offset);
-    --palet-contrast: var(--palet-$(type)-contrast);
-    --palet-heading: var(--palet-$(type)-heading);
-    --palet-text: var(--palet-$(type)-text);
-    --palet-copy: var(--palet-$(type)-copy);
-    --palet-link: var(--palet-$(type)-link);
-    --palet-link-hover: var(--palet-$(type)-link-hover);
-    --palet-link-active: var(--palet-$(type)-link-active);
-}
-
-@media (prefers-color-scheme: dark) {
-    .theme-preferred,
-    [data-theme="preferred"] {
-        @mixin theme dark;
-    }
-}
-@media (prefers-color-scheme: light) {
-    .theme-preferred,
-    [data-theme="preferred"] {
-        @mixin theme light;
-    }
+    --theme-primary: var(--theme-$(type)-primary);
+    --theme-secondary: var(--theme-$(type)-secondary);
+    --theme-accent: var(--theme-$(type)-accent);
+    --theme-base: var(--theme-$(type)-base);
+    --theme-offset: var(--theme-$(type)-offset);
+    --theme-contrast: var(--theme-$(type)-contrast);
+    --theme-heading: var(--theme-$(type)-heading);
+    --theme-text: var(--theme-$(type)-text);
+    --theme-copy: var(--theme-$(type)-copy);
+    --theme-link: var(--theme-$(type)-link);
+    --theme-link-hover: var(--theme-$(type)-link-hover);
+    --theme-link-active: var(--theme-$(type)-link-active);
 }
 
 .theme-dark,
 [data-theme="dark"] {
     @mixin theme dark;
 }
+
+@media (prefers-color-scheme: dark) {
+    .theme-auto,
+    [data-theme="auto"] {
+        @mixin theme dark;
+    }
+}
+
 .theme-light,
 [data-theme="light"] {
     @mixin theme light;
+}
+
+@media (prefers-color-scheme: light) {
+    .theme-auto,
+    [data-theme="auto"] {
+        @mixin theme light;
+    }
 }

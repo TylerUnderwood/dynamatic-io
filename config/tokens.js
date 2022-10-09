@@ -1,6 +1,6 @@
 'use strict'
 import pluralize from 'pluralize';
-import theme from './theme.json';
+import theme from './palet.json';
 
 const themeTokensGenerator = ( theme ) => {
   let categories = {};

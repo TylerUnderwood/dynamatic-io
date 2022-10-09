@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from "url";
 
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import theme from './config/theme.json';
+import theme from './config/palet.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
