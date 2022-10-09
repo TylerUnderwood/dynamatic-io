@@ -4,6 +4,10 @@ export default {
     toggleTheme() {
       const toggle = document.querySelector('#toggle-theme');
 
+      if (toggle.checked === true) {
+        document.body.dataset.theme = "dark"
+      }
+
       if (document.body.dataset.theme === "dark") {
         toggle.checked = true;
       }
