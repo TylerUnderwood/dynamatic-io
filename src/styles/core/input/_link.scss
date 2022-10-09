@@ -16,6 +16,10 @@ a {
     outline: none;
     color: inherit;
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--theme-input);
+  }
 }
 
 .Link {

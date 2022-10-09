@@ -1,6 +1,6 @@
 <script setup>
 import Theme from "@/components/Theme.vue";
-import SkipToMain from "@/components/SkipToMain.vue";
+import SkipTo from "@/components/SkipTo.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import Page from "@/templates/Page.vue";
@@ -12,7 +12,7 @@ import Settings from "@/components/Settings.vue";
 <template>
   <Theme />
 
-  <SkipToMain class="z-7" />
+  <SkipTo class="z-7" />
 
   <Header class="z-3" />
 

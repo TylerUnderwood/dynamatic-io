@@ -23,7 +23,7 @@ export default {
     <nav class="SiteNav">
       <ul class="SiteNav__list">
         <li class="SiteNav__item" v-for="item in nav">
-          <router-link :to="item.url" class="Link SiteNav__link Meta">
+          <router-link :to="item.url" class="Link SiteNav__link meta">
             {{ item.name }}
           </router-link>
         </li>

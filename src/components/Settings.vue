@@ -1,8 +1,5 @@
 <script>
 export default {
-  props: [
-    'title',
-  ],
   methods: {
     toggleTheme() {
       const toggle = document.querySelector('#toggle-theme');
@@ -48,6 +45,7 @@ export default {
       })
     }
   },
+
   mounted() {
     this.toggleTheme();
     this.toggleBodyAttrValue('toggle-identify-guidelines', 'identify', 'guidelines');

@@ -1,0 +1,47 @@
+<template>
+  <a id="skip-to-main" class="SkipTo" href="#main">
+    <span class="meta">Skip to main</span>
+    <div class="triangle triangle--b-r inset-b-r text-primary"></div>
+  </a>
+  <a id="skip-to-footer" class="SkipTo" href="#footer">
+    <span class="meta">Skip to footer</span>
+    <div class="triangle triangle--b-r inset-b-r text-primary"></div>
+  </a>
+  <a id="skip-to-settings" class="SkipTo" href="#settings">
+    <span class="meta">Skip to settings</span>
+    <div class="triangle triangle--b-r inset-b-r text-primary"></div>
+  </a>
+</template>
+
+<style>
+.SkipTo {
+  position: fixed;
+  z-index: -999;
+  top: 100vh;
+  left: 100vh;
+  translate: -10%;
+  opacity: 0;
+  outline: 2px solid var(--theme-primary) !important;
+  outline-offset: 0;
+  background-color: var(--theme-base);
+  padding: 1.2em;
+  font-weight: 700;
+  font-size: 0.8rem;
+  transition: all 0ms 200ms, translate 200ms ease, opacity 200ms ease;
+}
+
+.SkipTo:hover,
+.SkipTo:focus,
+.SkipTo:focus-visible {
+  z-index: 999;
+  top: 0;
+  left: 0;
+  translate: 0;
+  opacity: 1;
+  transition: translate 200ms ease, opacity 200ms ease;
+}
+
+.SkipTo .triangle {
+  font-size: 1.3em;
+}
+</style>
