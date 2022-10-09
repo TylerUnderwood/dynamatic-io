@@ -1,16 +1,15 @@
 <template>
-  <a id="skip-to-main" class="SkipTo" href="#main">
-    <span class="meta">Skip to main</span>
-    <div class="triangle triangle--b-r inset-b-r text-primary"></div>
-  </a>
-  <a id="skip-to-footer" class="SkipTo" href="#footer">
-    <span class="meta">Skip to footer</span>
-    <div class="triangle triangle--b-r inset-b-r text-primary"></div>
-  </a>
-  <a id="skip-to-settings" class="SkipTo" href="#settings">
-    <span class="meta">Skip to settings</span>
-    <div class="triangle triangle--b-r inset-b-r text-primary"></div>
-  </a>
+  <div id="skipto-slots" class="relative">
+    <a id="skip-to-main" class="SkipTo" href="#main">
+      <span class="meta">Skip to main</span>
+    </a>
+    <a id="skip-to-footer" class="SkipTo" href="#footer">
+      <span class="meta">Skip to footer</span>
+    </a>
+    <a id="skip-to-settings" class="SkipTo" href="#settings">
+      <span class="meta">Skip to settings</span>
+    </a>
+  </div>
 </template>
 
 <style>

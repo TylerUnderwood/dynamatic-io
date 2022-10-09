@@ -1,3 +1,5 @@
+@use '../../functions/media';
+
 /*
 |–––––––––––––––––––––––––
 | Button
@@ -22,10 +24,30 @@ button {
   font-size: inherit;
   color: inherit;
   cursor: pointer;
+  /*
+  type
+    bordered
+    stealth
+  state
+    hover
+    active
+    focus
+    visited
+  size
+    tall
+    thin
+  shape
+    stout
+    square
+    full
+  scheme
+    warn
+    error
+  */
 }
 
 .button {
-  $self: btn;
+  $self: &;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -134,7 +156,7 @@ button {
       }
     }
 
-    .#{$self}__text {
+    #{$self}__text {
       font-size: 0.7em;
     }
   }
@@ -148,16 +170,16 @@ button {
     font-weight: 300;
     --button-height: var(--input-height-thin);
 
-    .#{$self}__text {
+    #{$self}__text {
       font-weight: 300;
       font-size: 0.7em;
     }
 
-    .#{$self}__icon {
+    #{$self}__icon {
       font-size: 0.8em;
     }
 
-    &.#{$self}--border .#{$self}__text {
+    &#{$self}--border #{$self}__text {
       font-size: 0.6em;
     }
   }
@@ -171,16 +193,16 @@ button {
     font-weight: 700;
     --button-height: var(--input-height-tall);
 
-    .#{$self}__text {
+    #{$self}__text {
       font-weight: 700;
       font-size: 0.9em;
     }
 
-    .#{$self}__icon {
+    #{$self}__icon {
       font-size: 1.2em;
     }
 
-    &.#{$self}--border .#{$self}__text {
+    &#{$self}--border #{$self}__text {
       font-size: 0.8em;
     }
   }
@@ -197,9 +219,9 @@ button {
   // square //
   &--square {
     min-width: unset;
-    padding: 0;
     width: var(--button-height);
     height: var(--button-height);
+    padding: 0;
   }
 
   // full //
@@ -209,21 +231,21 @@ button {
     max-width: unset;
   }
 
-//   @include below( sm ) {
-//     &--full\:sm {
-//       flex: 1 0 auto;
-//       width: 100%;
-//       max-width: unset;
-//     }
-//   }
+  @include media.below( sm ) {
+    .\-sm\:#{$self}--full {
+      flex: 1 0 auto;
+      width: 100%;
+      max-width: unset;
+    }
+  }
 
-//   @include below( md ) {
-//     &--full\:md {
-//       flex: 1 0 auto;
-//       width: 100%;
-//       max-width: unset;
-//     }
-//   }
+  @include media.below( md ) {
+    .\-md\:#{$self}--full {
+      flex: 1 0 auto;
+      width: 100%;
+      max-width: unset;
+    }
+  }
 
 
   // === button colors === //
