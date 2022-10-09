@@ -25,10 +25,5 @@ import Section from "@/components/Section.vue";
             <br/>
             <input class="button" type="button" value="submit">
         </form>
-
-        <form class="flex mt-8" action="">
-            <input class="input" type="text" placeholder="Text" />
-            <input class="button" type="button" value="submit">
-        </form>
     </Section>
 </template>
