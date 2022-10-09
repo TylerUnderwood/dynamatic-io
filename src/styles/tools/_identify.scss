@@ -15,7 +15,14 @@
     position: relative;
     outline: var(--identify-border-width) solid var(--identify-border-color);
     outline-offset: calc(var(--identify-border-width) * -1);
+}
+
+[identify*="components"] [identify-item] {
     counter-increment: identify-box;
+}
+
+[identify]:not([identify*="components"]) [identify-item*=component] {
+    outline: none;
 }
 
 [identify] [identify-item]::before {
@@ -24,7 +31,7 @@
     right: unset;
     bottom: 100%;
     left: 0;
-    display: block;
+    display: flex;
     background-color: var(--identify-border-color);
     padding: var(--identify-border-width);
     white-space: nowrap;
@@ -33,18 +40,22 @@
     color: white;
 }
 
-[identify] [identify-item]::before {
+[identify*="components"] [identify-item]::before {
     content: "Box " counter(identify-box);
 }
 
-[identify] [identify-item="right"]::before {
+[identify]:not([identify*="components"]) [identify-item*=component]::before {
+    display: none;
+}
+
+[identify] [identify-item*="right"]::before {
     top: var(--identify-border-width);
     right: var(--identify-border-width);
     bottom: unset;
     left: unset;
 }
 
-[identify] [identify-item="bottom"]::before {
+[identify] [identify-item*="bottom"]::before {
     top: unset;
     right: var(--identify-border-width);
     bottom: var(--identify-border-width);

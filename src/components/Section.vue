@@ -17,9 +17,9 @@ export default {
         :id="id"
         class="Section gutter margins"
         :aria-labelledby="labelledby"
-        identify-item
+        identify-item="component"
     >
-        <div class="Section__wrap wrapper" identify-item="right">
+        <div class="Section__wrap wrapper" identify-item="component right">
             <h2 :id="labelledby" v-if="heading" class="Heading h2">
                 {{ heading }}
             </h2>
