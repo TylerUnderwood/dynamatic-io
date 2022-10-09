@@ -15,10 +15,11 @@ export default {
 <template>
     <section
         :id="id"
-        class="gutter margins"
+        class="Section gutter margins"
         :aria-labelledby="labelledby"
+        identify-item
     >
-        <div class="wrapper">
+        <div class="wrapper" identify-item="left">
             <h2 :id="labelledby" v-if="heading" class="Heading h2">
                 {{ heading }}
             </h2>
