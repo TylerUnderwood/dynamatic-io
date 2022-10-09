@@ -2,18 +2,16 @@
 
 /*
 |–––––––––––––––––––––––––
-| Headings
+| Heading
 |–––––––––––––––––––––––––
 */
 
-// elements
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   line-height: 1.2;
   font-size: inherit;
 }
 
-// class
 .Heading,
 .Markup h1,
 .Markup h2,
@@ -21,8 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 .Markup h4,
 .Markup h5,
 .Markup h6 {
-  display: flex;
-  flex-direction: column;
+  @include f.clip(-0.18em, -0.25em);
   margin: 1em 0 0;
   line-height: 1.2;
   font-size: inherit;
@@ -33,8 +30,6 @@ h1, h2, h3, h4, h5, h6 {
   &:first-child {
     margin-top: 0;
   }
-
-  @include f.clip(-0.18em, -0.25em);
 }
 
 .H1,

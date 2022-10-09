@@ -6,7 +6,6 @@
 |–––––––––––––––––––––––––
 */
 
-// element
 a {
   text-decoration: none;
   color: inherit;
@@ -19,7 +18,6 @@ a {
   }
 }
 
-// class
 .Link {
   color: var(--theme-input);
   transition: color 300ms ease;
@@ -49,10 +47,7 @@ a {
 }
 
 .Meta {
-  display: flex;
-  flex-direction: column;
+  @include f.clip(-0.18em, -0.25em);
   line-height: 1.2;
   font-family: var(--meta-font, monospace);
-
-  @include f.clip(-0.18em, -0.25em);
 }

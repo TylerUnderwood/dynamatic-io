@@ -50,7 +50,7 @@ export default {
   },
 
   created() {
-    document.getElementById('theme-styles').innerHTML = this.buildCssVars( tokensNative );
+    document.getElementById('theme').innerHTML = this.buildCssVars( tokensNative );
   },
 
   data() { return {
