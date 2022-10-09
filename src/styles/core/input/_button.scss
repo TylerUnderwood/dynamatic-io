@@ -56,51 +56,37 @@ button {
   user-select: none;
   cursor: pointer;
 
-  // [active] first so :hover overrides it
-  &--active,
+  // :active first so :hover overrides it
   &:active,
-  &:visited,
   &[active] {
-    border-color: var(--button-active);
+    border-color: transparent;
     background-color: var(--button-active);
     color: var(--button-face);
   }
 
+  &:focus,
   &:hover,
-  &:focus {
+  &[hover] {
     outline: none;
     border-color: transparent;
     background-color: var(--button-hover);
     color: var(--button-face);
   }
 
-  // [stealth]
-  &--stealth,
-  &[stealth] {
-    border-color: transparent;
-    background-color: transparent;
-    color: inherit;
-
-    &:hover,
-    &:focus {
-      border-color: transparent;
-      background-color: var(--button-color);
-      color: var(--button-face);
-    }
+  &:focus-visible {
+    outline: 2px solid var(--input-color);
+    outline-offset: 2px;
   }
 
   // [disabled] last so it overrides all
-  &--disabled,
   &[disabled] {
-    border-color: transparent;
-    background-color: var(--button-color);
     opacity: 0.5;
     cursor: not-allowed;
   }
 
   // === button components === //
   &__text {
-    display: inline-block;
+    display: block;
     font-weight: 500;
     font-size: 0.8em;
   }
@@ -109,10 +95,12 @@ button {
     font-size: 1em;
   }
 
+
   // === button types === //
 
-  // border button //
-  &--border {
+  // = secondary button = //
+  &--secondary,
+  &[data-type="secondary"] {
     border-color: var(--button-color);
     background: transparent;
     color: var(--button-color);
@@ -150,9 +138,51 @@ button {
     }
   }
 
+  // = stealth button = //
+  &--stealth,
+  &[data-type="stealth"] {
+    border-color: transparent;
+    background-color: transparent;
+    color: inherit;
 
-  // thin button //
-  &--thin {
+    &:hover,
+    &:focus {
+      border-color: transparent;
+      background-color: var(--button-color);
+      color: var(--button-face);
+    }
+  }
+
+
+  // === button size === //
+
+  // = tall button = //
+  &--tall,
+  &[data-size="tall"] {
+    min-width: 12em;
+    border-width: 3px;
+    padding: 0 2.4em;
+    font-weight: 700;
+    --button-height: var(--input-height-tall);
+
+    #{$self}__text {
+      font-weight: 700;
+      font-size: 0.9em;
+    }
+
+    #{$self}__icon {
+      font-size: 1.2em;
+    }
+
+    &#{$self}--secondary #{$self}__text,
+    &[data-type="secondary"] #{$self}__text {
+      font-size: 0.8em;
+    }
+  }
+
+  // = thin button = //
+  &--thin,
+  &[data-size="thin"] {
     min-width: 6em;
     border-width: 1px;
     padding: 0 1.2em;
@@ -168,60 +198,63 @@ button {
       font-size: 0.8em;
     }
 
-    &#{$self}--border #{$self}__text {
+    &#{$self}--secondary #{$self}__text,
+    &[data-type="secondary"] #{$self}__text {
       font-size: 0.6em;
     }
   }
 
-
-  // tall button //
-  &--tall {
-    min-width: 12em;
-    border-width: 2px;
-    padding: 0 2.4em;
-    font-weight: 700;
-    --button-height: var(--input-height-tall);
+  // = tiny button = //
+  &--tiny,
+  &[data-size="tiny"] {
+    min-width: unset;
+    border-width: 1px;
+    padding: 0 0.3em;
+    font-weight: 300;
+    --button-height: 1.2em;
 
     #{$self}__text {
-      font-weight: 700;
-      font-size: 0.9em;
+      font-weight: 300;
+      font-size: 0.6em;
     }
 
     #{$self}__icon {
-      font-size: 1.2em;
-    }
-
-    &#{$self}--border #{$self}__text {
       font-size: 0.8em;
     }
   }
 
 
-  // stout //
-  &--stout {
+  // === button size === //
+
+  // = stout button = //
+  &--stout,
+  &[data-shape="stout"] {
     min-width: unset;
     padding-right: 0.8em;
     padding-left: 0.8em;
   }
 
 
-  // square //
-  &--square {
+  // = square button = //
+  &--square,
+  &[data-shape="square"] {
     min-width: unset;
     width: var(--button-height);
     height: var(--button-height);
     padding: 0;
   }
 
-  // full //
-  &--full {
+  // = full button = //
+  &--full,
+  &[data-shape="full"] {
     flex: 1 0 auto;
     width: 100%;
     max-width: unset;
   }
 
   @include media.below( sm ) {
-    .\-sm\:#{$self}--full {
+    .\-sm\:#{$self}--full,
+    &[data-shape="-sm:full"] {
       flex: 1 0 auto;
       width: 100%;
       max-width: unset;
@@ -229,7 +262,8 @@ button {
   }
 
   @include media.below( md ) {
-    .\-md\:#{$self}--full {
+    .\-md\:#{$self}--full,
+    &[data-shape="-md:full"] {
       flex: 1 0 auto;
       width: 100%;
       max-width: unset;
@@ -237,14 +271,19 @@ button {
   }
 
 
-  // === button colors === //
-  &--warn {
+  // === button scheme === //
+
+  // = warn button = //
+  &--warn,
+  &[data-scheme="warn"] {
     --button-color:       #ffdd00;
     --button-hover:       #ffff44;
     --button-active:      #ffcc00;
   }
 
-  &--error {
+  // = error button = //
+  &--error,
+  &[data-scheme="error"] {
     --button-color:       #ff2200;
     --button-hover:       #ff4422;
     --button-active:      #dd2200;

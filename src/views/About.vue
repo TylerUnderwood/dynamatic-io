@@ -1,22 +1,22 @@
 <script setup>
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
-import { nextTick } from "vue";
 
 const buttons = {
     type: [
-        "primary",
-        "border",
+        "default",
+        "secondary",
+        "tertiary",
         "stealth",
     ],
     state: [
         "active",
-        "visited",
+        "hover",
         "disabled",
     ],
     size: [
         "tall",
-        "normal",
+        "default",
         "thin",
         "tiny",
     ],
@@ -40,13 +40,34 @@ export default {
             selector.addEventListener("change", (event) => {
                 const options = event.target.options;
 
-                for ( let i=0; i<options.length; i++) {
-                    if ( options[i].value === "" ) continue;
+                for ( let i = 0; i < options.length; i++) {
+                    const option = options[i];
 
-                    if ( options[i].selected ) {
-                        element.classList.add(options[i].value);
+                    if ( option.value === "" ) continue;
+
+                    if ( option.selected ) {
+                        element.classList.add(option.value);
                     } else {
-                        element.classList.remove(options[i].value);
+                        element.classList.remove(option.value);
+                    }
+                }
+            })
+        },
+
+        selectDataset: ( selector, element ) => {
+            selector.addEventListener("change", (event) => {
+                const options = event.target.options;
+                const name = event.target.name;
+
+                for ( let i = 0; i < options.length; i++) {
+                    const option = options[i];
+
+                    if ( !option.selected ) continue;
+
+                    if ( option.value === "" || option.value === "default" ) {
+                        delete element.dataset[name];
+                    } else {
+                        element.dataset[name] = option.value;
                     }
                 }
             })
@@ -58,7 +79,8 @@ export default {
         const button = document.querySelector("#dynamic-button");
 
         selectors.forEach( (selector) => {
-            this.selectClass(selector, button);
+            // this.selectClass(selector, button);
+            this.selectDataset(selector, button);
         });
     }
 }
@@ -72,15 +94,19 @@ export default {
         heading="Button Selector"
     >
         <div class="flex mt-6 gap-4">
-            <div v-for="types, name in buttons">
+            <div v-for="types, name in buttons" class="flex-1">
                 <label :for="`select-button-${name}`" class="meta" style="font-size: 0.7rem;">
                     {{ name }}
                 </label>
-                <select :id="`select-button-${name}`" class="mt-2" :name="name">
-                    <option value="" v-if="!types.includes('primary')" selected>
+                <select :id="`select-button-${name}`" class="w-full mt-2" :name="name">
+                    <option value="" v-if="!types.includes('default')" selected>
                         none
                     </option>
-                    <option :value="`button--${button}`" v-for="button in types">
+                    <option
+                        v-for="button in types"
+                        :value="button"
+                        :selected="button === 'default'"
+                    >
                         {{ button }}
                     </option>
                 </select>
@@ -100,12 +126,20 @@ export default {
     <Section
         v-for="types, name in buttons"
         :id="`section-button-${name}`"
-        :heading="`${name}`"
+        :heading="name[0].toUpperCase() + name.slice(1)"
     >
-        <div class="flex flex-wrap gap-8 mt-8">
-            <button :class="`button button--${button}`" :[button]="true" v-for="button in types">
+        <div class="flex flex-wrap gap-6 mt-6">
+            <button
+                v-for="button in types"
+                class="button"
+                :data-type="( name === 'type' ) ? button : null"
+                :data-size="( name === 'size' ) ? button : null"
+                :data-shape="( name === 'shape' ) ? button : null"
+                :data-scheme="( name === 'scheme' ) ? button : null"
+                :[button]="name === 'state' ? '' : null"
+            >
                 <span class="button__text meta">
-                    {{ button }}
+                    {{ /square/.test(button) ? "s" : button }}
                 </span>
             </button>
         </div>
