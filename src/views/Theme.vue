@@ -34,7 +34,7 @@ export default {
     tokenList( category ) {
       let tokensStyles = '';
       category.forEach((token, index) => {
-        tokensStyles += token + (index < category.length - 1 ? '\n    ' : '');
+        tokensStyles += token + (index < category.length - 1 ? '\n  ' : '');
       });
       return tokensStyles;
     },
@@ -42,12 +42,9 @@ export default {
     buildCssVars( themeTokens ) {
       let themeStyles = '';
       for ( const category in themeTokens ) { themeStyles += `
-@layer theme {
-  :root {
-    ${this.tokenList( themeTokens[category] )}
-  }
-}\n\n
-      `};
+:root {
+  ${this.tokenList( themeTokens[category] )}
+}\n`};
       return themeStyles;
     }
   },

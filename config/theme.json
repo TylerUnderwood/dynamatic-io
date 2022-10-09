@@ -10,9 +10,9 @@
       "heading": "--color-dark-100",
       "text": "--color-dark-200",
       "copy": "--color-dark-400",
-      "link": "--theme-light-accent",
-      "link-hover": "--theme-light-primary",
-      "link-active": "--theme-light-secondary"
+      "input": "--theme-light-accent",
+      "hover": "--theme-light-primary",
+      "active": "--theme-light-secondary"
     },
     "dark": {
       "primary": "--color-azure",
@@ -24,9 +24,9 @@
       "heading": "--color-light-100",
       "text": "--color-light-200",
       "copy": "--color-light-800",
-      "link": "--theme-dark-accent",
-      "link-hover": "--theme-dark-primary",
-      "link-active": "--theme-dark-secondary"
+      "input": "--theme-dark-accent",
+      "hover": "--theme-dark-primary",
+      "active": "--theme-dark-secondary"
     }
   }
 }

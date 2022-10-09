@@ -1,1 +1,5 @@
-
+:root {
+    --heading-font: var(--theme-heading-font, "Roboto Condensed", serif);
+    --font: var(--theme-font, "Roboto", sans-serif);
+    --meta-font: var(--theme-mono-font, "Roboto Mono", monospace);
+}

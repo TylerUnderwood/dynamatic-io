@@ -18,12 +18,8 @@
   outline: 1px solid currentColor;
 }
 
-::selection {
-  background: var(--theme-accent);
-}
-
 :target {
-  outline: 2px solid var(--theme-accent);
+  outline: 2px solid var(--theme-primary);
   outline-offset: 2px;
 }
 
@@ -37,7 +33,7 @@
 
 html {
   @include f.scale(font-size, 480px, 1280px, 16px, 20px);
-  accent-color: var(--theme-accent);
+  accent-color: var(--theme-input);
   overflow-x: clip;
   overflow-y: auto;
 

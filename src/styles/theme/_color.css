@@ -1,16 +1,16 @@
 :root {
-    --theme-primary: blue;
-    --theme-secondary: navy;
-    --theme-accent: purple;
-    --theme-base: #ffffff;
-    --theme-offset: #f8f8f8;
-    --theme-contrast: #eeeeee;
-    --theme-heading: #080808;
-    --theme-text: #222222;
-    --theme-copy: #333333;
-    --theme-link: blue;
-    --theme-link-hover: navy;
-    --theme-link-active: purple;
+    --theme-primary: rgb(34 34 255);
+    --theme-secondary: rgb(8 8 171);
+    --theme-accent: rgb(136 34 255);
+    --theme-base: rgb(255 255 255);
+    --theme-offset: rgb(248 248 248);
+    --theme-contrast: rgb(238 238 238);
+    --theme-heading: rgb(8 8 8);
+    --theme-text: rgb(34 34 34);
+    --theme-copy: rgb(51 51 51);
+    --theme-input: rgb(34 34 255);
+    --theme-hover: rgb(8 8 170);
+    --theme-active: rgb(136 34 255);
 }
 
 @define-mixin theme $type {
@@ -23,9 +23,9 @@
     --theme-heading: var(--theme-$(type)-heading);
     --theme-text: var(--theme-$(type)-text);
     --theme-copy: var(--theme-$(type)-copy);
-    --theme-link: var(--theme-$(type)-link);
-    --theme-link-hover: var(--theme-$(type)-link-hover);
-    --theme-link-active: var(--theme-$(type)-link-active);
+    --theme-input: var(--theme-$(type)-link);
+    --theme-hover: var(--theme-$(type)-link-hover);
+    --theme-active: var(--theme-$(type)-link-active);
 }
 
 .theme-dark,
