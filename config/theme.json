@@ -3,8 +3,11 @@
     "red": "#dd0000",
     "yellow": "#dddd00",
     "green": "#22bb22",
-    "blue": "#2222dd",
-    "navy": "#0808bb",
+    "blue": {
+      "DEFAULT": "#2222dd",
+      "200": "#6688ff"
+    },
+    "cyan": "#0888bb",
     "purple": "#8822ff",
     "light": {
       "DEFAULT": "#ffffff",
@@ -13,14 +16,16 @@
     },
     "grey": "#666666",
     "dark": {
-      "DEFAULT": "#080808",
-      "200": "#242424",
-      "400": "#404040"
+      "DEFAULT": "#040404",
+      "200": "#080808",
+      "400": "#111111",
+      "600": "#222222",
+      "800": "#333333"
     }
   },
   "light": {
     "primary": "--blue",
-    "secondary": "--navy",
+    "secondary": "--cyan",
     "accent": "--purple",
     "base": "--light",
     "offset": "--light-200",
@@ -29,22 +34,22 @@
     "text": "--dark-200",
     "copy": "--dark-400",
     "input": "--blue",
-    "hover": "--purple",
-    "active": "--navy"
+    "hover": "--cyan",
+    "active": "--purple"
   },
   "dark": {
     "primary": "--blue",
-    "secondary": "--navy",
+    "secondary": "--cyan",
     "accent": "--purple",
-    "base": "--dark",
-    "offset": "--dark-200",
-    "contrast": "--dark-400",
+    "base": "--dark-200",
+    "offset": "--dark-400",
+    "contrast": "--dark-600",
     "heading": "--light",
     "text": "--light-200",
     "copy": "--light-400",
-    "input": "--blue",
-    "hover": "--purple",
-    "active": "--navy"
+    "input": "--blue-200",
+    "hover": "--cyan",
+    "active": "--purple"
   },
   "screens": {
     "sm": "480px",

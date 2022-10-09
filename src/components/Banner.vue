@@ -28,6 +28,6 @@ export default {
 <style>
     .Banner {
         padding: var(--section-space-x) var(--section-space-x);
-        background-color: var(--theme-secondary)
+        background-color: var(--theme-primary)
     }
 </style>

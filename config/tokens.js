@@ -1,5 +1,5 @@
 'use strict'
-// import pluralize from 'pluralize';
+import pluralize from 'pluralize';
 import theme from './theme.json';
 
 const themeTokensGenerator = ( theme ) => {
@@ -14,7 +14,7 @@ const themeTokensGenerator = ( theme ) => {
         for ( const item in value ) {
           let nextName = "";
           if ( item !== "DEFAULT" ) {
-            nextName = '-' + item;
+            nextName = '-' + pluralize(item, 1);
           }
           addToken( name + nextName, value[item] );
         }
@@ -29,7 +29,7 @@ const themeTokensGenerator = ( theme ) => {
 
       // Only add new prefixes that are not in the blocklist
       if ( !blocklist.some(word => category.includes(word)) ) {
-        prefix = category + '-' + token;
+        prefix = pluralize(category, 1) + '-' + token;
       } else {
         prefix = token;
       }
