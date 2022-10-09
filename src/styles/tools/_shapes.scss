@@ -1,0 +1,122 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Shapes
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/* === SQUARE === */
+.square {
+  display: block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+}
+
+/* === CIRCLE === */
+.circle {
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+}
+
+/* === TRIANGLE === */
+.triangle {
+  display: flex;
+  width: 1em;
+  height: 1em;
+  --triangle-ratio: 0.5em;
+  --triangle-corner: calc(var(--triangle-ratio) * .7071);
+
+  &::before {
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: var(--triangle-ratio);
+    border-style: solid;
+    border-color: transparent;
+    content: '';
+  }
+
+  &--t {
+    align-items: flex-end;
+
+    &::before {
+      border-top: none;
+      border-bottom-color: currentColor;
+    }
+  }
+
+  &--t-r {
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    &::before {
+      border-width: var(--triangle-corner);
+      border-top-color: currentColor;
+      border-right-color: currentColor;
+    }
+  }
+
+  &--r {
+    justify-content: flex-start;
+
+    &::before {
+      border-right: none;
+      border-left-color: currentColor;
+    }
+  }
+
+  &--b-r {
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    &::before {
+      border-width: var(--triangle-corner);
+      border-bottom-color: currentColor;
+      border-right-color: currentColor;
+    }
+  }
+
+  &--b {
+    align-items: flex-start;
+
+    &::before {
+      border-top-color: currentColor;
+      border-bottom: none;
+    }
+  }
+
+  &--b-l {
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    &::before {
+      border-width: var(--triangle-corner);
+      border-bottom-color: currentColor;
+      border-left-color: currentColor;
+    }
+  }
+
+  &--l {
+    justify-content: flex-end;
+
+    &::before {
+      border-left: none;
+      border-right-color: currentColor;
+    }
+  }
+
+  &--t-l {
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &::before {
+      border-width: var(--triangle-corner);
+      border-top-color: currentColor;
+      border-left-color: currentColor;
+    }
+  }
+}

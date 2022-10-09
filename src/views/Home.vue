@@ -1,13 +1,14 @@
 <script setup>
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
+import Box from "@/components/Box.vue";
 </script>
 
 <template>
     <Banner title="Home" intro="Welcome to Dynamatic" />
     <Section
         id="section-copy"
-        heading="Section Copy"
+        heading="Copy"
         class="Markup"
     >
         <p>In pellentesque libero pulvinar tincidunt tempor. Sed elementum tempus eros, quis sollicitudin diam ultrices et.</p>
@@ -15,7 +16,7 @@ import Section from "@/components/Section.vue";
     </Section>
     <Section
         id="section-headings"
-        heading="Section Headings"
+        heading="Headings"
         class="Markup"
     >
         <h3>Heading Three</h3>
@@ -25,7 +26,7 @@ import Section from "@/components/Section.vue";
     </Section>
     <Section
         id="section-lists"
-        heading="Section Lists"
+        heading="Lists"
     >
         <ul class="List List--bullet">
             <li class="List__item" v-for="index in 3" :key="index">List item {{ index }}</li>

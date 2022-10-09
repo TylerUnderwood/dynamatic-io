@@ -1,4 +1,9 @@
+<script setup>
+import Banner from "@/components/Banner.vue";
+</script>
+
 <template>
+  <Banner title="Theme" />
   <details open>
     <summary><h2 class="m-2">Theme Vars</h2></summary>
     <details v-for="category, cline in tokens" :open="/^color/.test(cline) ? true : null">

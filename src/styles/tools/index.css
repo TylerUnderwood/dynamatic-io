@@ -1,3 +1,1 @@
-.tool {
-    visibility: visible;
-}
+@import './_shapes.scss'
