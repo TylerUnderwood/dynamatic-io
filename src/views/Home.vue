@@ -6,17 +6,6 @@ import Section from "@/components/Section.vue";
 <template>
     <Banner title="Home" intro="Welcome to Dynamatic" />
     <Section
-        id="section-lists"
-        heading="Section Lists"
-    >
-        <ul class="List List--bullet">
-            <li class="List__item" v-for="index in 3" :key="index">List item {{ index }}</li>
-        </ul>
-        <ol class="List List--numbered">
-            <li class="List__item" v-for="index in 3" :key="index">List item {{ index }}</li>
-        </ol>
-    </Section>
-    <Section
         id="section-copy"
         heading="Section Copy"
         class="Markup"
@@ -33,5 +22,16 @@ import Section from "@/components/Section.vue";
         <h4>Heading Four</h4>
         <h5>Heading Five</h5>
         <h6>Heading Six</h6>
+    </Section>
+    <Section
+        id="section-lists"
+        heading="Section Lists"
+    >
+        <ul class="List List--bullet">
+            <li class="List__item" v-for="index in 3" :key="index">List item {{ index }}</li>
+        </ul>
+        <ol class="List List--numbered">
+            <li class="List__item" v-for="index in 3" :key="index">List item {{ index }}</li>
+        </ol>
     </Section>
 </template>

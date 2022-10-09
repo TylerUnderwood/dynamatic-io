@@ -115,20 +115,20 @@ ol {
   }
 }
 
-.List--unordered {
-  position: relative;
+// .List--unordered {
+//   position: relative;
 
-  &::before {
-    position: absolute;
-    top: 0.35em;
-    left: 0;
-    width: 6px;
-    height: 6px;
-    border-radius: 1px;
-    // background-color: $accent;
-    content: '';
-  }
-}
+//   &::before {
+//     position: absolute;
+//     top: 0.35em;
+//     left: 0;
+//     width: 6px;
+//     height: 6px;
+//     border-radius: 1px;
+//     background-color: var(--marker-color);
+//     content: '';
+//   }
+// }
 
 // Custom marker on List__item
 .List > .List__item[marker]::before {
