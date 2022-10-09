@@ -8,15 +8,15 @@
 
 $min_width: 480px;
 $max_width: 1080px;
-$space_x_min: 36px;
+$space_x_min: 24px;
 $space_x_max: 48px;
 $space_y_min: 64px;
 $space_y_max: 72px;
 
 :root {
-  --copy-max: 720px;
-  --page-max: 1080px;
-  --site-max: 1280px;
+  --copy-max: 36rem;
+  --page-max: 48rem;
+  --site-max: 64rem;
   @include f.scale(--section-space-x, $min_width, $max_width, $space_x_min, $space_x_max);
   @include f.scale(--section-space-y, $min_width, $max_width, $space_y_min, $space_y_max);
 }

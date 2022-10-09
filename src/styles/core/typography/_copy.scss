@@ -1,3 +1,5 @@
+@use '../../functions' as f;
+
 /*
 |–––––––––––––––––––––––––
 | Copy
@@ -12,13 +14,16 @@ p {
 
 .Copy,
 .Markup p {
-  display: block;
+  display: flex;
+  flex-direction: column;
   margin: 1.6rem 0 0;
   width: 100%;
   max-width: var(--copy-max);
   line-height: 1.6;
   hyphens: none;
   color: var(--theme-copy);
+
+  @include f.clip(-0.3em, -0.45em);
 
   &:first-child {
     margin-top: 0;

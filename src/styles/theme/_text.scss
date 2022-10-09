@@ -7,11 +7,11 @@
 :root {
     --theme-heading-font: "Roboto Condensed";
     --theme-font: "Roboto";
-    --theme-mono-font: "Roboto Mono";
+    --theme-meta-font: "Roboto Mono";
 }
 
 :root {
     --heading-font: var(--theme-heading-font);
     --font: var(--theme-font);
-    --meta-font: var(--theme-mono-font);
+    --meta-font: var(--theme-meta-font);
 }

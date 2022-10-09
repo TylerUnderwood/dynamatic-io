@@ -1,4 +1,58 @@
+@use '../../functions' as f;
+
+/*
+|–––––––––––––––––––––––––
+| Links
+|–––––––––––––––––––––––––
+*/
+
+// element
 a {
-    font-family: var(--theme-meta-font);
-    color: var(--theme-input);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    color: inherit;
+  }
+}
+
+// class
+.Link {
+  color: var(--theme-input);
+  transition: color 300ms ease;
+  cursor: pointer;
+
+  &[active] {
+    color: var(--theme-active);
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--theme-hover);
+  }
+
+  &[stealth] {
+    color: inherit;
+
+    &[active] {
+      color: var(--theme-active);
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--theme-hover);
+    }
+  }
+}
+
+.Meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  font-family: var(--meta-font, monospace);
+
+  @include f.clip(-0.18em, -0.25em);
 }
