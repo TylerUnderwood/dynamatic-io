@@ -13,19 +13,21 @@ export default {
 </script>
 
 <template>
-    <section
-        :id="id"
-        class="Section gutter margins"
-        :aria-labelledby="labelledby"
-        identify-item="component"
-    >
-        <div class="Section__wrap wrapper" identify-item="component right">
-            <h2 :id="labelledby" v-if="heading" class="Heading h2">
-                {{ heading }}
-            </h2>
-            <slot/>
-        </div>
-    </section>
+  <section
+    :id="id"
+    class="Section gutter margins"
+    :aria-labelledby="labelledby"
+    identify-item="component"
+  >
+    <div class="Section__wrap wrapper" identify-item="component right">
+      <h2 :id="labelledby" v-if="heading" class="Heading h2">
+        {{ heading }}
+      </h2>
+
+      <slot/>
+
+    </div>
+  </section>
 </template>
 
 <style>
