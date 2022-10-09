@@ -1,0 +1,101 @@
+/*
+|–––––––––––––––––––––––––
+| Color
+|–––––––––––––––––––––––––
+*/
+
+/* ===== Palet ===== */
+:root {
+    --blue: rgb(34 34 255);
+    --navy: rgb(8 8 171);
+    --purple: rgb(136 34 255);
+    --light-100: rgb(255 255 255);
+    --light-200: rgb(248 248 248);
+    --light-400: rgb(238 238 238);
+    --dark-100: rgb(8 8 8);
+    --dark-200: rgb(34 34 34);
+    --dark-400: rgb(51 51 51);
+}
+
+/* ===== Theme ===== */
+:root {
+    --theme-primary: var(--blue);
+    --theme-secondary: var(--navy);
+    --theme-accent: var(--purple);
+    --theme-base: var(--light-100);
+    --theme-offset: var(--light-200);
+    --theme-contrast: var(--light-400);
+    --theme-heading: var(--dark-100);
+    --theme-text: var(--dark-200);
+    --theme-copy: var(--dark-400);
+    --theme-input: var(--blue);
+    --theme-hover: var(--navy);
+    --theme-active: var(--purple);
+}
+
+@mixin theme( $type ) {
+    --theme-primary: var(--theme-#{$type}-primary);
+    --theme-secondary: var(--theme-#{$type}-secondary);
+    --theme-accent: var(--theme-#{$type}-accent);
+    --theme-base: var(--theme-#{$type}-base);
+    --theme-offset: var(--theme-#{$type}-offset);
+    --theme-contrast: var(--theme-#{$type}-contrast);
+    --theme-heading: var(--theme-#{$type}-heading);
+    --theme-text: var(--theme-#{$type}-text);
+    --theme-copy: var(--theme-#{$type}-copy);
+    --theme-input: var(--theme-#{$type}-input);
+    --theme-hover: var(--theme-#{$type}-hover);
+    --theme-active: var(--theme-#{$type}-active);
+}
+
+/* ===== Theme Dark ===== */
+:root {
+    --theme-dark-primary: var(--blue);
+    --theme-dark-secondary: var(--navy);
+    --theme-dark-accent: var(--purple);
+    --theme-dark-base: var(--dark-100);
+    --theme-dark-offset: var(--dark-200);
+    --theme-dark-contrast: var(--dark-400);
+    --theme-dark-heading: var(--light-100);
+    --theme-dark-text: var(--light-200);
+    --theme-dark-copy: var(--light-400);
+    --theme-dark-input: var(--blue);
+    --theme-dark-hover: var(--navy);
+    --theme-dark-active: var(--purple);
+}
+
+@media (prefers-color-scheme: dark) {
+    [data-theme="auto"] {
+        @include theme( dark );
+    }
+}
+
+[data-theme="dark"] {
+    @include theme( dark );
+}
+
+/* ===== Theme Light ===== */
+:root {
+    --theme-light-primary: var(--blue);
+    --theme-light-secondary: var(--navy);
+    --theme-light-accent: var(--purple);
+    --theme-light-base: var(--light-100);
+    --theme-light-offset: var(--light-200);
+    --theme-light-contrast: var(--light-400);
+    --theme-light-heading: var(--dark-100);
+    --theme-light-text: var(--dark-200);
+    --theme-light-copy: var(--dark-400);
+    --theme-light-input: var(--blue);
+    --theme-light-hover: var(--navy);
+    --theme-light-active: var(--purple);
+}
+
+@media (prefers-color-scheme: light) {
+    [data-theme="auto"] {
+        @include theme( light );
+    }
+}
+
+[data-theme="light"] {
+    @include theme( light );
+}

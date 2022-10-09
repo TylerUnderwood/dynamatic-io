@@ -2,8 +2,8 @@
     <noscript>Theme and Core</noscript>
 </template>
 
-<style>
-@import "@styles/theme/index.css";
+<style lang="scss">
+@import "@styles/theme/index.scss";
 </style>
 <style lang="scss">
 @import "@styles/core/index.scss";
