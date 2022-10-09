@@ -17,11 +17,11 @@
     outline-offset: calc(var(--identify-border-width) * -1);
 }
 
-[identify*="components"] [identify-item] {
+[identify*="components"] [identify-item*="component"] {
     counter-increment: identify-box;
 }
 
-[identify]:not([identify*="components"]) [identify-item*=component] {
+[identify]:not([identify*="components"]) [identify-item*="component"] {
     outline: none;
 }
 
@@ -40,11 +40,11 @@
     color: white;
 }
 
-[identify*="components"] [identify-item]::before {
+[identify*="components"] [identify-item*="component"]::before {
     content: "Box " counter(identify-box);
 }
 
-[identify]:not([identify*="components"]) [identify-item*=component]::before {
+[identify]:not([identify*="components"]) [identify-item*="component"]::before {
     display: none;
 }
 

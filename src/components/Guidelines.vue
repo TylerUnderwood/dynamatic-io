@@ -6,7 +6,7 @@
           <div class="guidelines__item gutter" identify-item="guideline bottom">
             <div class="guidelines__item" identify-item="guideline bottom">
               <div class="guidelines__item wrapper max-copy" identify-item="guideline bottom">
-                <div class="guidelines__center" identify-item></div>
+                <div class="guidelines__center" identify-item="guideline"></div>
               </div>
             </div>
           </div>
@@ -36,11 +36,15 @@
   }
 
   [identify*="guidelines"] .guidelines > .guidelines__item::before {
-    content: "Site";
+    content: "site";
   }
 
   [identify*="guidelines"] .guidelines__item.wrapper::before {
     content: "wrapper";
+  }
+
+  [identify*="guidelines"] .guidelines__item.wrapper.max-copy::before {
+    content: "copy wrapper";
   }
 
   [identify*="guidelines"] .guidelines__item.gutter > .guidelines__item::before {

@@ -6,6 +6,7 @@ import Footer from "@/components/Footer.vue";
 import Page from "@/templates/Page.vue";
 import Utilities from "@/components/Utilities.vue";
 import Guidelines from "@/components/Guidelines.vue";
+import Settings from "@/components/Settings.vue";
 </script>
 
 <template>
@@ -18,6 +19,8 @@ import Guidelines from "@/components/Guidelines.vue";
   <Page class="z-1" />
 
   <Footer class="z-2" />
+
+  <Settings class="z-5" />
 
   <Guidelines class="z-4" />
 
