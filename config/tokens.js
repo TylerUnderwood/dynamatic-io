@@ -12,7 +12,11 @@ const themeTokensGenerator = ( theme ) => {
     const addToken = ( name, value ) => {
       if (typeof value === 'object' && value !== null) {
         for ( const item in value ) {
-          addToken( name + '-' + item, value[item] );
+          let nextName = "";
+          if ( item !== "DEFAULT" ) {
+            nextName = '-' + item;
+          }
+          addToken( name + nextName, value[item] );
         }
       } else if ( typeof value === 'string' ) {
         variables[name] = value;
