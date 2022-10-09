@@ -1,4 +1,4 @@
-// const theme = require('./config/palet.json');
+// const theme = require('./config/theme.json');
 
 module.exports = {
   content: [
@@ -10,25 +10,23 @@ module.exports = {
     screens: {
       sm: '480px',
       md: '768px',
-      lg: '1080px',
-      xl: '1440px',
+      lg: '1024px',
+      xl: '2560px',
     },
     extend: {
       colors: {
-        blue: '#2222ff',
-        navy: '#0808ab',
-        purple: '#8822ff',
-        light: {
-          100: '#ffffff',
-          200: '#f8f8f8',
-          400: '#eeeeee'
-        },
-        grey: '#666666',
-        dark: {
-          100: '#080808',
-          200: '#242424',
-          400: '#404040'
-        }
+        primary: 'var(--theme-primary)',
+        secondary: 'var(--theme-secondary)',
+        accent: 'var(--theme-accent)',
+        base: 'var(--theme-base)',
+        offset: 'var(--theme-offset)',
+        contrast: 'var(--theme-contrast)',
+        heading: 'var(--theme-heading)',
+        text: 'var(--theme-text)',
+        copy: 'var(--theme-copy)',
+        input: 'var(--theme-input)',
+        hover: 'var(--theme-hover)',
+        active: 'var(--theme-active)',
       }
     }
   },

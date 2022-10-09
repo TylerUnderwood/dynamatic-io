@@ -4,16 +4,19 @@
 |–––––––––––––––––––––––––
 */
 
-/* ===== Palet ===== */
+/* ===== Palette ===== */
 :root {
-    --blue: #2222ff;
-    --navy: #0808ab;
+    --red: #dd0000;
+    --yellow: #dddd00;
+    --green: #22bb22;
+    --blue: #2222dd;
+    --navy: #0808bb;
     --purple: #8822ff;
-    --light-100: #ffffff;
+    --light: #ffffff;
     --light-200: #f8f8f8;
     --light-400: #eeeeee;
     --grey: #666666;
-    --dark-100: #080808;
+    --dark: #080808;
     --dark-200: #242424;
     --dark-400: #404040;
 }
@@ -23,10 +26,10 @@
     --theme-primary: var(--blue);
     --theme-secondary: var(--navy);
     --theme-accent: var(--purple);
-    --theme-base: var(--light-100);
+    --theme-base: var(--light);
     --theme-offset: var(--light-200);
     --theme-contrast: var(--light-400);
-    --theme-heading: var(--dark-100);
+    --theme-heading: var(--dark);
     --theme-text: var(--dark-200);
     --theme-copy: var(--dark-400);
     --theme-input: var(--blue);
@@ -49,20 +52,20 @@
     --theme-active: var(--theme-#{$type}-active);
 }
 
-/* ===== Theme Dark ===== */
+/* ===== Dark Mode ===== */
 :root {
-    --theme-dark-primary: var(--blue);
-    --theme-dark-secondary: var(--navy);
-    --theme-dark-accent: var(--purple);
-    --theme-dark-base: var(--dark-100);
-    --theme-dark-offset: var(--dark-200);
-    --theme-dark-contrast: var(--dark-400);
-    --theme-dark-heading: var(--light-100);
-    --theme-dark-text: var(--light-200);
-    --theme-dark-copy: var(--light-400);
-    --theme-dark-input: var(--blue);
-    --theme-dark-hover: var(--navy);
-    --theme-dark-active: var(--purple);
+    --theme-dark-primary: var(--dark-primary, var(--blue));
+    --theme-dark-secondary: var(--dark-secondary, var(--navy));
+    --theme-dark-accent: var(--dark-accent, var(--purple));
+    --theme-dark-base: var(--dark-base, var(--dark));
+    --theme-dark-offset: var(--dark-offset, var(--dark-200));
+    --theme-dark-contrast: var(--dark-contrast, var(--dark-400));
+    --theme-dark-heading: var(--dark-heading, var(--light));
+    --theme-dark-text: var(--dark-text, var(--light-200));
+    --theme-dark-copy: var(--dark-copy, var(--light-400));
+    --theme-dark-input: var(--dark-input, var(--blue));
+    --theme-dark-hover: var(--dark-hover, var(--navy));
+    --theme-dark-active: var(--dark-active, var(--purple));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -75,20 +78,20 @@
     @include theme( dark );
 }
 
-/* ===== Theme Light ===== */
+/* ===== Light Mode ===== */
 :root {
-    --theme-light-primary: var(--blue);
-    --theme-light-secondary: var(--navy);
-    --theme-light-accent: var(--purple);
-    --theme-light-base: var(--light-100);
-    --theme-light-offset: var(--light-200);
-    --theme-light-contrast: var(--light-400);
-    --theme-light-heading: var(--dark-100);
-    --theme-light-text: var(--dark-200);
-    --theme-light-copy: var(--dark-400);
-    --theme-light-input: var(--blue);
-    --theme-light-hover: var(--navy);
-    --theme-light-active: var(--purple);
+    --theme-light-primary: var(--light-primary, var(--blue));
+    --theme-light-secondary: var(--light-secondary, var(--navy));
+    --theme-light-accent: var(--light-accent, var(--purple));
+    --theme-light-base: var(--light-base, var(--light));
+    --theme-light-offset: var(--light-offset, var(--light-200));
+    --theme-light-contrast: var(--light-contrast, var(--light-400));
+    --theme-light-heading: var(--light-heading, var(--dark));
+    --theme-light-text: var(--light-text, var(--dark-200));
+    --theme-light-copy: var(--light-copy, var(--dark-400));
+    --theme-light-input: var(--light-input, var(--blue));
+    --theme-light-hover: var(--light-hover, var(--navy));
+    --theme-light-active: var(--light-active, var(--purple));
 }
 
 @media (prefers-color-scheme: light) {

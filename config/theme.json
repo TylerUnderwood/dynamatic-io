@@ -1,32 +1,81 @@
 {
-  "theme": {
-    "light": {
-      "primary": "--color-azure",
-      "secondary": "--color-royal-purple",
-      "accent": "--color-jade",
-      "base": "--color-light-100",
-      "offset": "--color-light-200",
-      "contrast": "--color-light-400",
-      "heading": "--color-dark-100",
-      "text": "--color-dark-200",
-      "copy": "--color-dark-400",
-      "input": "--theme-light-accent",
-      "hover": "--theme-light-primary",
-      "active": "--theme-light-secondary"
-    },
+  "colors": {
+    "azure": "#0080ff",
+    "royal-purple": "#c000ff",
+    "fuchsia": "#ff0080",
+    "starburst": "#ff0040",
+    "lava-orange": "#ff4000",
+    "neon-yellow": "#c0ff00",
+    "jade": "#00ff80",
+    "sea-foam": "#00ffc0",
+    "grey": "#808080",
     "dark": {
-      "primary": "--color-azure",
-      "secondary": "--color-royal-purple",
-      "accent": "--color-jade",
-      "base": "--color-dark-100",
-      "offset": "--color-dark-200",
-      "contrast": "--color-dark-400",
-      "heading": "--color-light-100",
-      "text": "--color-light-200",
-      "copy": "--color-light-800",
-      "input": "--theme-dark-accent",
-      "hover": "--theme-dark-primary",
-      "active": "--theme-dark-secondary"
+      "100": "#282a30",
+      "200": "#202228",
+      "400": "#181a20",
+      "600": "#101218",
+      "800": "#080a10"
+    },
+    "light": {
+      "100": "#ffffff",
+      "200": "#f8f8f8",
+      "400": "#eeeeee",
+      "600": "#e8e8e8",
+      "800": "#dddddd"
     }
+  },
+  "light": {
+    "primary": "--azure",
+    "secondary": "--royal-purple",
+    "accent": "--jade",
+    "base": "--light",
+    "offset": "--light-200",
+    "contrast": "--light-400",
+    "heading": "--dark",
+    "text": "--dark-200",
+    "copy": "--dark-400",
+    "input": "--azure",
+    "hover": "--jade",
+    "active": "--royal-purple"
+  },
+  "dark": {
+    "primary": "--azure",
+    "secondary": "--royal-purple",
+    "accent": "--jade",
+    "base": "--dark",
+    "offset": "--dark-200",
+    "contrast": "--dark-400",
+    "heading": "--light",
+    "text": "--light-200",
+    "copy": "--light-800",
+    "input": "--azure",
+    "hover": "--jade",
+    "active": "--royal-purple"
+  },
+  "screens": {
+    "sm": "480px",
+    "md": "768px",
+    "lg": "1024px",
+    "xl": "2560px"
+  },
+  "sizes": {
+    "1": "1px",
+    "2": "2px",
+    "4": "4px",
+    "8": "0.4rem",
+    "10": "0.5rem",
+    "12": "0.6rem",
+    "14": "0.7rem",
+    "16": "0.8rem",
+    "20": "1.0rem",
+    "24": "1.2rem",
+    "32": "1.6rem",
+    "48": "2.4rem",
+    "64": "3.2rem",
+    "80": "4.0rem",
+    "96": "4.8rem",
+    "128": "6.4rem",
+    "DEFAULT": "1em",
+    "rem": "1rem"
   }
 }

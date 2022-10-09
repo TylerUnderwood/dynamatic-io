@@ -12,25 +12,6 @@
   box-sizing: border-box;
 }
 
-[show-boxes] *,
-[show-boxes] ::before,
-[show-boxes] ::after {
-  outline: 1px solid currentColor;
-}
-
-:target {
-  outline: 2px solid var(--theme-primary);
-  outline-offset: 2px;
-}
-
-[hidden] {
-  display: none !important;
-}
-
-[scroll-lock] {
-  overflow: clip !important;
-}
-
 html {
   @include f.scale(font-size, 480px, 1280px, 16px, 20px);
   accent-color: var(--theme-input);
@@ -102,4 +83,27 @@ footer {
 /* section */
 section {
   display: block;
+}
+
+/* other */
+// :target {
+//   outline: 3px solid var(--theme-primary);
+//   outline-offset: 3px;
+// }
+
+// ::selection {
+//   background-color: hsl(220 100 75 / 0.7);
+// }
+
+[hidden] {
+  display: none !important;
+}
+
+[scroll-lock] {
+  overflow: clip !important;
+}
+
+[show-boxes] div {
+  outline: 2px solid var(--theme-primary);
+  outline-offset: -1px;
 }

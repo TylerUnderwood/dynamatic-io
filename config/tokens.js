@@ -1,31 +1,41 @@
 'use strict'
 import pluralize from 'pluralize';
-import theme from './palet.json';
+import theme from './theme.json';
 
 const themeTokensGenerator = ( theme ) => {
-  let categories = {};
-  let variables = {}; // and array of { token: variable }
-  let isCategory = true;
+  let categories = {}; // an object of { category: variables }
+  let variables = {}; // an object of { token: variable }
 
-  const addVars = ( cline, prefix ) => {
-    for ( const key in cline ) {
-      let value = cline[key];
+  for ( const category in theme ) {
+    let tokens = theme[category];
 
+    const addToken = ( name, value ) => {
       if (typeof value === 'object' && value !== null) {
-        addVars(value, (prefix + pluralize(key, 1) + '-'));
-        isCategory = Object.keys(theme).includes(key);
-
-        if (isCategory) {
-          categories[key] = variables;
-          variables = {};
+        for ( const item in value ) {
+          addToken( name + '-' + item, value[item] );
         }
-      } else {
-        variables[prefix + key] = value;
+      } else if ( typeof value === 'string' ) {
+        variables[name] = value;
       }
-    };
-  }
+    }
 
-  addVars(theme, '');
+    for ( const token in tokens ) {
+      let prefix = '';
+      let blocklist = ["color", "mode"];
+
+      // Only add new prefixes that are not in the blocklist
+      if ( !blocklist.some(word => category.includes(word)) ) {
+        prefix = category + '-' + token;
+      } else {
+        prefix = token;
+      }
+
+      addToken( prefix, tokens[token] );
+    }
+
+    categories[category] = variables;
+    variables = {};
+  }
 
   return categories;
 };
