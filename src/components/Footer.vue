@@ -4,8 +4,7 @@ export default {
     return {
       nav: [
         { url: '/', name: 'Home'},
-        { url: '/about', name: 'About'},
-        { url: '/theme', name: 'Theme'}
+        { url: '/about', name: 'About'}
       ]
     }
   }

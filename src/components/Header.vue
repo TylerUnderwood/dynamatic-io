@@ -3,10 +3,9 @@ export default {
   data() {
     return {
       nav: [
-        { url: '/', name: 'Home'},
         { url: '/about', name: 'About'},
-        { url: '/color', name: 'Color'},
-        { url: '/theme', name: 'Theme'}
+        { url: '/contact', name: 'Contact'},
+        { url: '/sandbox', name: 'Sandbox'}
       ]
     }
   }
@@ -21,6 +20,8 @@ export default {
       </router-link>
     </div>
 
+    <div class="ml-auto"></div>
+
     <nav class="Nav">
       <ul class="Nav__list">
         <li class="Nav__item" v-for="item in nav">
@@ -30,6 +31,14 @@ export default {
         </li>
       </ul>
     </nav>
+
+    <div class="pl-5"></div>
+
+    <router-link to="/docs">
+      <div class="button" data-shape="stout">
+        <span class="button__text meta">Docs</span>
+      </div>
+    </router-link>
   </header>
 </template>
 

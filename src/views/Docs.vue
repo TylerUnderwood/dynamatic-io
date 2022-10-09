@@ -1,0 +1,38 @@
+<script setup>
+import Banner from "@/components/Banner.vue";
+import Section from "@/components/Section.vue";
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      nav: [
+        { url: '/docs/theme', name: 'Theme'},
+        { url: '/docs/color', name: 'Color'},
+        { url: '/docs/buttons', name: 'Buttons'},
+        { url: '/docs/box', name: 'Box'}
+      ]
+    }
+  }
+}
+</script>
+
+<template>
+    <Banner title="Docs"/>
+
+    <Section
+        id="section-docs-list"
+        heading="Section docs-list"
+    >
+      <nav class="Nav mt-8">
+        <ul class="Nav__list">
+          <li class="Nav__item" v-for="item in nav">
+            <router-link :to="item.url" class="Link Nav__link">
+              <span class="meta">{{ item.name }}</span>
+            </router-link>
+          </li>
+        </ul>
+      </nav>
+    </Section>
+</template>

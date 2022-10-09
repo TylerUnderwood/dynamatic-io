@@ -4,7 +4,7 @@ import Section from "@/components/Section.vue";
 </script>
 
 <template>
-    <Banner title="About"/>
+    <Banner title="Contact"/>
 
     <Section
         id="section-nothing"
