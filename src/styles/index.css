@@ -8,4 +8,4 @@
 
 @import "./utilities/index.css";
 
-@layer theme, base, components, tools, utilities;
+@layer root, mobile, tablet, desktop, ultrawide;

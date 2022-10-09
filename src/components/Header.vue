@@ -3,18 +3,18 @@
 </script>
 
 <template>
-  <header class="p-4">
-    <span>LOGO</span>
+  <header class="flex justify-between items-center p-4">
+    <span class="p-2">LOGO</span>
     <nav>
-      <ul>
+      <ul class="flex list-none m-0 p-0">
         <li>
-          <router-link to="/">Home</router-link>
+          <router-link to="/" class="inline-block hover:bg-light-400 p-1">Home</router-link>
         </li>
         <li>
-          <router-link to="/about">About</router-link>
+          <router-link to="/about" class="inline-block hover:bg-light-400 p-1">About</router-link>
         </li>
         <li>
-          <router-link to="/theme">Theme</router-link>
+          <router-link to="/theme" class="inline-block hover:bg-light-400 p-1">Theme</router-link>
         </li>
       </ul>
     </nav>
