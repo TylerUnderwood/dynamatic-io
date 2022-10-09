@@ -1,6 +1,6 @@
 /*
 |–––––––––––––––––––––––––
-| Color
+| Scheme
 |–––––––––––––––––––––––––
 */
 
@@ -69,7 +69,6 @@
     }
 }
 
-[data-theme="normal"],
 [data-theme="light"] {
     @include theme( light );
 }

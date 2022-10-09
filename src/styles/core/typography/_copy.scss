@@ -23,16 +23,3 @@ p {
   hyphens: none;
   color: var(--theme-body);
 }
-
-.Rhythm p:not(:first-child) {
-  margin-top: var(--break-size);
-}
-
-.Rhythm > p {
-  @include f.clip(-0.3em, -0.45em);
-  line-height: 1.6 !important;
-}
-
-.Rhythm__block:first-child > p:first-child {
-  text-indent: var(--tab-size);
-}

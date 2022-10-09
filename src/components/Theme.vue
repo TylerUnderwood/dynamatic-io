@@ -44,6 +44,6 @@ export default {
 <style lang="scss">
 @import "@styles/core/index.scss";
 </style>
-<style>
-@import "@styles/components/index.css";
+<style lang="scss">
+@import "@styles/components/index.scss";
 </style>

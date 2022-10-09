@@ -9,13 +9,13 @@
 blockquote {
   margin: 0;
   padding: 0;
-  line-height: 1.4;
-  font-size: 1.2rem;
+  line-height: 1;
+  font-size: 1rem;
 }
 
 cite {
   font-style: normal;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 // Class
@@ -32,23 +32,10 @@ cite {
   --quote-border-width: 4px;
 }
 
-.Rhythm blockquote {
-  &:not(:first-child) {
-    margin-top: var(--break-size);
-  }
-}
-
-.Rhythm blockquote > p,
-.q-clip {
-  @include f.clip(-0.25em, -0.25em);
-  line-height: 1.4 !important;
-}
-
 .Cite,
 .Markup cite {
   display: block;
-  margin: 0.2em 0 0;
-  max-width: var(--wrapper-copy);
+  margin: 0;
   padding: 0;
   text-align: right;
   line-height: 1.2;

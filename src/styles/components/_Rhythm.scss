@@ -1,0 +1,60 @@
+@use '../functions' as f;
+
+/*
+|–––––––––––––––––––––––––
+| Rhythm
+|–––––––––––––––––––––––––
+*/
+
+.Rhythm h1:not(:first-child),
+.Rhythm h2:not(:first-child),
+.Rhythm h3:not(:first-child),
+.Rhythm h4:not(:first-child),
+.Rhythm h5:not(:first-child),
+.Rhythm h6:not(:first-child) {
+    margin-top: calc((var(--break-size) / 2) + 0.5em);
+}
+
+.Rhythm h1 + p,
+.Rhythm h2 + p,
+.Rhythm h3 + p,
+.Rhythm h4 + p,
+.Rhythm h5 + p,
+.Rhythm h6 + p {
+    margin-top: 1em;
+}
+
+.Rhythm p:not(:first-child) {
+    margin-top: var(--break-size);
+}
+
+.Rhythm .Rhythm__block > p {
+    @include f.clip(-0.3em, -0.45em);
+    line-height: 1.6 !important;
+}
+
+.Rhythm .Rhythm__block > p:first-child {
+    text-indent: var(--tab-size);
+}
+
+.Rhythm ul:not(:first-child),
+.Rhythm ol:not(:first-child) {
+    margin-top: var(--break-size);
+}
+
+.Rhythm blockquote:not(:first-child) {
+    margin-top: var(--break-size);
+}
+
+.Rhythm blockquote > p {
+    @include f.clip(-0.25em, -0.25em);
+    line-height: 1.4 !important;
+}
+
+.Rhythm blockquote > cite {
+    margin: 0.2em 0 0;
+}
+
+.Rhythm .Rhythm__block:not(:first-child) {
+    margin-top: var(--break-size);
+}

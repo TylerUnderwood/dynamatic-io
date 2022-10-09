@@ -6,15 +6,15 @@ import Section from "@/components/Section.vue";
 <template>
     <Banner title="Home" intro="Welcome to Dynamatic" />
 
-    <Section id="section-copy" heading="Copy">
-        <div class="Markup Rhythm mt-8">
+    <Section id="section-copy" heading="Copy" class="Markup Rhythm">
+        <div class="Rhythm__block">
             <p>In pellentesque libero pulvinar tincidunt tempor. Sed elementum tempus eros, quis sollicitudin diam ultrices et.</p>
             <p>Aliquam posuere eros erat. Duis pharetra vehicula ligula, eu lacinia sapien ornare sed. Cras id sem sit amet nulla vehicula vehicula ac eu augue.</p>
         </div>
     </Section>
 
-    <Section id="section-headings" heading="Headings">
-        <div class="Markup Rhythm mt-8">
+    <Section id="section-headings" heading="Headings" class="Markup Rhythm">
+        <div class="Rhythm__block">
             <h3>Heading Three</h3>
             <h4>Heading Four</h4>
             <h5>Heading Five</h5>
@@ -22,8 +22,8 @@ import Section from "@/components/Section.vue";
         </div>
     </Section>
 
-    <Section id="section-lists" heading="Lists">
-        <div class="Markup Rhythm mt-8">
+    <Section id="section-lists" heading="Lists" class="Markup Rhythm">
+        <div class="Rhythm__block">
             <p>In pellentesque libero pulvinar tincidunt tempor. Sed elementum tempus eros, quis sollicitudin diam ultrices et.</p>
             <ul>
                 <li v-for="index in 3" :key="index">List item {{ index }}</li>
@@ -40,8 +40,8 @@ import Section from "@/components/Section.vue";
         </div>
     </Section>
 
-    <Section id="section-quote" heading="Quote">
-        <div class="Markup Rhythm mt-8">
+    <Section id="section-quote" heading="Quote" class="Markup Rhythm">
+        <div class="Rhythm__block">
             <blockquote>
                 <p>
                     In pellentesque libero pulvinar tincidunt tempor. Sed elementum tempus eros, quis sollicitudin diam ultrices et.

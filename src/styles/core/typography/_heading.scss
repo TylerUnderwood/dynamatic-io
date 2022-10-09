@@ -9,8 +9,9 @@
 // Element
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  line-height: 1.2;
-  font-size: inherit;
+  line-height: 1;
+  font-weight: normal;
+  font-size: 1rem;
 }
 
 // Class
@@ -28,17 +29,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   font-family: var(--head-font);
   color: var(--theme-head);
-}
-
-.Rhythm h1,
-.Rhythm h2,
-.Rhythm h3,
-.Rhythm h4,
-.Rhythm h5,
-.Rhythm h6 {
-  &:not(:first-child) {
-    margin-top: var(--break-size);
-  }
 }
 
 .h1,
