@@ -1,0 +1,276 @@
+/*
+|–––––––––––––––––––––––––
+| Form
+|–––––––––––––––––––––––––
+*/
+
+form {
+  display: block;
+}
+
+.form {
+  display: block;
+}
+
+
+/*
+|–––––––––––––––––––––––––
+| Label
+|–––––––––––––––––––––––––
+*/
+
+label {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+label[for] {
+  cursor: pointer;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+/*
+|–––––––––––––––––––––––––
+| Inputs
+|–––––––––––––––––––––––––
+*/
+
+@mixin element_input( $padding: 0 0.8em ) {
+  border: 1px solid currentColor;
+  background-color: transparent;
+  width: 100%;
+  padding: $padding;
+  vertical-align: middle;
+  line-height: 1.6;
+  font-size: inherit;
+  color: inherit;
+}
+
+input {
+  display: block;
+  margin: 0;
+  cursor: text;
+  @include element_input;
+
+  &::placeholder {
+    color: inherit;
+    opacity: 0.2;
+  }
+
+  &[readonly] {
+    cursor: default;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  &[type="color"] {
+    display: inline-block;
+    padding: 1px;
+    width: 1.6em;
+    height: 1.6em;
+    cursor: pointer;
+  }
+
+  &[type="checkbox"] {
+    display: inline-block;
+    width: unset;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  &[type="radio"] {
+    display: inline-block;
+    width: unset;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  &[type="range"] {
+    display: inline-block;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  &[type="file"] {
+    display: block;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.input {
+  $self: &;
+  display: block;
+  flex: 0 0 auto;
+  margin: 0;
+  outline: none;
+  box-shadow: none;
+  border: $border;
+  border-radius: $round;
+  background-color: $contrast;
+  width: 100%;
+  height: $btn_height;
+  padding: 0.25em 0.8em 0;
+  line-height: 1;
+  font-family: $copy_font;
+  font-size: inherit;
+  color: $text_color;
+  transition: border-color 300ms ease,
+              background-color 300ms ease,
+              color 300ms ease;
+
+  &::placeholder {
+    opacity: 0.3;
+    color: inherit;
+  }
+
+  &:focus,
+  &:active,
+  &[filled] {
+    border-color: $link_color;
+    background-color: $contrast;
+  }
+
+  &[readonly] {
+    border-color: $border_color !important;
+    background-color: $contrast !important;
+  }
+
+  &[stealth] {
+    border-color: transparent;
+    background-color: transparent;
+    transition: border-color 300ms ease,
+                background-color 300ms ease,
+                padding 300ms ease,
+                color 300ms ease;
+
+    &::placeholder {
+      opacity: 1;
+    }
+
+    &:not(:focus) {
+      border-left: 0;
+      padding-left: 0;
+    }
+
+    &:focus,
+    &:active {
+      border-color: $link_color;
+      background-color: $contrast;
+
+      &::placeholder {
+        opacity: 0.3;
+      }
+    }
+
+    &[readonly] {
+      border-color: transparent !important;
+      background-color: transparent !important;
+
+      &::placeholder {
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  &--tall {
+    border-width: 2px;
+    height: $btn_tall_height;
+  }
+
+  &--thin {
+    border-width: 1px;
+    height: $btn_thin_height;
+  }
+}
+
+
+/*
+|–––––––––––––––––––––––––
+| Textarea
+|–––––––––––––––––––––––––
+*/
+
+textarea {
+  display: block;
+  max-width: 100%;
+  height: 8em;
+  @include element_input(0.2em 0.8em);
+  resize: vertical;
+  cursor: text;
+}
+
+.textarea {
+  max-width: 100%;
+  height: 12em;
+  resize: vertical;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+  line-height: 1.4;
+}
+
+
+/*
+|–––––––––––––––––––––––––
+| Fieldset
+|–––––––––––––––––––––––––
+*/
+
+fieldset {
+  display: block;
+  margin: 0;
+  @include element_input(0.5em 1em);
+}
+
+.fieldset {
+  display: block;
+  border: $border;
+  border-radius: $round;
+  background-color: $contrast;
+}
+
+legend {
+  padding: 0 0.4em;
+  margin: 0 -0.4em;
+  line-height: 1;
+}
+
+.legend {
+  padding: 0 0.4em;
+  margin: 0 -0.4em;
+  line-height: 1;
+}
+
+
+/*
+|–––––––––––––––––––––––––
+| Select
+|–––––––––––––––––––––––––
+*/
+
+select {
+  @include element_input;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+option {
+  background-color: initial;
+  padding: 0;
+  color: initial;
+}

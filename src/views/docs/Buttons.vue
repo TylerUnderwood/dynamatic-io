@@ -2,7 +2,7 @@
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
 
-const buttons = {
+const buttonTree = {
     type: [
         "default",
         "secondary",
@@ -37,6 +37,31 @@ const buttons = {
 
 <script>
 export default {
+    computed: {
+        buttonTypes() {
+            let newItem = {};
+
+            Object.keys(this.buttonTree).map(item => {
+                if (item !== 'state') {
+                    newItem[item] = this.buttonTree[item];
+                }
+            });
+
+            return newItem;
+        },
+        buttonStates() {
+            let newItem = {};
+
+            Object.keys(this.buttonTree).map(item => {
+                if (item === 'state') {
+                    newItem[item] = this.buttonTree[item];
+                }
+            });
+
+            return newItem;
+        }
+    },
+
     methods: {
         selectClass: ( selector, element ) => {
             selector.addEventListener("change", (event) => {
@@ -87,7 +112,7 @@ export default {
             toggle.addEventListener('change', toggleAttr, false);
 
             toggleAttr();
-        }
+        },
     },
 
     mounted() {
@@ -114,10 +139,9 @@ export default {
         heading="Button Selector"
     >
         <div class="flex mt-6 gap-4">
-        <template v-for="types, name in buttons">
             <div
                 class="flex-1"
-                v-if="name !== 'state'"
+                v-for="types, name in buttonTypes"
             >
                 <label :for="`select-button-${name}`" class="meta" style="font-size: 0.7rem;">
                     {{ name }}
@@ -135,28 +159,25 @@ export default {
                     </option>
                 </select>
             </div>
-        </template>
         </div>
 
-        <template v-for="types, name in buttons">
-            <div class="flex gap-4 mt-2" v-if="name === 'state'">
-                <label
-                    class="flex items-center gap-2"
-                    :for="`toggle-button-${button}`"
-                    v-for="button in types"
-                >
-                    <span  class="order-2 meta" style="font-size: 0.7rem;">
-                        {{ button }}
-                    </span>
-                    <input
-                        :id="`toggle-button-${button}`"
-                        :name="button"
-                        :value="button"
-                        type="checkbox"
-                    />
-                </label>
-            </div>
-        </template>
+        <div class="flex gap-4 mt-2" v-for="types in buttonStates">
+            <label
+                class="flex items-center gap-2"
+                :for="`toggle-button-${button}`"
+                v-for="button in types"
+            >
+                <span  class="order-2 meta" style="font-size: 0.7rem;">
+                    {{ button }}
+                </span>
+                <input
+                    :id="`toggle-button-${button}`"
+                    :name="button"
+                    :value="button"
+                    type="checkbox"
+                />
+            </label>
+        </div>
 
         <div class="flex justify-center items-center p-4 mt-6 border-2" style="min-height: 240px;">
             <button id="dynamic-button" class="button">
@@ -169,7 +190,7 @@ export default {
     </Section>
 
     <Section
-        v-for="types, name in buttons"
+        v-for="types, name in buttonTree"
         :id="`section-button-${name}`"
         :heading="name[0].toUpperCase() + name.slice(1)"
     >
