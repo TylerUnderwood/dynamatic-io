@@ -19,7 +19,7 @@ export default {
         :aria-labelledby="labelledby"
         identify-item
     >
-        <div class="wrapper" identify-item="right">
+        <div class="Section__wrap wrapper" identify-item="right">
             <h2 :id="labelledby" v-if="heading" class="Heading h2">
                 {{ heading }}
             </h2>
@@ -33,10 +33,9 @@ export default {
     counter-increment: identify-section;
   }
   [identify] .Section[identify-item]::before {
-    content: "Section " counter(identify-section);
+    content: "Section " counter(identify-section) !important;
   }
-
-  [identify] .wrapper[identify-item]::before {
-    content: "Wrapper";
+  [identify] .Section__wrap[identify-item]::before {
+    content: "Section Wrap" !important;
   }
 </style>

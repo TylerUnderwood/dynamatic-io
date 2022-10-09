@@ -1,6 +1,6 @@
 [identify] {
     --identify-border-width: 3px;
-    --identify-color: rgb(0 64 128 / 0.3);
+    --identify-border-color: rgb(0 64 128 / 0.3);
     --identify-font-size: 16px;
 }
 
@@ -13,7 +13,7 @@
 
 [identify] [identify-item] {
     position: relative;
-    outline: var(--identify-border-width) solid var(--identify-color);
+    outline: var(--identify-border-width) solid var(--identify-border-color);
     outline-offset: calc(var(--identify-border-width) * -1);
     counter-increment: identify-box;
 }
@@ -25,12 +25,15 @@
     bottom: 100%;
     left: 0;
     display: block;
-    background-color: var(--identify-color);
+    background-color: var(--identify-border-color);
     padding: var(--identify-border-width);
     white-space: nowrap;
-    text-shadow: 1px 1px 1px var(--identify-color);
+    text-shadow: 1px 1px 1px var(--identify-border-color);
     font-size: var(--identify-font-size);
     color: white;
+}
+
+[identify] [identify-item]::before {
     content: "Box " counter(identify-box);
 }
 
@@ -38,5 +41,12 @@
     top: var(--identify-border-width);
     right: var(--identify-border-width);
     bottom: unset;
+    left: unset;
+}
+
+[identify] [identify-item="bottom"]::before {
+    top: unset;
+    right: var(--identify-border-width);
+    bottom: var(--identify-border-width);
     left: unset;
 }

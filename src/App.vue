@@ -5,6 +5,7 @@ import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import Page from "@/templates/Page.vue";
 import Utilities from "@/components/Utilities.vue";
+import Guidelines from "@/components/Guidelines.vue";
 </script>
 
 <template>
@@ -17,6 +18,8 @@ import Utilities from "@/components/Utilities.vue";
   <Page class="z-1" />
 
   <Footer class="z-2" />
+
+  <Guidelines class="z-4" />
 
   <div id="notifications-stack" class="relative z-8"></div>
 

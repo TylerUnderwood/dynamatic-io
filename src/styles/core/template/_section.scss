@@ -7,6 +7,14 @@
   max-width: var(--page-max);
 }
 
+.max-site {
+  max-width: var(--site-max);
+}
+
+.max-copy {
+  max-width: var(--copy-max);
+}
+
 .gutter {
     padding-left: var(--section-space-x);
     padding-right: var(--section-space-x);
