@@ -4,15 +4,15 @@
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: var(--page-max);
+  max-width: var(--wrapper-page);
 }
 
 .max-site {
-  max-width: var(--site-max);
+  max-width: var(--wrapper-site);
 }
 
 .max-copy {
-  max-width: var(--copy-max);
+  max-width: var(--wrapper-copy);
 }
 
 .gutter {

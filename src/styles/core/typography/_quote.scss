@@ -23,7 +23,7 @@ cite {
 .Markup blockquote {
   margin: 0;
   width: 100%;
-  max-width: var(--copy-max);
+  max-width: var(--wrapper-copy);
   border-left: var(--quote-border-width) solid var(--theme-primary);
   border-radius: var(--quote-border-width);
   padding: 0 0 0 calc(var(--tab-size) - var(--quote-border-width));
@@ -48,7 +48,7 @@ cite {
 .Markup cite {
   display: block;
   margin: 0.2em 0 0;
-  max-width: var(--copy-max);
+  max-width: var(--wrapper-copy);
   padding: 0;
   text-align: right;
   line-height: 1.2;

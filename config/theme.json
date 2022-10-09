@@ -41,7 +41,7 @@
     "contrast": "--dark-400",
     "heading": "--light",
     "text": "--light-200",
-    "copy": "--light-800",
+    "copy": "--light-400",
     "input": "--blue",
     "hover": "--purple",
     "active": "--navy"
@@ -51,6 +51,11 @@
     "md": "768px",
     "lg": "1024px",
     "xl": "2560px"
+  },
+  "wrapper": {
+    "copy": "36rem",
+    "page": "48rem",
+    "site": "64rem"
   },
   "sizes": {
     "1": "1px",

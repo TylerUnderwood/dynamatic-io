@@ -18,7 +18,7 @@ p {
 .Markup p {
   margin: 0;
   width: 100%;
-  max-width: var(--copy-max);
+  max-width: var(--wrapper-copy);
   line-height: 1.6;
   hyphens: none;
   color: var(--theme-copy);
