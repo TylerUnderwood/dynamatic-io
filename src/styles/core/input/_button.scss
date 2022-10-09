@@ -1,0 +1,241 @@
+/*
+|–––––––––––––––––––––––––
+| Button
+|–––––––––––––––––––––––––
+*/
+
+body {
+    --button-color: var(--input-color);
+    --button-hover: var(--input-hover);
+    --button-active: var(--input-active);
+    --button-face: var(--theme-base);
+    --button-height: var(--input-height);
+}
+
+button {
+  display: inline-block;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  text-align: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.button {
+  $self: btn;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+  overflow: clip;
+  outline: none;
+  border: 2px solid transparent;
+  border-radius: var(--input-round);
+  min-width: 8em;
+  height: var(--button-height);
+  background-color: var(--button-color);
+  padding: 0 1.4em;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  font-size: inherit;
+  color: var(--button-face);
+  transition: border-color 300ms ease,
+              background-color 300ms ease,
+              color 300ms ease;
+  user-select: none;
+  cursor: pointer;
+
+  // [active] first so :hover overrides it
+  &[active] {
+    border-color: var(--button-active);
+    background-color: var(--button-active);
+    color: var(--button-face);
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border-color: transparent;
+    background-color: var(--button-hover);
+    color: var(--button-face);
+  }
+
+  // [stealth]
+  &[stealth] {
+    border-color: transparent;
+    background-color: transparent;
+    color: inherit;
+
+    &:hover,
+    &:focus {
+      border-color: transparent;
+      background-color: var(--button-color);
+      color: var(--button-face);
+    }
+  }
+
+  // [disabled] last so it overrides all
+  &[disabled] {
+    border-color: transparent;
+    background-color: var(--button-color);
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  // === button components === //
+  &__text {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 0.8em;
+  }
+
+  &__icon {
+    font-size: 1em;
+  }
+
+  // === button types === //
+
+  // border button //
+  &--border {
+    border-color: var(--button-color);
+    background: transparent;
+    color: var(--button-color);
+
+    &[active] {
+      border-color: var(--button-active);
+      background-color: transparent;
+      color: var(--button-active);
+    }
+
+    &:hover,
+    &:focus {
+      border-color: var(--button-hover);
+      background-color: transparent;
+      color: var(--button-hover);
+    }
+
+    &[disabled] {
+      border-color: var(--button-color);
+      background-color: transparent;
+      color: var(--button-color);
+    }
+
+    &[stealth] {
+      &:hover,
+      &:focus {
+        border-color: var(--button-color);
+        background-color: transparent;
+        color: var(--button-color);
+      }
+    }
+
+    .#{$self}__text {
+      font-size: 0.7em;
+    }
+  }
+
+
+  // thin button //
+  &--thin {
+    min-width: 6em;
+    border-width: 1px;
+    padding: 0 1.2em;
+    font-weight: 300;
+    --button-height: var(--input-height-thin);
+
+    .#{$self}__text {
+      font-weight: 300;
+      font-size: 0.7em;
+    }
+
+    .#{$self}__icon {
+      font-size: 0.8em;
+    }
+
+    &.#{$self}--border .#{$self}__text {
+      font-size: 0.6em;
+    }
+  }
+
+
+  // tall button //
+  &--tall {
+    min-width: 12em;
+    border-width: 2px;
+    padding: 0 2.4em;
+    font-weight: 700;
+    --button-height: var(--input-height-tall);
+
+    .#{$self}__text {
+      font-weight: 700;
+      font-size: 0.9em;
+    }
+
+    .#{$self}__icon {
+      font-size: 1.2em;
+    }
+
+    &.#{$self}--border .#{$self}__text {
+      font-size: 0.8em;
+    }
+  }
+
+
+  // stout //
+  &--stout {
+    min-width: unset;
+    padding-right: 0.8em;
+    padding-left: 0.8em;
+  }
+
+
+  // square //
+  &--square {
+    min-width: unset;
+    padding: 0;
+    width: var(--button-height);
+    height: var(--button-height);
+  }
+
+  // full //
+  &--full {
+    flex: 1 0 auto;
+    width: 100%;
+    max-width: unset;
+  }
+
+//   @include below( sm ) {
+//     &--full\:sm {
+//       flex: 1 0 auto;
+//       width: 100%;
+//       max-width: unset;
+//     }
+//   }
+
+//   @include below( md ) {
+//     &--full\:md {
+//       flex: 1 0 auto;
+//       width: 100%;
+//       max-width: unset;
+//     }
+//   }
+
+
+  // === button colors === //
+  &--warn {
+    --button-color:       #ffdd00;
+    --button-hover:       #ffff44;
+    --button-active:      #ffcc00;
+  }
+
+  &--error {
+    --button-color:       #ff2200;
+    --button-hover:       #ff4422;
+    --button-active:      #dd2200;
+  }
+}

@@ -1,5 +1,11 @@
 @use '../../functions' as f;
 
+/*
+|–––––––––––––––––––––––––
+| Meta
+|–––––––––––––––––––––––––
+*/
+
 .meta {
   @include f.clip(-0.18em, -0.25em);
   line-height: 1.2;

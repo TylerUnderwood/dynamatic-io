@@ -15,11 +15,11 @@ export default {
 <template>
     <footer id="footer" class="Footer flex items-center">
       <div class="wrapper max-site">
-        <nav class="SiteNav">
-          <ul class="SiteNav__list">
-            <li class="SiteNav__item" v-for="item in nav">
-              <router-link :to="item.url" class="Link SiteNav__link meta">
-                {{ item.name }}
+        <nav class="Nav">
+          <ul class="Nav__list">
+            <li class="Nav__item" v-for="item in nav">
+              <router-link :to="item.url" class="Link Nav__link ">
+                <span class="meta">{{ item.name }}</span>
               </router-link>
             </li>
           </ul>
@@ -30,8 +30,8 @@ export default {
 </template>
 
 <style>
-    .Footer {
-        padding: var(--section-space-y) var(--section-space-x);
-        background-color: var(--theme-offset)
-    }
+.Footer {
+  padding: var(--section-space-y) var(--section-space-x);
+  background-color: var(--theme-offset)
+}
 </style>

@@ -1,5 +1,3 @@
-@use '../../functions' as f;
-
 /*
 |–––––––––––––––––––––––––
 | Links
@@ -18,34 +16,34 @@ a {
   }
 
   &:focus-visible {
-    outline: 2px solid var(--theme-input);
+    outline: 2px solid var(--input-color);
   }
 }
 
 .Link {
-  color: var(--theme-input);
+  color: var(--input-color);
   transition: color 300ms ease;
   cursor: pointer;
 
   &[active] {
-    color: var(--theme-active);
+    color: var(--input-active);
   }
 
   &:hover,
   &:focus {
-    color: var(--theme-hover);
+    color: var(--input-hover);
   }
 
   &[stealth] {
     color: inherit;
 
     &[active] {
-      color: var(--theme-active);
+      color: var(--input-active);
     }
 
     &:hover,
     &:focus {
-      color: var(--theme-hover);
+      color: var(--input-hover);
     }
   }
 }

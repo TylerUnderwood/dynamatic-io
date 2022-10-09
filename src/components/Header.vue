@@ -21,11 +21,11 @@ export default {
       </router-link>
     </div>
 
-    <nav class="SiteNav">
-      <ul class="SiteNav__list">
-        <li class="SiteNav__item" v-for="item in nav">
-          <router-link :to="item.url" class="Link SiteNav__link meta">
-            {{ item.name }}
+    <nav class="Nav">
+      <ul class="Nav__list">
+        <li class="Nav__item" v-for="item in nav">
+          <router-link :to="item.url" class="Link Nav__link">
+            <span class="meta">{{ item.name }}</span>
           </router-link>
         </li>
       </ul>
@@ -34,8 +34,6 @@ export default {
 </template>
 
 <style>
-@import "@styles/components/_header.css";
-
 .Logo {
   font-weight: 700;
   letter-spacing: 2px;
@@ -44,32 +42,6 @@ export default {
 
 .Logo:hover,
 .Logo:focus {
-  background-color: rgb(64 64 160 / 0.1);
-}
-
-.SiteNav {
-  display: flex;
-  --site-nav-link-pad: 0.5em;
-}
-
-.SiteNav__list {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: calc(var(--site-nav-link-pad) * -1);
-}
-
-.SiteNav__item {
-  padding: 0;
-}
-
-.SiteNav__link {
-  padding: var(--site-nav-link-pad);
-  border-radius: 2px;
-}
-
-.SiteNav__link:hover,
-.SiteNav__link:focus {
   background-color: rgb(64 64 160 / 0.1);
 }
 </style>

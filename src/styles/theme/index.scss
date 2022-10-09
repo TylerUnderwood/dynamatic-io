@@ -5,16 +5,18 @@
 @import './_input.scss';
 @import './_layout.scss';
 
-// TODO: convert these to vars
-// SHADOW
-$shadow_in:            0px 3px 10px 0px rgb(0 0 0 / 0.25) inset;
-$shadow_down:          0px 3px 10px 0px rgb(0 0 0 / 0.25);
-$shadow:               0px 7px 10px 0px rgb(0 0 0 / 0.25);
-$shadow_up:            0px 10px 18px 3px rgb(0 0 0 / 0.25);
+:root {
+  // SHADOW
+  --shadow-in: 0px 3px 10px 0px rgb(0 0 0 / 0.25) inset;
+  --shadow-down: 0px 3px 10px 0px rgb(0 0 0 / 0.25);
+  --shadow: 0px 7px 10px 0px rgb(0 0 0 / 0.25);
+  --shadow-up: 0px 10px 18px 3px rgb(0 0 0 / 0.25);
 
-// BORDER
-$border:               2px solid #333;
+  // BORDER
+  --border: 2px solid var(--theme-contrast);
 
-// BORDER RADIUS
-$round:                2px;
-$rounder:              4px;
+  // BORDER RADIUS
+  --round: 2px;
+  --rounder: 4px;
+}
+

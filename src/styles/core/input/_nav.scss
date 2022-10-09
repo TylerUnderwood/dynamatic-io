@@ -1,0 +1,35 @@
+/*
+|–––––––––––––––––––––––––
+| Nav
+|–––––––––––––––––––––––––
+*/
+
+.Nav {
+  display: flex;
+  --nav-link-pad: 0.5em;
+}
+
+.Nav__list {
+  display: flex;
+  margin: calc(var(--nav-link-pad) * -1);
+  padding: 0;
+  list-style: none;
+}
+
+.Nav__item {
+  display: flex;
+  padding: 0;
+  list-style: none;
+}
+
+.Nav__link {
+  padding: var(--nav-link-pad);
+  border-radius: 2px;
+  transition: background-color 300ms ease;
+}
+
+.Nav__link:hover,
+.Nav__link:focus {
+  background-color: var(--input-hover);
+  color: var(--input-color);
+}
