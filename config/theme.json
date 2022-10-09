@@ -1,29 +1,29 @@
 {
   "colors": {
     "blue": {
-      "100": "#2222dd",
-      "200": "#4444dd",
-      "400": "#6666dd",
-      "600": "#7777dd",
-      "800": "#8888dd",
-      "DEFAULT": "--blue-100"
+      "100": "#88a8ff",
+      "200": "#6080f8",
+      "400": "#4868f0",
+      "600": "#2848d8",
+      "800": "#2030d0",
+      "DEFAULT": "--blue-600"
     },
-    "purple": "#8822ff",
-    "jade": "#22ff88",
+    "purple": "#8822ee",
+    "jade": "#22ee88",
     "light": {
-      "100": "#fdfeff",
-      "200": "#f4f7f8",
-      "400": "#ebeff0",
-      "600": "#e4e7ea",
-      "800": "#dbdfe0",
+      "100": "#feffff",
+      "200": "#f6f7f8",
+      "400": "#eeeff0",
+      "600": "#e6e7e8",
+      "800": "#dedfe0",
       "DEFAULT": "--light-200"
     },
     "grey": {
-      "100": "#303238",
-      "200": "#404248",
+      "100": "#a0a2a8",
+      "200": "#808288",
       "400": "#606268",
-      "600": "#808288",
-      "800": "#a0a2a8",
+      "600": "#404248",
+      "800": "#303238",
       "DEFAULT": "--grey-400"
     },
     "dark": {
@@ -33,18 +33,15 @@
       "600": "#101218",
       "800": "#080a10",
       "DEFAULT": "--dark-200"
-    },
-    "red": "#dd0000",
-    "yellow": "#dddd00",
-    "green": "#00bb00"
+    }
   },
   "light": {
     "primary": "--blue",
     "secondary": "--purple",
     "accent": "--jade",
     "input": "--blue",
-    "marker": "--blue-200",
-    "muted": "--grey",
+    "marker": "--blue-600",
+    "muted": "--grey-200",
     "base": "--light-100",
     "offset": "--light-200",
     "contrast": "--light-400",
@@ -57,11 +54,11 @@
     "secondary": "--purple",
     "accent": "--jade",
     "input": "--blue-200",
-    "marker": "--blue-400",
+    "marker": "--blue-200",
     "muted": "--grey-200",
-    "base": "--dark-100",
-    "offset": "--dark-200",
-    "contrast": "--dark-400",
+    "base": "--dark-400",
+    "offset": "--dark-600",
+    "contrast": "--dark-800",
     "head": "--light-200",
     "face": "--light-400",
     "body": "--light-600"
@@ -94,8 +91,8 @@
     "80": "4.0rem",
     "96": "4.8rem",
     "128": "6.4rem",
-    "break": "var(--break-size)",
-    "tab": "var(--tab-size)",
+    "break": "--break-size",
+    "tab": "--tab-size",
     "DEFAULT": "1em",
     "rem": "1rem"
   }

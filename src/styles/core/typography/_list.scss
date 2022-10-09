@@ -36,7 +36,7 @@ ol {
   counter-reset: list;
   --list-tab: var(--tab-size);
   --list-gap: 1.2rem;
-  --marker-color: var(--theme-primary);
+  --marker-color: var(--theme-marker);
 
   &:not(:first-child) {
     margin-top: var(--break-size);

@@ -14,7 +14,6 @@
 
 html {
   @include f.scale(font-size, 480px, 1280px, 16px, 20px);
-  accent-color: var(--theme-input);
   overflow-x: clip;
   overflow-y: auto;
 
@@ -33,13 +32,14 @@ html::-webkit-scrollbar {
 body {
   margin: 0;
   background-color: var(--theme-base);
-  tab-size: 4;
+  tab-size: var(--tab-size);
   line-height: 1;
   font-size: 1rem;
   font-weight: normal;
   font-family: var(--font);
   text-rendering: optimizeLegibility;
   color: var(--theme-face);
+  accent-color: var(--theme-input);
 }
 
 /* this will, at the least, fill the viewport and gives the template structure */
@@ -101,9 +101,4 @@ section {
 
 [scroll-lock] {
   overflow: clip !important;
-}
-
-[show-boxes] div {
-  outline: 2px solid var(--theme-primary);
-  outline-offset: -1px;
 }
