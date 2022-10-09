@@ -3,14 +3,22 @@
 </script>
 
 <template>
-  <div class="greetings">
-    <h1 class="text-azure">Hello</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a target="_blank" href="https://vitejs.dev/">Vite</a> +
-      <a target="_blank" href="https://vuejs.org/">Vue 3</a>.
-    </h3>
-  </div>
+  <header class="p-4">
+    <span>LOGO</span>
+    <nav>
+      <ul>
+        <li>
+          <router-link to="/">Home</router-link>
+        </li>
+        <li>
+          <router-link to="/about">About</router-link>
+        </li>
+        <li>
+          <router-link to="/theme">Theme</router-link>
+        </li>
+      </ul>
+    </nav>
+  </header>
 </template>
 
 <style>

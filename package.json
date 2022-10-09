@@ -12,7 +12,8 @@
     "pinia": "^2.0.13",
     "pluralize": "^8.0.0",
     "postcss-scss": "^4.0.4",
-    "vue": "^3.2.33"
+    "vue": "^3.2.33",
+    "vue-router": "^4.1.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.0",
