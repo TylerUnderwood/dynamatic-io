@@ -1,5 +1,7 @@
 {
   "colors": {
+    "jade": "#22ee88",
+    "azure": "#2299ee",
     "blue": {
       "100": "#88a8ff",
       "200": "#6080f8",
@@ -9,7 +11,6 @@
       "DEFAULT": "--blue-600"
     },
     "purple": "#8822ee",
-    "jade": "#22ee88",
     "light": {
       "100": "#feffff",
       "200": "#f6f7f8",
@@ -38,8 +39,8 @@
   "light": {
     "primary": "--blue",
     "secondary": "--purple",
-    "accent": "--jade",
-    "input": "--blue",
+    "accent": "--azure",
+    "input": "--blue-600",
     "marker": "--blue-600",
     "muted": "--grey-200",
     "base": "--light-100",
@@ -52,7 +53,7 @@
   "dark": {
     "primary": "--blue",
     "secondary": "--purple",
-    "accent": "--jade",
+    "accent": "--azure",
     "input": "--blue-200",
     "marker": "--blue-200",
     "muted": "--grey-200",

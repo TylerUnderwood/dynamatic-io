@@ -8,7 +8,7 @@ form {
   display: block;
 }
 
-.form {
+.Form {
   display: block;
 }
 
@@ -36,102 +36,114 @@ label[for] {
 
 /*
 |–––––––––––––––––––––––––
+| Field
+|–––––––––––––––––––––––––
+*/
+
+fieldset,
+input,
+textarea,
+select {
+    border: 1px solid currentColor;
+    background-color: transparent;
+    display: 1 0 auto;
+    max-width: 100%;
+    vertical-align: middle;
+    line-height: 1.6;
+    font-size: inherit;
+    color: inherit;
+}
+
+
+/*
+|–––––––––––––––––––––––––
 | Inputs
 |–––––––––––––––––––––––––
 */
 
-@mixin element_input( $padding: 0 0.8em ) {
-  border: 1px solid currentColor;
-  background-color: transparent;
-  width: 100%;
-  padding: $padding;
-  vertical-align: middle;
-  line-height: 1.6;
-  font-size: inherit;
-  color: inherit;
-}
-
 input {
-  display: block;
-  margin: 0;
-  cursor: text;
-  @include element_input;
-
-  &::placeholder {
-    color: inherit;
-    opacity: 0.2;
-  }
-
-  &[readonly] {
-    cursor: default;
-  }
-
-  &[type="number"] {
-    -moz-appearance: textfield;
-
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-  }
-
-  &[type="color"] {
-    display: inline-block;
-    padding: 1px;
-    width: 1.6em;
-    height: 1.6em;
-    cursor: pointer;
-  }
-
-  &[type="checkbox"] {
-    display: inline-block;
-    width: unset;
-    vertical-align: middle;
-    cursor: pointer;
-  }
-
-  &[type="radio"] {
-    display: inline-block;
-    width: unset;
-    vertical-align: middle;
-    cursor: pointer;
-  }
-
-  &[type="range"] {
-    display: inline-block;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  &[type="file"] {
     display: block;
-    padding: 0;
-    border: none;
-    cursor: pointer;
-  }
+    margin: 0;
+    padding: 0 0.8em;
+    cursor: text;
+
+    &::placeholder {
+        color: inherit;
+        opacity: 0.2;
+    }
+
+    &[type="number"] {
+        -moz-appearance: textfield;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    &[type="color"] {
+        display: inline-block;
+        padding: 1px;
+        width: 1.6em;
+        height: 1.6em;
+        cursor: pointer;
+    }
+
+    &[type="checkbox"] {
+        display: inline-block;
+        width: unset;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    &[type="radio"] {
+        display: inline-block;
+        width: unset;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    &[type="range"] {
+        display: inline-block;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    &[type="file"] {
+        display: block;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+    }
+
+    &[readonly] {
+        cursor: default !important;
+    }
 }
 
 .input {
-  $self: &;
-  display: block;
-  flex: 0 0 auto;
-  margin: 0;
-  outline: none;
-  box-shadow: none;
-  border: $border;
-  border-radius: $round;
-  background-color: $contrast;
-  width: 100%;
-  height: $btn_height;
-  padding: 0.25em 0.8em 0;
-  line-height: 1;
-  font-family: $copy_font;
-  font-size: inherit;
-  color: $text_color;
-  transition: border-color 300ms ease,
-              background-color 300ms ease,
-              color 300ms ease;
+    $self: &;
+    display: block;
+    flex: 1 0 auto;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--theme-contrast);
+    border-radius: var(--input-round);
+    background-color: var(--theme-offset);
+    max-width: 100%;
+    height: var(--input-height);
+    padding: 0 0.8em;
+    line-height: 1;
+    font-family: var(--face-font);
+    font-size: inherit;
+    color: var(--theme-face);
+    transition-property: border-color, background-color, color, opacity;
+    transition-duration: var(--input-timing);
+    transition-timing-function: var(--input-easing);
 
   &::placeholder {
     opacity: 0.3;
@@ -141,22 +153,19 @@ input {
   &:focus,
   &:active,
   &[filled] {
-    border-color: $link_color;
-    background-color: $contrast;
+    border-color: var(--input-color);
+    background-color: var(--theme-offset);
   }
 
   &[readonly] {
-    border-color: $border_color !important;
-    background-color: $contrast !important;
+    border-color: var(--theme-contrast) !important;
+    background-color: var(--theme-offset) !important;
   }
 
   &[stealth] {
     border-color: transparent;
     background-color: transparent;
-    transition: border-color 300ms ease,
-                background-color 300ms ease,
-                padding 300ms ease,
-                color 300ms ease;
+    transition-property: border-color, background-color, color, opacity, padding;
 
     &::placeholder {
       opacity: 1;
@@ -169,8 +178,8 @@ input {
 
     &:focus,
     &:active {
-      border-color: $link_color;
-      background-color: $contrast;
+      border-color: var(--input-color);
+      background-color: var(--theme-offset);
 
       &::placeholder {
         opacity: 0.3;
@@ -189,12 +198,12 @@ input {
 
   &--tall {
     border-width: 2px;
-    height: $btn_tall_height;
+    height: var(--input-height-tall);
   }
 
   &--thin {
     border-width: 1px;
-    height: $btn_thin_height;
+    height: var(--input-height-thin);
   }
 }
 
@@ -209,7 +218,7 @@ textarea {
   display: block;
   max-width: 100%;
   height: 8em;
-  @include element_input(0.2em 0.8em);
+  padding: 0.2em 0.8em;
   resize: vertical;
   cursor: text;
 }
@@ -233,14 +242,16 @@ textarea {
 fieldset {
   display: block;
   margin: 0;
-  @include element_input(0.5em 1em);
+  padding: 0.5em 1em;
 }
 
 .fieldset {
   display: block;
-  border: $border;
-  border-radius: $round;
-  background-color: $contrast;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--theme-contrast);
+  border-radius: var(--input-round);
+  background-color: var(--theme-offset);
 }
 
 legend {
@@ -263,10 +274,10 @@ legend {
 */
 
 select {
-  @include element_input;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  cursor: pointer;
 }
 
 option {

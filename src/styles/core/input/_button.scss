@@ -88,9 +88,9 @@ button {
 
   // [disabled] should override all
   &[disabled] {
-    border-color: transparent;
-    background-color: var(--button-color);
-    color: var(--button-face);
+    border-color: transparent !important;
+    background-color: var(--button-color) !important;
+    color: var(--button-face) !important;
     opacity: 0.5;
     cursor: not-allowed;
   }
@@ -142,9 +142,9 @@ button {
     }
 
     &[disabled] {
-      border-color: var(--button-color);
-      background-color: transparent;
-      color: var(--button-color);
+      border-color: var(--button-color) !important;
+      background-color: transparent !important;
+      color: var(--button-color) !important;
     }
 
     #{$self}__text {
@@ -176,12 +176,12 @@ button {
       border-color: transparent;
       background-color: transparent;
       color: var(--button-hover);
+    }
 
-      &[disabled] {
-        border-color: transparent;
-        background-color: transparent;
-        color: var(--button-color);
-      }
+    &[disabled] {
+      border-color: transparent !important;
+      background-color: transparent !important;
+      color: var(--button-color) !important;
     }
   }
 
@@ -320,7 +320,7 @@ button {
     --button-color:       hsl(52, 100%, 50%);
     --button-hover:       hsl(52, 100%, 70%);
     --button-active:      hsl(48, 100%, 48%);
-    --button-face:       var(--theme-body);
+    --button-face:        var(--light-face);
   }
 
   // = error button = //

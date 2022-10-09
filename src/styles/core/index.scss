@@ -1,16 +1,17 @@
 /* === TEMPLATE === */
-@import './template/_site.scss';
-@import './template/_section.scss';
-@import './template/dividers.scss';
+@import './template/site';
+@import './template/section';
+@import './template/dividers';
 /* === TYPOGRAPHY === */
-@import './typography/_copy.scss';
-@import './typography/_heading.scss';
-@import './typography/_list.scss';
-@import './typography/_quote.scss';
-@import './typography/_markup.scss';
+@import './typography/copy';
+@import './typography/heading';
+@import './typography/list';
+@import './typography/quote';
+@import './typography/markup';
 /* === INPUT === */
-@import './input/_link.scss';
-@import './input/_nav.scss';
-@import './input/_button.scss';
+@import './input/link';
+@import './input/nav';
+@import './input/button';
+@import './input/field';
 
 /* @tailwind base; */

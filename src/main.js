@@ -10,6 +10,7 @@ import Docs from "@views/Docs.vue";
 import Theme from "@views/docs/Theme.vue";
 import Color from "@views/docs/Color.vue";
 import Buttons from "@views/docs/Buttons.vue";
+import Fields from "@views/docs/Fields.vue";
 import Box from "@views/docs/Box.vue";
 
 const app = createApp(App);
@@ -25,6 +26,7 @@ const router = createRouter({
         { path: '/docs/theme', name: 'Theme', component: Theme},
         { path: '/docs/color', name: 'Color', component: Color},
         { path: '/docs/buttons', name: 'Buttons', component: Buttons},
+        { path: '/docs/fields', name: 'Fields', component: Fields},
         { path: '/docs/box', name: 'Box', component: Box},
     ]
 })

@@ -11,6 +11,7 @@ export default {
         { url: '/docs/theme', name: 'Theme'},
         { url: '/docs/color', name: 'Color'},
         { url: '/docs/buttons', name: 'Buttons'},
+        { url: '/docs/fields', name: 'Fields'},
         { url: '/docs/box', name: 'Box'}
       ]
     }

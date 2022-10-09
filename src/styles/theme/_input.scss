@@ -1,8 +1,8 @@
 
 body {
     --input-color: var(--theme-input);
-    --input-hover: rgb(64 128 255 / 0.2);
-    --input-active: var(--theme-input);
+    --input-hover: var(--theme-accent);
+    --input-active: var(--theme-secondary);
     --input-height-tall: 2.8em;
     --input-height: 2.2em;
     --input-height-thin: 1.6em;

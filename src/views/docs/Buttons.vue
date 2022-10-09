@@ -138,9 +138,10 @@ export default {
         id="section-button-dynamic"
         heading="Button Selector"
     >
-        <div class="flex mt-6 gap-4">
+        <div class="flex flex-wrap mt-6 gap-4">
             <div
                 class="flex-1"
+                style="min-width: 120px;"
                 v-for="types, name in buttonTypes"
             >
                 <label :for="`select-button-${name}`" class="meta" style="font-size: 0.7rem;">
@@ -161,7 +162,7 @@ export default {
             </div>
         </div>
 
-        <div class="flex gap-4 mt-2" v-for="types in buttonStates">
+        <div class="flex flex-wrap gap-4 mt-4" v-for="types in buttonStates">
             <label
                 class="flex items-center gap-2"
                 :for="`toggle-button-${button}`"
