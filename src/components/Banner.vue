@@ -18,7 +18,7 @@ export default {
             <h1 class="Heading Title">
                 {{ title }}
             </h1>
-            <p class="Copy" v-if="intro">
+            <p class="Copy mt-4" v-if="intro">
                 {{ intro }}
             </p>
         </div>

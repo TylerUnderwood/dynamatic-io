@@ -1,0 +1,19 @@
+ ///////////////////////
+// Clip
+
+@mixin clip( $top, $bottom ) {
+  &::before,
+  &::after {
+    display: block;
+    height: 0;
+    content: "";
+  }
+
+  &::before {
+    margin-top: $top;
+  }
+
+  &::after {
+    margin-bottom: $bottom;
+  }
+}
