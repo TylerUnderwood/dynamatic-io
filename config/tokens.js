@@ -1,5 +1,5 @@
 'use strict'
-import pluralize from 'pluralize';
+// import pluralize from 'pluralize';
 import theme from './theme.json';
 
 const themeTokensGenerator = ( theme ) => {

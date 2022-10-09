@@ -45,9 +45,3 @@ a {
     }
   }
 }
-
-.Meta {
-  @include f.clip(-0.18em, -0.25em);
-  line-height: 1.2;
-  font-family: var(--meta-font, monospace);
-}

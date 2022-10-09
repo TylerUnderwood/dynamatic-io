@@ -6,12 +6,14 @@
 |–––––––––––––––––––––––––
 */
 
+// Element
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   line-height: 1.2;
   font-size: inherit;
 }
 
+// Class
 .Heading,
 .Markup h1,
 .Markup h2,
@@ -26,10 +28,22 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   font-family: var(--heading-font);
   color: var(--theme-heading);
+}
 
+.Markup h1,
+.Markup h2,
+.Markup h3,
+.Markup h4,
+.Markup h5,
+.Markup h6 {
   &:not(:first-child) {
     margin-top: var(--break-size);
   }
+}
+
+.h-clip {
+  @include f.clip(-0.18em, -0.25em);
+  line-height: 1.2 !important;
 }
 
 .H1,

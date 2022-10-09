@@ -75,6 +75,7 @@
     "80": "4.0rem",
     "96": "4.8rem",
     "128": "6.4rem",
+    "break": "var(--break-size)",
     "DEFAULT": "1em",
     "rem": "1rem"
   }

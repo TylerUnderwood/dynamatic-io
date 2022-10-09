@@ -5,6 +5,7 @@
 |–––––––––––––––––––––––––
 */
 
+// Element
 li {
   line-height: 1.4;
   list-style: inherit;
@@ -22,6 +23,7 @@ ol {
   list-style: none;
 }
 
+// Class
 .List,
 .Markup ul,
 .Markup ol {
@@ -32,7 +34,7 @@ ol {
   gap: var(--list-gap);
   list-style: none;
   counter-reset: list;
-  --list-tab: 2.0rem;
+  --list-tab: var(--tab-size);
   --list-gap: 1.2rem;
   --marker-color: var(--theme-primary);
 
@@ -58,14 +60,19 @@ ol {
   margin: -0.3em 0 -0.35em;
   padding: 0;
   font-size: 1rem;
-  line-height: 1.4em;
+  line-height: 1.4;
   list-style: inherit;
+}
+
+.l-clip {
+  @include f.clip(-0.3em, -0.35em);
+  line-height: 1.4 !important;
 }
 
 .List > .List__item,
 .Markup ul > li,
 .Markup ol > li {
-  text-indent: var(--list-tab);
+  padding-left: var(--list-tab);
 
   &::before {
     display: block;
@@ -84,6 +91,7 @@ ol {
 .Markup ul > li {
   &::before {
     font-size: 1.3rem;
+    line-height: 1.4rem;
     content: "\2022";
   }
 }

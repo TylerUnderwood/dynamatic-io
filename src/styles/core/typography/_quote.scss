@@ -1,0 +1,60 @@
+@use '../../functions' as f;
+/*
+|–––––––––––––––––––––––––
+| Quotes
+|–––––––––––––––––––––––––
+*/
+
+// Element
+blockquote {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  font-size: 1.2rem;
+}
+
+cite {
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+// Class
+.Quote,
+.Markup blockquote {
+  margin: 0;
+  width: 100%;
+  max-width: var(--copy-max);
+  border-left: var(--quote-line) solid  var(--theme-primary);
+  border-radius: var(--quote-line);
+  padding: 0 0 0 calc(var(--tab-size) - var(--quote-line));
+  line-height: 1.4;
+  font-size: 1.2rem;
+  --quote-line: 4px;
+}
+
+.Markup blockquote {
+  &:not(:first-child) {
+    margin-top: var(--break-size);
+  }
+}
+
+.q-clip {
+  @include f.clip(-0.25em, -0.25em);
+  line-height: 1.4 !important;
+}
+
+.Cite,
+.Markup cite {
+  display: block;
+  margin: 0.2em 0 0;
+  max-width: var(--copy-max);
+  padding: 0;
+  text-align: right;
+  line-height: 1.2;
+  font-size: 0.8rem;
+
+  &:before {
+    padding: 0 0.5em 0 0;
+    content: '\2014';
+  }
+}

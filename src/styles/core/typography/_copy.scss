@@ -6,23 +6,36 @@
 |–––––––––––––––––––––––––
 */
 
+// Element
 p {
   margin: 0;
   line-height: 1.6;
   hyphens: none;
 }
 
+// Class
 .Copy,
 .Markup p {
-  @include f.clip(-0.3em, -0.45em);
   margin: 0;
   width: 100%;
   max-width: var(--copy-max);
   line-height: 1.6;
   hyphens: none;
   color: var(--theme-copy);
+}
 
+.Markup p {
   &:not(:first-child) {
     margin-top: var(--break-size);
   }
+}
+
+.Rhythm > p:first-child {
+  text-indent: var(--tab-size);
+}
+
+.Rhythm > p,
+.p-clip {
+  @include f.clip(-0.3em, -0.45em);
+  line-height: 1.6 !important;
 }
