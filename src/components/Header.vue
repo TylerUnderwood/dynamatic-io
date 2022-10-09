@@ -5,6 +5,7 @@ export default {
       nav: [
         { url: '/', name: 'Home'},
         { url: '/about', name: 'About'},
+        { url: '/color', name: 'Color'},
         { url: '/theme', name: 'Theme'}
       ]
     }

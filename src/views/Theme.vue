@@ -31,10 +31,12 @@ import Section from "../components/Section.vue";
 import tokens from '@config/tokens';
 
 export default {
-  data() { return {
-    theme,
-    tokens,
-  }},
+  data() {
+    return {
+      theme,
+      tokens
+    }
+  }
 }
 </script>
 

@@ -4,6 +4,7 @@ import { createPinia } from "pinia";
 import App from "./App.vue";
 import Home from "@views/Home.vue"
 import About from "@views/About.vue"
+import Color from "@views/Color.vue"
 import Theme from "@views/Theme.vue"
 
 const app = createApp(App);
@@ -13,6 +14,7 @@ const router = createRouter({
     routes:  [
         { path: '/', name: 'Home', component: Home},
         { path: '/about', name: 'About', component: About},
+        { path: '/color', name: 'Color', component: Color},
         { path: '/theme', name: 'Theme', component: Theme}
     ]
 })

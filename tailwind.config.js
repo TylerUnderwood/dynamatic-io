@@ -37,8 +37,8 @@ module.exports = {
         face: 'var(--theme-face)',
         body: 'var(--theme-body)',
         input: 'var(--theme-input)',
-        hover: 'var(--theme-hover)',
-        active: 'var(--theme-active)',
+        marker: 'var(--theme-marker)',
+        muted: 'var(--theme-muted)',
       }
     }
   },
