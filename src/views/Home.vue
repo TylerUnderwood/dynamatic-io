@@ -6,27 +6,32 @@ import Section from "@/components/Section.vue";
 <template>
     <Banner title="Home" intro="Welcome to Dynamatic" />
     <Section
-        id="section-one"
-        heading="Section One"
+        id="section-lists"
+        heading="Section Lists"
     >
-        <p>In pellentesque libero pulvinar tincidunt tempor. Sed elementum tempus eros, quis sollicitudin diam ultrices et. Aliquam posuere eros erat. Duis pharetra vehicula ligula, eu lacinia sapien ornare sed. Cras id sem sit amet nulla vehicula vehicula ac eu augue.</p>
-        <h3 class="Heading H3">
-            Heading Three
-        </h3>
-        <h4 class="Heading H4">
-            Heading Four
-        </h4>
-        <h5 class="Heading H5">
-            Heading Five
-        </h5>
-        <h6 class="Heading H6">
-            Heading Six
-        </h6>
+        <ul class="List List--bullet">
+            <li class="List__item" v-for="index in 3" :key="index">List item {{ index }}</li>
+        </ul>
+        <ol class="List List--numbered">
+            <li class="List__item" v-for="index in 3" :key="index">List item {{ index }}</li>
+        </ol>
     </Section>
     <Section
-        id="section-two"
-        heading="Section Two"
+        id="section-copy"
+        heading="Section Copy"
+        class="Markup"
     >
-        <p>In pellentesque libero pulvinar tincidunt tempor. Sed elementum tempus eros, quis sollicitudin diam ultrices et. Aliquam posuere eros erat. Duis pharetra vehicula ligula, eu lacinia sapien ornare sed. Cras id sem sit amet nulla vehicula vehicula ac eu augue.</p>
+        <p>In pellentesque libero pulvinar tincidunt tempor. Sed elementum tempus eros, quis sollicitudin diam ultrices et.</p>
+        <p>Aliquam posuere eros erat. Duis pharetra vehicula ligula, eu lacinia sapien ornare sed. Cras id sem sit amet nulla vehicula vehicula ac eu augue.</p>
+    </Section>
+    <Section
+        id="section-headings"
+        heading="Section Headings"
+        class="Markup"
+    >
+        <h3>Heading Three</h3>
+        <h4>Heading Four</h4>
+        <h5>Heading Five</h5>
+        <h6>Heading Six</h6>
     </Section>
 </template>

@@ -20,15 +20,15 @@ h1, h2, h3, h4, h5, h6 {
 .Markup h5,
 .Markup h6 {
   @include f.clip(-0.18em, -0.25em);
-  margin: 1em 0 0;
+  margin: 0;
   line-height: 1.2;
-  font-size: inherit;
+  font-size: 1.6rem;
   font-weight: 700;
   font-family: var(--heading-font);
   color: var(--theme-heading);
 
-  &:first-child {
-    margin-top: 0;
+  &:not(:first-child) {
+    margin-top: var(--break-size);
   }
 }
 

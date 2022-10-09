@@ -1,7 +1,11 @@
+/* === TEMPLATE === */
 @import './template/_site.scss';
 @import './template/_section.scss';
+/* === TYPOGRAPHY === */
 @import './typography/_copy.scss';
 @import './typography/_heading.scss';
+@import './typography/_list.scss';
+/* === INPUT === */
 @import './input/_link.scss';
 
 /* @tailwind base; */
