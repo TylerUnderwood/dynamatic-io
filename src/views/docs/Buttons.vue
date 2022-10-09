@@ -7,11 +7,12 @@ const buttons = {
         "default",
         "secondary",
         "tertiary",
-        "stealth",
     ],
     state: [
+        "stealth",
         "active",
         "hover",
+        "focus",
         "disabled",
     ],
     size: [
@@ -21,11 +22,12 @@ const buttons = {
         "tiny",
     ],
     shape: [
-        "stout",
-        "square",
+        "simple",
         "full",
+        "square",
     ],
     scheme: [
+        "success",
         "warn",
         "error",
     ],
@@ -71,16 +73,34 @@ export default {
                     }
                 }
             })
+        },
+
+        toggleAttr: (toggle, element) => {
+            const toggleAttr = () => {
+                if (toggle.checked) {
+                    element.setAttribute(toggle.value, "");
+                } else {
+                    element.removeAttribute(toggle.value);
+                }
+            }
+
+            toggle.addEventListener('change', toggleAttr, false);
+
+            toggleAttr();
         }
     },
 
     mounted() {
         const selectors = document.querySelectorAll("[id*=select-button-]");
+        const toggles = document.querySelectorAll("[id*=toggle-button-]");
         const button = document.querySelector("#dynamic-button");
 
         selectors.forEach( (selector) => {
-            // this.selectClass(selector, button);
             this.selectDataset(selector, button);
+        });
+
+        toggles.forEach( (toggle) => {
+            this.toggleAttr(toggle, button);
         });
     }
 }
@@ -94,7 +114,11 @@ export default {
         heading="Button Selector"
     >
         <div class="flex mt-6 gap-4">
-            <div v-for="types, name in buttons" class="flex-1">
+        <template v-for="types, name in buttons">
+            <div
+                class="flex-1"
+                v-if="name !== 'state'"
+            >
                 <label :for="`select-button-${name}`" class="meta" style="font-size: 0.7rem;">
                     {{ name }}
                 </label>
@@ -111,7 +135,28 @@ export default {
                     </option>
                 </select>
             </div>
+        </template>
         </div>
+
+        <template v-for="types, name in buttons">
+            <div class="flex gap-4 mt-2" v-if="name === 'state'">
+                <label
+                    class="flex items-center gap-2"
+                    :for="`toggle-button-${button}`"
+                    v-for="button in types"
+                >
+                    <span  class="order-2 meta" style="font-size: 0.7rem;">
+                        {{ button }}
+                    </span>
+                    <input
+                        :id="`toggle-button-${button}`"
+                        :name="button"
+                        :value="button"
+                        type="checkbox"
+                    />
+                </label>
+            </div>
+        </template>
 
         <div class="flex justify-center items-center p-4 mt-6 border-2" style="min-height: 240px;">
             <button id="dynamic-button" class="button">

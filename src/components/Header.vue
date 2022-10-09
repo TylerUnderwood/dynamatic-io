@@ -20,7 +20,7 @@ export default {
       </router-link>
     </div>
 
-    <div class="ml-auto"></div>
+    <div class="spacer ml-auto"></div>
 
     <nav class="Nav">
       <ul class="Nav__list">
@@ -32,10 +32,10 @@ export default {
       </ul>
     </nav>
 
-    <div class="pl-5"></div>
+    <div class="spacer"></div>
 
     <router-link to="/docs">
-      <div class="button" data-shape="stout">
+      <div class="button" data-shape="simple">
         <span class="button__text meta">Docs</span>
       </div>
     </router-link>

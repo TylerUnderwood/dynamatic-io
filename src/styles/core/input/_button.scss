@@ -50,36 +50,47 @@ button {
   text-decoration: none;
   font-size: inherit;
   color: var(--button-face);
-  transition-property: border-color, background-color, color;
+  transition-property: border-color, background-color, color, opacity;
   transition-duration: var(--button-timing);
   transition-timing-function: var(--button-easing);
   user-select: none;
   cursor: pointer;
 
-  // :active first so :hover overrides it
-  &:active,
+  // [stealth] first so :hover overrides it
+  &[stealth] {
+    border-color: transparent;
+    background-color: transparent;
+    color: inherit;
+  }
+
+  // [active] should override [stealth]
   &[active] {
     border-color: transparent;
     background-color: var(--button-active);
     color: var(--button-face);
   }
 
-  &:focus,
-  &:hover,
-  &[hover] {
+  // :hover should override [active]
+  &[hover],
+  &:hover {
     outline: none;
     border-color: transparent;
     background-color: var(--button-hover);
     color: var(--button-face);
   }
 
+  // :focus should override :hover
+  &[focus],
   &:focus-visible {
     outline: 2px solid var(--input-color);
     outline-offset: 2px;
   }
 
-  // [disabled] last so it overrides all
+  // [disabled] should override all
   &[disabled] {
+    border-color: transparent;
+    background-color: var(--button-color);
+    color: var(--button-face);
     opacity: 0.5;
     cursor: not-allowed;
   }
@@ -98,12 +109,24 @@ button {
 
   // === button types === //
 
+  // = primary button = //
+  &--primary,
+  &[data-type="primary"] {
+    visibility: visible;
+  }
+
   // = secondary button = //
   &--secondary,
   &[data-type="secondary"] {
     border-color: var(--button-color);
-    background: transparent;
+    background-color: transparent;
     color: var(--button-color);
+
+    &[stealth] {
+      border-color: transparent;
+      background-color: transparent;
+      color: inherit;
+    }
 
     &[active] {
       border-color: var(--button-active);
@@ -111,8 +134,8 @@ button {
       color: var(--button-active);
     }
 
-    &:hover,
-    &:focus {
+    &[hover],
+    &:hover {
       border-color: var(--button-hover);
       background-color: transparent;
       color: var(--button-hover);
@@ -124,32 +147,41 @@ button {
       color: var(--button-color);
     }
 
-    &[stealth] {
-      &:hover,
-      &:focus {
-        border-color: var(--button-color);
-        background-color: transparent;
-        color: var(--button-color);
-      }
-    }
-
     #{$self}__text {
       font-size: 0.7em;
     }
   }
 
-  // = stealth button = //
-  &--stealth,
-  &[data-type="stealth"] {
+  // = tertiary button = //
+  &--tertiary,
+  &[data-type="tertiary"] {
     border-color: transparent;
     background-color: transparent;
-    color: inherit;
+    color: var(--button-color);
 
-    &:hover,
-    &:focus {
+    &[stealth] {
       border-color: transparent;
-      background-color: var(--button-color);
-      color: var(--button-face);
+      background-color: transparent;
+      color: inherit;
+    }
+
+    &[active] {
+      border-color: transparent;
+      background-color: transparent;
+      color: var(--button-active);
+    }
+
+    &[hover],
+    &:hover {
+      border-color: transparent;
+      background-color: transparent;
+      color: var(--button-hover);
+
+      &[disabled] {
+        border-color: transparent;
+        background-color: transparent;
+        color: var(--button-color);
+      }
     }
   }
 
@@ -160,6 +192,7 @@ button {
   &--tall,
   &[data-size="tall"] {
     min-width: 12em;
+    height: var(--button-height);
     border-width: 3px;
     padding: 0 2.4em;
     font-weight: 700;
@@ -184,6 +217,7 @@ button {
   &--thin,
   &[data-size="thin"] {
     min-width: 6em;
+    height: var(--button-height);
     border-width: 1px;
     padding: 0 1.2em;
     font-weight: 300;
@@ -209,7 +243,7 @@ button {
   &[data-size="tiny"] {
     min-width: unset;
     border-width: 1px;
-    padding: 0 0.3em;
+    padding: 0.2em 0.3em;
     font-weight: 300;
     --button-height: 1.2em;
 
@@ -224,23 +258,22 @@ button {
   }
 
 
-  // === button size === //
+  // === button shape === //
 
-  // = stout button = //
-  &--stout,
-  &[data-shape="stout"] {
+  // = simple button = //
+  &--simple,
+  &[data-shape="simple"] {
     min-width: unset;
-    padding-right: 0.8em;
-    padding-left: 0.8em;
+    height: fit-content;
+    padding: 0.5em;
   }
-
 
   // = square button = //
   &--square,
   &[data-shape="square"] {
     min-width: unset;
     width: var(--button-height);
-    height: var(--button-height);
+    height: var(--button-height);;
     padding: 0;
   }
 
@@ -273,19 +306,28 @@ button {
 
   // === button scheme === //
 
+  // = success button = //
+  &--success,
+  &[data-scheme="success"] {
+    --button-color:       #00aa22;
+    --button-hover:       #00aa22;
+    --button-active:      #00aa22;
+  }
+
   // = warn button = //
   &--warn,
   &[data-scheme="warn"] {
-    --button-color:       #ffdd00;
-    --button-hover:       #ffff44;
-    --button-active:      #ffcc00;
+    --button-color:       hsl(52, 100%, 50%);
+    --button-hover:       hsl(52, 100%, 70%);
+    --button-active:      hsl(48, 100%, 48%);
+    --button-face:       var(--theme-body);
   }
 
   // = error button = //
   &--error,
   &[data-scheme="error"] {
-    --button-color:       #ff2200;
-    --button-hover:       #ff4422;
-    --button-active:      #dd2200;
+    --button-color:       hsl(8, 100%, 50%);
+    --button-hover:       hsl(8, 100%, 70%);
+    --button-active:      hsl(4, 100%, 40%);
   }
 }
