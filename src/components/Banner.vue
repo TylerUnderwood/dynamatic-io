@@ -12,10 +12,11 @@ export default {
         id="banner"
         class="Banner"
         role="banner"
+        aria-labelledby="title"
         data-theme="dark"
     >
         <div class="wrapper">
-            <h1 class="Heading h1 Title">
+            <h1 id="title" class="Heading h1 Title">
                 {{ title }}
             </h1>
             <p class="Copy mt-4" v-if="intro">

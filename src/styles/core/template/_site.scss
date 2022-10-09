@@ -42,6 +42,12 @@ body {
   accent-color: var(--theme-input);
 }
 
+[class*=border] {
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--theme-contrast);
+}
+
 /* this will, at the least, fill the viewport and gives the template structure */
 #app {
   display: flex;
