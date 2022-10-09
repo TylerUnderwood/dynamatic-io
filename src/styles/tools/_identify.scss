@@ -1,8 +1,20 @@
+[identify] {
+    --identify-border-width: 3px;
+    --identify-color: rgb(0 64 128 / 0.3);
+    --identify-font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    [identify] {
+        --identify-border-width: 2px;
+        --identify-font-size: 14px;
+    }
+}
 
 [identify] [identify-item] {
     position: relative;
-    outline: 3px solid rgb(0 64 128 / 0.3);
-    outline-offset: -3px;
+    outline: var(--identify-border-width) solid var(--identify-color);
+    outline-offset: calc(var(--identify-border-width) * -1);
     counter-increment: identify-box;
 }
 
@@ -13,30 +25,18 @@
     bottom: 100%;
     left: 0;
     display: block;
-    background-color: rgb(0 64 128 / 0.3);
-    padding: 3px 3px 0;
-    font-size: 16px;
+    background-color: var(--identify-color);
+    padding: var(--identify-border-width);
+    white-space: nowrap;
+    text-shadow: 1px 1px 1px var(--identify-color);
+    font-size: var(--identify-font-size);
     color: white;
     content: "Box " counter(identify-box);
 }
 
-[identify] [identify-item="left"]::before {
-    top: 0;
-    right: 100%;
+[identify] [identify-item="right"]::before {
+    top: var(--identify-border-width);
+    right: var(--identify-border-width);
     bottom: unset;
     left: unset;
-}
-
-[identify] .Section[identify-item] {
-    counter-increment: identify-section;
-}
-[identify] .Section[identify-item]::before {
-    content: "Section " counter(identify-section);
-}
-
-[identify] .wrapper[identify-item] {
-    counter-increment: identify-wrapper;
-}
-[identify] .wrapper[identify-item]::before {
-    content: "Wrapper " counter(identify-wrapper);
 }
