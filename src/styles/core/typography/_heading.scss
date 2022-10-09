@@ -1,4 +1,66 @@
+/*
+|–––––––––––––––––––––––––
+| Headings
+|–––––––––––––––––––––––––
+*/
+
+// elements
 h1, h2, h3, h4, h5, h6 {
-    font-family: var(--theme-heading-font);
-    color: var(--theme-heading);
+  margin: 0;
+  line-height: 1.2;
+  font-size: inherit;
+}
+
+// class
+.Heading,
+.Markup h1,
+.Markup h2,
+.Markup h3,
+.Markup h4,
+.Markup h5,
+.Markup h6 {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  line-height: 1.2;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: var(--heading-font);
+  color: var(--theme-heading);
+}
+
+.H1,
+.Markup h1 {
+  font-size: 3.6rem;
+  color: var(--theme-heading);
+}
+
+.H2,
+.Markup h2 {
+  font-size: 2.4rem;
+  color: var(--theme-heading);
+}
+
+.H3,
+.Markup h3 {
+  font-size: 2.0rem;
+  color: var(--theme-heading);
+}
+
+.H4,
+.Markup h4 {
+  font-size: 1.6rem;
+  color: var(--theme-heading);
+}
+
+.H5,
+.Markup h5 {
+  font-size: 1.6rem;
+  color: var(--theme-primary);
+}
+
+.H6,
+.Markup h6 {
+  font-size: 1.6rem;
+  color: var(--copy-color);
 }

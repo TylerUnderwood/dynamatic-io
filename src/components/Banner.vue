@@ -1,15 +1,33 @@
+<script>
+export default {
+  props: [
+    'title',
+    'intro'
+  ]
+}
+</script>
+
 <template>
     <section
         id="banner"
-        class="banner p-6"
+        class="Banner"
         role="banner"
-        style="background-color: var(--theme-secondary)"
         data-theme="dark"
     >
         <div class="wrapper">
             <h1 class="Heading Title">
-                <slot/>
+                {{ title }}
             </h1>
+            <p class="Copy" v-if="intro">
+                {{ intro }}
+            </p>
         </div>
     </section>
 </template>
+
+<style>
+    .Banner {
+        padding: var(--section-space-x) var(--section-space-x);
+        background-color: var(--theme-secondary)
+    }
+</style>

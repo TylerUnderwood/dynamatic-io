@@ -3,7 +3,5 @@ import Banner from "@/components/Banner.vue";
 </script>
 
 <template>
-    <Banner>
-        About
-    </Banner>
+    <Banner title="About"/>
 </template>
