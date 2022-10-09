@@ -1,6 +1,6 @@
 @import "./theme/index.css";
 
-@import "./base/index.css";
+@import "./core/index.css";
 
 @import "./components/index.css";
 

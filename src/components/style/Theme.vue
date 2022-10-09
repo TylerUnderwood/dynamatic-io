@@ -2,7 +2,7 @@
   <div id="themeSettings">
     <details open>
       <summary><h2 class="m-2">Theme Vars</h2></summary>
-      <details v-for="category, cline in tokens" open>
+      <details v-for="category, cline in tokens" :open="/^color/.test(cline) ? true : null">
         <summary><h3 class="m-2">{{ cline }}</h3></summary>
         <code v-for="token, name in category" class="block mt-2">
           <span>{{ name }}: </span>
@@ -44,7 +44,7 @@ export default {
     buildCssVars( themeTokens ) {
       let themeStyles = '';
       for ( const category in themeTokens ) { themeStyles +=
-`@layer theme.${category} {
+`@layer theme {
   :root {
     ${this.tokenList( themeTokens[category] )}
   }
@@ -70,7 +70,7 @@ export default {
 @import "@styles/theme/index.css";
 </style>
 <style lang="scss">
-@import "@styles/base/index.scss";
+@import "@styles/core/index.scss";
 </style>
 <style>
 @import "@styles/components/index.css";
