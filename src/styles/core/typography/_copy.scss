@@ -1,6 +1,26 @@
+/*
+|–––––––––––––––––––––––––
+| Copy
+|–––––––––––––––––––––––––
+*/
+
 p {
-    line-height: 1.6;
-    font-weight: normal;
-    font-family: var(--theme-font);
-    color: var(--theme-copy);
+  margin: 0;
+  line-height: 1.6;
+  hyphens: none;
+}
+
+.copy,
+.Markup p {
+  display: block;
+  margin: 1.6rem 0 0;
+  width: 100%;
+  max-width: var(--copy-max);
+  line-height: 1.6;
+  hyphens: none;
+  color: var(--theme-copy);
+
+  &:first-child {
+    margin-top: 0;
+  }
 }

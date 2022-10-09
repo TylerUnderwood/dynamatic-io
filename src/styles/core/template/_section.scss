@@ -1,0 +1,30 @@
+
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: var(--page-max);
+}
+
+.gutter {
+    padding-left: var(--section-space-x);
+    padding-right: var(--section-space-x);
+}
+
+.padding {
+    padding-top: var(--section-space-y);
+    padding-bottom: var(--section-space-y);
+}
+
+.buffer {
+    margin-left: var(--section-space-x);
+    margin-right: var(--section-space-x);
+}
+
+.margins {
+    margin-top: var(--section-space-y);
+    margin-bottom: var(--section-space-y);
+}
+
+
