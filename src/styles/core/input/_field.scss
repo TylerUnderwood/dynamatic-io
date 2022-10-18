@@ -1,3 +1,10 @@
+
+
+body {
+    --field-pad: 0.8em;
+    --placeholder-opacity: 0.3;
+}
+
 /*
 |–––––––––––––––––––––––––
 | Form
@@ -46,8 +53,8 @@ textarea,
 select {
     border: 1px solid currentColor;
     background-color: transparent;
-    display: 1 0 auto;
-    max-width: 100%;
+    flex: 1 0 auto;
+    width: 100%;
     vertical-align: middle;
     line-height: 1.6;
     font-size: inherit;
@@ -69,10 +76,10 @@ input {
 
     &::placeholder {
         color: inherit;
-        opacity: 0.2;
+        opacity: 0.3;
     }
 
-    &[type="number"] {
+    &[type="number"][basic] {
         -moz-appearance: textfield;
 
         &::-webkit-outer-spin-button,
@@ -85,8 +92,6 @@ input {
     &[type="color"] {
         display: inline-block;
         padding: 1px;
-        width: 1.6em;
-        height: 1.6em;
         cursor: pointer;
     }
 
@@ -122,9 +127,10 @@ input {
     }
 }
 
-.input {
+
+.field {
     $self: &;
-    display: block;
+    display: flex;
     flex: 1 0 auto;
     margin: 0;
     outline: none;
@@ -134,7 +140,7 @@ input {
     border-color: var(--theme-contrast);
     border-radius: var(--input-round);
     background-color: var(--theme-offset);
-    max-width: 100%;
+    width: 100%;
     height: var(--input-height);
     padding: 0 0.8em;
     line-height: 1;
@@ -145,66 +151,63 @@ input {
     transition-duration: var(--input-timing);
     transition-timing-function: var(--input-easing);
 
-  &::placeholder {
-    opacity: 0.3;
-    color: inherit;
-  }
+    &::placeholder {
+        opacity: 0.3;
+        color: inherit;
+    }
 
-  &:focus,
-  &:active,
-  &[filled] {
-    border-color: var(--input-color);
-    background-color: var(--theme-offset);
-  }
+    &:focus,
+    &:active,
+    &[filled] {
+        border-color: var(--input-color);
+        background-color: var(--theme-offset);
+    }
 
-  &[readonly] {
-    border-color: var(--theme-contrast) !important;
-    background-color: var(--theme-offset) !important;
-  }
+    &[readonly] {
+        border-color: var(--theme-contrast) !important;
+        background-color: var(--theme-offset) !important;
+    }
+}
 
-  &[stealth] {
+.field[stealth] {
+    margin: -0.5em 0;
     border-color: transparent;
     background-color: transparent;
-    transition-property: border-color, background-color, color, opacity, padding;
+    transition-property: border-color, background-color, color, padding, translate;
 
     &::placeholder {
-      opacity: 1;
+        opacity: 1;
     }
 
     &:not(:focus) {
-      border-left: 0;
-      padding-left: 0;
+        padding-left: 0;
     }
 
     &:focus,
     &:active {
-      border-color: var(--input-color);
-      background-color: var(--theme-offset);
+        border-color: var(--input-color);
+        background-color: var(--theme-offset);
 
-      &::placeholder {
-        opacity: 0.3;
-      }
+        &::placeholder {
+            opacity: 0.3;
+        }
     }
 
     &[readonly] {
-      border-color: transparent !important;
-      background-color: transparent !important;
+        border-color: transparent !important;
+        background-color: transparent !important;
 
-      &::placeholder {
-        opacity: 1 !important;
-      }
+        &::placeholder {
+            opacity: 1 !important;
+        }
     }
-  }
+}
 
-  &--tall {
-    border-width: 2px;
-    height: var(--input-height-tall);
-  }
 
-  &--thin {
+/* === Field Thin === */
+.field--thin {
     border-width: 1px;
     height: var(--input-height-thin);
-  }
 }
 
 
@@ -215,21 +218,21 @@ input {
 */
 
 textarea {
-  display: block;
-  max-width: 100%;
-  height: 8em;
-  padding: 0.2em 0.8em;
-  resize: vertical;
-  cursor: text;
+    display: block;
+    max-width: 100%;
+    height: 8em;
+    padding: 0.2em 0.8em;
+    resize: vertical;
+    cursor: text;
 }
 
 .textarea {
-  max-width: 100%;
-  height: 12em;
-  resize: vertical;
-  padding-top: 0.4em;
-  padding-bottom: 0.4em;
-  line-height: 1.4;
+    max-width: 100%;
+    height: 12em;
+    resize: vertical;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    line-height: 1.4;
 }
 
 
@@ -240,30 +243,30 @@ textarea {
 */
 
 fieldset {
-  display: block;
-  margin: 0;
-  padding: 0.5em 1em;
+    display: block;
+    margin: 0;
+    padding: 0.5em 1em;
 }
 
 .fieldset {
-  display: block;
-  border-width: 2px;
-  border-style: solid;
-  border-color: var(--theme-contrast);
-  border-radius: var(--input-round);
-  background-color: var(--theme-offset);
+    display: block;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--theme-contrast);
+    border-radius: var(--input-round);
+    background-color: var(--theme-offset);
 }
 
 legend {
-  padding: 0 0.4em;
-  margin: 0 -0.4em;
-  line-height: 1;
+    padding: 0 0.4em;
+    margin: 0 -0.4em;
+    line-height: 1;
 }
 
 .legend {
-  padding: 0 0.4em;
-  margin: 0 -0.4em;
-  line-height: 1;
+    padding: 0 0.4em;
+    margin: 0 -0.4em;
+    line-height: 1;
 }
 
 
@@ -274,14 +277,22 @@ legend {
 */
 
 select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 0.8em;
+    cursor: pointer;
 }
 
 option {
-  background-color: initial;
-  padding: 0;
-  color: initial;
+    background-color: initial;
+    padding: 0;
+    color: initial;
 }
+
+
+
+
+
+
+
