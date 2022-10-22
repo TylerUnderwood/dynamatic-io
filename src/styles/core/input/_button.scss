@@ -80,7 +80,7 @@ button {
   }
 
   // :focus should override :hover
-  &[focus],
+  &[focus-v],
   &:focus-visible {
     outline: 2px solid var(--input-color);
     outline-offset: 2px;
@@ -188,15 +188,15 @@ button {
 
   // === button size === //
 
-  // = tall button = //
-  &--tall,
-  &[data-size="tall"] {
+  // = large button = //
+  &--large,
+  &[data-size="large"] {
     min-width: 12em;
     height: var(--button-height);
     border-width: 3px;
     padding: 0 2.4em;
     font-weight: 700;
-    --button-height: var(--input-height-tall);
+    --button-height: var(--input-height-large);
 
     #{$self}__text {
       font-weight: 700;
@@ -213,15 +213,15 @@ button {
     }
   }
 
-  // = thin button = //
-  &--thin,
-  &[data-size="thin"] {
+  // = small button = //
+  &--small,
+  &[data-size="small"] {
     min-width: 6em;
     height: var(--button-height);
     border-width: 1px;
     padding: 0 1.2em;
     font-weight: 300;
-    --button-height: var(--input-height-thin);
+    --button-height: var(--input-height-small);
 
     #{$self}__text {
       font-weight: 300;
@@ -260,9 +260,17 @@ button {
 
   // === button shape === //
 
+  // = stout button = //
+  &--stout,
+  &[data-shape="stout"] {
+    min-width: unset;
+    padding: 0 0.8em;
+  }
+
   // = simple button = //
   &--simple,
   &[data-shape="simple"] {
+    border: none;
     min-width: unset;
     height: fit-content;
     padding: 0.5em;

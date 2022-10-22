@@ -47,11 +47,12 @@ label[for] {
 |–––––––––––––––––––––––––
 */
 
-fieldset,
 input,
-textarea,
-select {
+select,
+fieldset,
+textarea {
     border: 1px solid currentColor;
+    border-radius: 1px;
     background-color: transparent;
     flex: 1 0 auto;
     width: 100%;
@@ -73,58 +74,58 @@ input {
     margin: 0;
     padding: 0 0.8em;
     cursor: text;
+}
 
-    &::placeholder {
-        color: inherit;
-        opacity: 0.3;
+input::placeholder {
+    color: inherit;
+    opacity: 0.3;
+}
+
+input[readonly] {
+    cursor: default !important;
+}
+
+input[type="number"][basic] {
+    -moz-appearance: textfield;
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
+}
 
-    &[type="number"][basic] {
-        -moz-appearance: textfield;
+input[type="color"] {
+    display: inline-block;
+    padding: 1px;
+    cursor: pointer;
+}
 
-        &::-webkit-outer-spin-button,
-        &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-    }
+input[type="checkbox"] {
+    display: inline-block;
+    width: unset;
+    vertical-align: middle;
+    cursor: pointer;
+}
 
-    &[type="color"] {
-        display: inline-block;
-        padding: 1px;
-        cursor: pointer;
-    }
+input[type="radio"] {
+    display: inline-block;
+    width: unset;
+    vertical-align: middle;
+    cursor: pointer;
+}
 
-    &[type="checkbox"] {
-        display: inline-block;
-        width: unset;
-        vertical-align: middle;
-        cursor: pointer;
-    }
+input[type="range"] {
+    display: inline-block;
+    padding: 0;
+    cursor: pointer;
+}
 
-    &[type="radio"] {
-        display: inline-block;
-        width: unset;
-        vertical-align: middle;
-        cursor: pointer;
-    }
-
-    &[type="range"] {
-        display: inline-block;
-        padding: 0;
-        cursor: pointer;
-    }
-
-    &[type="file"] {
-        display: block;
-        padding: 0;
-        border: none;
-        cursor: pointer;
-    }
-
-    &[readonly] {
-        cursor: default !important;
-    }
+input[type="file"] {
+    display: block;
+    padding: 0;
+    border: none;
+    cursor: pointer;
 }
 
 
@@ -203,11 +204,16 @@ input {
     }
 }
 
-
-/* === Field Thin === */
-.field--thin {
+/* === Field large === */
+.field--large {
     border-width: 1px;
-    height: var(--input-height-thin);
+    height: var(--input-height-large);
+}
+
+/* === Field small === */
+.field--small {
+    border-width: 1px;
+    height: var(--input-height-small);
 }
 
 

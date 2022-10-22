@@ -12,7 +12,7 @@ const buttonTree = {
         "stealth",
         "active",
         "hover",
-        "focus",
+        "focus-v",
         "disabled",
     ],
     size: [
@@ -22,9 +22,10 @@ const buttonTree = {
         "tiny",
     ],
     shape: [
+        "stout",
+        "square",
         "simple",
         "full",
-        "square",
     ],
     scheme: [
         "success",
@@ -199,10 +200,10 @@ export default {
             <button
                 v-for="button in types"
                 class="button"
-                :data-type="( name === 'type' ) ? button : null"
-                :data-size="( name === 'size' ) ? button : null"
-                :data-shape="( name === 'shape' ) ? button : null"
-                :data-scheme="( name === 'scheme' ) ? button : null"
+                :data-type="name === 'type' ? button : null"
+                :data-size="name === 'size' ? button : null"
+                :data-shape="name === 'shape' ? button : null"
+                :data-scheme="name === 'scheme' ? button : null"
                 :[button]="name === 'state' ? '' : null"
             >
                 <span class="button__text meta">
