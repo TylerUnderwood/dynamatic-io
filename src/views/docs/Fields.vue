@@ -42,8 +42,8 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
     <Banner title="Fields"/>
 
     <Section
-        id="section-fields"
-        heading="Section Fields"
+        id="section-inputs"
+        heading="Inputs"
     >
         <br class="break"/>
 
@@ -53,56 +53,55 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
 
             <br class="break"/>
 
-            <fieldset>
-                <legend>Select</legend>
-                <select name="select">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </select>
-                <br class="break"/>
-                <input
-                    placeholder="datalist"
-                    name="datalist"
-                    label="datalist"
-                    type="text"
-                    list="datalist"
-                />
-                <datalist id="datalist" name="datalist">
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                    <option value="option4">Option 4</option>
-                </datalist>
-            </fieldset>
+            <select name="select">
+                <option value="option-1">Option 1</option>
+                <option value="option-2">Option 2</option>
+                <option value="option-3">Option 3</option>
+                <option value="option-4">Option 4</option>
+            </select>
+
+            <br class="break"/>
+
+            <input
+                type="text"
+                name="datalist"
+                placeholder="datalist"
+                list="datalist"
+            />
+            <datalist id="datalist" name="datalist">
+                <option value="option-1">Option 1</option>
+                <option value="option-2">Option 2</option>
+                <option value="option-3">Option 3</option>
+                <option value="option-4">Option 4</option>
+                <option value="option-5">Option 5</option>
+            </datalist>
 
             <br class="break"/>
 
             <fieldset>
                 <legend>Checkbox</legend>
-                <label for="checkbox1">
+                <label for="checkbox-1">
                     <input
-                        id="checkbox1"
+                        id="checkbox-1"
                         name="checkbox"
                         label="checkbox 1"
                         type="checkbox"
                         checked />
                     <span class="ml-4">Checkbox 1</span>
                 </label>
-                <br class="break size-xs"/>
-                <label for="checkbox2">
+                <br class="break"/>
+                <label for="checkbox-2">
                     <input
-                        id="checkbox2"
+                        id="checkbox-2"
                         name="checkbox"
                         label="checkbox 2"
                         type="checkbox" />
                     <span class="ml-4">Checkbox 2</span>
                 </label>
-                <br class="break size-xs"/>
-                <label for="checkbox3">
+                <br class="break"/>
+                <label for="checkbox-3">
                     <input
-                        id="checkbox3"
+                        id="checkbox-3"
                         name="checkbox"
                         label="checkbox 3"
                         type="checkbox" />
@@ -114,28 +113,28 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
 
             <fieldset>
                 <legend>Radio</legend>
-                <label for="radio1">
+                <label for="radio-1">
                     <input
-                        id="radio1"
+                        id="radio-1"
                         name="radio"
                         label="Radio 1"
                         type="radio"
                         checked />
                     <span class="ml-4">Radio 1</span>
                 </label>
-                <br class="break size-xs"/>
-                <label for="radio2">
+                <br class="break"/>
+                <label for="radio-2">
                     <input
-                        id="radio2"
+                        id="radio-2"
                         name="radio"
                         label="Radio 2"
                         type="radio" />
                     <span class="ml-4">Radio 2</span>
                 </label>
-                <br class="break size-xs"/>
-                <label for="radio3">
+                <br class="break"/>
+                <label for="radio-3">
                     <input
-                        id="radio3"
+                        id="radio-3"
                         name="radio"
                         label="Radio 3"
                         type="radio" />
@@ -145,34 +144,18 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
 
             <br class="break"/>
 
-            <input
-                type="range"
-                name="range"
-                label="Range"
-            />
+            <input type="range" name="range" label="Range" />
+            <br class="break"/>
+
+            <input name="file" type="file" />
 
             <br class="break"/>
 
-            <input
-                name="file"
-                type="file"
-            />
+            <input name="image" type="image" />
 
             <br class="break"/>
 
-            <input
-                name="image"
-                type="image"
-            />
-
-            <br class="break"/>
-
-            <input
-                name="color"
-                label="color"
-                type="color"
-                placeholder="color"
-            />
+            <input name="color" label="color" type="color" placeholder="color" />
 
             <br class="break"/>
 
@@ -187,7 +170,7 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
 
     <Section
         id="section-all-fields"
-        heading="Section All Fields"
+        heading="Fields"
     >
         <form action="">
             <details>

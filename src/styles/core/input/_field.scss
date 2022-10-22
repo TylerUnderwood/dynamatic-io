@@ -29,6 +29,7 @@ form {
 label {
   display: inline-flex;
   align-items: baseline;
+  line-height: 1;
 }
 
 label[for] {
@@ -105,6 +106,7 @@ input[type="checkbox"] {
     display: inline-block;
     width: unset;
     vertical-align: middle;
+    line-height: 1;
     cursor: pointer;
 }
 
@@ -112,12 +114,14 @@ input[type="radio"] {
     display: inline-block;
     width: unset;
     vertical-align: middle;
+    line-height: 1;
     cursor: pointer;
 }
 
 input[type="range"] {
     display: inline-block;
     padding: 0;
+    line-height: 1;
     cursor: pointer;
 }
 
