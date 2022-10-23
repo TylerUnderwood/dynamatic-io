@@ -148,7 +148,7 @@ export default {
                 <label :for="`select-button-${name}`" class="meta" style="font-size: 0.7rem;">
                     {{ name }}
                 </label>
-                <select :id="`select-button-${name}`" class="Field w-full mt-2" :name="name">
+                <select :id="`select-button-${name}`" class="Field Field--small mt-2" :name="name">
                     <option value="" v-if="!types.includes('default')" selected>
                         none
                     </option>

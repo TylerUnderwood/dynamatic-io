@@ -76,7 +76,11 @@ export default {
     bottom: unset;
     left: 100%;
     translate: -100% -50%;
+    display: flex;
+    flex-direction: column;
     border-width: 2px;
     border-style: solid;
+    border-right-width: 0;
+    border-radius: 3px;
 }
 </style>

@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     themeInputHex() {
-      return getComputedStyle(document.documentElement).getPropertyValue(theme.color.input).trim();
+      return getComputedStyle(document.documentElement).getPropertyValue(theme.colors.input).trim();
     }
   },
 }

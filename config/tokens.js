@@ -28,7 +28,9 @@ const themeTokensGenerator = ( theme ) => {
       let blocklist = ["color", "mode"];
 
       // Only add new prefixes that are not in the blocklist
-      if ( !blocklist.some(word => category.includes(word)) ) {
+      if ( category === "DEFAULT" ) {
+        prefix = 'theme-' + token;
+      } else if ( !blocklist.some(word => category.includes(word)) ) {
         prefix = pluralize(category, 1) + '-' + token;
       } else {
         prefix = token;
