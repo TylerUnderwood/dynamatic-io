@@ -1,6 +1,7 @@
 <script setup>
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
+import Field from "@/components/Field.vue";
 
 const inputTypes = {
     "string": [
@@ -58,8 +59,24 @@ export default {
 
     <Section
         id="section-inputs"
-        heading="Inputs"
+        heading="All Input Types"
     >
+        <br/>
+
+        <form class="flex items-end" action="">
+            <Field
+                class="w-full"
+                name="Vue Field Component"
+                type="email"
+                placeholder
+                label
+            />
+
+            <label for="submit-vue-field" class="Button relative">
+                <input id="submit-vue-field" class="inset opacity-0" type="submit" />
+                <div class="Button__text meta">submit</div>
+            </label>
+        </form>
         <br/>
 
         <form class="Form" action="">
@@ -193,17 +210,20 @@ export default {
             />
             <br/>
 
+            <input type="button" value="Button" />
+            <br/>
+
             <input type="reset" />
             <br/>
 
-            <input type="submit" />
+            <input type="submit"  />
         </form>
 
     </Section>
 
     <Section
-        id="section-all-fields"
-        heading="Fields"
+        id="section-standard-fields"
+        heading="Standard Fields"
     >
         <form action="">
             <details>

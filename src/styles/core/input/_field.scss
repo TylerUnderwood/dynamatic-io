@@ -164,7 +164,7 @@ input[type="submit"] {
 
 
 
-.field {
+.Field {
     display: flex;
     flex: 1 0 auto;
     margin: 0;
@@ -192,19 +192,26 @@ input[type="submit"] {
     }
 
     &:focus,
+    &:focus-visible,
     &:active,
     &[filled] {
+        outline: none;
         border-color: var(--input-color);
         background-color: var(--theme-offset);
     }
 
+    &[disabled],
     &[readonly] {
         border-color: var(--theme-contrast) !important;
         background-color: var(--theme-offset) !important;
     }
+
+    &[disabled] {
+        opacity: 0.5;
+    }
 }
 
-.field[stealth] {
+.Field[stealth] {
     margin: -0.5em 0;
     border-color: transparent;
     background-color: transparent;
@@ -239,13 +246,13 @@ input[type="submit"] {
 }
 
 /* === Field large === */
-.field--large {
+.Field--large {
     border-width: 3px;
     height: var(--input-height-large);
 }
 
 /* === Field small === */
-.field--small {
+.Field--small {
     border-width: 1px;
     height: var(--input-height-small);
 }
@@ -276,7 +283,7 @@ textarea:focus-visible {
     outline-offset: 2px;
 }
 
-.textarea {
+.Textarea {
     max-width: 100%;
     height: 12em;
     resize: vertical;
@@ -301,7 +308,7 @@ fieldset {
     padding: 0.8em 1em;
 }
 
-.fieldset {
+.Fieldset {
     display: block;
     border-width: 2px;
     border-style: solid;

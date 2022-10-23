@@ -35,8 +35,8 @@ export default {
     <div class="spacer"></div>
 
     <router-link to="/docs">
-      <div class="button" data-shape="simple">
-        <span class="button__text meta">Docs</span>
+      <div class="Button" data-shape="simple">
+        <span class="Button__text meta">Docs</span>
       </div>
     </router-link>
   </header>

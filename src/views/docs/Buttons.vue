@@ -182,8 +182,8 @@ export default {
         </div>
 
         <div class="flex justify-center items-center p-4 mt-6 border-2" style="min-height: 240px;">
-            <button id="dynamic-button" class="button">
-                <span class="button__text meta">
+            <button id="dynamic-button" class="Button">
+                <span class="Button__text meta">
                     Button
                 </span>
             </button>
@@ -199,14 +199,14 @@ export default {
         <div class="flex flex-wrap gap-6 mt-6">
             <button
                 v-for="button in types"
-                class="button"
+                class="Button"
                 :data-type="name === 'type' ? button : null"
                 :data-size="name === 'size' ? button : null"
                 :data-shape="name === 'shape' ? button : null"
                 :data-scheme="name === 'scheme' ? button : null"
                 :[button]="name === 'state' ? '' : null"
             >
-                <span class="button__text meta">
+                <span class="Button__text meta">
                     {{ /square/.test(button) ? "s" : button }}
                 </span>
             </button>
