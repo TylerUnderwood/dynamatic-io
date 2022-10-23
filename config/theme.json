@@ -1,5 +1,5 @@
 {
-  "colors": {
+  "color": {
     "jade": "#22ee88",
     "azure": "#2299ee",
     "blue": {
@@ -34,7 +34,19 @@
       "600": "#101218",
       "800": "#080a10",
       "DEFAULT": "--dark-200"
-    }
+    },
+    "primary": "--theme-primary",
+    "secondary": "--theme-secondary",
+    "accent": "--theme-accent",
+    "input": "--theme-input",
+    "marker": "--theme-marker",
+    "muted": "--theme-muted",
+    "base": "--theme-base",
+    "offset": "--theme-offset",
+    "contrast": "--theme-contrast",
+    "head": "--theme-head",
+    "face": "--theme-face",
+    "body": "--theme-body"
   },
   "light": {
     "primary": "--blue",
