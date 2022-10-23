@@ -38,6 +38,21 @@ const inputTypes = {
 const inputFields = [...inputTypes.string, ...inputTypes.time]
 </script>
 
+<script>
+export default {
+  data() {
+    return {
+      theme
+    }
+  },
+  computed: {
+    themeInputHex() {
+      return getComputedStyle(document.documentElement).getPropertyValue(theme.light.input).trim();
+    }
+  },
+}
+</script>
+
 <template>
     <Banner title="Fields"/>
 
@@ -45,22 +60,24 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
         id="section-inputs"
         heading="Inputs"
     >
-        <br class="break"/>
+        <br/>
 
-        <form class="" action="">
+        <form class="Form" action="">
 
             <input id="text" type="text" name="text" placeholder="text" />
+            <br/>
 
-            <br class="break"/>
+            <textarea placeholder="textarea"></textarea>
+            <br/>
 
             <select name="select">
-                <option value="option-1">Option 1</option>
-                <option value="option-2">Option 2</option>
-                <option value="option-3">Option 3</option>
-                <option value="option-4">Option 4</option>
+                <option value="select-1">Select option 01</option>
+                <option value="select-2">Select option 02</option>
+                <option value="select-3">Select option 03</option>
+                <option value="select-4">Select option 04</option>
+                <option value="select-5">Select option 05</option>
             </select>
-
-            <br class="break"/>
+            <br/>
 
             <input
                 type="text"
@@ -69,14 +86,13 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
                 list="datalist"
             />
             <datalist id="datalist" name="datalist">
-                <option value="option-1">Option 1</option>
-                <option value="option-2">Option 2</option>
-                <option value="option-3">Option 3</option>
-                <option value="option-4">Option 4</option>
-                <option value="option-5">Option 5</option>
+                <option value="datalist-1">Datalist option 01</option>
+                <option value="datalist-2">Datalist option 02</option>
+                <option value="datalist-3">Datalist option 03</option>
+                <option value="datalist-4">Datalist option 04</option>
+                <option value="datalist-5">Datalist option 05</option>
             </datalist>
-
-            <br class="break"/>
+            <br/>
 
             <fieldset>
                 <legend>Checkbox</legend>
@@ -89,7 +105,7 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
                         checked />
                     <span class="ml-4">Checkbox 1</span>
                 </label>
-                <br class="break"/>
+                <br/>
                 <label for="checkbox-2">
                     <input
                         id="checkbox-2"
@@ -98,7 +114,7 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
                         type="checkbox" />
                     <span class="ml-4">Checkbox 2</span>
                 </label>
-                <br class="break"/>
+                <br/>
                 <label for="checkbox-3">
                     <input
                         id="checkbox-3"
@@ -108,8 +124,7 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
                     <span class="ml-4">Checkbox 3</span>
                 </label>
             </fieldset>
-
-            <br class="break"/>
+            <br/>
 
             <fieldset>
                 <legend>Radio</legend>
@@ -122,7 +137,7 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
                         checked />
                     <span class="ml-4">Radio 1</span>
                 </label>
-                <br class="break"/>
+                <br/>
                 <label for="radio-2">
                     <input
                         id="radio-2"
@@ -131,7 +146,7 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
                         type="radio" />
                     <span class="ml-4">Radio 2</span>
                 </label>
-                <br class="break"/>
+                <br/>
                 <label for="radio-3">
                     <input
                         id="radio-3"
@@ -141,29 +156,47 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
                     <span class="ml-4">Radio 3</span>
                 </label>
             </fieldset>
-
-            <br class="break"/>
+            <br/>
 
             <input type="range" name="range" label="Range" />
-            <br class="break"/>
+            <br/>
+
+            <input type="range" name="range" label="Range" step="25" list="range-amounts" />
+            <datalist id="range-amounts" name="range-amounts">
+                <option value="0">0</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+            </datalist>
+            <br/>
+
+            <progress max="100" value="50"></progress>
+            <br/>
+
+            <progress max="100"></progress>
+            <br/>
 
             <input name="file" type="file" />
+            <br/>
 
-            <br class="break"/>
+            <input name="image" type="image" alt="image" src="image.png" />
+            <br/>
 
-            <input name="image" type="image" />
+            <input
+                id="input-type-color"
+                name="color"
+                label="color"
+                type="color"
+                placeholder="color"
+                :value="themeInputHex"
+            />
+            <br/>
 
-            <br class="break"/>
+            <input type="reset" />
+            <br/>
 
-            <input name="color" label="color" type="color" placeholder="color" />
-
-            <br class="break"/>
-
-            <textarea class="textarea"></textarea>
-
-            <br class="break"/>
-
-            <input class="button" type="submit" />
+            <input type="submit" />
         </form>
 
     </Section>
@@ -183,7 +216,7 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
                             :name="type"
                             :placeholder="type"
                         />
-                        <br class="break"/>
+                        <br/>
                     </template>
                 </div>
             </details>

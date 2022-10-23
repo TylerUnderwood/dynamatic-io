@@ -16,9 +16,9 @@ const buttonTree = {
         "disabled",
     ],
     size: [
-        "tall",
+        "large",
         "default",
-        "thin",
+        "small",
         "tiny",
     ],
     shape: [
