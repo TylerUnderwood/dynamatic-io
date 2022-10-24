@@ -12,6 +12,7 @@ body {
     --button-active: var(--input-active);
     --button-face: var(--theme-base);
     --button-height: var(--input-height);
+    --button-pad: var(--input-pad);
     --button-timing: var(--input-timing);
     --button-easing: var(--input-easing);
 }
@@ -40,10 +41,10 @@ button {
   border-style: solid;
   border-color: transparent;
   border-radius: var(--input-round);
-  min-width: 8em;
+  min-width: 8rem;
   height: var(--button-height);
   background-color: var(--button-color);
-  padding: 0 1.4em;
+  padding: 0 1.4rem;
   vertical-align: middle;
   white-space: nowrap;
   text-align: center;
@@ -95,27 +96,27 @@ button {
     cursor: not-allowed;
   }
 
-  // === button components === //
+  /* === button components === */
   &__text {
     display: block;
     font-weight: 500;
-    font-size: 0.8em;
+    font-size: 0.8rem;
   }
 
   &__icon {
-    font-size: 1em;
+    font-size: 1rem;
   }
 
 
-  // === button types === //
+  /* === button types === */
 
-  // = primary button = //
+  /* = primary button = */
   &--primary,
   &[data-type="primary"] {
     visibility: visible;
   }
 
-  // = secondary button = //
+  /* = secondary button = */
   &--secondary,
   &[data-type="secondary"] {
     border-color: var(--button-color);
@@ -148,15 +149,15 @@ button {
     }
 
     #{$self}__text {
-      font-size: 0.7em;
+      font-size: 0.7rem;
     }
   }
 
-  // = tertiary button = //
+  /* = tertiary button = */
   &--tertiary,
   &[data-type="tertiary"] {
     border-color: transparent;
-    background-color: transparent;
+    background-color: rgb(40 72 216 / 0.1);
     color: var(--button-color);
 
     &[stealth] {
@@ -167,107 +168,110 @@ button {
 
     &[active] {
       border-color: transparent;
-      background-color: transparent;
+      background-color: rgb(40 72 216 / 0.05);
       color: var(--button-active);
     }
 
     &[hover],
     &:hover {
       border-color: transparent;
-      background-color: transparent;
-      color: var(--button-hover);
+      background-color: rgb(40 72 216 / 0.05);
+      color: var(--button-color);
     }
 
     &[disabled] {
       border-color: transparent !important;
-      background-color: transparent !important;
+      background-color: rgb(40 72 216 / 0.1) !important;
       color: var(--button-color) !important;
     }
   }
 
 
-  // === button size === //
+  /* === button size === */
 
-  // = large button = //
+  /* = large button = */
   &--large,
   &[data-size="large"] {
-    min-width: 12em;
+    min-width: 12rem;
+    border-width: var(--input-border-width-large);
     height: var(--button-height);
-    border-width: 3px;
-    padding: 0 2.4em;
+    padding: 0 2.4rem;
     font-weight: 700;
     --button-height: var(--input-height-large);
+    --button-pad: var(--input-pad-large);
 
     #{$self}__text {
       font-weight: 700;
-      font-size: 0.9em;
+      font-size: 0.9rem;
     }
 
     #{$self}__icon {
-      font-size: 1.2em;
+      font-size: 1.2rem;
     }
 
     &#{$self}--secondary #{$self}__text,
     &[data-type="secondary"] #{$self}__text {
-      font-size: 0.8em;
+      font-size: 0.8rem;
     }
   }
 
-  // = small button = //
+  /* = small button = */
   &--small,
   &[data-size="small"] {
     min-width: 6em;
+    border-width: var(--input-border-width-small);
     height: var(--button-height);
-    border-width: 1px;
-    padding: 0 1.2em;
+    padding: 0 1.2rem;
     font-weight: 300;
     --button-height: var(--input-height-small);
+    --button-pad: var(--input-pad-small);
 
     #{$self}__text {
       font-weight: 300;
-      font-size: 0.7em;
+      font-size: 0.7rem;
     }
 
     #{$self}__icon {
-      font-size: 0.8em;
+      font-size: 0.8rem;
     }
 
     &#{$self}--secondary #{$self}__text,
     &[data-type="secondary"] #{$self}__text {
-      font-size: 0.6em;
+      font-size: 0.6rem;
     }
   }
 
-  // = tiny button = //
+  /* = tiny button = */
   &--tiny,
   &[data-size="tiny"] {
     min-width: unset;
     border-width: 1px;
-    padding: 0.2em 0.3em;
-    font-weight: 300;
-    --button-height: 1.2em;
+    padding: 0.2rem 0.3rem;
+    font-size: 0.6rem;
+    --button-height: 1.2rem;
+    --button-pad: 0.3rem;
 
     #{$self}__text {
-      font-weight: 300;
-      font-size: 0.6em;
+      font-size: 0.6rem;
     }
 
     #{$self}__icon {
-      font-size: 0.8em;
+      font-size: 0.8rem;
     }
   }
 
 
-  // === button shape === //
+  /* === button shape === */
 
-  // = stout button = //
+  /* = stout button = */
   &--stout,
   &[data-shape="stout"] {
     min-width: unset;
-    padding: 0 0.8em;
+    padding-left: var(--button-pad);
+    padding-right: var(--button-pad);
   }
 
-  // = simple button = //
+  /* = simple button = */
   &--simple,
   &[data-shape="simple"] {
     min-width: unset;
@@ -275,16 +279,16 @@ button {
     padding: 0.5em;
   }
 
-  // = square button = //
+  /* = square button = */
   &--square,
   &[data-shape="square"] {
     min-width: unset;
     width: var(--button-height);
-    height: var(--button-height);;
+    height: var(--button-height);
     padding: 0;
   }
 
-  // = full button = //
+  /* = full button = */
   &--full,
   &[data-shape="full"] {
     flex: 1 0 auto;
@@ -311,9 +315,9 @@ button {
   }
 
 
-  // === button scheme === //
+  /* === button scheme === */
 
-  // = success button = //
+  /* = success button = */
   &--success,
   &[data-scheme="success"] {
     --button-color:       #00aa22;
@@ -321,7 +325,7 @@ button {
     --button-active:      #00aa22;
   }
 
-  // = warn button = //
+  /* = warn button = */
   &--warn,
   &[data-scheme="warn"] {
     --button-color:       hsl(52, 100%, 50%);
@@ -330,7 +334,7 @@ button {
     --button-face:        var(--light-face);
   }
 
-  // = error button = //
+  /* = error button = */
   &--error,
   &[data-scheme="error"] {
     --button-color:       hsl(8, 100%, 50%);

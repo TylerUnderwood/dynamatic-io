@@ -197,7 +197,7 @@ export default {
         :heading="name[0].toUpperCase() + name.slice(1)"
     >
         <div class="flex flex-wrap gap-6 mt-6">
-            <button
+            <a
                 v-for="button in types"
                 class="Button"
                 :data-type="name === 'type' ? button : null"
@@ -205,11 +205,12 @@ export default {
                 :data-shape="name === 'shape' ? button : null"
                 :data-scheme="name === 'scheme' ? button : null"
                 :[button]="name === 'state' ? '' : null"
+                :href="`#docs-button-${name}-${button}`"
             >
                 <span class="Button__text meta">
                     {{ /square/.test(button) ? "s" : button }}
                 </span>
-            </button>
+            </a>
         </div>
     </Section>
 </template>

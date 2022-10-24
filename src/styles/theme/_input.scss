@@ -3,11 +3,20 @@ body {
     --input-color: var(--theme-input);
     --input-hover: var(--theme-accent);
     --input-active: var(--theme-secondary);
-    --input-height-large: 2.8em;
-    --input-height: 2.2em;
-    --input-height-small: 1.6em;
+
+    --input-height-large: 2.8rem;
+    --input-height: 2.2rem;
+    --input-height-small: 1.6rem;
+
+    --input-border-width-large: 3px;
+    --input-border-width: 2px;
+    --input-border-width-small: 1px;
+
+    --input-pad-large: 1.2rem;
+    --input-pad: 0.8rem;
+    --input-pad-small: 0.5rem;
+
     --input-round: 3px;
-    --input-pad: 0.8em;
     --input-timing: 300ms;
     --input-easing: ease;
 }

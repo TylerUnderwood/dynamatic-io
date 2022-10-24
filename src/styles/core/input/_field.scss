@@ -71,7 +71,7 @@ fieldset {
 input {
     display: block;
     margin: 0;
-    padding: 0 0.8em;
+    padding: 0 var(--input-pad);
     line-height: 1.6;
     cursor: text;
 }
@@ -151,7 +151,7 @@ input[type="image"] {
     background-color: inherit;
     border: 1px solid currentColor;
     border-radius: 2px;
-    margin-right: 0.8em;
+    margin-right: var(--input-pad);
     cursor: pointer;
 }
 
@@ -170,17 +170,17 @@ input[type="submit"] {
     margin: 0;
     outline: none;
     box-shadow: none;
-    border-width: 2px;
+    border-width: var(--input-border-width);
     border-style: solid;
     border-color: var(--theme-contrast);
     border-radius: var(--input-round);
     background-color: var(--theme-offset);
     width: 100%;
     height: var(--input-height);
-    padding: 0 0.8em;
+    padding: 0 var(--input-pad);
     line-height: 1;
     font-family: var(--face-font);
-    font-size: inherit;
+    font-size: 1rem;
     color: var(--theme-face);
     transition-property: border-color, background-color, color, opacity;
     transition-duration: var(--input-timing);
@@ -193,7 +193,7 @@ input[type="submit"] {
 
     &:focus,
     &:focus-visible,
-    &:active,
+    &[active],
     &[filled] {
         outline: none;
         border-color: var(--input-color);
@@ -212,7 +212,7 @@ input[type="submit"] {
 }
 
 .Field[stealth] {
-    margin: -0.5em 0;
+    // margin: -0.5em 0;
     border-color: transparent;
     background-color: transparent;
     transition-property: border-color, background-color, color, padding, translate;
@@ -247,14 +247,18 @@ input[type="submit"] {
 
 /* === Field large === */
 .Field--large {
-    border-width: 3px;
+    border-width: var(--input-border-width-large);
     height: var(--input-height-large);
+    padding: 0 var(--input-pad-large);
+    font-size: 1.2rem;
 }
 
 /* === Field small === */
 .Field--small {
-    border-width: 1px;
+    border-width: var(--input-border-width-small);
     height: var(--input-height-small);
+    padding: 0 var(--input-pad-small);
+    font-size: 0.9rem;
 }
 
 
@@ -269,7 +273,7 @@ textarea {
     max-width: 100%;
     min-height: 1.6em;
     height: 8em;
-    padding: 0.2em 0.8em;
+    padding: 0.2em var(--input-pad);
     resize: vertical;
     cursor: text;
 }
@@ -305,7 +309,7 @@ fieldset {
     border: 1px solid currentColor;
     border-radius: 2px;
     background-color: transparent;
-    padding: 0.8em 1em;
+    padding: var(--input-pad) 1em;
 }
 
 .Fieldset {
@@ -340,7 +344,7 @@ select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    padding: 0 0.8em;
+    padding: 0 var(--input-pad);
     line-height: 1.6;
     cursor: pointer;
 }

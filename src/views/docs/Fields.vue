@@ -227,7 +227,7 @@ export default {
             </form>
         </details>
 
-        <details class="mt-6" open>
+        <details class="mt-6">
             <summary>
                 <h3 class="Heading">Standard Fields</h3>
             </summary>
