@@ -1,0 +1,102 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Triangle
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.Triangle {
+    --triangle-ratio: 0.5em;
+    --triangle-corner: calc(var(--triangle-ratio) * .7071);
+    display: flex;
+    width: 1em;
+    height: 1em;
+}
+.Triangle::before {
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: var(--triangle-ratio);
+    border-style: solid;
+    border-color: transparent;
+    content: '';
+}
+
+/* === Top === */
+.Triangle--t {
+    align-items: flex-end;
+}
+.Triangle--t::before {
+    border-top: none;
+    border-bottom-color: currentColor;
+}
+
+/* === Top Right === */
+.Triangle--t-r {
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.Triangle::before {
+    border-width: var(--triangle-corner);
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+}
+
+/* === Right === */
+.Triangle--r {
+    justify-content: flex-start;
+}
+.Triangle::before {
+    border-right: none;
+    border-left-color: currentColor;
+}
+
+/* === Bottom Right === */
+.Triangle--b-r {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.Triangle::before {
+    border-width: var(--triangle-corner);
+    border-bottom-color: currentColor;
+    border-right-color: currentColor;
+}
+
+/* === Bottom === */
+.Triangle--b {
+    align-items: flex-start;
+}
+.Triangle::before {
+    border-top-color: currentColor;
+    border-bottom: none;
+}
+
+/* === Bottom Left === */
+.Triangle--b-l {
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.Triangle::before {
+    border-width: var(--triangle-corner);
+    border-bottom-color: currentColor;
+    border-left-color: currentColor;
+}
+
+/* === Left === */
+.Triangle--l {
+    justify-content: flex-end;
+}
+.Triangle::before {
+    border-left: none;
+    border-right-color: currentColor;
+}
+
+/* === Top Left === */
+.Triangle--t-l {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.Triangle::before {
+    border-width: var(--triangle-corner);
+    border-top-color: currentColor;
+    border-left-color: currentColor;
+}

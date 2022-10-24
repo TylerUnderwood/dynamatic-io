@@ -1,0 +1,14 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Circle
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.Circle {
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 1em;
+    height: 1em;
+    background-color: currentColor;
+}
