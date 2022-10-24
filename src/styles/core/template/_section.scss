@@ -1,38 +1,38 @@
 
 
 .wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  max-width: var(--wrapper-page);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: var(--wrapper-page);
 }
 
 .max-site {
-  max-width: var(--wrapper-site);
+    max-width: var(--wrapper-site);
 }
 
 .max-copy {
-  max-width: var(--wrapper-copy);
+    max-width: var(--wrapper-copy);
 }
 
 .gutter {
-    padding-left: var(--section-space-x);
-    padding-right: var(--section-space-x);
+        padding-left: var(--section-space-x);
+        padding-right: var(--section-space-x);
 }
 
 .padding {
-    padding-top: var(--section-space-y);
-    padding-bottom: var(--section-space-y);
+        padding-top: var(--section-space-y);
+        padding-bottom: var(--section-space-y);
 }
 
 .buffer {
-    margin-left: var(--section-space-x);
-    margin-right: var(--section-space-x);
+        margin-left: var(--section-space-x);
+        margin-right: var(--section-space-x);
 }
 
 .margins {
-    margin-top: var(--section-space-y);
-    margin-bottom: var(--section-space-y);
+        margin-top: var(--section-space-y);
+        margin-bottom: var(--section-space-y);
 }
 
 

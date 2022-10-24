@@ -5,31 +5,31 @@
 */
 
 .Nav {
-  display: flex;
-  --nav-link-pad: 0.5em;
+    display: flex;
+    --nav-link-pad: 0.5em;
 }
 
 .Nav__list {
-  display: flex;
-  margin: calc(var(--nav-link-pad) * -1);
-  padding: 0;
-  list-style: none;
+    display: flex;
+    margin: calc(var(--nav-link-pad) * -1);
+    padding: 0;
+    list-style: none;
 }
 
 .Nav__item {
-  display: flex;
-  padding: 0;
-  list-style: none;
+    display: flex;
+    padding: 0;
+    list-style: none;
 }
 
 .Nav__link {
-  padding: var(--nav-link-pad);
-  border-radius: 2px;
-  transition: background-color 300ms ease;
+    padding: var(--nav-link-pad);
+    border-radius: 2px;
+    transition: background-color 300ms ease;
 }
 
 .Nav__link:hover,
 .Nav__link:focus {
-  background-color: rgb(64 128 255 / 0.2);
-  color: var(--input-color);
+    background-color: rgb(64 128 255 / 0.2);
+    color: var(--input-color);
 }

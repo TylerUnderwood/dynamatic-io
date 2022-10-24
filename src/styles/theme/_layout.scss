@@ -14,8 +14,8 @@ $space_y_min: 64px;
 $space_y_max: 72px;
 
 :root {
-  @include f.scale(--section-space-x, $min_width, $max_width, $space_x_min, $space_x_max);
-  @include f.scale(--section-space-y, $min_width, $max_width, $space_y_min, $space_y_max);
+    @include f.scale(--section-space-x, $min_width, $max_width, $space_x_min, $space_x_max);
+    @include f.scale(--section-space-y, $min_width, $max_width, $space_y_min, $space_y_max);
 }
 
 $section_space_x: var(--section-space-x);

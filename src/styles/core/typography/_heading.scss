@@ -8,10 +8,10 @@
 
 // Element
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  line-height: 1;
-  font-weight: normal;
-  font-size: 1rem;
+    margin: 0;
+    line-height: 1;
+    font-weight: normal;
+    font-size: 1rem;
 }
 
 // Class
@@ -22,47 +22,47 @@ h1, h2, h3, h4, h5, h6 {
 .Markup h4,
 .Markup h5,
 .Markup h6 {
-  @include f.clip(-0.18em, -0.25em);
-  margin: 0;
-  line-height: 1.2;
-  font-size: 1.6rem;
-  font-weight: 700;
-  font-family: var(--head-font);
-  color: var(--theme-head);
+    @include f.clip(-0.18em, -0.25em);
+    margin: 0;
+    line-height: 1.2;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: var(--head-font);
+    color: var(--theme-head);
 }
 
 .h1,
 .Markup h1 {
-  font-size: 3.6rem;
-  color: var(--theme-head);
+    font-size: 3.6rem;
+    color: var(--theme-head);
 }
 
 .h2,
 .Markup h2 {
-  font-size: 2.4rem;
-  color: var(--theme-head);
+    font-size: 2.4rem;
+    color: var(--theme-head);
 }
 
 .h3,
 .Markup h3 {
-  font-size: 2.0rem;
-  color: var(--theme-head);
+    font-size: 2.0rem;
+    color: var(--theme-head);
 }
 
 .h4,
 .Markup h4 {
-  font-size: 1.6rem;
-  color: var(--theme-head);
+    font-size: 1.6rem;
+    color: var(--theme-head);
 }
 
 .h5,
 .Markup h5 {
-  font-size: 1.6rem;
-  color: var(--theme-marker);
+    font-size: 1.6rem;
+    color: var(--theme-marker);
 }
 
 .h6,
 .Markup h6 {
-  font-size: 1.6rem;
-  color: var(--theme-muted);
+    font-size: 1.6rem;
+    color: var(--theme-muted);
 }

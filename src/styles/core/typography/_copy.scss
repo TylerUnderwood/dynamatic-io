@@ -8,18 +8,18 @@
 
 // Element
 p {
-  margin: 0;
-  line-height: 1.6;
-  hyphens: none;
+    margin: 0;
+    line-height: 1.6;
+    hyphens: none;
 }
 
 // Class
 .Copy,
 .Markup p {
-  margin: 0;
-  width: 100%;
-  max-width: var(--wrapper-copy);
-  line-height: 1.6;
-  hyphens: none;
-  color: var(--theme-body);
+    margin: 0;
+    width: 100%;
+    max-width: var(--wrapper-copy);
+    line-height: 1.6;
+    hyphens: none;
+    color: var(--theme-body);
 }

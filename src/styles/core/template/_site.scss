@@ -9,86 +9,86 @@
 *,
 ::before,
 ::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-  @include f.scale(font-size, 480px, 1280px, 16px, 20px);
-  overflow-x: clip;
-  overflow-y: auto;
+    @include f.scale(font-size, 480px, 1280px, 16px, 20px);
+    overflow-x: clip;
+    overflow-y: auto;
 
-  /* Firefox only */
-  scroll-behavior: smooth;
+    /* Firefox only */
+    scroll-behavior: smooth;
 
-  /* Remove scrollbar */
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+    /* Remove scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 html::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 body {
-  margin: 0;
-  background-color: var(--theme-base);
-  tab-size: var(--tab-size);
-  line-height: 1;
-  font-size: 1rem;
-  font-weight: normal;
-  font-family: var(--face-font);
-  text-rendering: optimizeLegibility;
-  color: var(--theme-face);
-  accent-color: var(--theme-input);
+    margin: 0;
+    background-color: var(--theme-base);
+    tab-size: var(--tab-size);
+    line-height: 1;
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: var(--face-font);
+    text-rendering: optimizeLegibility;
+    color: var(--theme-face);
+    accent-color: var(--theme-input);
 }
 
 [class*=border] {
-  border-width: 2px;
-  border-style: solid;
-  border-color: var(--theme-contrast);
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--theme-contrast);
 }
 
 /* this will, at the least, fill the viewport and gives the template structure */
 #app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-  display: block;
+    display: block;
 }
 
 /* header comes first but should always be on top */
 #header {
-  position: relative;
-  z-index: 3;
+    position: relative;
+    z-index: 3;
 }
 
 main {
-  display: block;
+    display: block;
 }
 
 /* main is in the middle and it should fill the space between but be below both the header and footer */
 #main {
-  position: relative;
-  z-index: 1;
-  flex: 1 0 auto;
+    position: relative;
+    z-index: 1;
+    flex: 1 0 auto;
 }
 
 footer {
-  display: block;
+    display: block;
 }
 
 /* footer */
 #footer {
-  position: relative;
-  z-index: 2;
+    position: relative;
+    z-index: 2;
 }
 
 /* section */
 section {
-  display: block;
+    display: block;
 }
 
 /* other */
@@ -102,9 +102,9 @@ section {
 // }
 
 [hidden] {
-  display: none !important;
+    display: none !important;
 }
 
 [scroll-lock] {
-  overflow: clip !important;
+    overflow: clip !important;
 }

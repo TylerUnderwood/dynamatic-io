@@ -7,42 +7,42 @@
 
 // Element
 blockquote {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-size: 1rem;
 }
 
 cite {
-  font-style: normal;
-  font-size: 1rem;
+    font-style: normal;
+    font-size: 1rem;
 }
 
 // Class
 .Quote,
 .Markup blockquote {
-  margin: 0;
-  width: 100%;
-  max-width: var(--wrapper-copy);
-  border-left: var(--quote-border-width) solid var(--theme-marker);
-  border-radius: var(--quote-border-width);
-  padding: 0 0 0 calc(var(--tab-size) - var(--quote-border-width));
-  line-height: 1.4;
-  font-size: 1.2rem;
-  --quote-border-width: 4px;
+    margin: 0;
+    width: 100%;
+    max-width: var(--wrapper-copy);
+    border-left: var(--quote-border-width) solid var(--theme-marker);
+    border-radius: var(--quote-border-width);
+    padding: 0 0 0 calc(var(--tab-size) - var(--quote-border-width));
+    line-height: 1.4;
+    font-size: 1.2rem;
+    --quote-border-width: 4px;
 }
 
 .Cite,
 .Markup cite {
-  display: block;
-  margin: 0;
-  padding: 0;
-  text-align: right;
-  line-height: 1.2;
-  font-size: 0.8rem;
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    line-height: 1.2;
+    font-size: 0.8rem;
 
-  &:before {
-    padding: 0 0.5em 0 0;
-    content: '\2014';
-  }
+    &:before {
+        padding: 0 0.5em 0 0;
+        content: '\2014';
+    }
 }

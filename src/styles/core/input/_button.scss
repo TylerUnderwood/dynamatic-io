@@ -18,331 +18,331 @@ body {
 }
 
 button {
-  display: inline-block;
-  outline: none;
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  text-align: inherit;
-  font-size: inherit;
-  color: inherit;
-  cursor: pointer;
+    display: inline-block;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    text-align: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
 }
 
 .Button {
-  $self: &;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 auto;
-  overflow: clip;
-  outline: none;
-  border-width: 2px;
-  border-style: solid;
-  border-color: transparent;
-  border-radius: var(--input-round);
-  min-width: 8rem;
-  height: var(--button-height);
-  background-color: var(--button-color);
-  padding: 0 1.4rem;
-  vertical-align: middle;
-  white-space: nowrap;
-  text-align: center;
-  text-decoration: none;
-  font-size: inherit;
-  color: var(--button-face);
-  transition-property: border-color, background-color, color, opacity;
-  transition-duration: var(--button-timing);
-  transition-timing-function: var(--button-easing);
-  user-select: none;
-  cursor: pointer;
-
-  &:focus {
-    color: var(--button-face);
-  }
-
-  // [stealth] first so :hover overrides it
-  &[stealth] {
-    border-color: transparent;
-    background-color: transparent;
-    color: inherit;
-  }
-
-  // [active] should override [stealth]
-  &[active] {
-    border-color: transparent;
-    background-color: var(--button-active);
-    color: var(--button-face);
-  }
-
-  // :hover should override [active]
-  &[hover],
-  &:hover {
+    $self: &;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 auto;
+    overflow: clip;
     outline: none;
+    border-width: 2px;
+    border-style: solid;
     border-color: transparent;
-    background-color: var(--button-hover);
+    border-radius: var(--input-round);
+    min-width: 8rem;
+    height: var(--button-height);
+    background-color: var(--button-color);
+    padding: 0 1.4rem;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+    text-decoration: none;
+    font-size: inherit;
     color: var(--button-face);
-  }
+    transition-property: border-color, background-color, color, opacity;
+    transition-duration: var(--button-timing);
+    transition-timing-function: var(--button-easing);
+    user-select: none;
+    cursor: pointer;
 
-  // :focus should override :hover
-  &[focus-v],
-  &:focus-visible {
-    outline: 2px solid var(--input-color);
-    outline-offset: 2px;
-  }
+    &:focus {
+        color: var(--button-face);
+    }
 
-  // [disabled] should override all
-  &[disabled] {
-    border-color: transparent !important;
-    background-color: var(--button-color) !important;
-    color: var(--button-face) !important;
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  /* === button components === */
-  &__text {
-    display: block;
-    font-weight: 500;
-    font-size: 0.8rem;
-  }
-
-  &__icon {
-    font-size: 1rem;
-  }
-
-
-  /* === button types === */
-
-  /* = primary button = */
-  &--primary,
-  &[data-type="primary"] {
-    visibility: visible;
-  }
-
-  /* = secondary button = */
-  &--secondary,
-  &[data-type="secondary"] {
-    border-color: var(--button-color);
-    background-color: transparent;
-    color: var(--button-color);
-
+    // [stealth] first so :hover overrides it
     &[stealth] {
-      border-color: transparent;
-      background-color: transparent;
-      color: inherit;
+        border-color: transparent;
+        background-color: transparent;
+        color: inherit;
     }
 
+    // [active] should override [stealth]
     &[active] {
-      border-color: var(--button-active);
-      background-color: transparent;
-      color: var(--button-active);
+        border-color: transparent;
+        background-color: var(--button-active);
+        color: var(--button-face);
     }
 
+    // :hover should override [active]
     &[hover],
     &:hover {
-      border-color: var(--button-hover);
-      background-color: transparent;
-      color: var(--button-hover);
+        outline: none;
+        border-color: transparent;
+        background-color: var(--button-hover);
+        color: var(--button-face);
     }
 
+    // :focus should override :hover
+    &[focus-v],
+    &:focus-visible {
+        outline: 2px solid var(--input-color);
+        outline-offset: 2px;
+    }
+
+    // [disabled] should override all
     &[disabled] {
-      border-color: var(--button-color) !important;
-      background-color: transparent !important;
-      color: var(--button-color) !important;
+        border-color: transparent !important;
+        background-color: var(--button-color) !important;
+        color: var(--button-face) !important;
+        opacity: 0.5;
+        cursor: not-allowed;
     }
 
-    #{$self}__text {
-      font-size: 0.7rem;
-    }
-  }
-
-  /* = tertiary button = */
-  &--tertiary,
-  &[data-type="tertiary"] {
-    border-color: transparent;
-    background-color: transparent;
-    color: var(--button-color);
-
-    &[stealth] {
-      border-color: transparent;
-      background-color: transparent;
-      color: inherit;
+    /* === button components === */
+    &__text {
+        display: block;
+        font-weight: 500;
+        font-size: 0.8rem;
     }
 
-    &[active] {
-      border-color: transparent;
-      background-color: rgb(40 72 216 / 0.05);
-      color: var(--button-color);
+    &__icon {
+        font-size: 1rem;
     }
 
-    &[hover],
-    &:hover {
-      border-color: transparent;
-      background-color: rgb(40 72 216 / 0.1);
-      color: var(--button-color);
+
+    /* === button types === */
+
+    /* = primary button = */
+    &--primary,
+    &[data-type="primary"] {
+        visibility: visible;
     }
 
-    &[disabled] {
-      border-color: transparent !important;
-      background-color: rgb(40 72 216 / 0.1) !important;
-      color: var(--button-color) !important;
-    }
-  }
+    /* = secondary button = */
+    &--secondary,
+    &[data-type="secondary"] {
+        border-color: var(--button-color);
+        background-color: transparent;
+        color: var(--button-color);
 
+        &[stealth] {
+            border-color: transparent;
+            background-color: transparent;
+            color: inherit;
+        }
 
-  /* === button size === */
+        &[active] {
+            border-color: var(--button-active);
+            background-color: transparent;
+            color: var(--button-active);
+        }
 
-  /* = large button = */
-  &--large,
-  &[data-size="large"] {
-    min-width: 12rem;
-    border-width: var(--input-border-width-large);
-    height: var(--button-height);
-    padding: 0 2.4rem;
-    font-weight: 700;
-    --button-height: var(--input-height-large);
-    --button-pad: var(--input-pad-large);
+        &[hover],
+        &:hover {
+            border-color: var(--button-hover);
+            background-color: transparent;
+            color: var(--button-hover);
+        }
 
-    #{$self}__text {
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
+        &[disabled] {
+            border-color: var(--button-color) !important;
+            background-color: transparent !important;
+            color: var(--button-color) !important;
+        }
 
-    #{$self}__icon {
-      font-size: 1.2rem;
-    }
-
-    &#{$self}--secondary #{$self}__text,
-    &[data-type="secondary"] #{$self}__text {
-      font-size: 0.8rem;
-    }
-  }
-
-  /* = small button = */
-  &--small,
-  &[data-size="small"] {
-    min-width: 6em;
-    border-width: var(--input-border-width-small);
-    height: var(--button-height);
-    padding: 0 1.2rem;
-    font-weight: 300;
-    --button-height: var(--input-height-small);
-    --button-pad: var(--input-pad-small);
-
-    #{$self}__text {
-      font-weight: 300;
-      font-size: 0.7rem;
+        #{$self}__text {
+            font-size: 0.7rem;
+        }
     }
 
-    #{$self}__icon {
-      font-size: 0.8rem;
+    /* = tertiary button = */
+    &--tertiary,
+    &[data-type="tertiary"] {
+        border-color: transparent;
+        background-color: transparent;
+        color: var(--button-color);
+
+        &[stealth] {
+            border-color: transparent;
+            background-color: transparent;
+            color: inherit;
+        }
+
+        &[active] {
+            border-color: transparent;
+            background-color: rgb(40 72 216 / 0.05);
+            color: var(--button-color);
+        }
+
+        &[hover],
+        &:hover {
+            border-color: transparent;
+            background-color: rgb(40 72 216 / 0.1);
+            color: var(--button-color);
+        }
+
+        &[disabled] {
+            border-color: transparent !important;
+            background-color: rgb(40 72 216 / 0.1) !important;
+            color: var(--button-color) !important;
+        }
     }
 
-    &#{$self}--secondary #{$self}__text,
-    &[data-type="secondary"] #{$self}__text {
-      font-size: 0.6rem;
+
+    /* === button size === */
+
+    /* = large button = */
+    &--large,
+    &[data-size="large"] {
+        min-width: 12rem;
+        border-width: var(--input-border-width-large);
+        height: var(--button-height);
+        padding: 0 2.4rem;
+        font-weight: 700;
+        --button-height: var(--input-height-large);
+        --button-pad: var(--input-pad-large);
+
+        #{$self}__text {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        #{$self}__icon {
+            font-size: 1.2rem;
+        }
+
+        &#{$self}--secondary #{$self}__text,
+        &[data-type="secondary"] #{$self}__text {
+            font-size: 0.8rem;
+        }
     }
-  }
 
-  /* = tiny button = */
-  &--tiny,
-  &[data-size="tiny"] {
-    min-width: unset;
-    border-width: 1px;
-    padding: 0.2rem 0.3rem;
-    font-size: 0.6rem;
-    --button-height: 1.2rem;
-    --button-pad: 0.3rem;
+    /* = small button = */
+    &--small,
+    &[data-size="small"] {
+        min-width: 6em;
+        border-width: var(--input-border-width-small);
+        height: var(--button-height);
+        padding: 0 1.2rem;
+        font-weight: 300;
+        --button-height: var(--input-height-small);
+        --button-pad: var(--input-pad-small);
 
-    #{$self}__text {
-      font-size: 0.6rem;
+        #{$self}__text {
+            font-weight: 300;
+            font-size: 0.7rem;
+        }
+
+        #{$self}__icon {
+            font-size: 0.8rem;
+        }
+
+        &#{$self}--secondary #{$self}__text,
+        &[data-type="secondary"] #{$self}__text {
+            font-size: 0.6rem;
+        }
     }
 
-    #{$self}__icon {
-      font-size: 0.8rem;
+    /* = tiny button = */
+    &--tiny,
+    &[data-size="tiny"] {
+        min-width: unset;
+        border-width: 1px;
+        padding: 0.2rem 0.3rem;
+        font-size: 0.6rem;
+        --button-height: 1.2rem;
+        --button-pad: 0.3rem;
+
+        #{$self}__text {
+            font-size: 0.6rem;
+        }
+
+        #{$self}__icon {
+            font-size: 0.8rem;
+        }
     }
-  }
 
 
-  /* === button shape === */
+    /* === button shape === */
 
-  /* = stout button = */
-  &--stout,
-  &[data-shape="stout"] {
-    min-width: unset;
-    padding-left: var(--button-pad);
-    padding-right: var(--button-pad);
-  }
-
-  /* = simple button = */
-  &--simple,
-  &[data-shape="simple"] {
-    min-width: unset;
-    height: fit-content;
-    padding: 0.5em;
-  }
-
-  /* = square button = */
-  &--square,
-  &[data-shape="square"] {
-    min-width: unset;
-    width: var(--button-height);
-    height: var(--button-height);
-    padding: 0;
-  }
-
-  /* = full button = */
-  &--full,
-  &[data-shape="full"] {
-    flex: 1 0 auto;
-    width: 100%;
-    max-width: unset;
-  }
-
-  @include media.below( sm ) {
-    .\-sm\:#{$self}--full,
-    &[data-shape="-sm:full"] {
-      flex: 1 0 auto;
-      width: 100%;
-      max-width: unset;
+    /* = stout button = */
+    &--stout,
+    &[data-shape="stout"] {
+        min-width: unset;
+        padding-left: var(--button-pad);
+        padding-right: var(--button-pad);
     }
-  }
 
-  @include media.below( md ) {
-    .\-md\:#{$self}--full,
-    &[data-shape="-md:full"] {
-      flex: 1 0 auto;
-      width: 100%;
-      max-width: unset;
+    /* = simple button = */
+    &--simple,
+    &[data-shape="simple"] {
+        min-width: unset;
+        height: fit-content;
+        padding: 0.5em;
     }
-  }
+
+    /* = square button = */
+    &--square,
+    &[data-shape="square"] {
+        min-width: unset;
+        width: var(--button-height);
+        height: var(--button-height);
+        padding: 0;
+    }
+
+    /* = full button = */
+    &--full,
+    &[data-shape="full"] {
+        flex: 1 0 auto;
+        width: 100%;
+        max-width: unset;
+    }
+
+    @include media.below( sm ) {
+        .\-sm\:#{$self}--full,
+        &[data-shape="-sm:full"] {
+            flex: 1 0 auto;
+            width: 100%;
+            max-width: unset;
+        }
+    }
+
+    @include media.below( md ) {
+        .\-md\:#{$self}--full,
+        &[data-shape="-md:full"] {
+            flex: 1 0 auto;
+            width: 100%;
+            max-width: unset;
+        }
+    }
 
 
-  /* === button scheme === */
+    /* === button scheme === */
 
-  /* = success button = */
-  &--success,
-  &[data-scheme="success"] {
-    --button-color:       #00aa22;
-    --button-hover:       #00aa22;
-    --button-active:      #00aa22;
-  }
+    /* = success button = */
+    &--success,
+    &[data-scheme="success"] {
+        --button-color:       #00aa22;
+        --button-hover:       #00aa22;
+        --button-active:      #00aa22;
+    }
 
-  /* = warn button = */
-  &--warn,
-  &[data-scheme="warn"] {
-    --button-color:       hsl(52, 100%, 50%);
-    --button-hover:       hsl(52, 100%, 70%);
-    --button-active:      hsl(48, 100%, 48%);
-    --button-face:        var(--light-face);
-  }
+    /* = warn button = */
+    &--warn,
+    &[data-scheme="warn"] {
+        --button-color:       hsl(52, 100%, 50%);
+        --button-hover:       hsl(52, 100%, 70%);
+        --button-active:      hsl(48, 100%, 48%);
+        --button-face:        var(--light-face);
+    }
 
-  /* = error button = */
-  &--error,
-  &[data-scheme="error"] {
-    --button-color:       hsl(8, 100%, 50%);
-    --button-hover:       hsl(8, 100%, 70%);
-    --button-active:      hsl(4, 100%, 40%);
-  }
+    /* = error button = */
+    &--error,
+    &[data-scheme="error"] {
+        --button-color:       hsl(8, 100%, 50%);
+        --button-hover:       hsl(8, 100%, 70%);
+        --button-active:      hsl(4, 100%, 40%);
+    }
 }

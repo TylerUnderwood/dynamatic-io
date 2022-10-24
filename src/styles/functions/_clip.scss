@@ -2,21 +2,21 @@
 // Clip
 
 @mixin clip( $top, $bottom ) {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-  &::before,
-  &::after {
-    display: block;
-    height: 0;
-    content: "";
-  }
+    &::before,
+    &::after {
+        display: block;
+        height: 0;
+        content: "";
+    }
 
-  &::before {
-    margin-top: $top;
-  }
+    &::before {
+        margin-top: $top;
+    }
 
-  &::after {
-    margin-bottom: $bottom;
-  }
+    &::after {
+        margin-bottom: $bottom;
+    }
 }

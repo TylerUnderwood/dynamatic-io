@@ -7,37 +7,37 @@
 
 // Element
 li {
-  line-height: 1;
-  list-style: inherit;
-  font-size: 1rem;
+    line-height: 1;
+    list-style: inherit;
+    font-size: 1rem;
 }
 
 ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 // Class
 .List,
 .Markup ul,
 .Markup ol {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  gap: var(--list-gap);
-  list-style: none;
-  counter-reset: list;
-  --list-tab: var(--tab-size);
-  --list-gap: 1.2rem;
-  --marker-color: var(--theme-marker);
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    gap: var(--list-gap);
+    list-style: none;
+    counter-reset: list;
+    --list-tab: var(--tab-size);
+    --list-gap: 1.2rem;
+    --marker-color: var(--theme-marker);
 }
 
 // Nested Lists
@@ -46,64 +46,64 @@ ol {
 .Markup ul > ol,
 .Markup ol > ul,
 .Markup ol > ol {
-  margin-top: 0 !important;
-  margin-left: var(--list-tab);
+    margin-top: 0 !important;
+    margin-left: var(--list-tab);
 }
 
 .List__item,
 .Markup li {
-  position: relative;
-  display: list-item;
-  margin: 0;
-  padding: 0;
-  font-size: 1rem;
-  line-height: 1.4;
-  list-style: inherit;
+    position: relative;
+    display: list-item;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    list-style: inherit;
 }
 
 .List > .List__item,
 .Markup ul > li,
 .Markup ol > li {
-  margin: -0.3em 0 -0.35em;
-  padding-left: var(--list-tab);
+    margin: -0.3em 0 -0.35em;
+    padding-left: var(--list-tab);
 
-  &::before {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: var(--list-tab);
-    color: var(--marker-color);
-    counter-increment: list;
-  }
+    &::before {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: var(--list-tab);
+        color: var(--marker-color);
+        counter-increment: list;
+    }
 }
 
 // Unordered List
 .List--bullet > .List__item,
 .Markup ul > li {
-  &::before {
-    font-size: 1.25rem;
-    line-height: 1.4rem;
-    content: "\2022";
-  }
+    &::before {
+        font-size: 1.25rem;
+        line-height: 1.4rem;
+        content: "\2022";
+    }
 }
 
 // Ordered List
 .List--numbered > .List__item,
 .Markup ol > li {
-  &::before {
-    content: counter(list) ".";
-  }
+    &::before {
+        content: counter(list) ".";
+    }
 }
 
 // Checkmark List
 .List--checkmark > .List__item {
-  &::before {
-    content: "\2713";
-  }
+    &::before {
+        content: "\2713";
+    }
 }
 
 // Custom marker on List
 .List[style*="--marker"] > .List__item::before {
-  content: var(--marker);
+    content: var(--marker);
 }

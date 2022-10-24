@@ -5,45 +5,45 @@
 */
 
 a {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-
-  &:hover,
-  &:focus {
-    outline: none;
+    text-decoration: none;
     color: inherit;
-  }
+    cursor: pointer;
 
-  &:focus-visible {
-    outline: 2px solid var(--input-color);
-  }
+    &:hover,
+    &:focus {
+        outline: none;
+        color: inherit;
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--input-color);
+    }
 }
 
 .Link {
-  color: var(--input-color);
-  transition: color 300ms ease;
-  cursor: pointer;
-
-  &[active] {
-    color: var(--input-active);
-  }
-
-  &:hover,
-  &:focus {
-    color: var(--input-hover);
-  }
-
-  &[stealth] {
-    color: inherit;
+    color: var(--input-color);
+    transition: color 300ms ease;
+    cursor: pointer;
 
     &[active] {
-      color: var(--input-active);
+        color: var(--input-active);
     }
 
     &:hover,
     &:focus {
-      color: var(--input-hover);
+        color: var(--input-hover);
     }
-  }
+
+    &[stealth] {
+        color: inherit;
+
+        &[active] {
+            color: var(--input-active);
+        }
+
+        &:hover,
+        &:focus {
+            color: var(--input-hover);
+        }
+    }
 }
