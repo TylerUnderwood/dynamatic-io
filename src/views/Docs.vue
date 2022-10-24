@@ -22,10 +22,7 @@ export default {
 <template>
     <Banner title="Docs"/>
 
-    <Section
-        id="section-docs-list"
-        heading="Section docs-list"
-    >
+    <Section heading="Docs List">
       <nav class="Nav mt-8">
         <ul class="Nav__list">
           <li class="Nav__item" v-for="item in nav">

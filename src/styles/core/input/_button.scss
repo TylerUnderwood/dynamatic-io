@@ -57,6 +57,10 @@ button {
   user-select: none;
   cursor: pointer;
 
+  &:focus {
+    color: var(--button-face);
+  }
+
   // [stealth] first so :hover overrides it
   &[stealth] {
     border-color: transparent;
@@ -157,7 +161,7 @@ button {
   &--tertiary,
   &[data-type="tertiary"] {
     border-color: transparent;
-    background-color: rgb(40 72 216 / 0.1);
+    background-color: transparent;
     color: var(--button-color);
 
     &[stealth] {
@@ -169,13 +173,13 @@ button {
     &[active] {
       border-color: transparent;
       background-color: rgb(40 72 216 / 0.05);
-      color: var(--button-active);
+      color: var(--button-color);
     }
 
     &[hover],
     &:hover {
       border-color: transparent;
-      background-color: rgb(40 72 216 / 0.05);
+      background-color: rgb(40 72 216 / 0.1);
       color: var(--button-color);
     }
 

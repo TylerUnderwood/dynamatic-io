@@ -135,10 +135,7 @@ export default {
 <template>
     <Banner title="Button"/>
 
-    <Section
-        id="section-button-dynamic"
-        heading="Button Selector"
-    >
+    <Section heading="Button Selector">
         <div class="flex flex-wrap mt-6 gap-4">
             <div
                 class="flex-1"
@@ -193,7 +190,7 @@ export default {
 
     <Section
         v-for="types, name in buttonTree"
-        :id="`section-button-${name}`"
+        :id="`button-${name}`"
         :heading="name[0].toUpperCase() + name.slice(1)"
     >
         <div class="flex flex-wrap gap-6 mt-6">
@@ -214,3 +211,12 @@ export default {
         </div>
     </Section>
 </template>
+
+<style>
+    #dynamic-button[data-shape="square"]::before {
+        content: "#" !important;
+    }
+    #dynamic-button[data-shape="square"] .Button__text {
+        display: none;
+    }
+</style>

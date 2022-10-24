@@ -7,10 +7,7 @@ import Box from "@/components/Box.vue";
 <template>
     <Banner title="Sandbox"/>
 
-    <Section
-        id="section-box"
-        heading="Section Box"
-    >
+    <Section heading="Testing Box">
         <Box
             display="row sm:col md:row"
             align="end sm:center md:between / center sm:end"

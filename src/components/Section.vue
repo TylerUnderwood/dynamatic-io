@@ -4,9 +4,25 @@ export default {
     'id',
     'heading'
   ],
-  data() {
-    return {
-      labelledby: this.id + '-heading'
+  computed: {
+    cid() {
+      let id;
+
+      if (this.id == null && this.heading != null) {
+        id = this.heading.trim().toLowerCase().split(' ').join('-');
+      } else if (this.id == null) {
+        id = 'asdf';
+      } else {
+        id = this.id;
+      }
+
+      return id;
+    },
+    sectionId() {
+      return 'section-' + this.cid;
+    },
+    headingId() {
+      return this.cid + '-heading';
     }
   }
 }
@@ -14,13 +30,13 @@ export default {
 
 <template>
   <section
-    :id="id"
+    :id="sectionId"
     class="Section gutter margins"
-    :aria-labelledby="labelledby"
+    :aria-labelledby="heading != null ? headingId : null"
     identify-item="component"
   >
     <div class="Section__wrap wrapper" identify-item="component right">
-      <h2 :id="labelledby" v-if="heading" class="Heading h2">
+      <h2 :id="headingId" class="Heading h2" v-if="heading">
         {{ heading }}
       </h2>
 

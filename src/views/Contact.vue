@@ -6,10 +6,7 @@ import Section from "@/components/Section.vue";
 <template>
     <Banner title="Contact"/>
 
-    <Section
-        id="section-nothing"
-        heading="Section Nothing"
-    >
-        Nothing lol
+    <Section heading="Nothing">
+
     </Section>
 </template>
