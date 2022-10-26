@@ -17,11 +17,11 @@
 }
 
 .Circle--border {
-  --circle-border-size: 0.1em;
-  /* this calculation stops the border size from being too big and breaking the circle */
-  --circle-border-width: min(var(--circle-radius), var(--circle-border-size));
-  background-color: transparent;
-  border-color: currentColor;
-  border-style: solid;
-  border-width: var(--circle-border-width);
+    --circle-border-size: 0.1em;
+    /* this calculation stops the border size from being too big and breaking the circle */
+    --circle-border-width: min(var(--circle-radius), var(--circle-border-size));
+    background-color: transparent;
+    border-color: currentColor;
+    border-style: solid;
+    border-width: var(--circle-border-width);
 }

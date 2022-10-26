@@ -15,11 +15,11 @@
 }
 
 .Square--border {
-  --square-border-size: 0.1em;
-  /* this calculation stops the border size from being too big and breaking the square */
-  --square-border-width: min(var(--square-radius), var(--square-border-size));
-  background-color: transparent;
-  border-color: currentColor;
-  border-style: solid;
-  border-width: var(--square-border-width);
+    --square-border-size: 0.1em;
+    /* this calculation stops the border size from being too big and breaking the square */
+    --square-border-width: min(var(--square-radius), var(--square-border-size));
+    background-color: transparent;
+    border-color: currentColor;
+    border-style: solid;
+    border-width: var(--square-border-width);
 }
