@@ -11,6 +11,8 @@
   --hexagon-side: calc(var(--hexagon-short-diagonal) * 0.5774);
   --hexagon-margin: calc(var(--hexagon-side) * 0.5);
   position: relative;
+  display: block;
+  flex-shrink: 0;
   margin: var(--hexagon-margin) 0;
   width: var(--hexagon-short-diagonal);
   height: var(--hexagon-side);

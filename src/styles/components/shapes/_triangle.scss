@@ -5,98 +5,88 @@
 */
 
 .Triangle {
-    --triangle-ratio: 0.5em;
-    --triangle-corner: calc(var(--triangle-ratio) * .7071);
-    display: flex;
-    width: 1em;
-    height: 1em;
-}
-.Triangle::before {
+    --triangle-width: 1em;
+    --triangle-height: calc(var(--triangle-width) * 0.86603);
+    --triangle-offset: calc(var(--triangle-width) - var(--triangle-height));
+    --triangle-side: var(--triangle-width);
+    --triangle-half-side: calc(var(--triangle-width) * 0.5);
     display: block;
-    width: 0;
-    height: 0;
-    border-width: var(--triangle-ratio);
+    flex-shrink: 0;
+    border-width: var(--triangle-half-side);
     border-style: solid;
     border-color: transparent;
-    content: '';
 }
 
-/* === Top === */
+/* === Equilateral === */
+
+/* = Top = */
+.Triangle\=t {
+    border-top: 0;
+    border-bottom-width: var(--triangle-height);
+    border-bottom-color: currentColor;
+}
+
+/* = Right = */
+.Triangle\=r {
+    border-right: 0;
+    border-left-width: var(--triangle-height);
+    border-left-color: currentColor;
+}
+
+/* = Bottom = */
+.Triangle\=b {
+    border-top-width: var(--triangle-height);
+    border-top-color: currentColor;
+    border-bottom: 0;
+}
+
+/* = Left = */
+.Triangle\=l {
+    border-right-width: var(--triangle-height);
+    border-right-color: currentColor;
+    border-left: 0;
+}
+
+
+/* === Right Angle === */
+
+/* = Top = */
 .Triangle--t {
-    align-items: flex-end;
-}
-.Triangle--t::before {
-    border-top: none;
+    border-top: 0;
     border-bottom-color: currentColor;
 }
-
-/* === Top Right === */
-.Triangle--t-r {
-    justify-content: flex-end;
-    align-items: flex-start;
-}
-.Triangle::before {
-    border-width: var(--triangle-corner);
-    border-top-color: currentColor;
-    border-right-color: currentColor;
-}
-
-/* === Right === */
+/* = Right = */
 .Triangle--r {
-    justify-content: flex-start;
-}
-.Triangle::before {
-    border-right: none;
+    border-right: 0;
     border-left-color: currentColor;
 }
-
-/* === Bottom Right === */
-.Triangle--b-r {
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-.Triangle::before {
-    border-width: var(--triangle-corner);
-    border-bottom-color: currentColor;
-    border-right-color: currentColor;
-}
-
-/* === Bottom === */
+/* = Bottom = */
 .Triangle--b {
-    align-items: flex-start;
-}
-.Triangle::before {
     border-top-color: currentColor;
-    border-bottom: none;
+    border-bottom: 0;
 }
-
-/* === Bottom Left === */
-.Triangle--b-l {
-    justify-content: flex-start;
-    align-items: flex-end;
+/* = Left = */
+.Triangle--l {
+    border-right-color: currentColor;
+    border-left: 0;
 }
-.Triangle::before {
-    border-width: var(--triangle-corner);
+/* = Top Right = */
+.Triangle--tr {
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+}
+/* = Bottom Right = */
+.Triangle--br {
+    border-bottom-color: currentColor;
+    border-right-color: currentColor;
+}
+/* = Bottom Left = */
+.Triangle--bl {
     border-bottom-color: currentColor;
     border-left-color: currentColor;
 }
-
-/* === Left === */
-.Triangle--l {
-    justify-content: flex-end;
-}
-.Triangle::before {
-    border-left: none;
-    border-right-color: currentColor;
-}
-
-/* === Top Left === */
-.Triangle--t-l {
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-.Triangle::before {
-    border-width: var(--triangle-corner);
+/* = Top Left = */
+.Triangle--tl {
     border-top-color: currentColor;
     border-left-color: currentColor;
 }

@@ -17,7 +17,7 @@ import Box from "@/components/Box.vue";
             <div
                 v-for="index in 7"
                 :key="index"
-                class="border-face square text-primary text-6xl"
+                class="Square border-face text-primary text-6xl"
             ></div>
         </Box>
     </Section>

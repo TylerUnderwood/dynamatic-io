@@ -1,51 +1,54 @@
 /*
 |––––––––––––––––––––––––––––––––––––––––––––––––––
-| COMPONENTS: Circle
+| COMPONENTS: Arch
 |––––––––––––––––––––––––––––––––––––––––––––––––––
 */
 
 .Arch {
+    --arch-width: 1em;
+    --arch-diameter: calc(var(--arch-width) * 2);
     display: block;
     position: relative;
-    width: 1em;
-    height: 1em;
-    overflow: hidden;
+    flex-shrink: 0;
+    width: var(--arch-width);
+    height: var(--arch-width);
+    overflow: clip;
     font-size: inherit;
     color: inherit;
     content: '';
+}
 
-    &::after {
-        display: block;
-        position: absolute;
-        width: 2em;
-        height: 2em;
-        border-radius: 100%;
-        box-shadow: 0 0 0 1em currentColor;
-        content: '';
-    }
+.Arch::after {
+    display: block;
+    position: absolute;
+    width: var(--arch-diameter);
+    height: var(--arch-diameter);
+    border-radius: 100%;
+    box-shadow: 0 0 0 1em currentColor;
+    content: '';
+}
 
-    &--t-r::after {
-        top: 0;
-        left: unset;
-        bottom: unset;
-        right: 0;
-    }
-    &--t-l::after {
-        top: 0;
-        left: 0;
-        bottom: unset;
-        right: unset;
-    }
-    &--b-r::after {
-        top: unset;
-        left: unset;
-        bottom: 0;
-        right: 0;
-    }
-    &--b-l::after {
-        top: unset;
-        left: 0;
-        bottom: 0;
-        right: unset;
-    }
+.Arch--tr::after {
+    top: 0;
+    left: unset;
+    bottom: unset;
+    right: 0;
+}
+.Arch--tl::after {
+    top: 0;
+    left: 0;
+    bottom: unset;
+    right: unset;
+}
+.Arch--br::after {
+    top: unset;
+    left: unset;
+    bottom: 0;
+    right: 0;
+}
+.Arch--bl::after {
+    top: unset;
+    left: 0;
+    bottom: 0;
+    right: unset;
 }
