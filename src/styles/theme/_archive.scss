@@ -1,0 +1,42 @@
+
+/* ===== Palette ===== */
+:root {
+    --default-red: #ff0000;
+    --default-orange: #ff8000;
+    --default-yellow: #ffff00;
+    --default-chartreuse: #80ff00;
+    --default-green: #00ff00;
+    --default-jade: #00ff80;
+    --default-cyan: #00ffff;
+    --default-azure: #0080ff;
+    --default-blue: #0000ff;
+    --default-purple: #8000ff;
+    --default-magenta: #ff00ff;
+    --default-fuchsia: #ff0080;
+    --default-white: #ffffff;
+    --default-off-white: #f8f8f8;
+    --default-light: #eeeeee;
+    --default-light-grey: #c0c0c0;
+    --default-grey: #808080;
+    --default-dark-grey: #404040;
+    --default-dark: #333333;
+    --default-off-black: #202020;
+    --default-black: #000000;
+}
+
+/* ===== Theme ===== */
+:root {
+    --theme-primary: var(--default-blue);
+    --theme-secondary: var(--default-purple);
+    --theme-accent: var(--default-jade);
+    --theme-input: var(--default-blue);
+    --theme-marker: var(--default-azure);
+    --theme-muted: var(--default-grey);
+    --theme-base: var(--default-white);
+    --theme-offset: var(--default-off-white);
+    --theme-contrast: var(--default-light);
+    --theme-head: var(--default-black);
+    --theme-face: var(--default-off-black);
+    --theme-body: var(--default-dark);
+    color-scheme: normal;
+}

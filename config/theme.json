@@ -54,8 +54,8 @@
     "primary": "--blue",
     "secondary": "--purple",
     "accent": "--azure",
-    "input": "--blue-200",
-    "marker": "--blue-200",
+    "input": "--blue-400",
+    "marker": "--blue-400",
     "muted": "--grey-200",
     "base": "--dark-400",
     "offset": "--dark-600",
@@ -77,6 +77,42 @@
     "head": "--theme-head",
     "face": "--theme-face",
     "body": "--theme-body"
+  },
+  "markup": {
+    "color": "--theme-markup",
+    "muted": "--theme-muted",
+    "break-size": "1.6rem",
+    "tab-size": "2.0rem"
+  },
+  "text": {
+    "font": {
+      "head": "Arial",
+      "face": "Arial",
+      "meta": "Arial"
+    }
+  },
+  "inputs": {
+    "color": "--theme-input",
+    "hover": "--theme-accent",
+    "active": "--theme-secondary",
+    "height": {
+      "large": "2.8rem",
+      "DEFAULT": "2.2rem",
+      "small": "1.6rem"
+    },
+    "border-width": {
+      "large": "3px",
+      "DEFAULT": "2px",
+      "small": "1px"
+    },
+    "pad": {
+      "large": "1.2rem",
+      "DEFAULT": "0.8rem",
+      "small": "0.5rem"
+    },
+    "round": "3px",
+    "timing": "300ms",
+    "easing": "ease"
   },
   "screens": {
     "sm": "480px",

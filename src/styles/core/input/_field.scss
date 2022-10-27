@@ -179,7 +179,7 @@ input[type="submit"] {
     height: var(--input-height);
     padding: 0 var(--input-pad);
     line-height: 1;
-    font-family: var(--face-font);
+    font-family: var(--font-face);
     font-size: 1rem;
     color: var(--theme-face);
     transition-property: border-color, background-color, color, opacity;
@@ -258,7 +258,7 @@ input[type="submit"] {
     border-width: var(--input-border-width-small);
     height: var(--input-height-small);
     padding: 0 var(--input-pad-small);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 

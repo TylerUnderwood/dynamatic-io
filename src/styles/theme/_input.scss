@@ -1,5 +1,10 @@
+/*
+|–––––––––––––––––––––––––
+| THEME: Input
+|–––––––––––––––––––––––––
+*/
 
-body {
+:root {
     --input-color: var(--theme-input);
     --input-hover: var(--theme-accent);
     --input-active: var(--theme-secondary);

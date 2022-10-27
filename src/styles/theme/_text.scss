@@ -1,13 +1,13 @@
 /*
 |–––––––––––––––––––––––––
-| Text
+| THEME: Text
 |–––––––––––––––––––––––––
 */
 
 :root {
-    --head-font: var(--theme-head-font, "Arial", sans-serif);
-    --face-font: var(--theme-face-font, "Arial", sans-serif);
-    --meta-font: var(--theme-meta-font, "Arial", sans-serif);
+    --font-head: "Arial", sans-serif;
+    --font-face: "Arial", sans-serif;
+    --font-meta: "Arial", sans-serif;
     --break-size: 1.6rem;
     --tab-size: 2.0rem;
 }

@@ -6,17 +6,6 @@
 |–––––––––––––––––––––––––
 */
 
-body {
-    --button-color: var(--input-color);
-    --button-hover: var(--input-hover);
-    --button-active: var(--input-active);
-    --button-face: var(--theme-base);
-    --button-height: var(--input-height);
-    --button-pad: var(--input-pad);
-    --button-timing: var(--input-timing);
-    --button-easing: var(--input-easing);
-}
-
 button {
     display: inline-block;
     outline: none;
@@ -31,6 +20,14 @@ button {
 
 .Button {
     $self: &;
+    --button-color: var(--input-color);
+    --button-hover: var(--input-hover);
+    --button-active: var(--input-active);
+    --button-face: var(--theme-base);
+    --button-height: var(--input-height);
+    --button-pad: var(--input-pad);
+    --button-timing: var(--input-timing);
+    --button-easing: var(--input-easing);
     display: inline-flex;
     justify-content: center;
     align-items: center;

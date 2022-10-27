@@ -13,12 +13,14 @@ export default {
 
     buildCssVars( themeTokens ) {
       let themeStyles = '';
+
       for ( const category in themeTokens ) { themeStyles += `
 /* ${category} */
 :root {
   ${this.tokenList( themeTokens[category] )}
 }\n`
       };
+
       return themeStyles;
     }
   },
