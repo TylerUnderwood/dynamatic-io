@@ -28,6 +28,7 @@ const buttonTree = {
         "full",
     ],
     scheme: [
+        "face",
         "success",
         "warn",
         "error",

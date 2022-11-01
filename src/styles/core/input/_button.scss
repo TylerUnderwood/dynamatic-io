@@ -318,6 +318,15 @@ button {
 
     /* === button scheme === */
 
+    /* = face button = */
+    &--face,
+    &[data-scheme="face"] {
+        --button-color:       var(--theme-body);
+        --button-hover:       var(--theme-face);
+        --button-active:      var(--theme-head);
+        --button-face:        var(--theme-base);
+    }
+
     /* = success button = */
     &--success,
     &[data-scheme="success"] {

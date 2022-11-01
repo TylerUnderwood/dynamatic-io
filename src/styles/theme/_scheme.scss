@@ -4,6 +4,22 @@
 |–––––––––––––––––––––––––
 */
 
+[data-theme="normal"] {
+    --theme-primary: var(--light-primary);
+    --theme-secondary: var(--light-secondary);
+    --theme-accent: var(--light-accent);
+    --theme-input: var(--light-input);
+    --theme-marker: var(--light-marker);
+    --theme-muted: var(--light-muted);
+    --theme-base: var(--light-base);
+    --theme-offset: var(--light-offset);
+    --theme-contrast: var(--light-contrast);
+    --theme-head: var(--light-head);
+    --theme-face: var(--light-face);
+    --theme-body: var(--light-body);
+    color-scheme: normal;
+}
+
 @mixin theme( $type ) {
     --theme-primary: var(--#{$type}-primary);
     --theme-secondary: var(--#{$type}-secondary);
@@ -18,11 +34,6 @@
     --theme-face: var(--#{$type}-face);
     --theme-body: var(--#{$type}-body);
     color-scheme: $type;
-}
-
-[data-theme],
-[data-theme="normal"] {
-    @include theme( normal );
 }
 
 /* ===== Light Mode ===== */
@@ -46,3 +57,37 @@
 [data-theme="dark"] {
     @include theme( dark );
 }
+
+// @mixin scheme($types, $default: "light") {
+//     @each $type in $types {
+//         @if $default == "light" {
+//             [data-theme="normal"] {
+//                 @content( $type );
+//             }
+//         }
+
+//         @if $default == "dark" {
+//             [data-theme="normal"] {
+//                 @content( $type );
+//             }
+//         }
+
+//         @media (prefers-color-scheme: #{$type}) {
+//             [data-theme="auto"] {
+//                 @content( $type );
+//             }
+//         }
+//         [data-theme="#{$type}"] {
+//             @content( $type );
+//         }
+//     }
+// }
+
+// @include scheme(dark, light) using ($type) {
+//     @if $type == dark {
+//         @include theme( dark );
+//     }
+//     @if $type == light {
+//         @include theme( light );
+//     }
+// }

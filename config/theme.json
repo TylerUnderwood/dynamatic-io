@@ -84,9 +84,9 @@
   },
   "text": {
     "font": {
-      "head": "Arial",
-      "face": "Arial",
-      "meta": "Arial"
+      "head": "\"Arial\", sans-serif",
+      "face": "\"Arial\", sans-serif",
+      "meta": "\"Arial\", sans-serif"
     },
     "break-size": "1.6rem",
     "tab-size": "2.0rem"
