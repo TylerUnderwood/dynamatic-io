@@ -78,20 +78,20 @@
     "face": "--theme-face",
     "body": "--theme-body"
   },
-  "markup": {
-    "color": "--theme-markup",
-    "muted": "--theme-muted",
-    "break-size": "1.6rem",
-    "tab-size": "2.0rem"
+  "marker": {
+    "color": "--theme-marker",
+    "muted": "--theme-muted"
   },
   "text": {
     "font": {
       "head": "Arial",
       "face": "Arial",
       "meta": "Arial"
-    }
+    },
+    "break-size": "1.6rem",
+    "tab-size": "2.0rem"
   },
-  "inputs": {
+  "input": {
     "color": "--theme-input",
     "hover": "--theme-accent",
     "active": "--theme-secondary",

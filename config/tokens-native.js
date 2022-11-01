@@ -20,9 +20,9 @@ const nativeTokensGenerator = ( tokens ) => {
       }
     };
 
-    if (category === "DEFAULT") {
-      variables.push('color-scheme: normal');
-    }
+    // if (category === "DEFAULT") {
+    //   variables.push('color-scheme: normal;');
+    // }
 
     categories[category] = variables;
 

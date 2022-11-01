@@ -20,6 +20,11 @@
     color-scheme: $type;
 }
 
+[data-theme],
+[data-theme="normal"] {
+    @include theme( normal );
+}
+
 /* ===== Light Mode ===== */
 @media (prefers-color-scheme: light) {
     [data-theme="auto"] {

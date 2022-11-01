@@ -14,11 +14,20 @@ export default {
     buildCssVars( themeTokens ) {
       let themeStyles = '';
 
-      for ( const category in themeTokens ) { themeStyles += `
-/* ${category} */
-:root {
+      const addCategoryStyles = ( category, categoryName, rule ) => {
+        themeStyles += `
+/* ${categoryName} */
+${rule} {
   ${this.tokenList( themeTokens[category] )}
 }\n`
+      };
+
+      for ( const category in themeTokens ) {
+        if ( category === "DEFAULT" ) {
+          addCategoryStyles(category, "Theme", ":root");
+        } else {
+          addCategoryStyles(category, category, ":root");
+        }
       };
 
       return themeStyles;
