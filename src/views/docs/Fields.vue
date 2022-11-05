@@ -2,6 +2,7 @@
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
 import Field from "@/components/Field.vue";
+import Submit from "@/components/Submit.vue";
 
 const inputTypes = {
     "string": [
@@ -64,25 +65,22 @@ export default {
 
         <form class="flex items-end" action="">
             <Field
-                class="w-full"
                 name="Vue Field Component"
                 type="email"
                 placeholder
-                label
             />
-
-            <label for="submit-vue-field" class="Button relative">
-                <input id="submit-vue-field" class="inset opacity-0" type="submit" />
-                <div class="Button__text meta">submit</div>
-            </label>
         </form>
     </Section>
+
+    <hr class="Line">
 
     <Section
         id="section-inputs"
         heading="Default Inputs"
     >
-        <details class="mt-6" open>
+        <br class="break" style="font-size: 1.6rem;">
+
+        <details open>
             <summary>
                 <h3 class="Heading">All Input Types</h3>
             </summary>
@@ -227,7 +225,7 @@ export default {
             </form>
         </details>
 
-        <details class="mt-6">
+        <details>
             <summary>
                 <h3 class="Heading">Standard Fields</h3>
             </summary>

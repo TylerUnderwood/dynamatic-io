@@ -83,7 +83,7 @@ button {
 
     // :focus should override :hover
     &[focus-v],
-    &:focus-visible {
+    &:focus-visible  {
         outline: 2px solid var(--input-color);
         outline-offset: 2px;
     }
@@ -149,7 +149,7 @@ button {
             color: var(--button-color) !important;
         }
 
-        #{$self}__text {
+        .Button__text {
             font-size: 0.7rem;
         }
     }
@@ -201,17 +201,17 @@ button {
         --button-height: var(--input-height-large);
         --button-pad: var(--input-pad-large);
 
-        #{$self}__text {
+        .Button__text {
             font-weight: 700;
             font-size: 0.9rem;
         }
 
-        #{$self}__icon {
+        .Button__icon {
             font-size: 1.2rem;
         }
 
-        &#{$self}--secondary #{$self}__text,
-        &[data-type="secondary"] #{$self}__text {
+        &.Button--secondary .Button__text,
+        &[data-type="secondary"] .Button__text {
             font-size: 0.8rem;
         }
     }
@@ -227,17 +227,17 @@ button {
         --button-height: var(--input-height-small);
         --button-pad: var(--input-pad-small);
 
-        #{$self}__text {
+        .Button__text {
             font-weight: 300;
             font-size: 0.7rem;
         }
 
-        #{$self}__icon {
+        .Button__icon {
             font-size: 0.8rem;
         }
 
-        &#{$self}--secondary #{$self}__text,
-        &[data-type="secondary"] #{$self}__text {
+        &.Button--secondary .Button__text,
+        &[data-type="secondary"] .Button__text {
             font-size: 0.6rem;
         }
     }
@@ -247,16 +247,16 @@ button {
     &[data-size="tiny"] {
         min-width: unset;
         border-width: 1px;
-        padding: 0.2rem 0.3rem;
+        padding: 0.3rem 0.4rem;
         font-size: 0.6rem;
         --button-height: 1.2rem;
-        --button-pad: 0.3rem;
+        --button-pad: 0.4rem;
 
-        #{$self}__text {
+        .Button__text {
             font-size: 0.6rem;
         }
 
-        #{$self}__icon {
+        .Button__icon {
             font-size: 0.8rem;
         }
     }
@@ -298,8 +298,8 @@ button {
     }
 
     @include media.below( sm ) {
-        .\-sm\:#{$self}--full,
-        &[data-shape="-sm:full"] {
+        .\-sm\:.Button--full,
+        &[data-shape="sm-full"] {
             flex: 1 0 auto;
             width: 100%;
             max-width: unset;
@@ -307,8 +307,17 @@ button {
     }
 
     @include media.below( md ) {
-        .\-md\:#{$self}--full,
-        &[data-shape="-md:full"] {
+        .\-md\:.Button--full,
+        &[data-shape="md-full"] {
+            flex: 1 0 auto;
+            width: 100%;
+            max-width: unset;
+        }
+    }
+
+    @include media.below( lg ) {
+        .\-lg\:.Button--full,
+        &[data-shape="lg-full"] {
             flex: 1 0 auto;
             width: 100%;
             max-width: unset;
@@ -317,6 +326,15 @@ button {
 
 
     /* === button scheme === */
+
+    /* = base button = */
+    &--base,
+    &[data-scheme="base"] {
+        --button-color:       var(--theme-base);
+        --button-hover:       var(--theme-offset);
+        --button-active:      var(--theme-contrast);
+        --button-face:        var(--theme-face);
+    }
 
     /* = face button = */
     &--face,

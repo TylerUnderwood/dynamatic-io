@@ -26,8 +26,12 @@ const buttonTree = {
         "square",
         "simple",
         "full",
+        "sm-full",
+        "md-full",
+        "lg-full",
     ],
     scheme: [
+        "base",
         "face",
         "success",
         "warn",

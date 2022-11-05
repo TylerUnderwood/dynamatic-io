@@ -14,18 +14,21 @@ export default {
 
 <template>
   <header id="header" class="flex justify-between items-center p-4">
-    <div class="flex -m-4">
-      <router-link to="/" class="Logo p-4">
+    <div class="flex -m-6">
+      <router-link to="/" class="Logo p-6">
         LOGO
       </router-link>
     </div>
 
-    <div class="spacer ml-auto"></div>
+    <div class="spacer filler"></div>
 
     <nav class="Nav">
       <ul class="Nav__list">
         <li class="Nav__item" v-for="item in nav">
-          <router-link :to="item.url" class="Link Nav__link">
+          <router-link
+            :to="item.url"
+            class="Link Nav__link"
+          >
             <span class="meta">{{ item.name }}</span>
           </router-link>
         </li>
@@ -34,10 +37,12 @@ export default {
 
     <div class="spacer"></div>
 
-    <router-link to="/docs">
-      <div class="Button" data-shape="simple">
-        <span class="Button__text meta">Docs</span>
-      </div>
+    <router-link
+      to="/docs"
+      class="Button border-0"
+      data-shape="simple"
+    >
+      <span class="Button__text meta">Docs</span>
     </router-link>
   </header>
 </template>

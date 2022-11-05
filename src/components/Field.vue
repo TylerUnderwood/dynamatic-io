@@ -23,6 +23,7 @@ export default {
         required: Boolean,
         readonly: Boolean,
         disabled: Boolean,
+        message: String,
     },
     computed: {
         hasLabel() {
@@ -49,8 +50,12 @@ export default {
 </script>
 
 <template>
-    <div class="flex flex-col">
-        <label class="label mb-2" :for="id" v-if="hasLabel">
+    <div class="flex flex-col w-full">
+        <label
+            class="Label mr-auto mb-2"
+            :for="id"
+            v-if="hasLabel"
+        >
             {{ getLabel }}
         </label>
         <input
