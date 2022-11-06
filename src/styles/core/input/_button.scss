@@ -298,7 +298,7 @@ button {
     }
 
     @include media.below( sm ) {
-        .\-sm\:.Button--full,
+        .\-sm\:Button--full,
         &[data-shape="sm-full"] {
             flex: 1 0 auto;
             width: 100%;
@@ -307,7 +307,7 @@ button {
     }
 
     @include media.below( md ) {
-        .\-md\:.Button--full,
+        .\-md\:Button--full,
         &[data-shape="md-full"] {
             flex: 1 0 auto;
             width: 100%;
@@ -316,7 +316,7 @@ button {
     }
 
     @include media.below( lg ) {
-        .\-lg\:.Button--full,
+        .\-lg\:Button--full,
         &[data-shape="lg-full"] {
             flex: 1 0 auto;
             width: 100%;
