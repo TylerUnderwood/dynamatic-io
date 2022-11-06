@@ -147,7 +147,7 @@ export default {
                 style="min-width: 120px;"
                 v-for="types, name in buttonTypes"
             >
-                <label :for="`select-button-${name}`" class="meta" style="font-size: 0.7rem;">
+                <label :for="`select-button-${name}`" class="Meta" style="font-size: 0.7rem;">
                     {{ name }}
                 </label>
                 <select :id="`select-button-${name}`" class="Field Field--small mt-2" :name="name">
@@ -171,7 +171,7 @@ export default {
                 :for="`toggle-button-${button}`"
                 v-for="button in types"
             >
-                <span  class="order-2 meta" style="font-size: 0.7rem;">
+                <span  class="order-2 Meta" style="font-size: 0.7rem;">
                     {{ button }}
                 </span>
                 <input
@@ -185,7 +185,7 @@ export default {
 
         <div class="flex justify-center items-center p-4 mt-6 border-2" style="min-height: 240px;">
             <button id="dynamic-button" class="Button">
-                <span class="Button__text meta">
+                <span class="Button__text Meta">
                     Button
                 </span>
             </button>
@@ -209,8 +209,8 @@ export default {
                 :[button]="name === 'state' ? '' : null"
                 :href="`#docs-button-${name}-${button}`"
             >
-                <span class="Button__text meta">
-                    {{ /square/.test(button) ? "s" : button }}
+                <span class="Button__text Meta">
+                    {{ /square/.test(button) ? "&#9432;" : button }}
                 </span>
             </a>
         </div>
@@ -219,7 +219,7 @@ export default {
 
 <style>
     #dynamic-button[data-shape="square"]::before {
-        content: "#" !important;
+        content: "ⓘ" !important;
     }
     #dynamic-button[data-shape="square"] .Button__text {
         display: none;

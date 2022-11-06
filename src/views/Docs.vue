@@ -27,7 +27,7 @@ export default {
         <ul class="Nav__list">
           <li class="Nav__item" v-for="item in nav">
             <router-link :to="item.url" class="Link Nav__link">
-              <span class="meta">{{ item.name }}</span>
+              <span class= "Meta">{{ item.name }}</span>
             </router-link>
           </li>
         </ul>

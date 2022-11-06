@@ -12,7 +12,7 @@ import Section from "@/components/Section.vue";
         class="flex flex-col w-1/6 mt-6"
         :style="{ color: `var(--${name})` }"
       >
-        <code class="meta text-face mt-auto mb-2" :style="{fontSize: '0.6rem'}">
+        <code class="Meta text-face mt-auto mb-2" :style="{fontSize: '0.6rem'}">
           {{ name, `var(--${name})` }}
         </code>
         <div class="w-full bg-current" :style="{paddingTop: '100%'}"></div>
