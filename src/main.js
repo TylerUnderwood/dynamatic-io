@@ -7,6 +7,7 @@ import About from "@views/About.vue";
 import Contact from "@views/Contact.vue";
 import Sandbox from "@views/Sandbox.vue";
 import Docs from "@views/Docs.vue";
+import Taxonomy from "@views/docs/Taxonomy.vue";
 import Theme from "@views/docs/Theme.vue";
 import Color from "@views/docs/Color.vue";
 import Buttons from "@views/docs/Buttons.vue";
@@ -23,6 +24,7 @@ const router = createRouter({
         { path: '/contact', name: 'Contact', component: Contact},
         { path: '/sandbox', name: 'Sandbox', component: Sandbox},
         { path: '/docs', name: 'Docs', component: Docs},
+        { path: '/docs/taxonomy', name: 'Taxonomy', component: Taxonomy},
         { path: '/docs/theme', name: 'Theme', component: Theme},
         { path: '/docs/color', name: 'Color', component: Color},
         { path: '/docs/buttons', name: 'Buttons', component: Buttons},
