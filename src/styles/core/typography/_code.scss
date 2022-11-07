@@ -1,0 +1,52 @@
+@use '../../functions' as f;
+
+/*
+|–––––––––––––––––––––––––
+| Code
+|–––––––––––––––––––––––––
+*/
+
+code {
+    display: inline-block;
+    margin: 0;
+    font-family: monospace;
+}
+
+code:has(pre) {
+    display: block;
+}
+
+pre {
+    display: block;
+    margin: 0;
+}
+
+.Code {
+    @include f.clip(-0.1em, -0.25em);
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid var(--theme-contrast);
+    background: var(--theme-offset);
+    padding: 0.2em 0.2em 0.3em;
+    line-height: 1;
+    font-family: var(--font-meta);
+    font-size: 0.9em;
+    color: var(--theme-body);
+}
+
+.Codeblock {
+    display: flex;
+    border-radius: var(--input-round);
+    border-width: var(--input-border-width);
+    border-style: solid;
+    border-color: var(--theme-contrast);
+    background: var(--theme-offset);
+    box-shadow: var(--shadow-in);
+    overflow-x: auto;
+    overflow-y: clip;
+    padding: var(--input-pad);
+    line-height: 1.2;
+    font-family: var(--font-meta);
+    font-size: inherit;
+    color: var(--theme-body);
+}

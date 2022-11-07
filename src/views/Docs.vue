@@ -8,6 +8,7 @@ export default {
   data() {
     return {
       nav: [
+        { url: '/docs/taxonomy', name: 'Taxonomy'},
         { url: '/docs/theme', name: 'Theme'},
         { url: '/docs/color', name: 'Color'},
         { url: '/docs/buttons', name: 'Buttons'},
