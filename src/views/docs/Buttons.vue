@@ -198,6 +198,16 @@ export default {
         :id="`button-${name}`"
         :heading="name[0].toUpperCase() + name.slice(1)"
     >
+        <div class="mt-4">
+            <code class="Code" style="font-size: 0.8rem">
+                <template v-if="name === 'state'">
+                    [{{ types.map(type => type).join(' | ') }}]
+                </template>
+                <template v-else>
+                    [data-{{ name }}="{{ types.map(type => type).join(' | ') }}"]
+                </template>
+            </code>
+        </div>
         <div class="flex flex-wrap gap-6 mt-6">
             <a
                 v-for="button in types"
