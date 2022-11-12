@@ -12,17 +12,12 @@ code {
     font-family: monospace;
 }
 
-code:has(pre) {
-    display: block;
-}
-
 pre {
     display: block;
     margin: 0;
 }
 
 .Code {
-    @include f.clip(-0.1em, -0.25em);
     display: inline-block;
     border-radius: 2px;
     border: 1px solid var(--theme-contrast);
@@ -30,11 +25,11 @@ pre {
     padding: 0.2em 0.2em 0.3em;
     line-height: 1;
     font-family: var(--font-meta);
-    font-size: 0.9em;
     color: var(--theme-body);
 }
 
 .Codeblock {
+    @include f.clip(-0.1em, -0.25em);
     display: flex;
     border-radius: var(--input-round);
     border-width: var(--input-border-width);
