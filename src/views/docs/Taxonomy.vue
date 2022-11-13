@@ -1,6 +1,8 @@
 <script setup>
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
+
+// https://en.wikipedia.org/wiki/Box-drawing_character
 </script>
 
 <template>
@@ -8,7 +10,6 @@ import Section from "@/components/Section.vue";
 
     <Section heading="Folder Structure">
         <br class="break" style="font-size: 2.4rem">
-
         <code class="Codeblock">
 <pre>
 ┃ /styles

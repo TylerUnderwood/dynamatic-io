@@ -1,4 +1,5 @@
 <script>
+// TODO: needs refactor to use layout.scss
 export default {
   props: [
     'display',

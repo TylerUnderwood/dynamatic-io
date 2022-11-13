@@ -10,15 +10,15 @@
 /* === Row === */
 @mixin class-row {
   display: flex !important;
-  flex-direction: row;
-  justify-content: var(--y-justify, flex-start);
-  align-content: var(--x-justify, stretch);
-  align-items: var(--x-align, stretch);
-  --x-justify: var(--x-align);
-  --y-justify: var(--y-align);
+  flex-direction: row !important;
+  justify-content: var(--x-content, stretch);
+  justify-items: var(--x-items, stretch);
+  align-content: var(--y-content, stretch);
+  align-items: var(--y-items, stretch);
 }
 
-.row {
+.row,
+[data-layout*="row"] {
   @include class-row;
 }
 
@@ -26,15 +26,15 @@
 /* === Columns === */
 @mixin class-col {
   display: flex !important;
-  flex-direction: column;
-  justify-content: var(--x-justify, flex-start);
-  align-content: var(--y-justify, stretch);
-  align-items: var(--y-align, stretch);
-  --x-justify: var(--x-align);
-  --y-justify: var(--y-align);
+  flex-direction: column !important;
+  justify-content: var(--y-content, stretch);
+  justify-items: var(--y-items, stretch);
+  align-content: var(--x-content, stretch);
+  align-items: var(--x-items, stretch);
 }
 
-.col {
+.col,
+[data-layout*="column"] {
   @include class-col;
 }
 
@@ -42,22 +42,46 @@
 /* === Align === */
 @mixin class-align {
   &-t {
-    --x-align: flex-start;
+    --y-content: flex-start;
   }
   &-r {
-    --y-align: flex-end;
+    --x-content: flex-end;
   }
   &-b {
-    --x-align: flex-end;
+    --y-content: flex-end;
   }
   &-l {
-    --y-align: flex-start;
-  }
-  &-x {
-    --x-align: center;
+    --x-content: flex-start;
   }
   &-y {
-    --y-align: center;
+    --y-content: center;
+  }
+  &-x {
+    --x-content: center;
+  }
+  &-y-stretch {
+    --y-content: stretch;
+  }
+  &-x-stretch {
+    --x-content: stretch;
+  }
+  &-y-between {
+    --y-content: space-between;
+  }
+  &-x-between {
+    --x-content: space-between;
+  }
+  &-y-around {
+    --y-content: space-around;
+  }
+  &-x-around {
+    --x-content: space-around;
+  }
+  &-y-evenly {
+    --y-content: space-evenly;
+  }
+  &-x-evenly {
+    --x-content: space-evenly;
   }
 }
 
@@ -65,37 +89,129 @@
   @include class-align;
 }
 
+[data-align-y^="top"] {
+  --y-content: flex-start;
+}
+[data-align-x^="right"] {
+  --x-content: flex-end;
+}
+[data-align-y^="bottom"] {
+  --y-content: flex-end;
+}
+[data-align-x^="left"] {
+  --x-content: flex-start;
+}
+[data-align-y^="center"] {
+  --y-content: center;
+}
+[data-align-x^="center"] {
+  --x-content: center;
+}
+[data-align-y^="stretch"] {
+  --y-content: stretch;
+}
+[data-align-x^="stretch"] {
+  --x-content: stretch;
+}
+[data-align-y^="between"] {
+  --y-content: space-between;
+}
+[data-align-x^="between"] {
+  --x-content: space-between;
+}
+[data-align-y^="around"] {
+  --y-content: space-around;
+}
+[data-align-x^="around"] {
+  --x-content: space-around;
+}
+[data-align-y^="evenly"] {
+  --y-content: space-evenly;
+}
+[data-align-x^="evenly"] {
+  --x-content: space-evenly;
+}
+
 
 /* === Justify === */
 @mixin class-justify {
-  &-x-stretch {
-    --x-justify: stretch;
+  &-t {
+    --y-items: flex-start;
+  }
+  &-r {
+    --x-items: flex-end;
+  }
+  &-b {
+    --y-items: flex-end;
+  }
+  &-l {
+    --x-items: flex-start;
+  }
+  &-y {
+    --y-items: center;
+  }
+  &-x {
+    --x-items: center;
   }
   &-y-stretch {
-    --y-justify: stretch;
+    --y-items: stretch;
   }
-  &-x-between {
-    --x-justify: space-between;
+  &-x-stretch {
+    --x-items: stretch;
+  }
+  &-y-baseline {
+    --y-items: baseline;
+  }
+  &-x-baseline {
+    --x-items: baseline;
   }
   &-y-between {
-    --y-justify: space-between;
+    --y-items: space-between;
   }
-  &-x-around {
-    --x-justify: space-around;
+  &-x-between {
+    --x-items: space-between;
   }
   &-y-around {
-    --y-justify: space-around;
+    --y-items: space-around;
   }
-  &-x-evenly {
-    --x-justify: space-evenly;
+  &-x-around {
+    --x-items: space-around;
   }
   &-y-evenly {
-    --y-justify: space-evenly;
+    --y-items: space-evenly;
+  }
+  &-x-evenly {
+    --x-items: space-evenly;
   }
 }
 
 .justify {
   @include class-justify;
+}
+
+[data-items-y^="top"] {
+  --y-items: flex-start;
+}
+[data-items-x^="right"] {
+  --x-items: flex-end;
+}
+[data-items-y^="bottom"] {
+  --y-items: flex-end;
+}
+[data-items-x^="left"] {
+  --x-items: flex-start;
+}
+[data-items-y^="center"] {
+  --y-items: center;
+}
+[data-items-x^="center"] {
+  --x-items: center;
+}
+[data-items-y^="baseline"] {
+  --y-items: baseline;
+}
+[data-items-x^="baseline"] {
+  --x-items: baseline;
 }
 
 
