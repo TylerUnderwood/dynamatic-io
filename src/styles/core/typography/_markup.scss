@@ -8,16 +8,38 @@ span {
     display: inline;
 }
 
-figcaption {
-    font-style: normal;
+
+// bold
+b {
+    font-weight: bold;
 }
 
-address {
-    font-style: normal;
+strong {
+    font-weight: bold;
 }
 
-time {
-    font-style: normal;
+// italics
+i {
+    font-style: italic;
+}
+
+em {
+    font-style: italic;
+}
+
+// underline
+ins {
+    text-decoration: underline;
+}
+
+// strike-through
+del {
+    text-decoration: line-through;
+}
+
+// highlighted
+mark {
+    background-color: yellow;
 }
 
 
@@ -45,35 +67,15 @@ sub {
 }
 
 
-// bold
-b {
-    font-weight: bold;
+// types
+figcaption {
+    font-style: normal;
 }
 
-strong {
-    font-weight: bold;
+address {
+    font-style: normal;
 }
 
-// italics
-i {
-    font-style: italic;
-}
-
-em {
-    font-style: italic;
-}
-
-// underline
-ins {
-    text-decoration: underline;
-}
-
-// striketrough
-del {
-    text-decoration: line-through;
-}
-
-// highlighted
-mark {
-    background-color: yellow;
+time {
+    font-style: normal;
 }
