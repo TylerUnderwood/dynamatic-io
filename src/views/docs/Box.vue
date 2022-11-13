@@ -86,6 +86,8 @@ export default {
     return {
       squares: 24,
       useNumbersForSquares: false,
+      wrapLayoutSquares: true,
+      showSquareBaseline: false
     }
   },
 
@@ -187,15 +189,17 @@ export default {
         <div class="bg-offset">
             <div
                 id="dynamic-box"
+                class="LayoutDemo"
+                :class="{ 'show-baseline': showSquareBaseline }"
                 data-layout="row"
                 data-align-y="top"
                 data-items-y="null"
                 data-align-x="left"
                 data-items-x="null"
-                style="aspect-ratio: 16/9; flex-wrap: wrap; overflow: clip;"
+                :style="{ flexWrap: wrapLayoutSquares ? 'wrap' : 'nowrap'}"
             >
                 <div
-                    class="LayoutDemoSquare"
+                    class="LayoutDemo__Square"
                     :style="`font-size: ${Math.ceil(Math.random() * 4 + 1)}rem;`"
                     v-for="index in Number(squares)"
                     :key="index"
@@ -245,11 +249,38 @@ export default {
                 useNumbersForSquares
             </small>
         </label>
+        <label for="wrapLayoutSquares" class="Label ml-4">
+            <input
+                type="checkbox"
+                name="wrapLayoutSquares"
+                id="wrapLayoutSquares"
+                v-model="wrapLayoutSquares"
+            >
+            <small class="Code ml-2">
+                wrapLayoutSquares
+            </small>
+        </label>
+        <label for="showSquareBaseline" class="Label ml-4">
+            <input
+                type="checkbox"
+                name="showSquareBaseline"
+                id="showSquareBaseline"
+                v-model="showSquareBaseline"
+            >
+            <small class="Code ml-2">
+                showSquareBaseline
+            </small>
+        </label>
     </Section>
 </template>
 
 <style>
-    .LayoutDemoSquare {
+    .LayoutDemo {
+        aspect-ratio: 16/9;
+        overflow: auto;
+    }
+    .LayoutDemo__Square {
+        position: relative;
         display: flex;
         justify-content: center;
         border: 2px solid var(--theme-head);
@@ -257,5 +288,14 @@ export default {
         min-height: 1em;
         background-color: var(--theme-primary);
         padding: 0.1em;
+    }
+    .LayoutDemo.show-baseline .LayoutDemo__Square::after,
+    .LayoutDemo.show-baseline .LayoutDemo__Square::after {
+        position: absolute;
+        top: calc(0.76em + 2px);
+        z-index: 99;
+        width: 2em;
+        border-bottom: 1px solid red;
+        content: '';
     }
 </style>
