@@ -1,0 +1,105 @@
+ ///////////////////////
+// Builder
+
+$breakpoints: (
+    "sm": 480px,
+    "md": 768px,
+    "lg": 1024px,
+);
+
+// Make All Classes in the Breakpoints list
+@mixin add-breakpoint-prefixes( $breakpointsList: $breakpoints ) {
+  @each $point, $width in $breakpointsList {
+    @media ( min-width: #{$width} ) {
+      .#{$point}\: {
+        @content;
+      }
+    }
+  }
+}
+
+// Make All Classes In a SCSS list
+@mixin make-classes-from-list( $class, $properties, $list ) {
+  @each $key, $value in $list {
+    .#{$class}-#{$key} {
+      @each $property in $properties {
+        #{$property}: $value;
+      }
+      @content;
+    }
+  }
+}
+
+// This is the same as the make all mixin but it is expected to be inside the addBreakpointPrefixes mixin
+@mixin make-classes-from-list-for-prefixes( $class, $properties, $list ) {
+  @each $key, $value in $list {
+    &#{$class}-#{$key} {
+      @each $property in $properties {
+        #{$property}: $value;
+      }
+      @content;
+    }
+  }
+}
+
+@mixin make-list-of-classes-from-list( $classList, $varList, $defaultVar ) {
+  @each $className, $properties in $classList {
+    @if $defaultVar {
+      // make the default class
+      .#{$className} {
+        @each $property in $properties {
+          #{$property}: $defaultVar;
+        }
+      }
+    }
+    @if $varList {
+      // make classes from list
+      @include make-classes-from-list( $className, $properties, $varList );
+    }
+  }
+}
+
+@mixin make-list-of-classes-from-list-for-prefixes( $classList, $varList, $defaultVar ) {
+  @each $className, $properties in $classList {
+    // make default class inside breakpoints
+    @if $defaultVar {
+      // make the default class
+      &#{$className} {
+        @each $property in $properties {
+          #{$property}: $defaultVar;
+        }
+      }
+    }
+    // make classes from list inside breakpoints
+    @include make-classes-from-list-for-prefixes( $className, $properties, $varList );
+  }
+}
+
+@mixin make-classes-from-object( $object ) {
+  @each $class, $rules in $object {
+    .#{$class} {
+      @each $rule, $type in $rules {
+        #{$rule}: #{$type};
+      }
+    }
+  }
+};
+
+@mixin make-classes-from-object-for-prefixes( $object ) {
+  @each $class, $rules in $object {
+    &#{$class} {
+      @each $rule, $type in $rules {
+        #{$rule}: #{$type};
+      }
+    }
+  }
+};
+
+// This makes classes that are prefixed, separated by a colon
+@mixin make-prefixed-classes-from-list( $prefix, $rule, $list ) {
+  @each $key, $value in $list {
+    .#{$prefix}\:#{$key} {
+      #{$rule}: $value;
+    }
+  }
+}

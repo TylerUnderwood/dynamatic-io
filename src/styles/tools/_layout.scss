@@ -1,0 +1,119 @@
+@use '../functions/builder' as b;
+
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Layout
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+
+/* === Row === */
+@mixin class-row {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: var(--y-justify, flex-start);
+  align-content: var(--x-justify, stretch);
+  align-items: var(--x-align, stretch);
+  --x-justify: var(--x-align);
+  --y-justify: var(--y-align);
+}
+
+.row {
+  @include class-row;
+}
+
+
+/* === Columns === */
+@mixin class-col {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: var(--x-justify, flex-start);
+  align-content: var(--y-justify, stretch);
+  align-items: var(--y-align, stretch);
+  --x-justify: var(--x-align);
+  --y-justify: var(--y-align);
+}
+
+.col {
+  @include class-col;
+}
+
+
+/* === Align === */
+@mixin class-align {
+  &-t {
+    --x-align: flex-start;
+  }
+  &-r {
+    --y-align: flex-end;
+  }
+  &-b {
+    --x-align: flex-end;
+  }
+  &-l {
+    --y-align: flex-start;
+  }
+  &-x {
+    --x-align: center;
+  }
+  &-y {
+    --y-align: center;
+  }
+}
+
+.align {
+  @include class-align;
+}
+
+
+/* === Justify === */
+@mixin class-justify {
+  &-x-stretch {
+    --x-justify: stretch;
+  }
+  &-y-stretch {
+    --y-justify: stretch;
+  }
+  &-x-between {
+    --x-justify: space-between;
+  }
+  &-y-between {
+    --y-justify: space-between;
+  }
+  &-x-around {
+    --x-justify: space-around;
+  }
+  &-y-around {
+    --y-justify: space-around;
+  }
+  &-x-evenly {
+    --x-justify: space-evenly;
+  }
+  &-y-evenly {
+    --y-justify: space-evenly;
+  }
+}
+
+.justify {
+  @include class-justify;
+}
+
+
+/* === Layout Breakpoints === */
+@include b.add-breakpoint-prefixes() {
+  &row {
+    @include class-row;
+  }
+
+  &col {
+    @include class-col;
+  }
+
+  &align {
+    @include class-align;
+  }
+
+  &justify {
+    @include class-justify;
+  }
+}
