@@ -84,7 +84,7 @@ const selectFields = [
 export default {
   data() {
     return {
-      squares: 24,
+      squares: 18,
       useNumbersForSquares: false,
       wrapLayoutSquares: true,
       showSquareBaseline: false
@@ -175,7 +175,7 @@ export default {
                 <select
                     :id="`select-box-${field.slug}`"
                     :name="field.label"
-                    class="Field"
+                    class="Field Field--small"
                 >
                     <option value="null">None</option>
                     <option
@@ -186,11 +186,13 @@ export default {
             </div>
         </form>
         <br class="break">
-        <div class="bg-offset">
+        <div
+            class="LayoutDemo"
+            :class="{ 'show-baseline': showSquareBaseline }"
+        >
             <div
                 id="dynamic-box"
-                class="LayoutDemo"
-                :class="{ 'show-baseline': showSquareBaseline }"
+                class="LayoutDemo__container"
                 data-layout="row"
                 data-align-y="top"
                 data-items-y="null"
@@ -238,44 +240,84 @@ export default {
             <option value="36">36</option>
         </datalist>
         <br class="break">
-        <label for="useNumbersForSquares" class="Label">
-            <input
-                type="checkbox"
-                name="useNumbersForSquares"
-                id="useNumbersForSquares"
-                v-model="useNumbersForSquares"
-            >
-            <small class="Code ml-2">
-                useNumbersForSquares
-            </small>
-        </label>
-        <label for="wrapLayoutSquares" class="Label ml-4">
-            <input
-                type="checkbox"
-                name="wrapLayoutSquares"
-                id="wrapLayoutSquares"
-                v-model="wrapLayoutSquares"
-            >
-            <small class="Code ml-2">
-                wrapLayoutSquares
-            </small>
-        </label>
-        <label for="showSquareBaseline" class="Label ml-4">
-            <input
-                type="checkbox"
-                name="showSquareBaseline"
-                id="showSquareBaseline"
-                v-model="showSquareBaseline"
-            >
-            <small class="Code ml-2">
-                showSquareBaseline
-            </small>
-        </label>
+        <div class="flex flex-wrap -m-2">
+            <label for="useNumbersForSquares" class="Label p-2">
+                <input
+                    type="checkbox"
+                    name="useNumbersForSquares"
+                    id="useNumbersForSquares"
+                    v-model="useNumbersForSquares"
+                >
+                <small class="Code ml-2">
+                    useNumbersForSquares
+                </small>
+            </label>
+            <label for="wrapLayoutSquares" class="Label p-2">
+                <input
+                    type="checkbox"
+                    name="wrapLayoutSquares"
+                    id="wrapLayoutSquares"
+                    v-model="wrapLayoutSquares"
+                >
+                <small class="Code ml-2">
+                    wrapLayoutSquares
+                </small>
+            </label>
+            <label for="showSquareBaseline" class="Label p-2">
+                <input
+                    type="checkbox"
+                    name="showSquareBaseline"
+                    id="showSquareBaseline"
+                    v-model="showSquareBaseline"
+                >
+                <small class="Code ml-2">
+                    showSquareBaseline
+                </small>
+            </label>
+        </div>
     </Section>
 </template>
 
 <style>
     .LayoutDemo {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.6rem;
+        --layout-demo-axis-offset: 0.5em;
+    }
+    .LayoutDemo::before,
+    .LayoutDemo::after {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0px solid var(--theme-head);
+        vertical-align: middle;
+        text-align: center;
+    }
+    .LayoutDemo::after {
+        top: 0;
+        right: calc(100% + var(--layout-demo-axis-offset));
+        bottom: calc(var(--layout-demo-axis-offset) * -3);
+        left: unset;
+        border-right-width: 1px;
+        padding-bottom: calc(var(--layout-demo-axis-offset) * 3);
+        padding-right: 0.2em;
+        content: "Y";
+    }
+    .LayoutDemo::before {
+        top: calc(100% + var(--layout-demo-axis-offset));
+        right: 0;
+        bottom: unset;
+        left: calc(var(--layout-demo-axis-offset) * -3);
+        border-top-width: 1px;
+        padding-left: calc(var(--layout-demo-axis-offset) * 3);
+        padding-top: 0.2em;
+        content: "X";
+    }
+    .LayoutDemo__container {
+        background-color: var(--theme-offset);
         aspect-ratio: 16/9;
         overflow: auto;
     }
@@ -292,7 +334,7 @@ export default {
     .LayoutDemo.show-baseline .LayoutDemo__Square::after,
     .LayoutDemo.show-baseline .LayoutDemo__Square::after {
         position: absolute;
-        top: calc(0.76em + 2px);
+        top: 0.76em;
         z-index: 99;
         width: 2em;
         border-bottom: 1px solid red;
