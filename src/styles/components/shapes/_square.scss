@@ -9,8 +9,8 @@
     --square-radius: calc(var(--square-width) * 0.5);
     display: block;
     flex-shrink: 0;
-    min-width: var(--square-width);
-    min-height: var(--square-width);
+    width: var(--square-width);
+    height: var(--square-width);
     background-color: currentColor;
 }
 

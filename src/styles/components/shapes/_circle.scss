@@ -11,8 +11,8 @@
     border-radius: 50%;
     overflow: clip;
     flex-shrink: 0;
-    min-width: var(--circle-width);
-    min-height: var(--circle-width);
+    width: var(--circle-width);
+    height: var(--circle-width);
     background-color: currentColor;
 }
 

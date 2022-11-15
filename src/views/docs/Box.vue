@@ -1,46 +1,7 @@
 <script setup>
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
-import Box from "@/components/Box.vue";
 
-// const alignXClasses = [
-//     'align-r',
-//     'align-l',
-//     'align-x',
-//     'align-x-stretch',
-//     'align-x-between',
-//     'align-x-around',
-//     'align-x-evenly',
-// ];
-// const alignYClasses = [
-//     'align-t',
-//     'align-b',
-//     'align-y',
-//     'align-y-stretch',
-//     'align-y-between',
-//     'align-y-around',
-//     'align-y-evenly',
-// ];
-// const justifyXClasses = [
-//     'justify-r',
-//     'justify-l',
-//     'justify-x',
-//     'justify-x-baseline',
-//     'justify-x-stretch',
-//     'justify-x-between',
-//     'justify-x-around',
-//     'justify-x-evenly',
-// ];
-// const justifyYClasses = [
-//     'justify-t',
-//     'justify-b',
-//     'justify-y',
-//     'justify-y-baseline',
-//     'justify-y-stretch',
-//     'justify-y-between',
-//     'justify-y-around',
-//     'justify-y-evenly',
-// ];
 const alignSharedTypes = [
     'center',
     'stretch',
@@ -53,28 +14,24 @@ const selectFields = [
         name: 'Y Content',
         slug: 'align-y',
         label: 'alignY',
-        // classes: alignYClasses,
         types: ['top', 'bottom', ...alignSharedTypes]
     },
     {
         name: 'Y Items',
         slug: 'items-y',
         label: 'itemsY',
-        // classes: justifyYClasses,
         types: ['top', 'bottom', 'center', 'baseline']
     },
     {
         name: 'X Content',
         slug: 'align-x',
         label: 'alignX',
-        // classes: alignXClasses,
         types: ['right', 'left', ...alignSharedTypes]
     },
     {
         name: 'X Items',
         slug: 'items-x',
         label: 'itemsX',
-        // classes: justifyXClasses,
         types: ['right', 'left', 'center', 'baseline']
     }
 ];
@@ -92,16 +49,16 @@ export default {
   },
 
   methods: {
-        radioDataset: ( radio, element ) => {
-            radio.checked = element.dataset[radio.name] === radio.value;
+        radioAttr: ( radio, element ) => {
+            radio.checked = element.getAttribute(radio.name) === radio.value;
 
             radio.addEventListener("change", (event) => {
-                element.dataset[event.target.name] = radio.value;
+                element.setAttribute(event.target.name, radio.value);
             });
         },
 
-        selectDataset: ( selector, element ) => {
-            selector.value = element.dataset[selector.name];
+        selectAttr: ( selector, element ) => {
+            selector.value = element.getAttribute(selector.name);
 
             selector.addEventListener("change", (event) => {
                 const options = event.target.options;
@@ -113,9 +70,9 @@ export default {
                     if ( !option.selected ) continue;
 
                     if ( option.value === "" || option.value === "default" ) {
-                        delete element.dataset[name];
+                        element.removeAttribute(name);
                     } else {
-                        element.dataset[name] = option.value;
+                        element.setAttribute(name, option.value);
                     }
                 }
             })
@@ -128,11 +85,11 @@ export default {
         const box = document.querySelector("#dynamic-box");
 
         selectors.forEach( (selector) => {
-            this.selectDataset(selector, box);
+            this.selectAttr(selector, box);
         });
 
         radios.forEach( (radio) => {
-            this.radioDataset(radio, box);
+            this.radioAttr(radio, box);
         });
     }
 }
@@ -169,12 +126,12 @@ export default {
                         {{ field.name }}
                     </label>
                     <code class="Code ml-2" style="font-size: 0.7rem;">
-                        [data-{{ field.slug }}]
+                        [{{ field.slug }}]
                     </code>
                 </div>
                 <select
                     :id="`select-box-${field.slug}`"
-                    :name="field.label"
+                    :name="field.slug"
                     class="Field Field--small"
                 >
                     <option value="null">None</option>
@@ -193,11 +150,11 @@ export default {
             <div
                 id="dynamic-box"
                 class="LayoutDemo__container"
-                data-layout="row"
-                data-align-y="top"
-                data-items-y="null"
-                data-align-x="left"
-                data-items-x="null"
+                layout="row"
+                align-y="top"
+                items-y="null"
+                align-x="left"
+                items-x="null"
                 :style="{ flexWrap: wrapLayoutSquares ? 'wrap' : 'nowrap'}"
             >
                 <div
@@ -220,8 +177,8 @@ export default {
         <br class="break">
         <input
             type="range"
-            name="range"
-            label="Range"
+            name="amount-of-dynamic-squares"
+            label="Amount of Dynamic Squares"
             step="1"
             max="36"
             list="amount-of-dynamic-squares"
@@ -320,21 +277,22 @@ export default {
         background-color: var(--theme-offset);
         aspect-ratio: 16/9;
         overflow: auto;
+        max-width: 100%;
+        resize: horizontal;
     }
     .LayoutDemo__Square {
         position: relative;
         display: flex;
         justify-content: center;
-        border: 2px solid var(--theme-head);
+        box-shadow: inset 0 0 0 1px var(--theme-head);
         min-width: 1em;
         min-height: 1em;
         background-color: var(--theme-primary);
         padding: 0.1em;
     }
-    .LayoutDemo.show-baseline .LayoutDemo__Square::after,
     .LayoutDemo.show-baseline .LayoutDemo__Square::after {
         position: absolute;
-        top: 0.76em;
+        top: 0.777em;
         z-index: 99;
         width: 2em;
         border-bottom: 1px solid red;
