@@ -1,0 +1,76 @@
+@use '../functions/builder' as b;
+
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Layout
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+
+/* === Row === */
+@mixin class-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: var(--x-align, flex-start);
+    align-items: var(--y-align, stretch);
+}
+
+.row {
+    @include class-row;
+}
+
+
+/* === Columns === */
+@mixin class-col {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: var(--y-align, flex-start);
+    align-items: var(--x-align, stretch);
+}
+
+.col {
+    @include class-col;
+}
+
+
+/* === Align === */
+@mixin class-align {
+    &-t {
+        --x-align: flex-start;
+    }
+    &-r {
+        --y-align: flex-end;
+    }
+    &-b {
+        --x-align: flex-end;
+    }
+    &-l {
+        --y-align: flex-start;
+    }
+    &-x {
+        --x-align: center;
+    }
+    &-y {
+        --y-align: center;
+    }
+}
+
+.align {
+    @include class-align;
+}
+
+
+/* === Layout Breakpoints === */
+@include b.add-breakpoint-prefixes() {
+    &row {
+        @include class-row;
+    }
+
+    &col {
+        @include class-col;
+    }
+
+    &align {
+        @include class-align;
+    }
+}

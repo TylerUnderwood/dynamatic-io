@@ -56,10 +56,10 @@ $breakpoints: (
 
 // Make all attr in the Breakpoints list
 @mixin build-layout-bp-attr( $breakpointsList: $breakpoints ) {
-  @each $point, $width in $breakpointsList {
+  @each $prefix, $width in $breakpointsList {
     @media ( min-width: #{$width} ) {
       // LAYOUT
-      [layout*="#{$point}:row"] {
+      [layout*="#{$prefix}:row"] {
         display: flex !important;
         flex-direction: row !important;
         justify-content: var(--x-content, stretch);
@@ -67,7 +67,7 @@ $breakpoints: (
         align-content: var(--y-content, stretch);
         align-items: var(--y-items, stretch);
       }
-      [layout*="#{$point}:column"] {
+      [layout*="#{$prefix}:column"] {
         display: flex !important;
         flex-direction: column !important;
         justify-content: var(--y-content, stretch);
@@ -76,29 +76,29 @@ $breakpoints: (
         align-items: var(--x-items, stretch);
       }
       // CONTENT
-      [align-y*="#{$point}:top"] { --y-content: flex-start; }
-      [align-x*="#{$point}:right"] { --x-content: flex-end; }
-      [align-y*="#{$point}:bottom"] { --y-content: flex-end; }
-      [align-x*="#{$point}:left"] { --x-content: flex-start; }
-      [align-y*="#{$point}:center"] { --y-content: center; }
-      [align-x*="#{$point}:center"] { --x-content: center; }
-      [align-y*="#{$point}:stretch"] { --y-content: stretch; }
-      [align-x*="#{$point}:stretch"] { --x-content: stretch; }
-      [align-y*="#{$point}:between"] { --y-content: space-between; }
-      [align-x*="#{$point}:between"] { --x-content: space-between; }
-      [align-y*="#{$point}:around"] { --y-content: space-around; }
-      [align-x*="#{$point}:around"] { --x-content: space-around; }
-      [align-y*="#{$point}:evenly"] { --y-content: space-evenly; }
-      [align-x*="#{$point}:evenly"] { --x-content: space-evenly; }
+      [align-y*="#{$prefix}:top"] { --y-content: flex-start; }
+      [align-x*="#{$prefix}:right"] { --x-content: flex-end; }
+      [align-y*="#{$prefix}:bottom"] { --y-content: flex-end; }
+      [align-x*="#{$prefix}:left"] { --x-content: flex-start; }
+      [align-y*="#{$prefix}:center"] { --y-content: center; }
+      [align-x*="#{$prefix}:center"] { --x-content: center; }
+      [align-y*="#{$prefix}:stretch"] { --y-content: stretch; }
+      [align-x*="#{$prefix}:stretch"] { --x-content: stretch; }
+      [align-y*="#{$prefix}:between"] { --y-content: space-between; }
+      [align-x*="#{$prefix}:between"] { --x-content: space-between; }
+      [align-y*="#{$prefix}:around"] { --y-content: space-around; }
+      [align-x*="#{$prefix}:around"] { --x-content: space-around; }
+      [align-y*="#{$prefix}:evenly"] { --y-content: space-evenly; }
+      [align-x*="#{$prefix}:evenly"] { --x-content: space-evenly; }
       // ITEMS
-      [items-y*="#{$point}:top"] { --y-items: flex-start; }
-      [items-x*="#{$point}:right"] { --x-items: flex-end; }
-      [items-y*="#{$point}:bottom"] { --y-items: flex-end; }
-      [items-x*="#{$point}:left"] { --x-items: flex-start; }
-      [items-y*="#{$point}:center"] { --y-items: center; }
-      [items-x*="#{$point}:center"] { --x-items: center; }
-      [items-y*="#{$point}:baseline"] { --y-items: baseline; }
-      [items-x*="#{$point}:baseline"] { --x-items: baseline; }
+      [items-y*="#{$prefix}:top"] { --y-items: flex-start; }
+      [items-x*="#{$prefix}:right"] { --x-items: flex-end; }
+      [items-y*="#{$prefix}:bottom"] { --y-items: flex-end; }
+      [items-x*="#{$prefix}:left"] { --x-items: flex-start; }
+      [items-y*="#{$prefix}:center"] { --y-items: center; }
+      [items-x*="#{$prefix}:center"] { --x-items: center; }
+      [items-y*="#{$prefix}:baseline"] { --y-items: baseline; }
+      [items-x*="#{$prefix}:baseline"] { --x-items: baseline; }
     }
   }
 }
