@@ -34,4 +34,6 @@ export default {
       </ul>
     </nav>
   </Section>
+
+  <router-view></router-view>
 </template>
