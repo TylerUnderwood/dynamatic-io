@@ -13,28 +13,28 @@ import Fields from "@views/docs/Fields.vue";
 import Layout from "@views/docs/Layout.vue";
 
 const routes = [
-    { path: '/', name: 'Home', component: Home},
-    { path: '/about', name: 'About', component: About},
-    { path: '/contact', name: 'Contact', component: Contact},
-    { path: '/sandbox', name: 'Sandbox', component: Sandbox},
-    {
-        path: '/docs',
-        name: 'Docs',
-        component: Docs,
-        children: [
-            { path: 'taxonomy', name: 'Taxonomy', component: Taxonomy},
-            { path: 'theme', name: 'Theme', component: Theme},
-            { path: 'color', name: 'Color', component: Color},
-            { path: 'buttons', name: 'Buttons', component: Buttons},
-            { path: 'fields', name: 'Fields', component: Fields},
-            { path: 'layout', name: 'Layout', component: Layout},
-        ]
-    },
-]
+  { path: "/", name: "Home", component: Home },
+  { path: "/about", name: "About", component: About },
+  { path: "/contact", name: "Contact", component: Contact },
+  { path: "/sandbox", name: "Sandbox", component: Sandbox },
+  {
+    path: "/docs",
+    name: "Docs",
+    component: Docs,
+    children: [
+      { path: "taxonomy", name: "Taxonomy", component: Taxonomy },
+      { path: "theme", name: "Theme", component: Theme },
+      { path: "color", name: "Color", component: Color },
+      { path: "buttons", name: "Buttons", component: Buttons },
+      { path: "fields", name: "Fields", component: Fields },
+      { path: "layout", name: "Layout", component: Layout },
+    ],
+  },
+];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes: routes,
+  history: createWebHistory(),
+  routes: routes,
 });
 
 export default router;

@@ -28,5 +28,5 @@ import Settings from "@/components/Settings.vue";
 
   <div id="modals-stack" class="relative z-9"></div>
 
-  <Utilities/>
+  <Utilities />
 </template>
