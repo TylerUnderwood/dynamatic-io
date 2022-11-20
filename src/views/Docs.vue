@@ -13,7 +13,7 @@ export default {
         { url: '/docs/color', name: 'Color'},
         { url: '/docs/buttons', name: 'Buttons'},
         { url: '/docs/fields', name: 'Fields'},
-        { url: '/docs/box', name: 'Box'}
+        { url: '/docs/layout', name: 'Layout'}
       ]
     }
   }

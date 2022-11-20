@@ -39,16 +39,16 @@ const selectFields = [
 
 <script>
 export default {
-  data() {
-    return {
-      squares: 18,
-      useNumbersForSquares: false,
-      wrapLayoutSquares: true,
-      showSquareBaseline: false
-    }
-  },
+    data() {
+        return {
+            squares: 18,
+            useNumbersForSquares: false,
+            wrapLayoutSquares: true,
+            showSquareBaseline: false
+        }
+    },
 
-  methods: {
+    methods: {
         radioAttr: ( radio, element ) => {
             radio.checked = element.getAttribute(radio.name) === radio.value;
 

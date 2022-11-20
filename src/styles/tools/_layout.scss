@@ -6,20 +6,20 @@
 
 // LAYOUT
 [layout^="row"] {
-  display: flex !important;
-  flex-direction: row !important;
-  justify-content: var(--x-content, stretch);
-  justify-items: var(--x-items, stretch);
-  align-content: var(--y-content, stretch);
-  align-items: var(--y-items, stretch);
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: var(--x-content, stretch);
+    justify-items: var(--x-items, stretch);
+    align-content: var(--y-content, stretch);
+    align-items: var(--y-items, stretch);
 }
 [layout^="column"] {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: var(--y-content, stretch);
-  justify-items: var(--y-items, stretch);
-  align-content: var(--x-content, stretch);
-  align-items: var(--x-items, stretch);
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: var(--y-content, stretch);
+    justify-items: var(--y-items, stretch);
+    align-content: var(--x-content, stretch);
+    align-items: var(--x-items, stretch);
 }
 
 // CONTENT
@@ -49,58 +49,58 @@
 [items-x^="baseline"] { --x-items: baseline; }
 
 $breakpoints: (
-  "sm": 480px,
-  "md": 768px,
-  "lg": 1024px,
+    "sm": 480px,
+    "md": 768px,
+    "lg": 1024px,
 );
 
 // Make all attr in the Breakpoints list
 @mixin build-layout-bp-attr( $breakpointsList: $breakpoints ) {
-  @each $prefix, $width in $breakpointsList {
-    @media ( min-width: #{$width} ) {
-      // LAYOUT
-      [layout*="#{$prefix}:row"] {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: var(--x-content, stretch);
-        justify-items: var(--x-items, stretch);
-        align-content: var(--y-content, stretch);
-        align-items: var(--y-items, stretch);
-      }
-      [layout*="#{$prefix}:column"] {
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: var(--y-content, stretch);
-        justify-items: var(--y-items, stretch);
-        align-content: var(--x-content, stretch);
-        align-items: var(--x-items, stretch);
-      }
-      // CONTENT
-      [align-y*="#{$prefix}:top"] { --y-content: flex-start; }
-      [align-x*="#{$prefix}:right"] { --x-content: flex-end; }
-      [align-y*="#{$prefix}:bottom"] { --y-content: flex-end; }
-      [align-x*="#{$prefix}:left"] { --x-content: flex-start; }
-      [align-y*="#{$prefix}:center"] { --y-content: center; }
-      [align-x*="#{$prefix}:center"] { --x-content: center; }
-      [align-y*="#{$prefix}:stretch"] { --y-content: stretch; }
-      [align-x*="#{$prefix}:stretch"] { --x-content: stretch; }
-      [align-y*="#{$prefix}:between"] { --y-content: space-between; }
-      [align-x*="#{$prefix}:between"] { --x-content: space-between; }
-      [align-y*="#{$prefix}:around"] { --y-content: space-around; }
-      [align-x*="#{$prefix}:around"] { --x-content: space-around; }
-      [align-y*="#{$prefix}:evenly"] { --y-content: space-evenly; }
-      [align-x*="#{$prefix}:evenly"] { --x-content: space-evenly; }
-      // ITEMS
-      [items-y*="#{$prefix}:top"] { --y-items: flex-start; }
-      [items-x*="#{$prefix}:right"] { --x-items: flex-end; }
-      [items-y*="#{$prefix}:bottom"] { --y-items: flex-end; }
-      [items-x*="#{$prefix}:left"] { --x-items: flex-start; }
-      [items-y*="#{$prefix}:center"] { --y-items: center; }
-      [items-x*="#{$prefix}:center"] { --x-items: center; }
-      [items-y*="#{$prefix}:baseline"] { --y-items: baseline; }
-      [items-x*="#{$prefix}:baseline"] { --x-items: baseline; }
+    @each $prefix, $width in $breakpointsList {
+        @media ( min-width: #{$width} ) {
+            // LAYOUT
+            [layout*="#{$prefix}:row"] {
+                display: flex !important;
+                flex-direction: row !important;
+                justify-content: var(--x-content, stretch);
+                justify-items: var(--x-items, stretch);
+                align-content: var(--y-content, stretch);
+                align-items: var(--y-items, stretch);
+            }
+            [layout*="#{$prefix}:column"] {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: var(--y-content, stretch);
+                justify-items: var(--y-items, stretch);
+                align-content: var(--x-content, stretch);
+                align-items: var(--x-items, stretch);
+            }
+            // CONTENT
+            [align-y*="#{$prefix}:top"] { --y-content: flex-start; }
+            [align-x*="#{$prefix}:right"] { --x-content: flex-end; }
+            [align-y*="#{$prefix}:bottom"] { --y-content: flex-end; }
+            [align-x*="#{$prefix}:left"] { --x-content: flex-start; }
+            [align-y*="#{$prefix}:center"] { --y-content: center; }
+            [align-x*="#{$prefix}:center"] { --x-content: center; }
+            [align-y*="#{$prefix}:stretch"] { --y-content: stretch; }
+            [align-x*="#{$prefix}:stretch"] { --x-content: stretch; }
+            [align-y*="#{$prefix}:between"] { --y-content: space-between; }
+            [align-x*="#{$prefix}:between"] { --x-content: space-between; }
+            [align-y*="#{$prefix}:around"] { --y-content: space-around; }
+            [align-x*="#{$prefix}:around"] { --x-content: space-around; }
+            [align-y*="#{$prefix}:evenly"] { --y-content: space-evenly; }
+            [align-x*="#{$prefix}:evenly"] { --x-content: space-evenly; }
+            // ITEMS
+            [items-y*="#{$prefix}:top"] { --y-items: flex-start; }
+            [items-x*="#{$prefix}:right"] { --x-items: flex-end; }
+            [items-y*="#{$prefix}:bottom"] { --y-items: flex-end; }
+            [items-x*="#{$prefix}:left"] { --x-items: flex-start; }
+            [items-y*="#{$prefix}:center"] { --y-items: center; }
+            [items-x*="#{$prefix}:center"] { --x-items: center; }
+            [items-y*="#{$prefix}:baseline"] { --y-items: baseline; }
+            [items-x*="#{$prefix}:baseline"] { --x-items: baseline; }
+        }
     }
-  }
 }
 
 @include build-layout-bp-attr();
