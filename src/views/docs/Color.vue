@@ -1,10 +1,8 @@
 <script setup>
-import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
 </script>
 
 <template>
-  <Banner title="Color" />
   <Section id="theme-colors">
     <div class="flex flex-wrap">
       <div
@@ -27,15 +25,17 @@ import tokens from '@config/tokens';
 export default {
   data() {
     return {
-        themeNames: [],
+      tokens,
+      themeNames: [],
     }
   },
+
   created() {
     this.themeNames = [
       ...Object.keys(tokens.light).map(color => color.replace(/light/g, 'theme')),
       ...Object.keys(tokens.colors).filter(color => /^blue/.test(color)),
       ...Object.keys(tokens.colors).filter(color => /^dark/.test(color)),
-      ...Object.keys(tokens.colors).filter(color => /^light/.test(color))
+      ...Object.keys(tokens.colors).filter(color => /^light/.test(color)),
     ]
   }
 }

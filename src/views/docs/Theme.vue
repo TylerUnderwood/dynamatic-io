@@ -1,10 +1,22 @@
 <script setup>
-import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
 </script>
 
+<script>
+import theme from '@config/theme.json';
+import tokens from '@config/tokens';
+
+export default {
+  data() {
+    return {
+      theme,
+      tokens
+    }
+  }
+}
+</script>
+
 <template>
-  <Banner title="Theme" />
   <Section id="theme-tokens">
     <details class="Markup" open>
       <summary><h2>Theme Tokens</h2></summary>
@@ -26,19 +38,6 @@ import Section from "@/components/Section.vue";
     </details>
   </Section>
 </template>
-
-<script>
-import tokens from '@config/tokens';
-
-export default {
-  data() {
-    return {
-      theme,
-      tokens
-    }
-  }
-}
-</script>
 
 <style>
 mark {

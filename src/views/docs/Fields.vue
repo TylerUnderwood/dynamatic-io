@@ -1,8 +1,6 @@
 <script setup>
-import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
 import Field from "@/components/Field.vue";
-import Submit from "@/components/Submit.vue";
 
 const inputTypes = {
     "string": [
@@ -40,12 +38,15 @@ const inputFields = [...inputTypes.string, ...inputTypes.time]
 </script>
 
 <script>
+import theme from '@config/theme.json';
+
 export default {
   data() {
     return {
       theme
     }
   },
+
   computed: {
     themeInputHex() {
       return getComputedStyle(document.documentElement).getPropertyValue(theme.colors.input).trim();
@@ -55,8 +56,6 @@ export default {
 </script>
 
 <template>
-    <Banner title="Fields"/>
-
     <Section
         id="section-inputs"
         heading="All Input Types"
