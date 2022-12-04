@@ -6,7 +6,7 @@ import Section from "@/components/Section.vue";
 <template>
     <Banner title="About"/>
 
-    <Section heading="Nothing">
-
+    <Section heading="Something">
+        <p class="mt-6">Hello, here is some text.</p>
     </Section>
 </template>
