@@ -1,7 +1,15 @@
 <script>
+import theme from '@config/theme.json';
 import tokensNative from '@config/tokens-native';
 
 export default {
+  data() {
+    return {
+      theme,
+      tokensNative,
+    }
+  },
+
   methods: {
     tokenList( category ) {
       let tokensStyles = '';
@@ -37,11 +45,6 @@ ${rule} {
   created() {
     document.getElementById('theme').innerHTML = this.buildCssVars( tokensNative );
   },
-
-  data() { return {
-    theme,
-    tokensNative,
-  }},
 }
 </script>
 

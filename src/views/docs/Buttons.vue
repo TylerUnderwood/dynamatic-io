@@ -1,48 +1,50 @@
 <script setup>
-import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
-
-const buttonTree = {
-    type: [
-        "default",
-        "secondary",
-        "tertiary",
-    ],
-    state: [
-        "stealth",
-        "active",
-        "hover",
-        "focus-v",
-        "disabled",
-    ],
-    size: [
-        "large",
-        "default",
-        "small",
-        "tiny",
-    ],
-    shape: [
-        "stout",
-        "square",
-        "simple",
-        "full",
-        "sm-full",
-        "md-full",
-        "lg-full",
-    ],
-    scheme: [
-        "base",
-        "face",
-        "success",
-        "warn",
-        "error",
-    ],
-}
-
 </script>
 
 <script>
 export default {
+    data() {
+        return {
+            buttonTree: {
+                type: [
+                    "default",
+                    "secondary",
+                    "tertiary",
+                ],
+                state: [
+                    "stealth",
+                    "active",
+                    "hover",
+                    "focus-v",
+                    "disabled",
+                ],
+                size: [
+                    "large",
+                    "default",
+                    "small",
+                    "tiny",
+                ],
+                shape: [
+                    "stout",
+                    "square",
+                    "simple",
+                    "full",
+                    "sm-full",
+                    "md-full",
+                    "lg-full",
+                ],
+                scheme: [
+                    "base",
+                    "face",
+                    "success",
+                    "warn",
+                    "error",
+                ],
+            }
+        }
+    },
+
     computed: {
         buttonTypes() {
             let newItem = {};
@@ -138,8 +140,6 @@ export default {
 </script>
 
 <template>
-    <Banner title="Button"/>
-
     <Section heading="Button Selector">
         <div class="flex flex-wrap mt-6 gap-4">
             <div

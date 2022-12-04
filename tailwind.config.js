@@ -1,7 +1,11 @@
 // const theme = require('./config/theme.json');
 
 module.exports = {
-  content: ["./index.html", "./src/App.vue", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/App.vue",
+    "./src/**/*.{vue,js,ts,jsx,tsx}"
+  ],
   theme: {
     screens: {
       sm: "480px",

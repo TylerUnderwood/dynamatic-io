@@ -1,5 +1,4 @@
 <script setup>
-import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
 
 const alignSharedTypes = [
@@ -96,8 +95,6 @@ export default {
 </script>
 
 <template>
-    <Banner title="Layout"/>
-
     <Section heading="Layout Selector">
         <br class="break">
         <form action="" class="flex flex-wrap items-end -m-2">
