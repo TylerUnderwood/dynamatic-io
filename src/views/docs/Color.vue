@@ -1,9 +1,9 @@
 <script setup>
-import Section from "@/components/Section.vue";
+import SectionDocs from "@/components/SectionDocs.vue";
 </script>
 
 <template>
-  <Section id="theme-colors">
+  <SectionDocs id="theme-colors">
     <div class="flex flex-wrap">
       <div
         v-for="name in themeNames"
@@ -16,7 +16,7 @@ import Section from "@/components/Section.vue";
         <div class="w-full bg-current" :style="{paddingTop: '100%'}"></div>
       </div>
     </div>
-  </Section>
+  </SectionDocs>
 </template>
 
 <script>

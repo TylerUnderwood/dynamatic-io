@@ -1,5 +1,5 @@
 <script setup>
-import Section from "@/components/Section.vue";
+import SectionDocs from "@/components/SectionDocs.vue";
 </script>
 
 <script>
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <template>
-  <Section id="theme-tokens">
+  <SectionDocs id="theme-tokens">
     <details class="Markup" open>
       <summary><h2>Theme Tokens</h2></summary>
       <details v-for="category, cline in tokens" :open="/^colors/.test(cline) ? true : null">
@@ -36,7 +36,7 @@ export default {
         </code>
       </details>
     </details>
-  </Section>
+  </SectionDocs>
 </template>
 
 <style>

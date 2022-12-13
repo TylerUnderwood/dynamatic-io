@@ -1,11 +1,11 @@
 <script setup>
-import Section from "@/components/Section.vue";
+import SectionDocs from "@/components/SectionDocs.vue";
 
 // https://en.wikipedia.org/wiki/Box-drawing_character
 </script>
 
 <template>
-    <Section heading="Folder Structure">
+    <SectionDocs heading="Folder Structure">
         <br class="break" style="font-size: 2.4rem">
         <code class="Codeblock">
 <pre>
@@ -58,7 +58,7 @@ import Section from "@/components/Section.vue";
 ┃
 ┣━┓ /components
 ┃ ┃
-┃ ┣━ section.css
+┃ ┣━ SectionDocs.css
 ┃ ┣━ markup.css
 ┃ ╟╌ shapes.css ?
 ┃ ╟╌ modal.css *
@@ -77,7 +77,7 @@ import Section from "@/components/Section.vue";
   ┗━ @tailwind
 </pre>
         </code>
-    </Section>
+    </SectionDocs>
 </template>
 
 <style>

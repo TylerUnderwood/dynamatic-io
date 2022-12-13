@@ -1,5 +1,5 @@
 <script setup>
-import Section from "@/components/Section.vue";
+import SectionDocs from "@/components/SectionDocs.vue";
 import Field from "@/components/Field.vue";
 
 const inputTypes = {
@@ -56,8 +56,8 @@ export default {
 </script>
 
 <template>
-    <Section
-        id="section-inputs"
+    <SectionDocs
+        id="SectionDocs-inputs"
         heading="All Input Types"
     >
         <br/>
@@ -69,12 +69,10 @@ export default {
                 placeholder
             />
         </form>
-    </Section>
+    </SectionDocs>
 
-    <hr class="Line">
-
-    <Section
-        id="section-inputs"
+    <SectionDocs
+        id="SectionDocs-inputs"
         heading="Default Inputs"
     >
         <br class="break" style="font-size: 1.6rem;">
@@ -241,6 +239,6 @@ export default {
             </form>
         </details>
 
-    </Section>
+    </SectionDocs>
 
 </template>

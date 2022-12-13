@@ -1,5 +1,5 @@
 <script setup>
-import Section from "@/components/Section.vue";
+import SectionDocs from "@/components/SectionDocs.vue";
 </script>
 
 <script>
@@ -140,7 +140,7 @@ export default {
 </script>
 
 <template>
-    <Section heading="Button Selector">
+    <SectionDocs heading="Button Selector">
         <div class="flex flex-wrap mt-6 gap-4">
             <div
                 class="flex-1"
@@ -191,9 +191,9 @@ export default {
             </button>
         </div>
 
-    </Section>
+    </SectionDocs>
 
-    <Section
+    <SectionDocs
         v-for="types, name in buttonTree"
         :id="`button-${name}`"
         :heading="name[0].toUpperCase() + name.slice(1)"
@@ -224,7 +224,7 @@ export default {
                 </span>
             </a>
         </div>
-    </Section>
+    </SectionDocs>
 </template>
 
 <style>
