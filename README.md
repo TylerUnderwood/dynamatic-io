@@ -1,4 +1,4 @@
-# Dynamatic Boilerplate
+# [Dynamatic](https://dynamatic.io/)
 
 Dynamatic is a modern design system, built from external theme tokens. The goal is to create a base floor for others to build their own frameworks around it.
 
