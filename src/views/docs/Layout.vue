@@ -1,5 +1,5 @@
 <script setup>
-import Section from "@/components/Section.vue";
+import SectionDocs from "@/components/SectionDocs.vue";
 
 const alignSharedTypes = [
     'center',
@@ -95,7 +95,7 @@ export default {
 </script>
 
 <template>
-    <Section heading="Layout Selector">
+    <SectionDocs heading="Layout Selector">
         <br class="break">
         <form action="" class="flex flex-wrap items-end -m-2">
             <div class="w-full p-2">
@@ -229,7 +229,7 @@ export default {
                 </small>
             </label>
         </div>
-    </Section>
+    </SectionDocs>
 </template>
 
 <style>
