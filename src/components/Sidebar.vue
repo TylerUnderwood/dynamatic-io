@@ -22,6 +22,7 @@ export default {
     .Sidebar__track {
         position: relative;
         flex: 1 0 auto;
+        width: 100%;
         /* box-shadow: 0px 10px 10px -10px rgba(0,0,0,0.2); */
     }
     .Sidebar__tram {
@@ -54,8 +55,7 @@ export default {
         max-height: 100vh;
         overflow-y: scroll;
         overflow-x: visible;
-        margin-top: -1em;
-        padding-top: 1em;
-        padding-bottom: 1em;
+        margin: -1em;
+        padding: 1em;
     }
 </style>
