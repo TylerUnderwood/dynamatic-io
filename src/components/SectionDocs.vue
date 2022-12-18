@@ -35,7 +35,7 @@ export default {
     :aria-labelledby="heading != null ? headingId : null"
     identify-item="component"
   >
-    <h2 :id="headingId" class="Heading h2 mb-8" v-if="heading">
+    <h2 :id="headingId" class="Heading h2" v-if="heading">
       {{ heading }}
     </h2>
 

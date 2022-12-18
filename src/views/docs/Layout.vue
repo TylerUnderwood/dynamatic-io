@@ -96,7 +96,7 @@ export default {
 
 <template>
     <SectionDocs heading="Layout Selector">
-        <br class="break">
+        <br class="break" style="font-size: 2.4rem;">
         <form action="" class="flex flex-wrap items-end -m-2">
             <div class="w-full p-2">
                 <fieldset class="Fieldset">
