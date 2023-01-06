@@ -10,12 +10,15 @@ export const useTableOfContentsStore = defineStore({
       },
     ],
   }),
-  getters: {
-    // doubleCount: (state) => state.counter * 2,
-  },
   actions: {
-    increment() {
-      this.counter++;
+    clear() {
+      this.items = [];
     },
+    add( item ) {
+      this.items.push(item);
+    },
+    remove( itemId ) {
+      this.items = this.items.filter((item) => item.id !== itemId);
+    }
   },
 });

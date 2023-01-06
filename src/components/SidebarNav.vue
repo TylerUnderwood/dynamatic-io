@@ -3,6 +3,7 @@ export default {
   props: [
     'heading',
     'items',
+    'isInternal'
   ],
 }
 </script>
@@ -19,14 +20,25 @@ export default {
           class="Nav__item"
           v-for="(item, index) in items" :key="index"
         >
+          <router-link
+            class="Link Nav__link"
+            :to="item.link"
+            v-if="isInternal"
+          >
+            <span class="Meta">
+              {{ item.name }}
+            </span>
+          </router-link>
           <a
             class="Link Nav__link"
             :href="item.link"
+            v-if="!isInternal"
           >
             <span class="Meta">
               {{ item.name }}
             </span>
           </a>
+
         </li>
       </ul>
     </nav>

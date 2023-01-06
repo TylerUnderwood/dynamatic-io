@@ -17,31 +17,30 @@ export default {
   computed: {
     nav() {
       const routerItems = this.$router.getRoutes().filter(route => route.name === "Docs")[0].children;
-      let navItems = [];
 
-      routerItems.forEach(item => {
-        navItems.push({
+      return routerItems.map(item => {
+        return item = {
           name: item.name,
           link: `/docs/${item.path}`,
-        })
+          isInternal: true,
+        };
       });
-
-      return navItems;
     },
 
     toc() {
       const tocItems = this.tableOfContents.items;
-      let navItems = [];
 
-      tocItems.forEach(item => {
-        navItems.push({
+      return tocItems.map(item => {
+        return item = {
           name: item.name,
-          link: `#${item.id}`,
-        })
+          link: `#section-${item.id}`,
+        };
       });
-
-      return navItems;
     },
+  },
+
+  beforeMount() {
+    this.tableOfContents.clear();
   },
 };
 </script>
@@ -50,7 +49,7 @@ export default {
   <Banner title="Docs" />
 
   <section class="DocsTemplate margins gutter">
-    <div class="DocsTemplate__wrap wrapper max-site">
+    <div class="DocsTemplate__wrap">
 
       <!-- Navigation -->
       <div class="DocsTemplate__leftBar">
@@ -84,6 +83,7 @@ export default {
 <style>
   .DocsTemplate {
     display: flex;
+    justify-content: center;
   }
 
   .DocsTemplate__wrap {
@@ -107,6 +107,8 @@ export default {
 
   .DocsTemplate__main {
     grid-area: main;
+    width: 100%;
+    max-width: var(--wrapper-page);
   }
 
   .DocsTemplate__leftBar,
@@ -119,7 +121,7 @@ export default {
     .DocsTemplate__wrap {
       grid-template:
         " left main right "
-        / 12rem 1fr 12rem
+        / 11rem 1fr 11rem
       ;
     }
   }
