@@ -2,14 +2,46 @@
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
 import Sidebar from "@/components/Sidebar.vue";
+import SidebarNav from "@/components/SidebarNav.vue";
+import { useTableOfContentsStore } from '@/stores/TableOfContents';
 </script>
 
 <script>
 export default {
+  data() {
+    return {
+      tableOfContents: useTableOfContentsStore(),
+    }
+  },
+
   computed: {
     nav() {
-      return this.$router.getRoutes().filter(route => route.name === "Docs")[0].children;
-    }
+      const routerItems = this.$router.getRoutes().filter(route => route.name === "Docs")[0].children;
+      let navItems = [];
+
+      routerItems.forEach(item => {
+        navItems.push({
+          name: item.name,
+          link: `/docs/${item.path}`,
+        })
+      });
+
+      return navItems;
+    },
+
+    toc() {
+      const tocItems = this.tableOfContents.items;
+      let navItems = [];
+
+      tocItems.forEach(item => {
+        navItems.push({
+          name: item.name,
+          link: `#${item.id}`,
+        })
+      });
+
+      return navItems;
+    },
   },
 };
 </script>
@@ -23,29 +55,20 @@ export default {
       <!-- Navigation -->
       <div class="DocsTemplate__leftBar">
         <Sidebar>
-          <span class="Heading text-sm uppercase">
-            Navigation
-          </span>
-          <hr class="Line mt-3 mb-6">
-          <nav class="Nav">
-            <ul class="Nav__list flex-wrap lg:flex-col">
-              <li class="Nav__item" v-for="(item, index) in nav" :key="index">
-                <router-link :to="`/docs/${item.path}`" class="Link Nav__link">
-                  <span class="Meta">{{ item.name }}</span>
-                </router-link>
-              </li>
-            </ul>
-          </nav>
+          <SidebarNav
+            heading="Navigation"
+            :items="nav"
+          />
         </Sidebar>
       </div>
 
       <!-- Table of Contents -->
       <div class="DocsTemplate__rightBar">
         <Sidebar>
-          <span class="Heading text-sm uppercase">
-            Table of Contents
-          </span>
-          <hr class="Line mt-3 mb-6">
+          <SidebarNav
+            heading="Table of Contents"
+            :items="toc"
+          />
         </Sidebar>
       </div>
 
