@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2eb28575-2b4a-4d87-bb03-4160c5279cdc/deploy-status)](https://app.netlify.com/sites/dynamatic/deploys)
+
 # [Dynamatic](https://dynamatic.io/)
 
 Dynamatic is a modern design system, built from external theme tokens. The goal is to create a base floor for others to build their own frameworks around it.
