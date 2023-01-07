@@ -23,7 +23,7 @@ export default {
           <router-link
             class="Link Nav__link"
             :to="item.link"
-            v-if="isInternal"
+            v-if="item.isInternal"
           >
             <span class="Meta">
               {{ item.name }}
@@ -32,7 +32,7 @@ export default {
           <a
             class="Link Nav__link"
             :href="item.link"
-            v-if="!isInternal"
+            v-if="!item.isInternal"
           >
             <span class="Meta">
               {{ item.name }}
