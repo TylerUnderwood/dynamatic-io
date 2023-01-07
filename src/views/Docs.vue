@@ -83,18 +83,22 @@ export default {
 <style>
   .DocsTemplate {
     display: flex;
-    justify-content: center;
+    --sidebar-width: 11rem;
+    --sidebar-gap: 1.6rem;
   }
 
   .DocsTemplate__wrap {
     display: grid;
-    gap: 1.6rem;
+    gap: var(--sidebar-gap);
     grid-template:
       " left "
       " right "
       " main "
       / 100%
     ;
+    width: 100%;
+    max-width: calc(var(--wrapper-page) + (var(--sidebar-width) * 2) + (var(--sidebar-gap) * 2));
+    margin: auto;
   }
 
   .DocsTemplate__leftBar {
@@ -107,8 +111,6 @@ export default {
 
   .DocsTemplate__main {
     grid-area: main;
-    width: 100%;
-    max-width: var(--wrapper-page);
   }
 
   .DocsTemplate__leftBar,
@@ -121,7 +123,7 @@ export default {
     .DocsTemplate__wrap {
       grid-template:
         " left main right "
-        / 11rem 1fr 11rem
+        / var(--sidebar-width) 1fr var(--sidebar-width)
       ;
     }
   }
