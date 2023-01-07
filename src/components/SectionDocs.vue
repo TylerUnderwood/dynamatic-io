@@ -1,9 +1,20 @@
+<script setup>
+import { useTableOfContentsStore } from '@/stores/TableOfContents';
+</script>
+
 <script>
 export default {
   props: [
     'id',
     'heading'
   ],
+
+  data() {
+    return {
+      tableOfContents: useTableOfContentsStore(),
+    }
+  },
+
   computed: {
     cid() {
       let id;
@@ -24,7 +35,18 @@ export default {
     headingId() {
       return this.cid + '-heading';
     }
-  }
+  },
+
+  mounted() {
+    this.tableOfContents.add({
+      id: this.cid,
+      name: this.heading,
+    });
+  },
+
+  beforeUnmount() {
+    this.tableOfContents.remove(this.cid);
+  },
 }
 </script>
 

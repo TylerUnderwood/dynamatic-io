@@ -3,11 +3,11 @@ import SectionDocs from "@/components/SectionDocs.vue";
 </script>
 
 <template>
-  <SectionDocs id="theme-colors">
-    <div class="flex flex-wrap">
+  <SectionDocs heading="Theme Colors">
+    <div class="flex flex-wrap gap-y-6 mt-8">
       <div
         v-for="name in themeNames"
-        class="flex flex-col w-1/6 mt-6"
+        class="flex flex-col w-1/6"
         :style="{ color: `var(--${name})` }"
       >
         <code class="Meta text-face mt-auto mb-2" :style="{fontSize: '0.6rem'}">

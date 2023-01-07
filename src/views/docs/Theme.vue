@@ -17,24 +17,29 @@ export default {
 </script>
 
 <template>
-  <SectionDocs id="theme-tokens">
-    <details class="Markup" open>
-      <summary><h2>Theme Tokens</h2></summary>
-      <details v-for="category, cline in tokens" :open="/^colors/.test(cline) ? true : null">
-        <summary><h3>{{ cline }}</h3></summary>
-        <code v-for="token, name in category" class="block mt-2">
-          <span>{{ name }}: </span>
-          <mark v-if="/^#/.test(token)" :style="{backgroundColor: token}">
-            {{ token }}
-          </mark>
-          <mark v-else-if="/^--/.test(token)" :style="{backgroundColor: `var(${token})`}">
-            {{ token }}
-          </mark>
-          <mark v-else>
-            {{ token }}
-          </mark>
-        </code>
-      </details>
+  <SectionDocs
+    heading="Theme Tokens"
+  >
+    <br class="break" style="font-size: 2.4rem;">
+    <details
+      v-for="category, cline in tokens"
+      :open="/^colors/.test(cline) ? true : null"
+    >
+      <summary>
+        <h3 class="Heading h3">{{ cline }}</h3>
+      </summary>
+      <code v-for="token, name in category" class="block mt-2">
+        <span>{{ name }}: </span>
+        <mark v-if="/^#/.test(token)" :style="{backgroundColor: token}">
+          {{ token }}
+        </mark>
+        <mark v-else-if="/^--/.test(token)" :style="{backgroundColor: `var(${token})`}">
+          {{ token }}
+        </mark>
+        <mark v-else>
+          {{ token }}
+        </mark>
+      </code>
     </details>
   </SectionDocs>
 </template>
@@ -48,28 +53,5 @@ mark {
 mark::before,
 mark::after {
   content: "\00a0";
-}
-
-details {
-  margin: 0;
-}
-summary {
-  display: flex;
-  cursor: pointer;
-  border-bottom: solid 2px currentColor;
-  padding: 0.8rem 0;
-}
-details > details {
-  margin: 0 1rem;
-}
-details[open] > summary {
-  margin-bottom: 1.6rem;
-}
-details[open] + details {
-  margin-top: 1.6rem;
-  border-top: solid 2px currentColor;
-}
-details[open] > summary + details {
-  margin-top: -1.6rem;
 }
 </style>

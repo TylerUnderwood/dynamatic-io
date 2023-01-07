@@ -141,7 +141,8 @@ export default {
 
 <template>
     <SectionDocs heading="Button Selector">
-        <div class="flex flex-wrap mt-6 gap-4">
+        <br class="break" style="font-size: 2.4rem;">
+        <div class="flex flex-wrap gap-4">
             <div
                 class="flex-1"
                 style="min-width: 120px;"
@@ -190,7 +191,6 @@ export default {
                 </span>
             </button>
         </div>
-
     </SectionDocs>
 
     <SectionDocs

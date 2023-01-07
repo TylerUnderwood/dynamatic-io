@@ -2,14 +2,45 @@
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
 import Sidebar from "@/components/Sidebar.vue";
+import SidebarNav from "@/components/SidebarNav.vue";
+import { useTableOfContentsStore } from '@/stores/TableOfContents';
 </script>
 
 <script>
 export default {
+  data() {
+    return {
+      tableOfContents: useTableOfContentsStore(),
+    }
+  },
+
   computed: {
     nav() {
-      return this.$router.getRoutes().filter(route => route.name === "Docs")[0].children;
-    }
+      const routerItems = this.$router.getRoutes().filter(route => route.name === "Docs")[0].children;
+
+      return routerItems.map(item => {
+        return item = {
+          name: item.name,
+          link: `/docs/${item.path}`,
+          isInternal: true,
+        };
+      });
+    },
+
+    toc() {
+      const tocItems = this.tableOfContents.items;
+
+      return tocItems.map(item => {
+        return item = {
+          name: item.name,
+          link: `#section-${item.id}`,
+        };
+      });
+    },
+  },
+
+  beforeMount() {
+    this.tableOfContents.clear();
   },
 };
 </script>
@@ -18,34 +49,25 @@ export default {
   <Banner title="Docs" />
 
   <section class="DocsTemplate margins gutter">
-    <div class="DocsTemplate__wrap wrapper max-site">
+    <div class="DocsTemplate__wrap">
 
       <!-- Navigation -->
       <div class="DocsTemplate__leftBar">
         <Sidebar>
-          <span class="Heading text-sm uppercase">
-            Navigation
-          </span>
-          <hr class="Line mt-3 mb-6">
-          <nav class="Nav">
-            <ul class="Nav__list flex-wrap lg:flex-col">
-              <li class="Nav__item" v-for="(item, index) in nav" :key="index">
-                <router-link :to="`/docs/${item.path}`" class="Link Nav__link">
-                  <span class="Meta">{{ item.name }}</span>
-                </router-link>
-              </li>
-            </ul>
-          </nav>
+          <SidebarNav
+            heading="Navigation"
+            :items="nav"
+          />
         </Sidebar>
       </div>
 
       <!-- Table of Contents -->
       <div class="DocsTemplate__rightBar">
         <Sidebar>
-          <span class="Heading text-sm uppercase">
-            Table of Contents
-          </span>
-          <hr class="Line mt-3 mb-6">
+          <SidebarNav
+            heading="Table of Contents"
+            :items="toc"
+          />
         </Sidebar>
       </div>
 
@@ -61,17 +83,22 @@ export default {
 <style>
   .DocsTemplate {
     display: flex;
+    --sidebar-width: 11rem;
+    --sidebar-gap: 1.6rem;
   }
 
   .DocsTemplate__wrap {
     display: grid;
-    gap: 1.6rem;
+    gap: var(--sidebar-gap);
     grid-template:
       " left "
       " right "
       " main "
       / 100%
     ;
+    width: 100%;
+    max-width: calc(var(--wrapper-page) + (var(--sidebar-width) * 2) + (var(--sidebar-gap) * 2));
+    margin: auto;
   }
 
   .DocsTemplate__leftBar {
@@ -96,7 +123,7 @@ export default {
     .DocsTemplate__wrap {
       grid-template:
         " left main right "
-        / 12rem 1fr 12rem
+        / var(--sidebar-width) 1fr var(--sidebar-width)
       ;
     }
   }
