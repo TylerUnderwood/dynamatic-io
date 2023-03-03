@@ -139,7 +139,7 @@ export default {
                 </select>
             </div>
         </form>
-        <div class="break">
+        <div class="break"></div>
         <div
             class="LayoutDemo"
             :class="{ 'show-baseline': showSquareBaseline }"
@@ -171,7 +171,7 @@ export default {
                 </div>
             </div>
         </div>
-        <div class="break">
+        <div class="break"></div>
         <input
             type="range"
             name="amount-of-dynamic-squares"
@@ -193,7 +193,7 @@ export default {
             <option value="30">30</option>
             <option value="36">36</option>
         </datalist>
-        <div class="break">
+        <div class="break"></div>
         <div class="flex flex-wrap -m-2">
             <label for="useNumbersForSquares" class="Label p-2">
                 <input
