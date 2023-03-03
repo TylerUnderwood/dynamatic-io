@@ -141,7 +141,7 @@ export default {
 
 <template>
     <SectionDocs heading="Button Selector">
-        <br class="break" style="font-size: 2.4rem;">
+        <div class="break" style="font-size: 2.4rem;"></div>
         <div class="flex flex-wrap gap-4">
             <div
                 class="flex-1"

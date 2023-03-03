@@ -3,15 +3,14 @@
 | COMPONENTS: Section
 |––––––––––––––––––––––––––––––––––––––––––––––––––
 */
-$section_wrap: 48rem;
 
 .Section {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  width: 100%;
+  width: 100vw;
   --section-ratio: calc(1 / 2);
-  --section-wrap: #{$section_wrap};
+  --section-wrap: var(--wrapper-page);
 }
 
 // ratio modifiers
@@ -50,7 +49,7 @@ $section_wrap: 48rem;
     display: flex;
     width: 100%;
     // margin-top
-    // horz padding
+    // horizontal padding
 }
 
 .Section__block:first-child {
@@ -80,7 +79,7 @@ $section_wrap: 48rem;
 .Section__wrap {
     display: block;
     width: 100%;
-    // horz padding
+    // horizontal padding
 }
 
 @media ( max-width: 767px ) {
@@ -106,7 +105,7 @@ $section_wrap: 48rem;
     }
 
     .Section__column {
-        --section-width: 100vw;
+        --section-width: var(--section-wrap);
         --section-ratio-left: calc( var(--section-ratio) );
         --section-ratio-right: calc( 1 - var(--section-ratio) );
         --section-column-left: calc( var(--section-width) * var(--section-ratio-left) );
@@ -116,19 +115,19 @@ $section_wrap: 48rem;
 
     // Left column
     .Section:not(.Section--reverse) .Section__column:first-child,
-    .Section--reverse .Section__column:last-child {
+    .Section.Section--reverse .Section__column:last-child {
         align-items: flex-end;
-        max-width: calc( 100vw * var(--section-ratio-left) );
+        max-width: calc( 50% + var(--section-difference) );
     }
 
     .Section:not(.Section--reverse) .Section__column:first-child .Section__block,
-    .Section--reverse .Section__column:last-child .Section__block {
+    .Section.Section--reverse .Section__column:last-child .Section__block {
         justify-content: flex-end;
         padding-right: 0;
     }
 
     .Section:not(.Section--reverse) .Section__column:first-child .Section__wrap,
-    .Section--reverse .Section__column:last-child .Section__wrap {
+    .Section.Section--reverse .Section__column:last-child .Section__wrap {
         margin-left: auto;
         margin-right: 0;
         max-width: calc( ( var(--section-wrap) / 2 ) + var(--section-difference) );
@@ -137,40 +136,22 @@ $section_wrap: 48rem;
 
     // Right column
     .Section:not(.Section--reverse) .Section__column:last-child,
-    .Section--reverse .Section__column:first-child {
+    .Section.Section--reverse .Section__column:first-child {
         align-items: flex-start;
-        max-width: calc( 100vw * var(--section-ratio-right) );
+        max-width: calc( 50% - var(--section-difference) );
     }
 
     .Section:not(.Section--reverse) .Section__column:last-child .Section__block,
-    .Section--reverse .Section__column:first-child .Section__block {
+    .Section.Section--reverse .Section__column:first-child .Section__block {
         justify-content: flex-start;
         padding-left: 0;
     }
 
     .Section:not(.Section--reverse) .Section__column:last-child .Section__wrap,
-    .Section--reverse .Section__column:first-child .Section__wrap {
+    .Section.Section--reverse .Section__column:first-child .Section__wrap {
         margin-left: 0;
         margin-right: auto;
         max-width: calc( ( var(--section-wrap) / 2 ) - var(--section-difference) );
         padding-right: 0;
-    }
-}
-
-@media ( min-width: #{$section_wrap} ) {
-    .Section__column {
-        --section-width: var(--section-wrap);
-    }
-
-    // Left column
-    .Section:not(.Section--reverse) .Section__column:first-child,
-    .Section--reverse .Section__column:last-child {
-        max-width: calc( 50% + var(--section-difference) );
-    }
-
-    // Right column
-    .Section:not(.Section--reverse) .Section__column:last-child,
-    .Section--reverse .Section__column:first-child {
-        max-width: calc( 50% - var(--section-difference) );
     }
 }

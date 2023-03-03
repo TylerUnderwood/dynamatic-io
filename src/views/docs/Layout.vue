@@ -96,7 +96,7 @@ export default {
 
 <template>
     <SectionDocs heading="Layout Selector">
-        <br class="break" style="font-size: 2.4rem;">
+        <div class="break" style="font-size: 2.4rem;"></div>
         <form action="" class="flex flex-wrap items-end -m-2">
             <div class="w-full p-2">
                 <fieldset class="Fieldset">
@@ -139,7 +139,7 @@ export default {
                 </select>
             </div>
         </form>
-        <br class="break">
+        <div class="break">
         <div
             class="LayoutDemo"
             :class="{ 'show-baseline': showSquareBaseline }"
@@ -171,7 +171,7 @@ export default {
                 </div>
             </div>
         </div>
-        <br class="break">
+        <div class="break">
         <input
             type="range"
             name="amount-of-dynamic-squares"
@@ -193,7 +193,7 @@ export default {
             <option value="30">30</option>
             <option value="36">36</option>
         </datalist>
-        <br class="break">
+        <div class="break">
         <div class="flex flex-wrap -m-2">
             <label for="useNumbersForSquares" class="Label p-2">
                 <input

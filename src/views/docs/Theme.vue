@@ -20,7 +20,7 @@ export default {
   <SectionDocs
     heading="Theme Tokens"
   >
-    <br class="break" style="font-size: 2.4rem;">
+    <div class="break" style="font-size: 2.4rem;"></div>
     <details
       v-for="category, cline in tokens"
       :open="/^colors/.test(cline) ? true : null"

@@ -6,7 +6,7 @@ import SectionDocs from "@/components/SectionDocs.vue";
 
 <template>
     <SectionDocs heading="Folder Structure">
-        <br class="break" style="font-size: 2.4rem">
+        <div class="break" style="font-size: 2.4rem"></div>
         <code class="Codeblock">
 <pre>
 ┃ /styles

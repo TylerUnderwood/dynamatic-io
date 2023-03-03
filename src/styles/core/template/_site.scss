@@ -43,9 +43,9 @@ body {
 }
 
 [class*=border] {
-    border-width: 2px;
+    border-width: 0;
     border-style: solid;
-    border-color: var(--theme-contrast);
+    border-color: var(--theme-muted);
 }
 
 /* this will, at the least, fill the viewport and gives the template structure */

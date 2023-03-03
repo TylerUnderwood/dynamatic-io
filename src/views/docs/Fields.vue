@@ -75,7 +75,7 @@ export default {
         id="SectionDocs-inputs"
         heading="Default Inputs"
     >
-        <br class="break" style="font-size: 1.6rem;">
+        <div class="break" style="font-size: 1.6rem;"></div>
 
         <details open>
             <summary>

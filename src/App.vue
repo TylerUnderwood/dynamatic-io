@@ -20,9 +20,9 @@ import Settings from "@/components/Settings.vue";
 
   <Footer class="z-2" />
 
-  <Settings class="z-5" />
+  <Settings class="z-6" />
 
-  <Guidelines class="z-4" />
+  <Guidelines class="z-0" />
 
   <div id="notifications-stack" class="relative z-8"></div>
 
