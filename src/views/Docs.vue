@@ -33,7 +33,7 @@ export default {
       return tocItems.map(item => {
         return item = {
           name: item.name,
-          link: `#section-${item.id}`,
+          link: `#${item.id}`,
         };
       });
     },

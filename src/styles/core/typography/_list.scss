@@ -66,6 +66,7 @@ ol {
 .Markup ol > li {
     margin: -0.3em 0 -0.35em;
     padding-left: var(--list-tab);
+    counter-increment: list;
 
     &::before {
         display: block;
@@ -74,7 +75,6 @@ ol {
         left: 0;
         width: var(--list-tab);
         color: var(--marker-color);
-        counter-increment: list;
     }
 }
 

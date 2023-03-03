@@ -195,7 +195,6 @@ export default {
 
     <SectionDocs
         v-for="types, name in buttonTree"
-        :id="`button-${name}`"
         :heading="name[0].toUpperCase() + name.slice(1)"
     >
         <div class="mt-4">

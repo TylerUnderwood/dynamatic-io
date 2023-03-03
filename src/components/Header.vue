@@ -16,7 +16,7 @@ export default {
   <header id="header" class="flex justify-between items-center p-4">
     <div class="flex -m-6">
       <router-link to="/" class="Logo p-6">
-        LOGO
+        Dynamatic
       </router-link>
     </div>
 

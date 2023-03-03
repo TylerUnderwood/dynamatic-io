@@ -58,7 +58,6 @@ import SectionDocs from "@/components/SectionDocs.vue";
 ┃
 ┣━┓ /components
 ┃ ┃
-┃ ┣━ SectionDocs.css
 ┃ ┣━ markup.css
 ┃ ╟╌ shapes.css ?
 ┃ ╟╌ modal.css *
