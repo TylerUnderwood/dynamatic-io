@@ -117,7 +117,7 @@
     .Section:not(.Section--reverse) .Section__column:first-child,
     .Section.Section--reverse .Section__column:last-child {
         align-items: flex-end;
-        max-width: calc( 50% + var(--section-difference) );
+        max-width: calc( 50vw + var(--section-difference) );
     }
 
     .Section:not(.Section--reverse) .Section__column:first-child .Section__block,
@@ -138,7 +138,7 @@
     .Section:not(.Section--reverse) .Section__column:last-child,
     .Section.Section--reverse .Section__column:first-child {
         align-items: flex-start;
-        max-width: calc( 50% - var(--section-difference) );
+        max-width: calc( 50vw - var(--section-difference) );
     }
 
     .Section:not(.Section--reverse) .Section__column:last-child .Section__block,

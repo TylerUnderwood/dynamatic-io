@@ -11,8 +11,20 @@ export default {
             sectionRatio: 66,
             sectionReverse: false,
             demoBlockHeight: "7rem",
+            sectionColumnWidth: null
         }
     },
+
+    methods: {
+        getSectionColumnWidth: () => {
+            const section = document.getElementById("dynamic-section-column-first");
+            return getComputedStyle(section).getPropertyValue('--section-width');
+        },
+    },
+
+    mounted() {
+        this.sectionColumnWidth = this.getSectionColumnWidth();
+    }
 }
 </script>
 
@@ -80,7 +92,11 @@ export default {
         :class="{'Section--reverse':sectionReverse}"
         :style="`--section-ratio: ${sectionRatio*.01};`"
     >
-        <div class="Section__column py-8 bg-secondary" data-theme="dark">
+        <div
+            id="dynamic-section-column-first"
+            class="Section__column py-8 bg-secondary"
+            data-theme="dark"
+        >
             <div class="Section__block px-section">
                 <div class="Section__wrap px-section">
                     <DemoBlock :height="demoBlockHeight">
@@ -112,6 +128,16 @@ export default {
                     {{ 100 - sectionRatio }}%
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="mt-4 px-section">
+        <div class="wrapper">
+            <code class="Code w-full">
+<pre>
+    --section-width: {{ sectionColumnWidth }};
+</pre>
+            </code>
         </div>
     </section>
 </template>
