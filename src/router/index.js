@@ -42,6 +42,11 @@ const routes = [
         component: () => import("@views/docs/Color.vue"),
       },
       {
+        path: "markup",
+        name: "Markup",
+        component: () => import("@views/docs/Markup.vue"),
+      },
+      {
         path: "buttons",
         name: "Buttons",
         component: () => import("@views/docs/Buttons.vue"),
@@ -50,6 +55,11 @@ const routes = [
         path: "fields",
         name: "Fields",
         component: () => import("@views/docs/Fields.vue"),
+      },
+      {
+        path: "shapes",
+        name: "Shapes",
+        component: () => import("@views/docs/Shapes.vue"),
       },
       {
         path: "layout",

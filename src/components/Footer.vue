@@ -13,7 +13,7 @@ export default {
 
 <template>
     <footer id="footer" class="Footer flex items-center">
-      <div class="wrapper max-site">
+      <div class="wrapper max-w-site">
         <nav class="Nav">
           <ul class="Nav__list">
             <li class="Nav__item" v-for="item in nav">

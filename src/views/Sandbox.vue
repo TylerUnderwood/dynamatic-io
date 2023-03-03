@@ -1,63 +1,61 @@
 <script setup>
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
+</script>
 
-const trianglesEqual = ['t','r','b','l'];
-const trianglesRight = ['t','r','b','l'];
-const angles = ['tr','br','bl','tl'];
+<script>
+export default {
+    data() {
+        return {
+            sectionRatio: 66,
+        }
+    },
+}
 </script>
 
 <template>
-    <Banner title="Sandbox"/>
+    <Banner title="Sandbox" intro="This is whatever I am currently working on"/>
 
-    <Section heading="Testing">
-        <div class="flex flex-col gap-8 mt-8" style="font-size: 3.6rem">
-            <div class="flex gap-4">
-                <div :class="`Arch Arch--${angle}`" v-for="angle in angles"></div>
-            </div>
+    <section class="Section px-section my-2">
+        <div class="wrapper">
+            <input
+                type="range"
+                name="variable-section-ratio-selector"
+                label="Variable section ratio selector"
+                max="100"
+                list="section-ratio-datalist"
+                v-model="sectionRatio"
+            />
+            <datalist
+                id="section-ratio-datalist"
+                name="Section ratio datalist"
+            >
+                <option value="25">25</option>
+                <option value="33">33</option>
+                <option value="50">50</option>
+                <option value="66">66</option>
+                <option value="75">75</option>
+            </datalist>
+        </div>
+    </section>
 
-            <div class="flex gap-4">
-                <div class="Circle"></div>
-
-                <div class="Circle Circle--border"></div>
-            </div>
-
-            <div class="flex gap-4">
-                <div class="Square"></div>
-
-                <div class="Square Square--border"></div>
-            </div>
-
-            <div class="flex gap-4">
-                <div
-                    :class="`Triangle Triangle=${triangle}`"
-                    v-for="triangle in trianglesEqual"
-                ></div>
-            </div>
-
-            <div class="flex gap-4">
-                <div
-                    :class="`Triangle Triangle--${triangle}`"
-                    v-for="triangle in trianglesRight"
-                ></div>
-            </div>
-
-            <div class="flex gap-4">
-                <div
-                    :class="`Triangle Triangle--${triangle}`"
-                    v-for="triangle in angles"
-                ></div>
-            </div>
-
-            <div class="flex gap-4">
-                <div class="Hexagon"></div>
-
-                <div class="Hexagon Hexagon--border"></div>
-
-                <div class="Hexagon Hexagon--y"></div>
-
-                <div class="Hexagon Hexagon--y Hexagon--border"></div>
+    <section class="Section Section--reverse mb-8" :style="`--section-ratio: ${sectionRatio*.01};`">
+        <div class="Section__column py-8 bg-secondary" data-theme="dark">
+            <div class="Section__block px-section">
+                <div class="Section__wrap px-section bg-primary">
+                    <p>lsfnveofin weon orge</p>
+                    <ul class="List List--bullet List--white mt-4">
+                        <li class="List__item" v-for="index in 3" :key="index">item {{ index }}</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </Section>
+        <div class="Section__column py-8">
+            <div class="Section__block px-section">
+                <div class="Section__wrap px-section">
+                    ooinwefov inego
+                </div>
+            </div>
+        </div>
+    </section>
 </template>

@@ -31,7 +31,7 @@ export default {
 <template>
   <section
     :id="sectionId"
-    class="Section gutter margins"
+    class="Section px-section my-section"
     :aria-labelledby="heading != null ? headingId : null"
     identify-item="component"
   >

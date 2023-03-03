@@ -1,11 +1,11 @@
 <template>
   <div id="guidelines" class="guidelines">
-    <div class="guidelines__item gutter" identify-item="guideline bottom">
+    <div class="guidelines__item px-section" identify-item="guideline bottom">
       <div class="guidelines__item" identify-item="guideline bottom">
         <div class="guidelines__item wrapper" identify-item="guideline bottom">
-          <div class="guidelines__item gutter" identify-item="guideline bottom">
+          <div class="guidelines__item px-section" identify-item="guideline bottom">
             <div class="guidelines__item" identify-item="guideline bottom">
-              <div class="guidelines__item wrapper max-copy" identify-item="guideline bottom">
+              <div class="guidelines__item wrapper max-w-copy" identify-item="guideline bottom">
                 <div class="guidelines__center" identify-item="guideline"></div>
               </div>
             </div>
@@ -43,13 +43,13 @@
     content: "wrapper";
   }
 
-  [identify*="guidelines"] .guidelines__item.wrapper.max-copy::before {
+  [identify*="guidelines"] .guidelines__item.wrapper.max-w-copy::before {
     content: "copy wrapper";
   }
 
-  [identify*="guidelines"] .guidelines__item.gutter > .guidelines__item::before {
+  [identify*="guidelines"] .guidelines__item.px-section > .guidelines__item::before {
     translate: 0 -100%;
-    content: "gutter";
+    content: "px-section";
   }
 
   [identify*="guidelines"] .guidelines__center {

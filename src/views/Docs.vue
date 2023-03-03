@@ -48,7 +48,7 @@ export default {
 <template>
   <Banner title="Docs" />
 
-  <section class="DocsTemplate margins gutter">
+  <section class="DocsTemplate my-section px-section">
     <div class="DocsTemplate__wrap">
 
       <!-- Navigation -->

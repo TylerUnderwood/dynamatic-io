@@ -58,6 +58,10 @@
     @include theme( dark );
 }
 
+[data-theme] {
+    color: var(--theme-face);
+}
+
 // @mixin scheme($types, $default: "light") {
 //     @each $type in $types {
 //         @if $default == "light" {

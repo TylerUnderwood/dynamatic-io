@@ -107,3 +107,7 @@ ol {
 .List[style*="--marker"] > .List__item::before {
     content: var(--marker);
 }
+
+.List--white > .List__item::before {
+    color: var(--dark-face);
+}
