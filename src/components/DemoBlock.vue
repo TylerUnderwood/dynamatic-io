@@ -13,7 +13,7 @@ export default {
 <template>
     <div
         :id="`demo-block-${uuid()}`"
-        class="DemoBlock"
+        class="DemoBlock stripes"
         :style="`min-height: ${height};`"
         data-theme="dark"
     >
@@ -30,9 +30,28 @@ export default {
         justify-content: center;
         align-items: center;
         border-radius: 8px;
-        outline: 2px dashed var(--theme-face);
-        outline-offset: -3px;
+        /* outline: 2px dashed var(--theme-face);
+        outline-offset: -3px; */
         background-color: var(--theme-primary);
         padding: 2rem;
+    }
+
+    .DemoBlock__item {
+        position: relative;
+        border-radius: 4px;
+        padding: 4px;
+        overflow: hidden;
+    }
+
+    .DemoBlock__item::before {
+        position: absolute;
+        inset: 0;
+        background-color: var(--theme-primary);
+        opacity: 0.8;
+        content: "";
+    }
+
+    .DemoBlock__item > * {
+        position: relative;
     }
 </style>

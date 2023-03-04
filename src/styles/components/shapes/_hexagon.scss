@@ -53,24 +53,3 @@
 .Hexagon--border::after {
     left: calc(-1 * var(--hexagon-border-width));
 }
-
-/* HEXAGON Y - calculates the width based off of the long diagonal */
-.Hexagon--y {
-    --hexagon-short-diagonal: calc(var(--hexagon-width) * 0.866);
-    --hexagon-long-diagonal: var(--hexagon-width);
-    margin: 0 var(--hexagon-margin);
-    width: var(--hexagon-side);
-    height: var(--hexagon-short-diagonal);
-}
-
-.Hexagon--y.Hexagon--border {
-    border-width: var(--hexagon-border-width);
-    border-right-width: 0;
-    border-left-width: 0;
-}
-
-.Hexagon--y.Hexagon--border::before,
-.Hexagon--y.Hexagon--border::after {
-    top: calc(-1 * var(--hexagon-border-width));
-    left: 0;
-}

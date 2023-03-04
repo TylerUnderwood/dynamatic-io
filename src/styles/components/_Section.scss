@@ -5,12 +5,13 @@
 */
 
 .Section {
+  --section-ratio: calc(1 / 2);
+  --section-wrap: var(--wrapper-page);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   width: 100vw;
-  --section-ratio: calc(1 / 2);
-  --section-wrap: var(--wrapper-page);
+  overflow-x: hidden;
 }
 
 // ratio modifiers
@@ -105,12 +106,9 @@
     }
 
     .Section__column {
-        --section-width: var(--section-wrap);
-        --section-ratio-left: calc( var(--section-ratio) );
-        --section-ratio-right: calc( 1 - var(--section-ratio) );
-        --section-column-left: calc( var(--section-width) * var(--section-ratio-left) );
-        --section-column-right: calc( var(--section-width) * var(--section-ratio-right) );
-        --section-difference: calc( (var(--section-column-left) - var(--section-column-right)) / 2 );
+        --section-wrap-left: calc( var(--section-wrap) * var(--section-ratio) );
+        --section-wrap-right: calc( var(--section-wrap) * ( 1 - var(--section-ratio) ) );
+        --section-difference: calc( (var(--section-wrap-left) - var(--section-wrap-right)) / 2 );
     }
 
     // Left column
@@ -130,7 +128,7 @@
     .Section.Section--reverse .Section__column:last-child .Section__wrap {
         margin-left: auto;
         margin-right: 0;
-        max-width: calc( ( var(--section-wrap) / 2 ) + var(--section-difference) );
+        max-width: var(--section-wrap-left);
         padding-left: 0;
     }
 
@@ -151,7 +149,7 @@
     .Section.Section--reverse .Section__column:first-child .Section__wrap {
         margin-left: 0;
         margin-right: auto;
-        max-width: calc( ( var(--section-wrap) / 2 ) - var(--section-difference) );
+        max-width: var(--section-wrap-right);
         padding-right: 0;
     }
 }

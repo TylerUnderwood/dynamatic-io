@@ -1,4 +1,4 @@
-// const theme = require('./config/theme.json');
+const theme = require('./src/config/theme.json');
 
 module.exports = {
   content: [
@@ -7,12 +7,8 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}"
   ],
   theme: {
-    screens: {
-      sm: "480px",
-      md: "768px",
-      lg: "1024px",
-      xl: "2560px",
-    },
+    // spacing: theme.sizes,
+    screens: theme.screens,
     zIndex: {
       0: "0",
       1: "1",
@@ -42,5 +38,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('./plugins/stripes.js'),
+  ],
 };
