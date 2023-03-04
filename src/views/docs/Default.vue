@@ -5,6 +5,17 @@ import SectionDocs from "@/components/SectionDocs.vue";
 </script>
 
 <template>
+    <SectionDocs heading="Welcome">
+        <p class="Copy mt-4">
+            Thanks for checking out the docs!
+        </p>
+        <p class="Copy mt-4">
+            Check out what I am currently working on.
+            <router-link to="/sandbox" class="Link">
+                Sandbox
+            </router-link>
+        </p>
+    </SectionDocs>
     <SectionDocs heading="Folder Structure">
         <div class="break" style="font-size: 2.4rem"></div>
         <code class="Codeblock">

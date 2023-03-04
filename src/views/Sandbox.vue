@@ -100,7 +100,7 @@ export default {
                 </label>
             </div>
             <div class="flex mt-2">
-                <div class="filler w-1/4 pr-3 border-l-2 text-right">
+                <div class="filler w-1/4 pr-3 border-l-2 border-muted text-right">
                     {{ calcSectionWarpLeftNum }}rem
                 </div>
                 <div class="w-1/2">
@@ -125,7 +125,7 @@ export default {
                         <option value="75">75</option>
                     </datalist>
                 </div>
-                <div class="filler w-1/4 pl-3 border-r-2">
+                <div class="filler w-1/4 pl-3 border-r-2 border-muted">
                     {{ calcSectionWrapRightNum }}rem
                 </div>
             </div>
@@ -166,12 +166,12 @@ export default {
         <div class="wrapper">
             <div class="flex">
                 <div :style="`width: ${sectionRatio}%`">
-                    <div class="bg-offset border-x-2 text-center p-1">
+                    <div class="bg-offset border-x-2 border-muted text-center p-1">
                         {{ sectionRatio }}%
                     </div>
                 </div>
                 <div :style="`width: ${100 - sectionRatio}%`">
-                    <div class="bg-offset border-x-2 text-center p-1">
+                    <div class="bg-offset border-x-2 border-muted text-center p-1">
                         {{ 100 - sectionRatio }}%
                     </div>
                 </div>

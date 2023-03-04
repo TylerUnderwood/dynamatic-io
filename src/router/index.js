@@ -27,19 +27,14 @@ const routes = [
     component: () => import("@views/Docs.vue"),
     children: [
       {
-        path: "taxonomy",
-        name: "Taxonomy",
-        component: () => import("@views/docs/Taxonomy.vue"),
+        path: "",
+        name: "Default",
+        component: () => import("@views/docs/Default.vue"),
       },
       {
         path: "theme",
         name: "Theme",
         component: () => import("@views/docs/Theme.vue"),
-      },
-      {
-        path: "color",
-        name: "Color",
-        component: () => import("@views/docs/Color.vue"),
       },
       {
         path: "markup",

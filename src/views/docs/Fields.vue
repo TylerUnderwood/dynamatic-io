@@ -21,7 +21,6 @@ const inputTypes = {
     ],
     "unique": [
         "file",
-        "image",
         "range",
         "color",
         "checkbox",
@@ -56,11 +55,8 @@ export default {
 </script>
 
 <template>
-    <SectionDocs
-        id="SectionDocs-inputs"
-        heading="All Input Types"
-    >
-        <br/>
+    <SectionDocs heading="Styled Inputs">
+        <div class="pt-6"></div>
 
         <form class="flex items-end" action="">
             <Field
@@ -71,11 +67,24 @@ export default {
         </form>
     </SectionDocs>
 
-    <SectionDocs
-        id="SectionDocs-inputs"
-        heading="Default Inputs"
-    >
-        <div class="break" style="font-size: 1.6rem;"></div>
+    <SectionDocs heading="Default Inputs">
+        <div class="pt-6"></div>
+
+        <details>
+            <summary>
+                <h3 class="Heading">Text Field Types</h3>
+            </summary>
+            <form class="flex flex-col gap-4" action="null">
+                <template v-for="type, index in inputFields">
+                    <input
+                        :id="'input-' + type"
+                        :type="type"
+                        :name="type"
+                        :placeholder="type"
+                    />
+                </template>
+            </form>
+        </details>
 
         <details open>
             <summary>
@@ -199,9 +208,6 @@ export default {
                 <input name="file" type="file" />
                 <br/>
 
-                <input name="image" type="image" alt="image" src="image.png" />
-                <br/>
-
                 <input
                     id="input-type-color"
                     name="color"
@@ -219,23 +225,6 @@ export default {
                 <br/>
 
                 <input type="submit"  />
-            </form>
-        </details>
-
-        <details>
-            <summary>
-                <h3 class="Heading">Standard Fields</h3>
-            </summary>
-            <form action="">
-                <template v-for="type, index in inputFields">
-                    <input
-                        :id="'input-' + type"
-                        :type="type"
-                        :name="type"
-                        :placeholder="type"
-                    />
-                    <br/>
-                </template>
             </form>
         </details>
 

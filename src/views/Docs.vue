@@ -16,7 +16,9 @@ export default {
 
   computed: {
     nav() {
-      const routerItems = this.$router.getRoutes().filter(route => route.name === "Docs")[0].children;
+      const routerItems = this.$router.getRoutes()
+        .filter(route => route.name === "Docs")[0]
+        .children.filter(route => route.path !== "");
 
       return routerItems.map(item => {
         return item = {
