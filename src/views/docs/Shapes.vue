@@ -3,7 +3,7 @@ import SectionDocs from "@/components/SectionDocs.vue";
 
 const shapes = {
     "Arch": {
-        ".Arch[data-direction=\"tr | br | bl | tl\"]": [
+        ".Arch .Arch--t | r | b | l": [
             "Arch Arch--tr",
             "Arch Arch--br",
             "Arch Arch--bl",

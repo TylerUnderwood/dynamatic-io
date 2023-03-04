@@ -1,4 +1,4 @@
-@use '../functions' as f;
+/* @use '../functions' as f; */
 
 /*
 |–––––––––––––––––––––––––
@@ -11,7 +11,7 @@
 }
 
 .Rhythm .Rhythm__block > p {
-    @include f.clip(-0.3em, -0.45em);
+    /* @include f.clip(-0.3em, -0.45em); */
     line-height: 1.6 !important;
 }
 
@@ -33,14 +33,14 @@
     margin-top: 1em;
 }
 
-// .Rhythm h1 + p,
-// .Rhythm h2 + p,
-// .Rhythm h3 + p,
-// .Rhythm h4 + p,
-// .Rhythm h5 + p,
-// .Rhythm h6 + p {
-//     text-indent: var(--tab-size);
-// }
+/* .Rhythm h1 + p,
+.Rhythm h2 + p,
+.Rhythm h3 + p,
+.Rhythm h4 + p,
+.Rhythm h5 + p,
+.Rhythm h6 + p {
+    text-indent: var(--tab-size);
+} */
 
 .Rhythm ul:not(:first-child),
 .Rhythm ol:not(:first-child) {
@@ -52,7 +52,7 @@
 }
 
 .Rhythm blockquote > p {
-    @include f.clip(-0.25em, -0.25em);
+    /* @include f.clip(-0.25em, -0.25em); */
     line-height: 1.4 !important;
 }
 

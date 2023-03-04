@@ -58,6 +58,6 @@ ${rule} {
 <style lang="scss">
 @import "@styles/core/index.scss";
 </style>
-<style lang="scss">
-@import "@styles/components/index.scss";
+<style>
+@import "@styles/components/index.css";
 </style>

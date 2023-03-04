@@ -14,7 +14,7 @@
   overflow-x: hidden;
 }
 
-// ratio modifiers
+/* ratio modifiers */
 .Section--aside {
     --section-ratio: calc(1 / 3);
 }
@@ -22,7 +22,7 @@
     --section-ratio: calc(2 / 3);
 }
 
-// wrap modifiers
+/* wrap modifiers */
 .Section--site {
     --section-wrap: var(--wrapper-site);
 }
@@ -31,7 +31,7 @@
 }
 
 
-// columns have no padding or margin vertically, because they only distinguish width
+/* columns have no padding or margin vertically, because they only distinguish width */
 .Section__column {
     display: flex;
     flex-direction: column;
@@ -41,16 +41,16 @@
     width: 100%;
     padding-right: 0;
     padding-left: 0;
-    // vertical padding
-    // background-color
+    /* vertical padding */
+    /* background-color */
 }
 
-// blocks must stack inside column with optional padding and margin on top
+/* blocks must stack inside column with optional padding and margin on top */
 .Section__block {
     display: flex;
     width: 100%;
-    // margin-top
-    // horizontal padding
+    /* margin-top */
+    /* horizontal padding */
 }
 
 .Section__block:first-child {
@@ -63,24 +63,23 @@
     padding-bottom: 0;
 }
 
-// Section__fill can replace Section__block to fill in space between blocks
-// Don't put any elements inside of this one
+/* Section__fill can replace Section__block to fill in space between blocks */
+/* Don't put any elements inside of this one */
 .Section__fill {
     margin: 0 !important;
     flex: 1 0 auto;
     width: 100%;
     padding: 0 !important;
-
-    .Section__fill > * {
-        display: none !important;
-    }
+}
+.Section__fill > * {
+    display: none !important;
 }
 
-// wrap is what sets the max-width based on the column it is inside
+/* wrap is what sets the max-width based on the column it is inside */
 .Section__wrap {
     display: block;
     width: 100%;
-    // horizontal padding
+    /* horizontal padding */
 }
 
 @media ( max-width: 767px ) {
@@ -111,7 +110,7 @@
         --section-difference: calc( (var(--section-wrap-left) - var(--section-wrap-right)) / 2 );
     }
 
-    // Left column
+    /* Left column */
     .Section:not(.Section--reverse) .Section__column:first-child,
     .Section.Section--reverse .Section__column:last-child {
         align-items: flex-end;
@@ -132,7 +131,7 @@
         padding-left: 0;
     }
 
-    // Right column
+    /* Right column */
     .Section:not(.Section--reverse) .Section__column:last-child,
     .Section.Section--reverse .Section__column:first-child {
         align-items: flex-start;

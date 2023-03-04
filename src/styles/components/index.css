@@ -1,0 +1,10 @@
+@import "./Rhythm.css";
+@import "./Section.css";
+@import "./Hyperlink.css";
+@import "./shapes/arch.css";
+@import "./shapes/circle.css";
+@import "./shapes/hexagon.css";
+@import "./shapes/square.css";
+@import "./shapes/triangle.css";
+
+@tailwind components;
