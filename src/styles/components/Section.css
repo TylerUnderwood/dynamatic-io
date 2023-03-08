@@ -113,8 +113,11 @@
     /* Left column */
     .Section:not(.Section--reverse) .Section__column:first-child,
     .Section.Section--reverse .Section__column:last-child {
+        --section-left-wide: calc( 50vw + var(--section-difference) );
+        --section-left-thin: calc( 100vw * var(--section-ratio) );
         align-items: flex-end;
         max-width: calc( 50vw + var(--section-difference) );
+        max-width: max(var(--section-left-wide), var(--section-left-thin));
     }
 
     .Section:not(.Section--reverse) .Section__column:first-child .Section__block,
@@ -134,8 +137,11 @@
     /* Right column */
     .Section:not(.Section--reverse) .Section__column:last-child,
     .Section.Section--reverse .Section__column:first-child {
+        --section-right-wide: calc( 50vw - var(--section-difference) );
+        --section-right-thin: calc( 100vw * (1 - var(--section-ratio)) );
         align-items: flex-start;
         max-width: calc( 50vw - var(--section-difference) );
+        max-width: max(var(--section-right-wide), var(--section-right-thin));
     }
 
     .Section:not(.Section--reverse) .Section__column:last-child .Section__block,
