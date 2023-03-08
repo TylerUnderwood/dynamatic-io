@@ -9,12 +9,14 @@ export default {
     data() {
         return {
             sectionReverse: false,
-            sectionWrap: '48',
+            sectionWrap: 48,
             sectionRatio: 66,
-            sectionWrapLeft: '',
-            sectionWrapRight: '',
+            sectionWrapProp: '',
+            sectionRatioProp: '',
+            sectionWrapLeftProp: '',
+            sectionWrapRightProp: '',
+            sectionDifferenceProp: '',
             demoBlockHeight: "7rem",
-            sectionDifference: '',
         }
     },
 
@@ -24,55 +26,71 @@ export default {
             return getComputedStyle(section).getPropertyValue(property);
         },
 
-        updatePropertyData() {
-            const id = 'dynamic-section-column-first';
-            this.sectionWrap = this.getPropertyValueById(id, '--section-wrap');
-            this.sectionWrapLeft = this.getPropertyValueById(id, '--section-wrap-left');
-            this.sectionWrapRight = this.getPropertyValueById(id, '--section-wrap-right');
-            this.sectionDifference = this.getPropertyValueById(id, '--section-difference');
-        },
-
         trimProperty( property ) {
             return property.replace(/\s\s+/g, ' ').trim();
         },
 
-        toggleSectionReverse() {
-            this.updatePropertyData();
-            this.sectionReverse = !this.sectionReverse;
+        updatePropertyData() {
+            const id = 'dynamic-section-column-first';
+
+            this.sectionWrapProp = this.trimProperty(
+                this.getPropertyValueById(id, '--section-wrap')
+            );
+            this.sectionRatioProp = this.trimProperty(
+                this.getPropertyValueById(id, '--section-ratio')
+            );
+            this.sectionWrapLeftProp = this.trimProperty(
+                this.getPropertyValueById(id, '--section-wrap-left')
+            );
+            this.sectionWrapRightProp = this.trimProperty(
+                this.getPropertyValueById(id, '--section-wrap-right')
+            );
+            this.sectionDifferenceProp = this.trimProperty(
+                this.getPropertyValueById(id, '--section-difference')
+            );
+        },
+
+        changeWrapperWidth() {
+            document.documentElement.style.setProperty('--wrapper-page', `${this.sectionWrap}rem`);
         },
     },
 
     computed: {
-        calcSectionWrap() {
-            return this.trimProperty( this.sectionWrap );
+        sectionWrapLeft() {
+            return this.sectionWrap * this.sectionRatio;
         },
-        calcSectionWrapNum() {
-            return Number(this.sectionWrap.match(/\d/g).join(""));
+        sectionWrapRight() {
+            return this.sectionWrap * (100 - this.sectionRatio);
         },
-        calcSectionRatio() {
-            return Math.round(this.sectionRatio) / 100;
+        sectionDifference() {
+            return this.sectionWrapLeft - this.sectionWrapRight;
         },
-        // wrap left
-        calcSectionWrapLeft() {
-            return this.trimProperty( this.sectionWrapLeft );
+        sectionWrapValue() {
+            return this.sectionWrap + "rem";
         },
-        calcSectionWarpLeftNum() {
-            return Math.round(this.sectionRatio * this.calcSectionWrapNum) / 100;
+        sectionRatioValue() {
+            return (this.sectionRatio / 100);
         },
-        //wrap right
-        calcSectionWrapRight() {
-            return this.trimProperty( this.sectionWrapRight );
+        sectionWrapLeftValue() {
+            return (this.sectionWrapLeft / 100) + "rem";
         },
-        calcSectionWrapRightNum() {
-            return Math.round((100 - this.sectionRatio) * this.calcSectionWrapNum) / 100;
+        sectionWrapRightValue() {
+            return (this.sectionWrapRight / 100) + "rem";
         },
-        calcSectionDifference() {
-            return this.trimProperty( this.sectionDifference );
+        sectionDifferenceValue() {
+            return (this.sectionDifference / 100) + "rem";
         },
     },
 
     mounted() {
         this.updatePropertyData();
+
+        this.sectionWrap = Number(
+            getComputedStyle(document.documentElement)
+                .getPropertyValue('--wrapper-page')
+                .match(/\d/g)
+                .join("")
+        );
     }
 }
 </script>
@@ -82,26 +100,45 @@ export default {
 
     <section class="Section px-section my-section mb-0">
         <div class="wrapper">
-            <div class="flex">
+            <div class="flex justify-center gap-4">
                 <label
                     class="flex items-center gap-2"
                     for="toggle-section-reverse"
                 >
-                    <span class="order-2 Meta" style="font-size: 0.7rem;">
+                    <span class="Meta" style="font-size: 0.7rem;">
                         Reverse
                     </span>
                     <input
                         id="toggle-section-reverse"
                         name="section-reverse"
-                        value="section-reverse"
                         type="checkbox"
                         @click="sectionReverse = !sectionReverse"
                     />
                 </label>
+                <label
+                    class="flex items-center gap-2"
+                    for="page-wrapper-number"
+                >
+                    <span class="Meta" style="font-size: 0.7rem;">
+                        Wrapper
+                    </span>
+                    <div>
+                        <input
+                            id="page-wrapper-number"
+                            class="Field Field--small"
+                            name="Page wrapper number"
+                            type="number"
+                            min="24"
+                            max="80"
+                            v-model="sectionWrap"
+                            @input="changeWrapperWidth()"
+                        />
+                    </div>
+                </label>
             </div>
             <div class="flex mt-2">
                 <div class="filler w-1/4 pr-3 border-l-2 border-muted text-right">
-                    {{ calcSectionWarpLeftNum }}rem
+                    {{ sectionWrapLeftValue }}
                 </div>
                 <div class="w-1/2">
                     <input
@@ -112,7 +149,7 @@ export default {
                         max="75"
                         list="section-ratio-datalist"
                         v-model="sectionRatio"
-                        @change="updatePropertyData()"
+                        @input="updatePropertyData()"
                     />
                     <datalist
                         id="section-ratio-datalist"
@@ -126,7 +163,7 @@ export default {
                     </datalist>
                 </div>
                 <div class="filler w-1/4 pl-3 border-r-2 border-muted">
-                    {{ calcSectionWrapRightNum }}rem
+                    {{ sectionWrapRightValue }}
                 </div>
             </div>
         </div>
@@ -136,7 +173,7 @@ export default {
         id="dynamic-section"
         class="Section"
         :class="{'Section--reverse':sectionReverse}"
-        :style="`--section-ratio: ${sectionRatio*.01};`"
+        :style="`--section-ratio: ${sectionRatio / 100};`"
     >
         <div
             id="dynamic-section-column-first"
@@ -176,14 +213,23 @@ export default {
                     </div>
                 </div>
             </div>
-            <div class="mt-4">
-                <code class="Code w-full">
-<pre class="overflow-auto">
---section-wrap: {{ calcSectionWrap }};
---section-ratio: {{ calcSectionRatio }};
---section-wrap-left: {{ calcSectionWrapLeft }};
---section-wrap-right: {{ calcSectionWrapRight }};
---section-difference: {{ calcSectionDifference }};
+            <div class="flex mt-4">
+                <code class="Codeblock w-1/2">
+<pre>
+--section-wrap: {{ sectionWrapProp }};
+--section-ratio: {{ sectionRatioProp }};
+--section-wrap-left: {{ sectionWrapLeftProp }};
+--section-wrap-right: {{ sectionWrapRightProp }};
+--section-difference: {{ sectionDifferenceProp }};
+</pre>
+                </code>
+                <code class="Codeblock w-1/2">
+<pre>
+sectionWrap: {{ sectionWrapValue }};
+sectionRatio: {{ sectionRatioValue }};
+sectionWrapLeft: {{ sectionWrapLeftValue }};
+sectionWrapRight: {{ sectionWrapRightValue }};
+sectionDifference: {{ sectionDifferenceValue }};
 </pre>
                 </code>
             </div>
