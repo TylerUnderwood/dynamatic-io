@@ -7,6 +7,7 @@
 .Section {
   --section-ratio: calc(1 / 2);
   --section-wrap: var(--wrapper-page);
+  --section-pad: var(--section-space-x);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -82,6 +83,11 @@
     /* horizontal padding */
 }
 
+.Section > .Section__wrap {
+    max-width: var(--section-wrap);
+    margin: 0 auto;
+}
+
 @media ( max-width: 767px ) {
     .Section {
         flex-direction: column;
@@ -105,19 +111,20 @@
     }
 
     .Section__column {
-        --section-wrap-left: calc( var(--section-wrap) * var(--section-ratio) );
-        --section-wrap-right: calc( var(--section-wrap) * ( 1 - var(--section-ratio) ) );
-        --section-difference: calc( (var(--section-wrap-left) - var(--section-wrap-right)) / 2 );
+        --section-ratio-left: var(--section-ratio);
+        --section-ratio-right: calc( 1 - var(--section-ratio) );
+        --section-ratio-diff: calc( var(--section-ratio-left) - var(--section-ratio-right) );
+        --section-wrap-diff: calc( var(--section-wrap) * var(--section-ratio-diff) );
+        --section-pad-diff: calc( var(--section-pad) * var(--section-ratio-diff) );
     }
 
     /* Left column */
     .Section:not(.Section--reverse) .Section__column:first-child,
     .Section.Section--reverse .Section__column:last-child {
-        --section-left-wide: calc( 50vw + var(--section-difference) );
-        --section-left-thin: calc( 100vw * var(--section-ratio) );
+        --section-left-wide: calc( 50vw + (var(--section-wrap-diff) / 2) );
+        --section-left-thin: calc( (100vw * var(--section-ratio-left)) - var(--section-pad-diff) );
         align-items: flex-end;
-        max-width: calc( 50vw + var(--section-difference) );
-        max-width: max(var(--section-left-wide), var(--section-left-thin));
+        max-width: max( var(--section-left-wide), var(--section-left-thin) );
     }
 
     .Section:not(.Section--reverse) .Section__column:first-child .Section__block,
@@ -128,6 +135,7 @@
 
     .Section:not(.Section--reverse) .Section__column:first-child .Section__wrap,
     .Section.Section--reverse .Section__column:last-child .Section__wrap {
+        --section-wrap-left: calc( var(--section-wrap) * var(--section-ratio-left) );
         margin-left: auto;
         margin-right: 0;
         max-width: var(--section-wrap-left);
@@ -137,11 +145,10 @@
     /* Right column */
     .Section:not(.Section--reverse) .Section__column:last-child,
     .Section.Section--reverse .Section__column:first-child {
-        --section-right-wide: calc( 50vw - var(--section-difference) );
-        --section-right-thin: calc( 100vw * (1 - var(--section-ratio)) );
+        --section-right-wide: calc( 50vw - (var(--section-wrap-diff) / 2) );
+        --section-right-thin: calc( (100vw * var(--section-ratio-right)) + var(--section-pad-diff) );
         align-items: flex-start;
-        max-width: calc( 50vw - var(--section-difference) );
-        max-width: max(var(--section-right-wide), var(--section-right-thin));
+        max-width: max( var(--section-right-wide), var(--section-right-thin) );
     }
 
     .Section:not(.Section--reverse) .Section__column:last-child .Section__block,
@@ -152,6 +159,7 @@
 
     .Section:not(.Section--reverse) .Section__column:last-child .Section__wrap,
     .Section.Section--reverse .Section__column:first-child .Section__wrap {
+        --section-wrap-right: calc( var(--section-wrap) * var(--section-ratio-right) );
         margin-left: 0;
         margin-right: auto;
         max-width: var(--section-wrap-right);

@@ -15,7 +15,7 @@ export default {
             sectionRatioProp: '',
             sectionWrapLeftProp: '',
             sectionWrapRightProp: '',
-            sectionDifferenceProp: '',
+            sectionWrapDiffProp: '',
             demoBlockHeight: "7rem",
         }
     },
@@ -45,8 +45,8 @@ export default {
             this.sectionWrapRightProp = this.trimProperty(
                 this.getPropertyValueById(id, '--section-wrap-right')
             );
-            this.sectionDifferenceProp = this.trimProperty(
-                this.getPropertyValueById(id, '--section-difference')
+            this.sectionWrapDiffProp = this.trimProperty(
+                this.getPropertyValueById(id, '--section-wrap-diff')
             );
         },
 
@@ -62,7 +62,7 @@ export default {
         sectionWrapRight() {
             return this.sectionWrap * (100 - this.sectionRatio);
         },
-        sectionDifference() {
+        sectionWrapDiff() {
             return this.sectionWrapLeft - this.sectionWrapRight;
         },
         sectionWrapValue() {
@@ -77,8 +77,8 @@ export default {
         sectionWrapRightValue() {
             return (this.sectionWrapRight / 100) + "rem";
         },
-        sectionDifferenceValue() {
-            return (this.sectionDifference / 100) + "rem";
+        sectionWrapDiffValue() {
+            return (this.sectionWrapDiff / 100) + "rem";
         },
     },
 
@@ -128,8 +128,8 @@ export default {
                             class="Field Field--small"
                             name="Page wrapper number"
                             type="number"
-                            min="24"
-                            max="80"
+                            min="32"
+                            max="64"
                             v-model="sectionWrap"
                             @input="changeWrapperWidth()"
                         />
@@ -213,26 +213,18 @@ export default {
                     </div>
                 </div>
             </div>
-            <div class="flex mt-4">
-                <code class="Codeblock w-1/2">
-<pre>
---section-wrap: {{ sectionWrapProp }};
---section-ratio: {{ sectionRatioProp }};
---section-wrap-left: {{ sectionWrapLeftProp }};
---section-wrap-right: {{ sectionWrapRightProp }};
---section-difference: {{ sectionDifferenceProp }};
-</pre>
-                </code>
-                <code class="Codeblock w-1/2">
+            <details class="mt-4">
+                <summary class="Meta mb-0">Meta</summary>
+                <code class="Codeblock w-full">
 <pre>
 sectionWrap: {{ sectionWrapValue }};
 sectionRatio: {{ sectionRatioValue }};
 sectionWrapLeft: {{ sectionWrapLeftValue }};
 sectionWrapRight: {{ sectionWrapRightValue }};
-sectionDifference: {{ sectionDifferenceValue }};
+sectionWrapDiff: {{ sectionWrapDiffValue }};
 </pre>
                 </code>
-            </div>
+            </details>
         </div>
     </section>
 </template>
