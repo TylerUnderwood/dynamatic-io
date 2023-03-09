@@ -243,6 +243,60 @@ sectionWrapDiff: {{ sectionWrapDiffValue }};
             </details>
         </div>
     </section>
+
+    <section class="Section my-8 px-section">
+        <div class="Section__wrap">
+            <code class="Codeblock">
+<pre>
+&lt;section
+    class="Section{{ sectionReverse ? ' Section--reverse' : null }}"
+    style="--section-ratio: {{ sectionRatio / 100 }}"
+&gt;
+    &lt;div class="Section__column bg-blue py-8"&gt;
+
+        &lt;div class="Section__block px-section"&gt;
+            &lt;div class="Section__wrap md:px-section"&gt;
+                &lt;!-- CONTENT --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+    &lt;div class="Section__column py-8"&gt;
+
+        &lt;div class="Section__block px-section"&gt;
+            &lt;div class="Section__wrap md:px-section"&gt;
+                &lt;!-- CONTENT --&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/section&gt;
+</pre>
+            </code>
+        </div>
+    </section>
+
+    <section class="Section my-8 px-section">
+        <div class="Section__wrap">
+            <code class="Codeblock">
+<pre>
+&lt;section class="Section"&gt;
+    &lt;div class="Section__wrap"&gt;
+
+        &lt;div style="width: {{ sectionRatio }}%"&gt;
+            &lt;!-- CONTENT --&gt;
+        &lt;div/&gt;
+
+        &lt;div style="width: {{ 100 - sectionRatio }}%"&gt;
+            &lt;!-- CONTENT --&gt;
+        &lt;div/&gt;
+
+    &lt;/div&gt;
+&lt;/section&gt;
+</pre>
+            </code>
+        </div>
+    </section>
 </template>
 
 <style>
