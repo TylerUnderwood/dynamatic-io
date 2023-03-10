@@ -9,18 +9,6 @@ module.exports = {
   theme: {
     // spacing: theme.sizes,
     screens: theme.screens,
-    zIndex: {
-      0: "0",
-      1: "1",
-      2: "2",
-      3: "3",
-      4: "4",
-      5: "5",
-      6: "6",
-      7: "7",
-      8: "8",
-      9: "9",
-    },
     extend: {
       colors: {
         primary: "var(--theme-primary)",
@@ -35,6 +23,27 @@ module.exports = {
         input: "var(--theme-input)",
         marker: "var(--theme-marker)",
         muted: "var(--theme-muted)",
+      },
+      maxWidth: {
+        "site": "var(--max-w-site)",
+        "page": "var(--max-w-page)",
+        "copy": "var(--max-w-copy)",
+      },
+      spacing: {
+        "page": "var(--space-page)",
+        "section": "var(--space-section)",
+      },
+      zIndex: {
+        0: "0",
+        1: "1",
+        2: "2",
+        3: "3",
+        4: "4",
+        5: "5",
+        6: "6",
+        7: "7",
+        8: "8",
+        9: "9",
       },
     },
   },

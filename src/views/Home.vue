@@ -6,8 +6,8 @@ import Section from "@/components/Section.vue";
 <template>
     <Banner title="Home" intro="Welcome to Dynamatic" />
 
-    <section class="Section px-section my-section">
-        <div class="wrapper">
+    <section class="Section px-page my-section">
+        <div class="page-wrapper">
             <div class="flex flex-col md:flex-row gap-6">
                 <div class="sm:w-1/2">
                     <router-link to="/sandbox" class="Button" data-size="small">

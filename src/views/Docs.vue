@@ -50,7 +50,7 @@ export default {
 <template>
   <Banner title="Docs" />
 
-  <section class="DocsTemplate my-section px-section">
+  <section class="DocsTemplate my-section px-page">
     <div class="DocsTemplate__wrap">
 
       <!-- Navigation -->
@@ -74,7 +74,7 @@ export default {
       </div>
 
       <!-- Main -->
-      <div class="DocsTemplate__main wrapper">
+      <div class="DocsTemplate__main page-wrapper">
         <router-view></router-view>
       </div>
 
@@ -99,7 +99,7 @@ export default {
       / 100%
     ;
     width: 100%;
-    max-width: calc(var(--wrapper-page) + (var(--sidebar-width) * 2) + (var(--sidebar-gap) * 2));
+    max-width: calc(var(--max-w-page) + (var(--sidebar-width) * 2) + (var(--sidebar-gap) * 2));
     margin: auto;
   }
 

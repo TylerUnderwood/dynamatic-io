@@ -120,7 +120,7 @@
     "lg": "1024px",
     "xl": "2560px"
   },
-  "wrapper": {
+  "max-w": {
     "copy": "36rem",
     "page": "48rem",
     "site": "64rem"

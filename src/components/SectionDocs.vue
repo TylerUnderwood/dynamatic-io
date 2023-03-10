@@ -74,7 +74,7 @@ export default {
 
 <style>
   .SectionDocs + .SectionDocs {
-    margin-top: var(--section-space-y);
+    margin-top: var(--space-page);
   }
   [identify] .SectionDocs[identify-item] {
     counter-increment: identify-SectionDocs;

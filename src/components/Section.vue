@@ -31,11 +31,11 @@ export default {
 <template>
   <section
     :id="sectionId"
-    class="Section px-section my-section"
+    class="Section px-page my-section"
     :aria-labelledby="heading != null ? headingId : null"
     identify-item="component"
   >
-    <div class="Section__wrap wrapper" identify-item="component right">
+    <div class="Section__wrap" identify-item="component right">
       <h2 :id="headingId" class="Heading h2" v-if="heading">
         {{ heading }}
       </h2>

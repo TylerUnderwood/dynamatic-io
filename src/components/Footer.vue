@@ -13,7 +13,7 @@ export default {
 
 <template>
     <footer id="footer" class="Footer flex items-center">
-      <div class="wrapper max-w-site">
+      <div class="page-wrapper max-w-site">
         <nav class="Nav">
           <ul class="Nav__list">
             <li class="Nav__item" v-for="item in nav">
@@ -30,7 +30,7 @@ export default {
 
 <style>
 .Footer {
-  padding: var(--section-space-y) var(--section-space-x);
+  padding: var(--space-page) var(--space-page);
   background-color: var(--theme-offset)
 }
 </style>

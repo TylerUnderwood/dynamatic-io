@@ -23,7 +23,7 @@ cite {
 .Markup blockquote {
     margin: 0;
     width: 100%;
-    max-width: var(--wrapper-copy);
+    max-width: var(--max-w-copy);
     border-left: var(--quote-border-width) solid var(--theme-marker);
     border-radius: var(--quote-border-width);
     padding: 0 0 0 calc(var(--tab-size) - var(--quote-border-width));

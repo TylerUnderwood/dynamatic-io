@@ -15,7 +15,7 @@ export default {
         aria-labelledby="title"
         data-theme="dark"
     >
-        <div class="wrapper">
+        <div class="page-wrapper">
             <h1 id="title" class="Heading h1 Title">
                 {{ title }}
             </h1>
@@ -28,7 +28,7 @@ export default {
 
 <style>
     .Banner {
-        padding: var(--section-space-x) var(--section-space-x);
+        padding: var(--space-page) var(--space-page);
         background-color: var(--theme-primary)
     }
 </style>

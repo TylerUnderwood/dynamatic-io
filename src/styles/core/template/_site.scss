@@ -17,10 +17,11 @@
 
 html {
     @include f.scale(font-size, 480px, 1280px, 16px, 20px);
+}
+
+html {
     overflow-x: clip;
     overflow-y: auto;
-
-    /* Firefox only */
     scroll-behavior: smooth;
 
     /* Remove scrollbar */
@@ -83,11 +84,6 @@ footer {
     z-index: 2;
 }
 
-/* section */
-section {
-    display: block;
-}
-
 /* other */
 // :target {
 //   outline: 3px solid var(--theme-primary);
@@ -100,8 +96,4 @@ section {
 
 [hidden] {
     display: none !important;
-}
-
-[scroll-lock] {
-    overflow: clip !important;
 }

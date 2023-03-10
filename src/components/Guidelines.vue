@@ -1,11 +1,11 @@
 <template>
   <div id="guidelines" class="guidelines">
-    <div class="guidelines__item px-section" identify-item="guideline bottom">
+    <div class="guidelines__item px-page" identify-item="guideline bottom">
       <div class="guidelines__item" identify-item="guideline bottom">
-        <div class="guidelines__item wrapper" identify-item="guideline bottom">
-          <div class="guidelines__item px-section" identify-item="guideline bottom">
+        <div class="guidelines__item page-wrapper" identify-item="guideline bottom">
+          <div class="guidelines__item px-page" identify-item="guideline bottom">
             <div class="guidelines__item" identify-item="guideline bottom">
-              <div class="guidelines__item wrapper max-w-copy" identify-item="guideline bottom">
+              <div class="guidelines__item page-wrapper max-w-copy" identify-item="guideline bottom">
                 <div class="guidelines__center" identify-item="guideline"></div>
               </div>
             </div>
@@ -39,17 +39,17 @@
     content: "site";
   }
 
-  [identify*="guidelines"] .guidelines__item.wrapper::before {
-    content: "wrapper";
+  [identify*="guidelines"] .guidelines__item.page-wrapper::before {
+    content: "page-wrapper";
   }
 
-  [identify*="guidelines"] .guidelines__item.wrapper.max-w-copy::before {
-    content: "copy wrapper";
+  [identify*="guidelines"] .guidelines__item.page-wrapper.max-w-copy::before {
+    content: "copy page-wrapper";
   }
 
-  [identify*="guidelines"] .guidelines__item.px-section > .guidelines__item::before {
+  [identify*="guidelines"] .guidelines__item.px-page > .guidelines__item::before {
     translate: 0 -100%;
-    content: "px-section";
+    content: "px-page";
   }
 
   [identify*="guidelines"] .guidelines__center {

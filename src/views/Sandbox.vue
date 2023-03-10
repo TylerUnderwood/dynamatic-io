@@ -19,7 +19,7 @@ export default {
 
     methods: {
         changeWrapperWidth() {
-            document.documentElement.style.setProperty('--wrapper-page', `${this.sectionWrap}rem`);
+            document.documentElement.style.setProperty('--max-w-page', `${this.sectionWrap}rem`);
         },
     },
 
@@ -53,7 +53,7 @@ export default {
     mounted() {
         this.sectionWrap = Number(
             getComputedStyle(document.documentElement)
-                .getPropertyValue('--wrapper-page')
+                .getPropertyValue('--max-w-page')
                 .match(/\d/g)
                 .join("")
         );
@@ -64,7 +64,7 @@ export default {
 <template>
     <Banner title="Sandbox" intro="This is whatever I am currently working on"/>
 
-    <section class="Section px-section my-section mb-0">
+    <section class="Section px-page my-section mb-0">
         <div class="Section__wrap">
             <div class="flex justify-between gap-4">
                 <div class="block">
@@ -184,11 +184,11 @@ export default {
         >
 
             <div
-                class="Section__block px-section"
+                class="Section__block px-page"
                 :class="{'mt-4':index!=0}"
                 v-for="(block, index) in topBlocks"
             >
-                <div class="Section__wrap px-section">
+                <div class="Section__wrap md:px-page">
                     <DemoBlock :height="demoBlockHeight">
                         <span class="Meta">Demo Block Top</span>
                     </DemoBlock>
@@ -201,11 +201,11 @@ export default {
         >
 
             <div
-                class="Section__block px-section"
+                class="Section__block px-page"
                 :class="{'mt-4':index!=0}"
                 v-for="(block, index) in bottomBlocks"
             >
-                <div class="Section__wrap px-section">
+                <div class="Section__wrap md:px-page">
                     <DemoBlock :height="demoBlockHeight">
                         <span class="Meta">Demo Block Bottom</span>
                     </DemoBlock>
@@ -215,7 +215,7 @@ export default {
         </div>
     </section>
 
-    <section class="Section px-section my-section mt-0">
+    <section class="Section px-page">
         <div class="Section__wrap">
             <div class="flex">
                 <div :style="`width: ${sectionRatio}%`">
@@ -229,33 +229,46 @@ export default {
                     </div>
                 </div>
             </div>
-            <details class="mt-4">
-                <summary class="Meta mb-0">Meta</summary>
-                <code class="Codeblock w-full">
-<pre>
-sectionWrap: {{ sectionWrapValue }};
-sectionRatio: {{ sectionRatioValue }};
-sectionWrapLeft: {{ sectionWrapLeftValue }};
-sectionWrapRight: {{ sectionWrapRightValue }};
-sectionWrapDiff: {{ sectionWrapDiffValue }};
-</pre>
-                </code>
-            </details>
         </div>
     </section>
 
-    <section class="Section my-8 px-section">
+    <section class="Section my-8 px-page">
         <div class="Section__wrap">
-            <code class="Codeblock">
+            <details>
+                <summary class="mb-0"><strong>Meta</strong></summary>
+                <div class="flex">
+                    <code class="Codeblock w-1/2">
+<pre>
+sectionWrap: {{ sectionWrapValue }},
+sectionRatio: {{ sectionRatioValue }},
+sectionWrapLeft: {{ sectionWrapLeftValue }},
+sectionWrapRight: {{ sectionWrapRightValue }},
+sectionWrapDiff: {{ sectionWrapDiffValue }},
+</pre>
+                    </code>
+                    <code class="Codeblock w-1/2">
+<pre>
+:root {
+    --max-w-page: <span style="color: red;">{{ sectionWrap }}rem;</span>
+    --space-page: 32px;
+}
+</pre>
+                    </code>
+                </div>
+            </details>
+            <details>
+                <summary class="mb-0"><strong>Section Split</strong></summary>
+                <div class="flex">
+                    <code class="Codeblock w-full">
 <pre>
 &lt;section
-    class="Section{{ sectionReverse ? ' Section--reverse' : null }}"
-    style="--section-ratio: {{ sectionRatio / 100 }}"
+    class="Section<span style="color: red;">{{ sectionReverse ? ' Section--reverse' : null }}</span>"
+    style="--section-ratio: <span style="color: red;">{{ sectionRatio / 100 }}</span>"
 &gt;
     &lt;div class="Section__column bg-blue py-8"&gt;
 
-        &lt;div class="Section__block px-section"&gt;
-            &lt;div class="Section__wrap md:px-section"&gt;
+        &lt;div class="Section__block px-page"&gt;
+            &lt;div class="Section__wrap md:px-page"&gt;
                 &lt;!-- CONTENT --&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -263,8 +276,8 @@ sectionWrapDiff: {{ sectionWrapDiffValue }};
     &lt;/div&gt;
     &lt;div class="Section__column py-8"&gt;
 
-        &lt;div class="Section__block px-section"&gt;
-            &lt;div class="Section__wrap md:px-section"&gt;
+        &lt;div class="Section__block px-page"&gt;
+            &lt;div class="Section__wrap md:px-page"&gt;
                 &lt;!-- CONTENT --&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -272,29 +285,31 @@ sectionWrapDiff: {{ sectionWrapDiffValue }};
     &lt;/div&gt;
 &lt;/section&gt;
 </pre>
-            </code>
-        </div>
-    </section>
-
-    <section class="Section my-8 px-section">
-        <div class="Section__wrap">
-            <code class="Codeblock">
+                    </code>
+                </div>
+            </details>
+            <details>
+                <summary class="mb-0"><strong>Section Full</strong></summary>
+                <div class="flex">
+                    <code class="Codeblock w-full">
 <pre>
 &lt;section class="Section"&gt;
     &lt;div class="Section__wrap"&gt;
 
-        &lt;div style="width: {{ sectionRatio }}%"&gt;
+        &lt;div style="width: <span style="color: red;">{{ sectionRatio }}%</span>"&gt;
             &lt;!-- CONTENT --&gt;
         &lt;div/&gt;
 
-        &lt;div style="width: {{ 100 - sectionRatio }}%"&gt;
+        &lt;div style="width: <span style="color: red;">{{ 100 - sectionRatio }}%</span>"&gt;
             &lt;!-- CONTENT --&gt;
         &lt;div/&gt;
 
     &lt;/div&gt;
 &lt;/section&gt;
 </pre>
-            </code>
+                    </code>
+                </div>
+            </details>
         </div>
     </section>
 </template>
