@@ -19,7 +19,6 @@ button {
 }
 
 .Button {
-    $self: &;
     --button-color: var(--input-color);
     --button-hover: var(--input-hover);
     --button-active: var(--input-active);
@@ -53,320 +52,309 @@ button {
     transition-timing-function: var(--button-easing);
     user-select: none;
     cursor: pointer;
+}
 
-    &:focus {
-        color: var(--button-face);
-    }
+.Button:focus {
+    color: var(--button-face);
+}
 
-    // [stealth] first so :hover overrides it
-    &[stealth] {
-        border-color: transparent;
-        background-color: transparent;
-        color: inherit;
-    }
+// [stealth] first so :hover overrides it
+.Button[stealth] {
+    border-color: transparent;
+    background-color: transparent;
+    color: inherit;
+}
 
-    // [active] should override [stealth]
-    &[active] {
-        border-color: transparent;
-        background-color: var(--button-active);
-        color: var(--button-face);
-    }
+// [active] should override [stealth]
+.Button[active] {
+    border-color: transparent;
+    background-color: var(--button-active);
+    color: var(--button-face);
+}
 
-    // :hover should override [active]
-    &[hover],
-    &:hover {
-        outline: none;
-        border-color: transparent;
-        background-color: var(--button-hover);
-        color: var(--button-face);
-    }
+// :hover should override [active]
+.Button[hover],
+.Button:hover {
+    outline: none;
+    border-color: transparent;
+    background-color: var(--button-hover);
+    color: var(--button-face);
+}
 
-    // :focus should override :hover
-    &[focus-v],
-    &:focus-visible  {
-        outline: 2px solid var(--input-color);
-        outline-offset: 2px;
-    }
+// :focus should override :hover
+.Button[focus-v],
+.Button:focus-visible  {
+    outline: 2px solid var(--input-color);
+    outline-offset: 2px;
+}
 
-    // [disabled] should override all
-    &[disabled] {
-        border-color: transparent !important;
-        background-color: var(--button-color) !important;
-        color: var(--button-face) !important;
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
+// [disabled] should override all
+.Button[disabled] {
+    border-color: transparent !important;
+    background-color: var(--button-color) !important;
+    color: var(--button-face) !important;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 
-    /* === button components === */
-    &__text {
-        display: block;
-        font-weight: 500;
-        font-size: 0.8rem;
-    }
+/* === button components === */
+.Button__text {
+    display: block;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
 
-    &__icon {
-        font-size: 1rem;
-    }
-
-
-    /* === button types === */
-
-    /* = primary button = */
-    &--primary,
-    &[data-type="primary"] {
-        visibility: visible;
-    }
-
-    /* = secondary button = */
-    &--secondary,
-    &[data-type="secondary"] {
-        border-color: var(--button-color);
-        background-color: transparent;
-        color: var(--button-color);
-
-        &[stealth] {
-            border-color: transparent;
-            background-color: transparent;
-            color: inherit;
-        }
-
-        &[active] {
-            border-color: var(--button-active);
-            background-color: transparent;
-            color: var(--button-active);
-        }
-
-        &[hover],
-        &:hover {
-            border-color: var(--button-hover);
-            background-color: transparent;
-            color: var(--button-hover);
-        }
-
-        &[disabled] {
-            border-color: var(--button-color) !important;
-            background-color: transparent !important;
-            color: var(--button-color) !important;
-        }
-
-        .Button__text {
-            font-size: 0.7rem;
-        }
-    }
-
-    /* = tertiary button = */
-    &--tertiary,
-    &[data-type="tertiary"] {
-        border-color: transparent;
-        background-color: transparent;
-        color: var(--button-color);
-
-        &[stealth] {
-            border-color: transparent;
-            background-color: transparent;
-            color: inherit;
-        }
-
-        &[active] {
-            border-color: transparent;
-            background-color: rgb(40 72 216 / 0.05);
-            color: var(--button-color);
-        }
-
-        &[hover],
-        &:hover {
-            border-color: transparent;
-            background-color: rgb(40 72 216 / 0.1);
-            color: var(--button-color);
-        }
-
-        &[disabled] {
-            border-color: transparent !important;
-            background-color: rgb(40 72 216 / 0.1) !important;
-            color: var(--button-color) !important;
-        }
-    }
+.Button__icon {
+    font-size: 1rem;
+}
 
 
-    /* === button size === */
-
-    /* = large button = */
-    &--large,
-    &[data-size="large"] {
-        min-width: 12rem;
-        border-width: var(--input-border-width-large);
-        height: var(--button-height);
-        padding: 0 2.4rem;
-        font-weight: 700;
-        --button-height: var(--input-height-large);
-        --button-pad: var(--input-pad-large);
-
-        .Button__text {
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .Button__icon {
-            font-size: 1.2rem;
-        }
-
-        &.Button--secondary .Button__text,
-        &[data-type="secondary"] .Button__text {
-            font-size: 0.8rem;
-        }
-    }
-
-    /* = small button = */
-    &--small,
-    &[data-size="small"] {
-        min-width: 6em;
-        border-width: var(--input-border-width-small);
-        height: var(--button-height);
-        padding: 0 1.2rem;
-        font-weight: 300;
-        --button-height: var(--input-height-small);
-        --button-pad: var(--input-pad-small);
-
-        .Button__text {
-            font-weight: 300;
-            font-size: 0.7rem;
-        }
-
-        .Button__icon {
-            font-size: 0.8rem;
-        }
-
-        &.Button--secondary .Button__text,
-        &[data-type="secondary"] .Button__text {
-            font-size: 0.6rem;
-        }
-    }
-
-    /* = tiny button = */
-    &--tiny,
-    &[data-size="tiny"] {
-        min-width: unset;
-        border-width: 1px;
-        padding: 0.3rem 0.4rem;
-        font-size: 0.6rem;
-        --button-height: 1.2rem;
-        --button-pad: 0.4rem;
-
-        .Button__text {
-            font-size: 0.6rem;
-        }
-
-        .Button__icon {
-            font-size: 0.8rem;
-        }
-    }
+/* === button types === */
 
 
-    /* === button shape === */
+/* = primary button = */
+.Button[data-type="primary"] {
+    visibility: visible;
+}
 
-    /* = stout button = */
-    &--stout,
-    &[data-shape="stout"] {
-        min-width: unset;
-        padding-left: var(--button-pad);
-        padding-right: var(--button-pad);
-    }
 
-    /* = simple button = */
-    &--simple,
-    &[data-shape="simple"] {
-        min-width: unset;
-        height: fit-content;
-        padding: 0.5em;
-    }
+/* = secondary button = */
+.Button[data-type="secondary"] {
+    border-color: var(--button-color);
+    background-color: transparent;
+    color: var(--button-color);
+}
 
-    /* = square button = */
-    &--square,
-    &[data-shape="square"] {
-        min-width: unset;
-        width: var(--button-height);
-        height: var(--button-height);
-        padding: 0;
-    }
+.Button[data-type="secondary"][stealth] {
+    border-color: transparent;
+    background-color: transparent;
+    color: inherit;
+}
 
-    /* = full button = */
-    &--full,
-    &[data-shape="full"] {
+.Button[data-type="secondary"][active] {
+    border-color: var(--button-active);
+    background-color: transparent;
+    color: var(--button-active);
+}
+
+.Button[data-type="secondary"][hover],
+.Button[data-type="secondary"]:hover {
+    border-color: var(--button-hover);
+    background-color: transparent;
+    color: var(--button-hover);
+}
+
+.Button[data-type="secondary"][disabled] {
+    border-color: var(--button-color) !important;
+    background-color: transparent !important;
+    color: var(--button-color) !important;
+}
+
+.Button[data-type="secondary"].Button__text {
+    font-size: 0.7rem;
+}
+
+
+/* = tertiary button = */
+.Button[data-type="tertiary"] {
+    border-color: transparent;
+    background-color: transparent;
+    color: var(--button-color);
+}
+
+.Button[data-type="tertiary"][stealth] {
+    border-color: transparent;
+    background-color: transparent;
+    color: inherit;
+}
+
+.Button[data-type="tertiary"][active] {
+    border-color: transparent;
+    background-color: rgb(40 72 216 / 0.05);
+    color: var(--button-color);
+}
+
+.Button[data-type="tertiary"][hover],
+.Button[data-type="tertiary"]:hover {
+    border-color: transparent;
+    background-color: rgb(40 72 216 / 0.1);
+    color: var(--button-color);
+}
+
+.Button[data-type="tertiary"][disabled] {
+    border-color: transparent !important;
+    background-color: rgb(40 72 216 / 0.1) !important;
+    color: var(--button-color) !important;
+}
+
+
+/* === button size === */
+
+/* = large button = */
+.Button[data-size="large"] {
+    min-width: 12rem;
+    border-width: var(--input-border-width-large);
+    height: var(--button-height);
+    padding: 0 2.4rem;
+    font-weight: 700;
+    --button-height: var(--input-height-large);
+    --button-pad: var(--input-pad-large);
+}
+
+.Button[data-size="large"].Button__text {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.Button[data-size="large"].Button__icon {
+    font-size: 1.2rem;
+}
+
+.Button[data-size="large"][data-type="secondary"] .Button__text {
+    font-size: 0.8rem;
+}
+
+
+/* = small button = */
+.Button[data-size="small"] {
+    min-width: 6em;
+    border-width: var(--input-border-width-small);
+    height: var(--button-height);
+    padding: 0 1.2rem;
+    font-weight: 300;
+    --button-height: var(--input-height-small);
+    --button-pad: var(--input-pad-small);
+}
+
+.Button[data-size="small"].Button__text {
+    font-weight: 300;
+    font-size: 0.7rem;
+}
+
+.Button[data-size="small"].Button__icon {
+    font-size: 0.8rem;
+}
+
+.Button[data-size="small"][data-type="secondary"] .Button__text {
+    font-size: 0.6rem;
+}
+
+/* = tiny button = */
+.Button--tiny,
+.Button[data-size="tiny"] {
+    min-width: unset;
+    border-width: 1px;
+    padding: 0.3rem 0.4rem;
+    font-size: 0.6rem;
+    --button-height: 1.2rem;
+    --button-pad: 0.4rem;
+}
+
+.Button[data-size="tiny"].Button__text {
+    font-size: 0.6rem;
+}
+
+.Button[data-size="tiny"].Button__icon {
+    font-size: 0.8rem;
+}
+
+
+/* === button shape === */
+
+/* = stout button = */
+.Button--stout,
+.Button[data-shape="stout"] {
+    min-width: unset;
+    padding-left: var(--button-pad);
+    padding-right: var(--button-pad);
+}
+
+/* = simple button = */
+.Button--simple,
+.Button[data-shape="simple"] {
+    min-width: unset;
+    height: fit-content;
+    padding: 0.5em;
+}
+
+/* = square button = */
+.Button--square,
+.Button[data-shape="square"] {
+    min-width: unset;
+    width: var(--button-height);
+    height: var(--button-height);
+    padding: 0;
+}
+
+/* = full button = */
+.Button--full,
+.Button[data-shape="full"] {
+    flex: 1 0 auto;
+    width: 100%;
+    max-width: unset;
+}
+
+@include media.below( sm ) {
+    .Button[data-shape="sm-full"] {
         flex: 1 0 auto;
         width: 100%;
         max-width: unset;
     }
+}
 
-    @include media.below( sm ) {
-        .\-sm\:Button--full,
-        &[data-shape="sm-full"] {
-            flex: 1 0 auto;
-            width: 100%;
-            max-width: unset;
-        }
+@include media.below( md ) {
+    .Button[data-shape="md-full"] {
+        flex: 1 0 auto;
+        width: 100%;
+        max-width: unset;
     }
+}
 
-    @include media.below( md ) {
-        .\-md\:Button--full,
-        &[data-shape="md-full"] {
-            flex: 1 0 auto;
-            width: 100%;
-            max-width: unset;
-        }
+@include media.below( lg ) {
+    .Button[data-shape="lg-full"] {
+        flex: 1 0 auto;
+        width: 100%;
+        max-width: unset;
     }
-
-    @include media.below( lg ) {
-        .\-lg\:Button--full,
-        &[data-shape="lg-full"] {
-            flex: 1 0 auto;
-            width: 100%;
-            max-width: unset;
-        }
-    }
+}
 
 
-    /* === button scheme === */
+/* === button scheme === */
 
-    /* = base button = */
-    &--base,
-    &[data-scheme="base"] {
-        --button-color:       var(--theme-base);
-        --button-hover:       var(--theme-offset);
-        --button-active:      var(--theme-contrast);
-        --button-face:        var(--theme-face);
-    }
+/* = base button = */
+.Button[data-scheme="base"] {
+    --button-color:       var(--theme-base);
+    --button-hover:       var(--theme-offset);
+    --button-active:      var(--theme-contrast);
+    --button-face:        var(--theme-face);
+}
 
-    /* = face button = */
-    &--face,
-    &[data-scheme="face"] {
-        --button-color:       var(--theme-body);
-        --button-hover:       var(--theme-face);
-        --button-active:      var(--theme-head);
-        --button-face:        var(--theme-base);
-    }
+/* = face button = */
+.Button[data-scheme="face"] {
+    --button-color:       var(--theme-body);
+    --button-hover:       var(--theme-face);
+    --button-active:      var(--theme-head);
+    --button-face:        var(--theme-base);
+}
 
-    /* = success button = */
-    &--success,
-    &[data-scheme="success"] {
-        --button-color:       #00aa22;
-        --button-hover:       #00aa22;
-        --button-active:      #00aa22;
-    }
+/* = success button = */
+.Button[data-scheme="success"] {
+    --button-color:       #00aa22;
+    --button-hover:       #00aa22;
+    --button-active:      #00aa22;
+}
 
-    /* = warn button = */
-    &--warn,
-    &[data-scheme="warn"] {
-        --button-color:       hsl(52, 100%, 50%);
-        --button-hover:       hsl(52, 100%, 70%);
-        --button-active:      hsl(48, 100%, 48%);
-        --button-face:        var(--light-face);
-    }
+/* = warn button = */
+.Button[data-scheme="warn"] {
+    --button-color:       hsl(52, 100%, 50%);
+    --button-hover:       hsl(52, 100%, 70%);
+    --button-active:      hsl(48, 100%, 48%);
+    --button-face:        var(--light-face);
+}
 
-    /* = error button = */
-    &--error,
-    &[data-scheme="error"] {
-        --button-color:       hsl(8, 100%, 50%);
-        --button-hover:       hsl(8, 100%, 70%);
-        --button-active:      hsl(4, 100%, 40%);
-    }
+/* = error button = */
+.Button[data-scheme="error"] {
+    --button-color:       hsl(8, 100%, 50%);
+    --button-hover:       hsl(8, 100%, 70%);
+    --button-active:      hsl(4, 100%, 40%);
 }
