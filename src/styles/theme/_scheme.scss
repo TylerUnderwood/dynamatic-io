@@ -38,62 +38,38 @@
 
 /* ===== Light Mode ===== */
 @media (prefers-color-scheme: light) {
-    [data-theme="auto"] {
+    .theme-auto,
+    [data-theme="auto"],
+    body[data-theme="auto"] .theme-body,
+    body[data-theme="auto"] [data-theme="body"] {
         @include theme( light );
     }
 }
 
 .theme-light,
-[data-theme="light"] {
+[data-theme="light"],
+body[data-theme="light"] .theme-body,
+body[data-theme="light"] [data-theme="body"] {
     @include theme( light );
 }
 
 /* ===== Dark Mode ===== */
 @media (prefers-color-scheme: dark) {
-    [data-theme="auto"] {
+    .theme-auto,
+    [data-theme="auto"],
+    body[data-theme="auto"] .theme-body,
+    body[data-theme="auto"] [data-theme="body"] {
         @include theme( dark );
     }
 }
 
 .theme-dark,
-[data-theme="dark"] {
+[data-theme="dark"],
+body[data-theme="dark"] .theme-body,
+body[data-theme="dark"] [data-theme="body"] {
     @include theme( dark );
 }
 
 [data-theme] {
     color: var(--theme-face);
 }
-
-// @mixin scheme($types, $default: "light") {
-//     @each $type in $types {
-//         @if $default == "light" {
-//             [data-theme="normal"] {
-//                 @content( $type );
-//             }
-//         }
-
-//         @if $default == "dark" {
-//             [data-theme="normal"] {
-//                 @content( $type );
-//             }
-//         }
-
-//         @media (prefers-color-scheme: #{$type}) {
-//             [data-theme="auto"] {
-//                 @content( $type );
-//             }
-//         }
-//         [data-theme="#{$type}"] {
-//             @content( $type );
-//         }
-//     }
-// }
-
-// @include scheme(dark, light) using ($type) {
-//     @if $type == dark {
-//         @include theme( dark );
-//     }
-//     @if $type == light {
-//         @include theme( light );
-//     }
-// }

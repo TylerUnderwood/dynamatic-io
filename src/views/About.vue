@@ -10,7 +10,7 @@ const topItems = [
     },
     {
         copy: 'Hello',
-        blockClass: 'bg-base theme-light py-4 mt-8 md:mt-20',
+        blockClass: 'bg-base theme-body py-4 mt-8 md:mt-20',
     },
     {
         copy: 'Hello',
