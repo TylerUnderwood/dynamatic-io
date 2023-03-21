@@ -43,6 +43,7 @@
     }
 }
 
+.theme-light,
 [data-theme="light"] {
     @include theme( light );
 }
@@ -54,6 +55,7 @@
     }
 }
 
+.theme-dark,
 [data-theme="dark"] {
     @include theme( dark );
 }
