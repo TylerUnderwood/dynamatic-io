@@ -42,7 +42,7 @@ const botItems = [
     <SectionSplit
         classTop="bg-primary theme-dark py-8"
         classBot="mt-8 md:mt-0 justify-center"
-        ratio="66"
+        :ratio="66"
     >
         <template #top>
             <SectionBlock

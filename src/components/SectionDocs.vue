@@ -70,3 +70,9 @@ export default {
 
     </div>
 </template>
+
+<style>
+.SectionDocs + .SectionDocs {
+    margin-top: var(--space-section);
+}
+</style>
