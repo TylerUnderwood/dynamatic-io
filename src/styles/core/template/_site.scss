@@ -23,14 +23,6 @@ html {
     overflow-x: clip;
     overflow-y: auto;
     scroll-behavior: smooth;
-
-    /* Remove scrollbar */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-html::-webkit-scrollbar {
-    display: none;
 }
 
 body {
@@ -96,4 +88,13 @@ footer {
 
 [hidden] {
     display: none !important;
+}
+
+[hide-scrollbar] {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+[hide-scrollbar]::-webkit-scrollbar {
+    display: none;
 }

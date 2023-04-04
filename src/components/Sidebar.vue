@@ -53,7 +53,7 @@ export default {
         position: relative;
         z-index: 0;
         max-height: 100vh;
-        overflow-y: scroll;
+        overflow-y: auto;
         overflow-x: visible;
         margin: -1em;
         padding: 1em;

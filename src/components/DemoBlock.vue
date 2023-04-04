@@ -15,7 +15,7 @@ export default {
         :id="`demo-block-${uuid()}`"
         class="DemoBlock stripes"
         :style="`min-height: ${height};`"
-        data-theme="dark"
+        data-scheme="dark"
     >
         <div class="DemoBlock__item">
             <slot/>

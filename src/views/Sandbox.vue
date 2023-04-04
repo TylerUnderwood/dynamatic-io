@@ -180,7 +180,7 @@ export default {
     >
         <div
             class="Section__column bg-stripes-secondary py-8"
-            data-theme="dark"
+            data-scheme="dark"
         >
 
             <div

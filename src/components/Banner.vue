@@ -13,7 +13,7 @@ export default {
         class="Banner"
         role="banner"
         aria-labelledby="title"
-        data-theme="dark"
+        data-scheme="dark"
     >
         <div class="page-wrapper">
             <h1 id="title" class="Heading h1 Title">

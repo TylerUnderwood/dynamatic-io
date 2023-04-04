@@ -26,7 +26,7 @@ import SectionBlock from "@/components/SectionBlock.vue";
         classBot="py-8 justify-center"
     >
         <template #top>
-            <SectionBlock classBase="p-0 flex-1" classWrap="p-0" data-theme="dark">
+            <SectionBlock classBase="p-0 flex-1" classWrap="p-0" data-scheme="dark">
                 <figure class="m-0 aspect-video overflow-hidden">
                     <img
                         class="w-full h-full object-cover object-center"
@@ -55,7 +55,7 @@ import SectionBlock from "@/components/SectionBlock.vue";
         classBot="py-8 justify-center"
     >
         <template #top>
-            <SectionBlock classBase="p-0 flex-1" classWrap="p-0" data-theme="dark">
+            <SectionBlock classBase="p-0 flex-1" classWrap="p-0" data-scheme="dark">
                 <figure class="m-0 aspect-video overflow-hidden">
                     <img
                         class="w-full h-full object-cover object-center"

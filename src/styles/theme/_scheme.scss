@@ -4,7 +4,7 @@
 |–––––––––––––––––––––––––
 */
 
-[data-theme="normal"] {
+[data-scheme="normal"] {
     --theme-primary: var(--light-primary);
     --theme-secondary: var(--light-secondary);
     --theme-accent: var(--light-accent);
@@ -18,6 +18,7 @@
     --theme-face: var(--light-face);
     --theme-body: var(--light-body);
     color-scheme: normal;
+    color: var(--theme-face);
 }
 
 @mixin theme( $type ) {
@@ -34,34 +35,31 @@
     --theme-face: var(--#{$type}-face);
     --theme-body: var(--#{$type}-body);
     color-scheme: $type;
+    color: var(--theme-face);
 }
 
 /* ===== Light Mode ===== */
 @media (prefers-color-scheme: light) {
-    [data-theme="auto"],
-    body[data-theme="auto"] [data-theme="body"] {
+    [data-scheme="auto"],
+    body[data-scheme="auto"] [data-scheme="body"] {
         @include theme( light );
     }
 }
 
-[data-theme="light"],
-body[data-theme="light"] [data-theme="body"] {
+[data-scheme="light"],
+body[data-scheme="light"] [data-scheme="body"] {
     @include theme( light );
 }
 
 /* ===== Dark Mode ===== */
 @media (prefers-color-scheme: dark) {
-    [data-theme="auto"],
-    body[data-theme="auto"] [data-theme="body"] {
+    [data-scheme="auto"],
+    body[data-scheme="auto"] [data-scheme="body"] {
         @include theme( dark );
     }
 }
 
-[data-theme="dark"],
-body[data-theme="dark"] [data-theme="body"] {
+[data-scheme="dark"],
+body[data-scheme="dark"] [data-scheme="body"] {
     @include theme( dark );
-}
-
-[data-theme] {
-    color: var(--theme-face);
 }
