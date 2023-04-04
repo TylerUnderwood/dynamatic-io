@@ -1,11 +1,15 @@
-<?xml version="1.0" standalone="no"?>
+<template>
 <svg
-    version="1.0" xmlns="http://www.w3.org/2000/svg"
-    width="1000"
-    height="1000"
+    id="logo"
+    class="icon-logo"
+    version="1.0"
+    xmlns="http://www.w3.org/2000/svg"
+    width="64"
+    height="64"
     viewBox="0 0 1000 1000"
     preserveAspectRatio="xMidYMid meet"
 >
+
     <g
         transform="translate(0, 1000) scale(0.100000, -0.100000)"
         fill="currentColor"
@@ -80,3 +84,4 @@
         30 261 83 413 101 98 12 350 5 470 -13z"/>
     </g>
 </svg>
+</template>
