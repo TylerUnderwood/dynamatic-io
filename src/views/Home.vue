@@ -30,7 +30,7 @@ import SectionBlock from "@/components/SectionBlock.vue";
                 <figure class="m-0 aspect-video overflow-hidden">
                     <img
                         class="w-full h-full object-cover object-center"
-                        src="images/saturn-001.jpg"
+                        src="/images/saturn-001.jpg"
                         alt="Saturn"
                     >
                 </figure>
@@ -59,7 +59,7 @@ import SectionBlock from "@/components/SectionBlock.vue";
                 <figure class="m-0 aspect-video overflow-hidden">
                     <img
                         class="w-full h-full object-cover object-center"
-                        src="images/saturn-002.jpg"
+                        src="/images/saturn-002.jpg"
                         alt="Saturn"
                     >
                 </figure>
