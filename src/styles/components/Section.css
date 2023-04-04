@@ -78,7 +78,8 @@
 
 /* wrap is what sets the max-width based on the column it is inside */
 .Section__wrap {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     /* horizontal padding */
 }

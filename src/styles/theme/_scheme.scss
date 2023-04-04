@@ -38,34 +38,26 @@
 
 /* ===== Light Mode ===== */
 @media (prefers-color-scheme: light) {
-    .theme-auto,
     [data-theme="auto"],
-    body[data-theme="auto"] .theme-body,
     body[data-theme="auto"] [data-theme="body"] {
         @include theme( light );
     }
 }
 
-.theme-light,
 [data-theme="light"],
-body[data-theme="light"] .theme-body,
 body[data-theme="light"] [data-theme="body"] {
     @include theme( light );
 }
 
 /* ===== Dark Mode ===== */
 @media (prefers-color-scheme: dark) {
-    .theme-auto,
     [data-theme="auto"],
-    body[data-theme="auto"] .theme-body,
     body[data-theme="auto"] [data-theme="body"] {
         @include theme( dark );
     }
 }
 
-.theme-dark,
 [data-theme="dark"],
-body[data-theme="dark"] .theme-body,
 body[data-theme="dark"] [data-theme="body"] {
     @include theme( dark );
 }

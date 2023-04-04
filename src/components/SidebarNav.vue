@@ -32,7 +32,7 @@ export default {
                     <a
                         class="Link Nav__link"
                         :href="item.link"
-                        v-if="!item.isInternal"
+                        v-else
                     >
                         <span class="Meta">
                             {{ item.name }}
