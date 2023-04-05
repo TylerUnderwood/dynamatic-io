@@ -40,8 +40,8 @@
 
 /* ===== Light Mode ===== */
 @media (prefers-color-scheme: light) {
-    [data-scheme="auto"],
-    body[data-scheme="auto"] [data-scheme="body"] {
+    [data-scheme="preferred"],
+    body[data-scheme="preferred"] [data-scheme="body"] {
         @include theme( light );
     }
 }
@@ -53,8 +53,8 @@ body[data-scheme="light"] [data-scheme="body"] {
 
 /* ===== Dark Mode ===== */
 @media (prefers-color-scheme: dark) {
-    [data-scheme="auto"],
-    body[data-scheme="auto"] [data-scheme="body"] {
+    [data-scheme="preferred"],
+    body[data-scheme="preferred"] [data-scheme="body"] {
         @include theme( dark );
     }
 }

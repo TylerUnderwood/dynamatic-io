@@ -1,22 +1,53 @@
 <script>
 export default {
   methods: {
-    toggleTheme() {
-      const toggle = document.querySelector('#toggle-theme');
+    setSwitch() {
+      const toggle = document.querySelector('#toggle-scheme');
 
-      if (toggle.checked === true) {
-        document.body.dataset.theme = "dark"
+      const watchPreferred = () => {
+        if (!window.matchMedia) return;
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        if (prefersDark.matches) {
+          toggle.checked = true;
+        } else {
+          toggle.checked = false;
+        };
+
+        prefersDark.addEventListener('change', event => {
+          if (event.matches) {
+            toggle.checked = true;
+          } else {
+            toggle.checked = false;
+          };
+        });
       }
 
-      if (document.body.dataset.theme === "dark") {
-        toggle.checked = true;
+      const setSwitch = (scheme) => {
+        switch(scheme){
+          case 'dark':
+            toggle.checked = true;
+            break;
+          case 'light':
+            toggle.checked = false;
+            break;
+          default:
+            watchPreferred();
+            break;
+        }
       }
+
+      setSwitch(document.body.dataset.scheme);
+    },
+
+    toggleScheme() {
+      const toggle = document.querySelector('#toggle-scheme');
 
       toggle.addEventListener('change', (event) => {
         if (event.currentTarget.checked) {
-          document.body.dataset.theme = "dark";
+          document.body.dataset.scheme = "dark";
         } else {
-          document.body.dataset.theme = "light";
+          document.body.dataset.scheme = "light";
         }
       });
     },
@@ -51,7 +82,8 @@ export default {
   },
 
   mounted() {
-    this.toggleTheme();
+    this.setSwitch();
+    this.toggleScheme();
     this.toggleBodyAttrValue('toggle-identify-guidelines', 'identify', 'guidelines');
     this.toggleBodyAttrValue('toggle-identify-components', 'identify', 'components');
   }
@@ -60,7 +92,7 @@ export default {
 
 <template>
   <div id="settings" class="settings-tab p-1 bg-offset border-contrast">
-    <input type="checkbox" name="Toggle Theme" id="toggle-theme"/>
+    <input type="checkbox" name="Toggle Scheme" id="toggle-scheme"/>
     <div class="pt-2"></div>
     <input type="checkbox" name="Toggle Guidelines" id="toggle-identify-guidelines"/>
     <div class="pt-2"></div>
