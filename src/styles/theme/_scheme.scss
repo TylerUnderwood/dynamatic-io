@@ -4,6 +4,7 @@
 |–––––––––––––––––––––––––
 */
 
+/* ===== Normal Mode ===== */
 [data-scheme="normal"] {
     --theme-primary: var(--light-primary);
     --theme-secondary: var(--light-secondary);
@@ -18,48 +19,84 @@
     --theme-face: var(--light-face);
     --theme-body: var(--light-body);
     color-scheme: normal;
-    color: var(--theme-face);
 }
 
-@mixin theme( $type ) {
-    --theme-primary: var(--#{$type}-primary);
-    --theme-secondary: var(--#{$type}-secondary);
-    --theme-accent: var(--#{$type}-accent);
-    --theme-input: var(--#{$type}-input);
-    --theme-marker: var(--#{$type}-marker);
-    --theme-muted: var(--#{$type}-muted);
-    --theme-base: var(--#{$type}-base);
-    --theme-offset: var(--#{$type}-offset);
-    --theme-contrast: var(--#{$type}-contrast);
-    --theme-head: var(--#{$type}-head);
-    --theme-face: var(--#{$type}-face);
-    --theme-body: var(--#{$type}-body);
-    color-scheme: $type;
-    color: var(--theme-face);
-}
-
-/* ===== Light Mode ===== */
+/* ===== Preferred Mode ===== */
 @media (prefers-color-scheme: light) {
     [data-scheme="preferred"],
     body[data-scheme="preferred"] [data-scheme="body"] {
-        @include theme( light );
+        --theme-primary: var(--light-primary);
+        --theme-secondary: var(--light-secondary);
+        --theme-accent: var(--light-accent);
+        --theme-input: var(--light-input);
+        --theme-marker: var(--light-marker);
+        --theme-muted: var(--light-muted);
+        --theme-base: var(--light-base);
+        --theme-offset: var(--light-offset);
+        --theme-contrast: var(--light-contrast);
+        --theme-head: var(--light-head);
+        --theme-face: var(--light-face);
+        --theme-body: var(--light-body);
+        color-scheme: light;
     }
 }
-
-[data-scheme="light"],
-body[data-scheme="light"] [data-scheme="body"] {
-    @include theme( light );
-}
-
-/* ===== Dark Mode ===== */
 @media (prefers-color-scheme: dark) {
     [data-scheme="preferred"],
     body[data-scheme="preferred"] [data-scheme="body"] {
-        @include theme( dark );
+        --theme-primary: var(--dark-primary);
+        --theme-secondary: var(--dark-secondary);
+        --theme-accent: var(--dark-accent);
+        --theme-input: var(--dark-input);
+        --theme-marker: var(--dark-marker);
+        --theme-muted: var(--dark-muted);
+        --theme-base: var(--dark-base);
+        --theme-offset: var(--dark-offset);
+        --theme-contrast: var(--dark-contrast);
+        --theme-head: var(--dark-head);
+        --theme-face: var(--dark-face);
+        --theme-body: var(--dark-body);
+        color-scheme: dark;
     }
 }
 
+
+/* ===== Light Mode ===== */
+[data-scheme="light"],
+body[data-scheme="light"] [data-scheme="body"] {
+    --theme-primary: var(--light-primary);
+    --theme-secondary: var(--light-secondary);
+    --theme-accent: var(--light-accent);
+    --theme-input: var(--light-input);
+    --theme-marker: var(--light-marker);
+    --theme-muted: var(--light-muted);
+    --theme-base: var(--light-base);
+    --theme-offset: var(--light-offset);
+    --theme-contrast: var(--light-contrast);
+    --theme-head: var(--light-head);
+    --theme-face: var(--light-face);
+    --theme-body: var(--light-body);
+    color-scheme: light;
+}
+
+/* ===== Dark Mode ===== */
 [data-scheme="dark"],
 body[data-scheme="dark"] [data-scheme="body"] {
-    @include theme( dark );
+    --theme-primary: var(--dark-primary);
+    --theme-secondary: var(--dark-secondary);
+    --theme-accent: var(--dark-accent);
+    --theme-input: var(--dark-input);
+    --theme-marker: var(--dark-marker);
+    --theme-muted: var(--dark-muted);
+    --theme-base: var(--dark-base);
+    --theme-offset: var(--dark-offset);
+    --theme-contrast: var(--dark-contrast);
+    --theme-head: var(--dark-head);
+    --theme-face: var(--dark-face);
+    --theme-body: var(--dark-body);
+    color-scheme: dark;
+}
+
+/* ===== All Modes ===== */
+[data-scheme] {
+    color: var(--theme-face);
 }

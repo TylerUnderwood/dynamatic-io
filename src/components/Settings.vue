@@ -31,6 +31,9 @@ export default {
           case 'light':
             toggle.checked = false;
             break;
+          case 'normal':
+            toggle.checked = false;
+            break;
           default:
             watchPreferred();
             break;
