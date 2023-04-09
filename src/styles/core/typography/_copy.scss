@@ -20,6 +20,7 @@ p {
     width: 100%;
     max-width: var(--max-w-copy);
     line-height: 1.6;
+    @include f.clip(1.6, -0.3em, -0.35em);
     hyphens: none;
     color: var(--theme-body);
 }

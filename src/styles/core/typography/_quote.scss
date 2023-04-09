@@ -27,9 +27,15 @@ cite {
     border-left: var(--quote-border-width) solid var(--theme-marker);
     border-radius: var(--quote-border-width);
     padding: 0 0 0 calc(var(--tab-size) - var(--quote-border-width));
-    line-height: 1.4;
-    font-size: 1.2rem;
     --quote-border-width: 4px;
+}
+
+.Quote__text,
+.Markup blockquote p {
+    line-height: 1.4;
+    @include f.clip(1.4, -0.3em, -0.35em);
+    font-size: 1.2rem;
+    color: var(--theme-face);
 }
 
 .Cite,

@@ -22,15 +22,15 @@ pre {
     border-radius: 2px;
     border: 1px solid var(--theme-contrast);
     background: var(--theme-offset);
-    padding: 0.2em 0.2em 0.3em;
+    padding: 0.2em 0.3em 0.3em;
     line-height: 1;
+    font-size: 0.8em;
     font-family: var(--font-meta);
     color: var(--theme-body);
 }
 
 .Codeblock {
-    @include f.clip(-0.1em, -0.25em);
-    display: flex;
+    display: block;
     border-radius: var(--input-round);
     border-width: var(--input-border-width);
     border-style: solid;

@@ -30,11 +30,26 @@ import SectionDocs from "@/components/SectionDocs.vue";
         class="Markup Rhythm"
     >
         <ul>
-            <li v-for="index in 3" :key="index">List item {{ index }}</li>
+            <li v-for="index in 3" :key="index">
+                <p>List item {{ index }}</p>
+            </li>
         </ul>
         <ol>
-            <li v-for="index in 3" :key="index">List item {{ index }}</li>
+            <li v-for="index in 3" :key="index">
+                <p>List item {{ index }}</p>
+            </li>
         </ol>
+        <ul>
+            <li>
+                <p>Sed elementum tempus eros, quis sollicitudin diam ultrices et.</p>
+            </li>
+            <li>
+                <p>Aliquam posuere eros erat. Duis pharetra vehicula ligula, eu lacinia sapien ornare sed. Cras id sem sit amet nulla vehicula vehicula ac eu augue.</p>
+            </li>
+            <li>
+                <p>In pellentesque libero pulvinar tincidunt tempor. Sed elementum tempus eros, quis sollicitudin diam ultrices et.</p>
+            </li>
+        </ul>
     </SectionDocs>
 
     <SectionDocs
@@ -57,10 +72,14 @@ import SectionDocs from "@/components/SectionDocs.vue";
             Aliquam posuere eros erat. Duis pharetra vehicula ligula, eu lacinia sapien ornare sed. Cras id sem sit amet nulla vehicula vehicula ac eu augue.
         </p>
         <ul>
-            <li v-for="index in 3" :key="index">List item {{ index }}</li>
+            <li v-for="index in 3" :key="index">
+                <p>List item {{ index }}</p>
+            </li>
         </ul>
         <ol>
-            <li v-for="index in 3" :key="index">List item {{ index }}</li>
+            <li v-for="index in 3" :key="index">
+                <p>List item {{ index }}</p>
+            </li>
         </ol>
         <blockquote>
             <p>

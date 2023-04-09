@@ -57,9 +57,9 @@
     "input": "--blue-400",
     "marker": "--blue-400",
     "muted": "--grey-200",
-    "base": "--dark-400",
+    "base": "--dark-200",
     "offset": "--dark-600",
-    "contrast": "--dark-800",
+    "contrast": "--dark-100",
     "head": "--light-200",
     "face": "--light-400",
     "body": "--light-600"

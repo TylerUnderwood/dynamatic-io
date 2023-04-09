@@ -10,11 +10,6 @@
     margin-top: var(--break-size);
 }
 
-.Rhythm .Rhythm__block > p {
-    /* @include f.clip(-0.3em, -0.45em); */
-    line-height: 1.6 !important;
-}
-
 .Rhythm h1:not(:first-child),
 .Rhythm h2:not(:first-child),
 .Rhythm h3:not(:first-child),
@@ -49,11 +44,6 @@
 
 .Rhythm blockquote:not(:first-child) {
     margin-top: var(--break-size);
-}
-
-.Rhythm blockquote > p {
-    /* @include f.clip(-0.25em, -0.25em); */
-    line-height: 1.4 !important;
 }
 
 .Rhythm blockquote > cite {

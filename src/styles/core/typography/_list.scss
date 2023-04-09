@@ -31,6 +31,8 @@ ol {
     display: flex;
     flex-direction: column;
     margin: 0;
+    width: 100%;
+    max-width: var(--max-w-copy);
     padding: 0;
     gap: var(--list-gap);
     list-style: none;
@@ -56,16 +58,20 @@ ol {
     display: list-item;
     margin: 0;
     padding: 0;
+    list-style: inherit;
+}
+
+.List__text,
+.Markup li p {
     font-size: 1rem;
     line-height: 1.4;
-    list-style: inherit;
+    @include f.clip(1.4, -0.3em, -0.35em);
     color: var(--theme-face);
 }
 
 .List > .List__item,
 .Markup ul > li,
 .Markup ol > li {
-    margin: -0.3em 0 -0.35em;
     padding-left: var(--list-tab);
     counter-increment: list;
 
@@ -83,8 +89,6 @@ ol {
 .List--bullet > .List__item,
 .Markup ul > li {
     &::before {
-        font-size: 1.25rem;
-        line-height: 1.4rem;
         content: "\2022";
     }
 }
@@ -107,8 +111,4 @@ ol {
 // Custom marker on List
 .List[style*="--marker"] > .List__item::before {
     content: var(--marker);
-}
-
-.List--white > .List__item::before {
-    color: var(--dark-face);
 }

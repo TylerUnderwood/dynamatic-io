@@ -4,28 +4,6 @@
 |–––––––––––––––––––––––––
 */
 
-// :root {
-//     --input-color: var(--theme-input);
-//     --input-hover: var(--theme-accent);
-//     --input-active: var(--theme-secondary);
-
-//     --input-height-large: 2.8rem;
-//     --input-height: 2.2rem;
-//     --input-height-small: 1.6rem;
-
-//     --input-border-width-large: 3px;
-//     --input-border-width: 2px;
-//     --input-border-width-small: 1px;
-
-//     --input-pad-large: 1.2rem;
-//     --input-pad: 0.8rem;
-//     --input-pad-small: 0.5rem;
-
-//     --input-round: 3px;
-//     --input-timing: 300ms;
-//     --input-easing: ease;
-// }
-
 [data-scheme] {
     --input-color: var(--theme-input);
     --input-hover: var(--theme-accent);

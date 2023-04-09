@@ -5,7 +5,8 @@
 */
 
 /* ===== Normal Mode ===== */
-[data-scheme="normal"] {
+[data-scheme="normal"],
+body[data-scheme="normal"] [data-scheme="body"] {
     --theme-primary: var(--light-primary);
     --theme-secondary: var(--light-secondary);
     --theme-accent: var(--light-accent);
