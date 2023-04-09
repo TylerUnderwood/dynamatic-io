@@ -142,16 +142,15 @@ export default {
 <template>
     <SectionDocs heading="Button Selector">
         <div class="break" style="font-size: 2.4rem;"></div>
-        <div class="flex flex-wrap gap-4">
+        <div class="flex flex-wrap -m-2">
             <div
-                class="flex-1"
-                style="min-width: 120px;"
+                class="w-1/2 md:w-1/4 p-2"
                 v-for="types, name in buttonTypes"
             >
                 <label :for="`select-button-${name}`" class="Meta" style="font-size: 0.7rem;">
                     {{ name }}
                 </label>
-                <select :id="`select-button-${name}`" class="Field Field--small mt-2" :name="name">
+                <select :id="`select-button-${name}`" class="Field Field--small mt-1" :name="name">
                     <option value="" v-if="!types.includes('default')" selected>
                         none
                     </option>
@@ -166,7 +165,7 @@ export default {
             </div>
         </div>
 
-        <div class="flex flex-wrap gap-4 mt-4" v-for="types in buttonStates">
+        <div class="flex flex-wrap gap-4 mt-5" v-for="types in buttonStates">
             <label
                 class="flex items-center gap-2"
                 :for="`toggle-button-${button}`"
@@ -184,7 +183,7 @@ export default {
             </label>
         </div>
 
-        <div class="flex justify-center items-center p-4 mt-6 border-2" style="min-height: 240px;">
+        <div class="flex justify-center items-center p-4 mt-5 border-2" style="min-height: 240px;">
             <button id="dynamic-button" class="Button">
                 <span class="Button__text Meta">
                     Button

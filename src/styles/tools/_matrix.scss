@@ -163,39 +163,39 @@ $sizes: (
 );
 
 .void {
-    --void-space-x: 1em;
-    --void-space-y: 1em;
-    margin-top: calc(-1 * (var(--void-space-y) / 2));
-    margin-right: calc(-1 * (var(--void-space-x) / 2));
-    margin-bottom: calc(-1 * (var(--void-space-y) / 2));
-    margin-left: calc(-1 * (var(--void-space-x) / 2));
+    --void-x: 1em;
+    --void-y: 1em;
+    --void-mx: calc(-1 * (var(--void-x) / 2));
+    --void-my: calc(-1 * (var(--void-y) / 2));
+    --void-px: calc(var(--void-x) / 2);
+    --void-py: calc(var(--void-y) / 2);
+    margin: var(--void-my) var(--void-mx) !important;
+    padding: 0 !important;
 
-    & > * {
-        padding-top: calc(var(--void-space-y) / 2);
-        padding-right: calc(var(--void-space-x) / 2);
-        padding-bottom: calc(var(--void-space-y) / 2);
-        padding-left: calc(var(--void-space-x) / 2);
+    & > .cell {
+        margin: 0 !important;
+        padding: var(--void-py) var(--void-px) !important;
     }
 }
 
-@include b.make-classes-from-list( 'void', --void-space-y --void-space-x, $sizes );
-@include b.make-classes-from-list( 'void-x', --void-space-y , $sizes );
-@include b.make-classes-from-list( 'void-y', --void-space-x, $sizes );
+@include b.make-classes-from-list( 'void', --void-y --void-x, $sizes );
+@include b.make-classes-from-list( 'void-x', --void-y , $sizes );
+@include b.make-classes-from-list( 'void-y', --void-x, $sizes );
 
 @include b.add-breakpoint-prefixes() {
     &void {
-        --void-space-y: 1em;
-        --void-space-x: 1em;
+        --void-y: 1em;
+        --void-x: 1em;
     }
-    @include b.make-classes-from-list-for-prefixes( 'void', --void-space-y --void-space-x, $sizes );
+    @include b.make-classes-from-list-for-prefixes( 'void', --void-y --void-x, $sizes );
 
     &void-x {
-        --void-space-y: 1em;
+        --void-y: 1em;
     }
-    @include b.make-classes-from-list-for-prefixes( 'void-x', --void-space-y , $sizes );
+    @include b.make-classes-from-list-for-prefixes( 'void-x', --void-y , $sizes );
 
     &void-y {
-        --void-space-x: 1em;
+        --void-x: 1em;
     }
-    @include b.make-classes-from-list-for-prefixes( 'void-y', --void-space-x, $sizes );
+    @include b.make-classes-from-list-for-prefixes( 'void-y', --void-x, $sizes );
 }

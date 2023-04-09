@@ -15,7 +15,7 @@
     align-items: var(--y-align, stretch);
 }
 
-.row {
+.Row {
     @include class-row;
 }
 
@@ -28,7 +28,7 @@
     align-items: var(--x-align, stretch);
 }
 
-.col {
+.Col {
     @include class-col;
 }
 
@@ -55,7 +55,7 @@
     }
 }
 
-.align {
+.Align {
     @include class-align;
 }
 

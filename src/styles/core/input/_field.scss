@@ -1,51 +1,12 @@
 /*
 |–––––––––––––––––––––––––
-| Form
-|–––––––––––––––––––––––––
-*/
-
-form {
-    display: block;
-}
-
-.Form {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-
-/*
-|–––––––––––––––––––––––––
-| Label
-|–––––––––––––––––––––––––
-*/
-
-label {
-    display: inline-flex;
-    align-items: baseline;
-    line-height: 1;
-}
-
-label[for] {
-    cursor: pointer;
-}
-
-.Label {
-    display: inline-flex;
-    align-items: center;
-}
-
-
-/*
-|–––––––––––––––––––––––––
 | Field
 |–––––––––––––––––––––––––
 */
 
 input,
 select,
-textarea,
-fieldset {
+textarea {
     border: 1px solid currentColor;
     border-radius: 2px;
     background-color: transparent;
@@ -56,9 +17,118 @@ fieldset {
     color: inherit;
 }
 
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--input-color);
+    outline-offset: 2px;
+}
+
 ::placeholder {
     color: inherit;
     opacity: 0.3;
+}
+
+.Field {
+    display: flex;
+    flex: 1 0 auto;
+    margin: 0;
+    outline: none;
+    box-shadow: none;
+    border-width: var(--input-border-width);
+    border-style: solid;
+    border-color: var(--theme-contrast);
+    border-radius: var(--input-round);
+    background-color: var(--theme-offset);
+    width: 100%;
+    height: var(--input-height);
+    padding: 0 var(--input-pad);
+    line-height: 1;
+    font-family: var(--font-face);
+    font-size: 1rem;
+    color: var(--theme-face);
+    transition-property: border-color, background-color, color, opacity;
+    transition-duration: var(--input-timing);
+    transition-timing-function: var(--input-easing);
+
+    &::placeholder {
+        opacity: 0.3;
+        color: inherit;
+    }
+
+    &:focus,
+    &:focus-visible,
+    &[active],
+    &[filled] {
+        outline: none;
+        border-color: var(--input-color);
+        background-color: var(--theme-offset);
+    }
+
+    &[disabled],
+    &[readonly] {
+        border-color: var(--theme-contrast) !important;
+        background-color: var(--theme-offset) !important;
+    }
+
+    &[disabled] {
+        opacity: 0.5;
+    }
+}
+
+.Field[stealth] {
+    border-color: transparent;
+    background-color: transparent;
+    transition-property: border-color, background-color, color, padding, translate;
+
+    &::placeholder {
+        opacity: 1;
+    }
+
+    &:not(:focus) {
+        padding-left: 0;
+    }
+
+    &:focus,
+    &:active {
+        border-color: var(--input-color);
+        background-color: var(--theme-offset);
+
+        &::placeholder {
+            opacity: 0.3;
+        }
+    }
+
+    &[readonly] {
+        border-color: transparent !important;
+        background-color: transparent !important;
+
+        &::placeholder {
+            opacity: 1 !important;
+        }
+    }
+}
+
+/* === Field large === */
+.Field--large {
+    border-width: var(--input-border-width-large);
+    height: var(--input-height-large);
+    padding: 0 var(--input-pad-large);
+    font-size: 1.2rem;
+}
+
+/* === Field small === */
+.Field--small {
+    border-width: var(--input-border-width-small);
+    height: var(--input-height-small);
+    padding: 0 var(--input-pad-small);
+    font-size: 0.8rem;
 }
 
 
@@ -74,15 +144,6 @@ input {
     padding: 0 var(--input-pad);
     line-height: 1.6;
     cursor: text;
-}
-
-input:focus {
-    outline: none;
-}
-
-input:focus-visible {
-    outline: 2px solid var(--input-color);
-    outline-offset: 2px;
 }
 
 input[readonly] {
@@ -161,107 +222,6 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-
-
-
-.Field {
-    display: flex;
-    flex: 1 0 auto;
-    margin: 0;
-    outline: none;
-    box-shadow: none;
-    border-width: var(--input-border-width);
-    border-style: solid;
-    border-color: var(--theme-contrast);
-    border-radius: var(--input-round);
-    background-color: var(--theme-offset);
-    width: 100%;
-    height: var(--input-height);
-    padding: 0 var(--input-pad);
-    line-height: 1;
-    font-family: var(--font-face);
-    font-size: 1rem;
-    color: var(--theme-face);
-    transition-property: border-color, background-color, color, opacity;
-    transition-duration: var(--input-timing);
-    transition-timing-function: var(--input-easing);
-
-    &::placeholder {
-        opacity: 0.3;
-        color: inherit;
-    }
-
-    &:focus,
-    &:focus-visible,
-    &[active],
-    &[filled] {
-        outline: none;
-        border-color: var(--input-color);
-        background-color: var(--theme-offset);
-    }
-
-    &[disabled],
-    &[readonly] {
-        border-color: var(--theme-contrast) !important;
-        background-color: var(--theme-offset) !important;
-    }
-
-    &[disabled] {
-        opacity: 0.5;
-    }
-}
-
-.Field[stealth] {
-    // margin: -0.5em 0;
-    border-color: transparent;
-    background-color: transparent;
-    transition-property: border-color, background-color, color, padding, translate;
-
-    &::placeholder {
-        opacity: 1;
-    }
-
-    &:not(:focus) {
-        padding-left: 0;
-    }
-
-    &:focus,
-    &:active {
-        border-color: var(--input-color);
-        background-color: var(--theme-offset);
-
-        &::placeholder {
-            opacity: 0.3;
-        }
-    }
-
-    &[readonly] {
-        border-color: transparent !important;
-        background-color: transparent !important;
-
-        &::placeholder {
-            opacity: 1 !important;
-        }
-    }
-}
-
-/* === Field large === */
-.Field--large {
-    border-width: var(--input-border-width-large);
-    height: var(--input-height-large);
-    padding: 0 var(--input-pad-large);
-    font-size: 1.2rem;
-}
-
-/* === Field small === */
-.Field--small {
-    border-width: var(--input-border-width-small);
-    height: var(--input-height-small);
-    padding: 0 var(--input-pad-small);
-    font-size: 0.8rem;
-}
-
-
 /*
 |–––––––––––––––––––––––––
 | Textarea
@@ -278,59 +238,14 @@ textarea {
     cursor: text;
 }
 
-textarea:focus {
-    outline: none;
-}
-
-textarea:focus-visible {
-    outline: 2px solid var(--input-color);
-    outline-offset: 2px;
-}
-
 .Textarea {
     max-width: 100%;
     height: 12em;
+    min-height: 2.4em;
     resize: vertical;
     padding-top: 0.4em;
     padding-bottom: 0.4em;
     line-height: 1.4;
-}
-
-
-/*
-|–––––––––––––––––––––––––
-| Fieldset
-|–––––––––––––––––––––––––
-*/
-
-fieldset {
-    display: block;
-    margin: 0;
-    border: 1px solid currentColor;
-    border-radius: 2px;
-    background-color: transparent;
-    padding: var(--input-pad) 1em;
-}
-
-.Fieldset {
-    display: block;
-    border-width: 2px;
-    border-style: solid;
-    border-color: var(--theme-contrast);
-    border-radius: var(--input-round);
-    background-color: var(--theme-offset);
-}
-
-legend {
-    padding: 0 0.4em;
-    margin: 0 -0.4em;
-    line-height: 1;
-}
-
-.legend {
-    padding: 0 0.4em;
-    margin: 0 -0.4em;
-    line-height: 1;
 }
 
 
@@ -349,15 +264,6 @@ select {
     cursor: pointer;
 }
 
-select:focus {
-    outline: none;
-}
-
-select:focus-visible {
-    outline: 2px solid var(--input-color);
-    outline-offset: 2px;
-}
-
 option {
     background-color: initial;
     padding: 0;
@@ -366,7 +272,7 @@ option {
 
 /*
 |–––––––––––––––––––––––––
-| Select
+| Progress
 |–––––––––––––––––––––––––
 */
 

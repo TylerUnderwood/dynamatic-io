@@ -58,12 +58,26 @@ export default {
     <SectionDocs heading="Styled Inputs">
         <div class="pt-6"></div>
 
-        <form class="flex items-end" action="">
-            <Field
-                name="Vue Field Component"
-                type="email"
-                placeholder
+        <form class="flex flex-col gap-4" action="">
+            <input
+                class="Field"
+                type="text"
+                name="field"
+                placeholder="Field"
             />
+            <textarea
+                class="Field Textarea"
+                name="textarea"
+                placeholder="Field Textarea"
+            />
+            <select
+                class="Field Select"
+                name="select"
+            >
+                <option value="field-select-1">Field Select 01</option>
+                <option value="field-select-2">Field Select 02</option>
+                <option value="field-select-3">Field Select 03</option>
+            </select>
         </form>
     </SectionDocs>
 

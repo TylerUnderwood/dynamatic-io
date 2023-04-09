@@ -21,6 +21,7 @@ cite {
 // Class
 .Quote,
 .Markup blockquote {
+    display: inline-block;
     margin: 0;
     width: 100%;
     max-width: var(--max-w-copy);

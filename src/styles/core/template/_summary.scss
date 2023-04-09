@@ -23,7 +23,17 @@ details:first-of-type > summary {
 
 summary {
      display: flex;
+     border-radius: 2px;
      border-bottom: solid 2px currentColor;
      padding: 0.8rem 0;
      cursor: pointer;
+}
+
+summary:focus {
+    outline: none;
+}
+
+summary:focus-visible {
+    outline: 2px solid var(--input-color);
+    outline-offset: 2px;
 }

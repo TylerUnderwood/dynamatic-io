@@ -89,6 +89,7 @@ ol {
 .List--bullet > .List__item,
 .Markup ul > li {
     &::before {
+        line-height: 0.8;
         content: "\2022";
     }
 }
@@ -97,6 +98,7 @@ ol {
 .List--numbered > .List__item,
 .Markup ol > li {
     &::before {
+        line-height: 0.8;
         content: counter(list) ".";
     }
 }

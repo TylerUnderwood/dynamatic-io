@@ -50,6 +50,17 @@ import SectionDocs from "@/components/SectionDocs.vue";
                 <p>In pellentesque libero pulvinar tincidunt tempor. Sed elementum tempus eros, quis sollicitudin diam ultrices et.</p>
             </li>
         </ul>
+        <ol>
+            <li>
+                <p>Sed elementum tempus eros, quis sollicitudin diam ultrices et.</p>
+            </li>
+            <li>
+                <p>Aliquam posuere eros erat. Duis pharetra vehicula ligula, eu lacinia sapien ornare sed. Cras id sem sit amet nulla vehicula vehicula ac eu augue.</p>
+            </li>
+            <li>
+                <p>In pellentesque libero pulvinar tincidunt tempor. Sed elementum tempus eros, quis sollicitudin diam ultrices et.</p>
+            </li>
+        </ol>
     </SectionDocs>
 
     <SectionDocs

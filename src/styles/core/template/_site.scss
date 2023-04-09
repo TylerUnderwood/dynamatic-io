@@ -76,18 +76,11 @@ footer {
     z-index: 2;
 }
 
-/* other */
-// :target {
-//   outline: 3px solid var(--theme-primary);
-//   outline-offset: 3px;
-// }
-
-// ::selection {
-//   background-color: hsl(220 100 75 / 0.7);
-// }
-
 [hidden] {
-    display: none !important;
+    visibility: hidden;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
 }
 
 [hide-scrollbar] {
@@ -97,4 +90,13 @@ footer {
 
 [hide-scrollbar]::-webkit-scrollbar {
     display: none;
+}
+
+[show-target] :target {
+  outline: 3px solid var(--theme-primary);
+  outline-offset: 3px;
+}
+
+[show-selection] ::selection {
+  background-color: hsl(220 100 75 / 0.7);
 }
