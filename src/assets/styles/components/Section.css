@@ -5,14 +5,15 @@
 */
 
 .Section {
-  --section-ratio: calc(1 / 2);
-  --section-wrap: var(--max-w-page);
-  --section-pad: var(--space-page);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  width: 100vw;
-  overflow-x: hidden;
+    --section-ratio: calc(1 / 2);
+    --section-wrap: var(--max-w-page);
+    --section-pad: var(--space-page);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100vw;
+    overflow-x: initial;
+    overflow-y: clip;
 }
 
 /* ratio modifiers */
