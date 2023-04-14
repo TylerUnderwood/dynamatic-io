@@ -6,7 +6,8 @@ Dynamatic is a modern design system, built from external theme tokens. The goal 
 
 ## Big picture to-dos
 - [x] Use a json object to generate native css tokens
-- [ ] Migrate my original boilerplate from it's Laravel app, to this vue one
+- [x] Migrate my original boilerplate from it's Laravel app, to this vue one
+- [ ] Move dynamatic specific elements to node_package repo
 - [ ] Compleat documentation for all components
 - [ ] Convert scss to css and postcss
 - [ ] Get feedback on organization and structure

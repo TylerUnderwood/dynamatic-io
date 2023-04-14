@@ -9,7 +9,6 @@
     viewBox="0 0 1000 1000"
     preserveAspectRatio="xMidYMid meet"
 >
-
     <g
         transform="translate(0, 1000) scale(0.100000, -0.100000)"
         fill="currentColor"
