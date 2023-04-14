@@ -6,6 +6,17 @@
 |––––––––––––––––––––––––––––––––––––––––––––––––––
 */
 
+/* === Block === */
+@mixin class-block {
+    display: block;
+    width: 100%;
+    flex: 1 0 auto;
+}
+
+.Block {
+    @include class-block;
+}
+
 
 /* === Row === */
 @mixin class-row {
@@ -62,15 +73,19 @@
 
 /* === Layout Breakpoints === */
 @include b.add-breakpoint-prefixes() {
-    &row {
+    .Block {
+        @include class-block;
+    }
+
+    &Row {
         @include class-row;
     }
 
-    &col {
+    &Col {
         @include class-col;
     }
 
-    &align {
+    &Align {
         @include class-align;
     }
 }
