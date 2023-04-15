@@ -93,10 +93,10 @@ footer {
 }
 
 [show-target] :target {
-  outline: 3px solid var(--theme-primary);
-  outline-offset: 3px;
+    outline: 3px solid var(--theme-primary);
+    outline-offset: 3px;
 }
 
 [show-selection] ::selection {
-  background-color: hsl(220 100 75 / 0.7);
+    background-color: hsl(220 100% 75% / 0.7);
 }
