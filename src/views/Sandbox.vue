@@ -204,8 +204,9 @@ export default {
             >
                 <div class="Section__wrap md:px-page">
                     <div
-                        class="DemoBlock bg-white"
+                        class="DemoBlock bg-base"
                         :style="`height: ${demoBlockHeight}`"
+                        data-scheme="body"
                     >
                         <div class="Block">
                             <span class="Meta">Demo Block Top</span>
