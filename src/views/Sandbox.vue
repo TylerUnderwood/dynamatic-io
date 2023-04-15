@@ -1,7 +1,6 @@
 <script setup>
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
-import DemoBlock from "@/components/DemoBlock.vue";
 </script>
 
 <script>
@@ -11,7 +10,7 @@ export default {
             sectionReverse: false,
             sectionWrap: 48,
             sectionRatio: 66,
-            demoBlockHeight: "7rem",
+            demoBlockHeight: "8rem",
             topBlocks: 1,
             bottomBlocks: 1,
         }
@@ -119,6 +118,9 @@ export default {
                                 @input="changeWrapperWidth()"
                             />
                         </div>
+                        <span class="Meta" style="font-size: 0.7rem;">
+                            rem
+                        </span>
                     </label>
                 </div>
                 <div class="block">
@@ -141,9 +143,7 @@ export default {
                 </div>
             </div>
             <div class="flex mt-2">
-                <div class="filler w-1/4 pr-3 border-l-2 border-muted text-right">
-                    {{ sectionWrapLeftValue }}
-                </div>
+                <div class="filler w-1/4 pr-3 border-l-2 border-muted"></div>
                 <div class="w-1/2">
                     <input
                         type="range"
@@ -165,8 +165,23 @@ export default {
                         <option value="75">75</option>
                     </datalist>
                 </div>
-                <div class="filler w-1/4 pl-3 border-r-2 border-muted">
-                    {{ sectionWrapRightValue }}
+                <div class="filler w-1/4 pl-3 border-r-2 border-muted"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="Section px-page">
+        <div class="Section__wrap">
+            <div class="flex w-full">
+                <div :style="`width: ${sectionRatio}%`">
+                    <div class="bg-offset border-l-2 border-r-1 border-muted text-center p-1">
+                        {{ sectionRatio }}%
+                    </div>
+                </div>
+                <div :style="`width: ${100 - sectionRatio}%`">
+                    <div class="bg-offset border-l-1 border-r-2 border-muted text-center p-1">
+                        {{ 100 - sectionRatio }}%
+                    </div>
                 </div>
             </div>
         </div>
@@ -179,8 +194,7 @@ export default {
         :style="`--section-ratio: ${sectionRatio / 100};`"
     >
         <div
-            class="Section__column bg-stripes-secondary py-8"
-            data-scheme="dark"
+            class="Section__column bg-primary py-8"
         >
 
             <div
@@ -189,9 +203,16 @@ export default {
                 v-for="(block, index) in topBlocks"
             >
                 <div class="Section__wrap md:px-page">
-                    <DemoBlock :height="demoBlockHeight">
-                        <span class="Meta">Demo Block Top</span>
-                    </DemoBlock>
+                    <div
+                        class="DemoBlock bg-white"
+                        :style="`height: ${demoBlockHeight}`"
+                    >
+                        <div class="Block">
+                            <span class="Meta">Demo Block Top</span>
+                            <br class="break" style="font-size: 0.4rem;">
+                            <code class="Code">{{ sectionWrapLeftValue }}</code>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -206,27 +227,33 @@ export default {
                 v-for="(block, index) in bottomBlocks"
             >
                 <div class="Section__wrap md:px-page">
-                    <DemoBlock :height="demoBlockHeight">
-                        <span class="Meta">Demo Block Bottom</span>
-                    </DemoBlock>
+                    <div
+                        class="DemoBlock bg-primary"
+                        :style="`height: ${demoBlockHeight}`"
+                        data-scheme="dark"
+                    >
+                        <div class="Block">
+                            <span class="Meta">Demo Block Bottom</span>
+                            <br class="break" style="font-size: 0.4rem;">
+                            <code class="Code">{{ sectionWrapRightValue }}</code>
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section class="Section px-page">
-        <div class="Section__wrap">
-            <div class="flex">
-                <div :style="`width: ${sectionRatio}%`">
-                    <div class="bg-offset border-x-2 border-muted text-center p-1">
-                        {{ sectionRatio }}%
-                    </div>
+    <section class="Section">
+        <div class="flex w-full">
+            <div :style="`width: ${sectionRatio}%`">
+                <div class="bg-offset border-l-2 border-r-1 border-muted text-center p-1">
+                    {{ sectionRatio }}%
                 </div>
-                <div :style="`width: ${100 - sectionRatio}%`">
-                    <div class="bg-offset border-x-2 border-muted text-center p-1">
-                        {{ 100 - sectionRatio }}%
-                    </div>
+            </div>
+            <div :style="`width: ${100 - sectionRatio}%`">
+                <div class="bg-offset border-l-1 border-r-2 border-muted text-center p-1">
+                    {{ 100 - sectionRatio }}%
                 </div>
             </div>
         </div>
@@ -319,5 +346,25 @@ sectionWrapDiff: {{ sectionWrapDiffValue }},
     background-color: #818cf81a;
     background-image: linear-gradient(135deg,#6366f180 10%,transparent 0,transparent 50%,#6366f180 0,#6366f180 60%,transparent 0,transparent);
     background-size: 6px 6px;
+}
+
+
+.DemoBlock {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    /* outline: 2px dashed var(--theme-face);
+    outline-offset: -3px; */
+    padding: 2rem;
+    text-align: center;
+}
+
+.border-l-1 {
+    border-left-width: 1px;
+}
+.border-r-1 {
+    border-right-width: 1px;
 }
 </style>
