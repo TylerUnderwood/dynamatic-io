@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from "url";
 
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import theme from "./src/config/theme.json";
+// import theme from "./src/config/theme.json";
 
 export default defineConfig({
   plugins: [
@@ -20,6 +20,6 @@ export default defineConfig({
     https: true,
   },
   define: {
-    theme: theme,
+    // theme: theme,
   },
 });
