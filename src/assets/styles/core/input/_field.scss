@@ -141,8 +141,9 @@ select:focus-visible {
 input {
     display: block;
     margin: 0;
-    padding: 0 var(--input-pad);
+    padding: 0 0.5em;
     line-height: 1.6;
+    width: fit-content;
     cursor: text;
 }
 
@@ -194,7 +195,7 @@ input[type="radio"] {
 }
 
 input[type="range"] {
-    display: inline-block;
+    width: 100%;
     padding: 0;
     line-height: 1;
     cursor: pointer;
@@ -233,7 +234,7 @@ textarea {
     max-width: 100%;
     min-height: 1.6em;
     height: 8em;
-    padding: 0.2em var(--input-pad);
+    padding: 0.2em 0.5em;
     resize: vertical;
     cursor: text;
 }
@@ -259,7 +260,8 @@ select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    padding: 0 var(--input-pad);
+    width: fit-content;
+    padding: 0 0.5em;
     line-height: 1.6;
     cursor: pointer;
 }
@@ -279,9 +281,3 @@ option {
 progress {
     width: 100%;
 }
-
-
-
-
-
-
