@@ -1,5 +1,3 @@
-# https://www.netlify.com/blog/how-to-deploy-vue-3-and-vite-app-in-5-minutes/
-
 [build]
   command = "vite build"
   functions = "netlify/functions"
