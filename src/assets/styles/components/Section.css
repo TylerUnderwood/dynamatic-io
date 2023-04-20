@@ -12,8 +12,8 @@
     flex-direction: row;
     flex-wrap: nowrap;
     width: 100vw;
-    overflow-x: initial;
-    overflow-y: clip;
+    overflow-x: clip;
+    overflow-y: initial;
 }
 
 /* ratio modifiers */

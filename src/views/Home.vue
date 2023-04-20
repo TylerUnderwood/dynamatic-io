@@ -1,8 +1,7 @@
 <script setup>
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
-import SectionSplit from "@/components/SectionSplit.vue";
-import SectionBlock from "@/components/SectionBlock.vue";
+import HomeSection from "@/components/homepage/HomeSection.vue";
 </script>
 
 <template>
@@ -13,69 +12,84 @@ import SectionBlock from "@/components/SectionBlock.vue";
 
     <Section>
         <div class="m-auto Rhythm text-center">
-            <p class="Copy">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat ut elit non tincidunt. Fusce ac eros neque. Morbi eget mollis eros. Suspendisse porttitor arcu quam, nec tincidunt erat porta vitae.
+            <p class="Copy mx-auto md:mx-unset">
+                Dynamatic is a native CSS framework with modern design technologies, built from configured theme tokens. And this, is a promotional SPA build using the Dynamatic framework.
             </p>
+            <div class="mt-5 md:mt-8 flex justify-center items-center gap-4">
+                <a
+                    href="https://github.com/TylerUnderwood/dynamatic-io"
+                    class="Button"
+                    data-shape="simple"
+                >
+                    <div class="Button__text Meta">
+                        Repo
+                    </div>
+                </a>
+                <a
+                    href="https://github.com/TylerUnderwood/dynamatic-io"
+                    class="Button"
+                    data-type="secondary"
+                    data-shape="simple"
+                >
+                    <div class="Button__text Meta">
+                        Node Package
+                    </div>
+                </a>
+            </div>
         </div>
     </Section>
 
-    <SectionSplit
-        :reverse="true"
-        classBase="mt-section"
-        classTop="bg-primary"
-        classBot="py-8 justify-center"
+    <Section
+        classBase="px-page bg-primary py-3 mb-5 md:mb-0"
+        data-scheme="dark"
     >
-        <template #top>
-            <SectionBlock classBase="p-0 flex-1" classWrap="p-0" data-scheme="dark">
-                <figure class="m-0 aspect-video overflow-hidden">
-                    <img
-                        class="w-full h-full object-cover object-center"
-                        src="/images/saturn-001.jpg"
-                        alt="Saturn"
-                    >
-                </figure>
-            </SectionBlock>
-        </template>
-        <template #bot>
-            <SectionBlock>
-                <div class="m-auto Block Rhythm text-center md:text-left">
-                    <h2 class="Heading">Sandbox</h2>
-                    <p class="Copy">Head over to my sandbox to see what I am currently working on.</p>
-                    <router-link to="/sandbox" class="Button mt-4" data-size="small">
-                        <span class="Button__text Meta">See More</span>
-                    </router-link>
-                </div>
-            </SectionBlock>
-        </template>
-    </SectionSplit>
+        <div class="flex flex-col md:flex-row items-center text-center">
+            <p class="Copy">
+                Want to contribute and or chat about design and development?
+            </p>
+            <div class="filler p-2">&mdash;</div>
+            <router-link
+                to="/contact"
+                class="Button"
+                data-type="secondary"
+                data-size="small"
+                data-theme="face"
+            >
+                <span class="Meta">
+                    Contact
+                </span>
+            </router-link>
+        </div>
+    </Section>
 
-    <SectionSplit
-        classBase="mb-section"
-        classTop="bg-primary"
-        classBot="py-8 justify-center"
-    >
-        <template #top>
-            <SectionBlock classBase="p-0 flex-1" classWrap="p-0" data-scheme="dark">
-                <figure class="m-0 aspect-video overflow-hidden">
-                    <img
-                        class="w-full h-full object-cover object-center"
-                        src="/images/saturn-002.jpg"
-                        alt="Saturn"
-                    >
-                </figure>
-            </SectionBlock>
-        </template>
-        <template #bot>
-            <SectionBlock>
-                <div class="m-auto Block Rhythm text-center md:text-left">
-                    <h2 class="Heading">Documentation</h2>
-                    <p class="Copy">Or checkout the Docs to see some more "finalized" elements.</p>
-                    <router-link to="/docs" class="Button mt-4" data-size="small">
-                        <span class="Button__text Meta">Read More</span>
-                    </router-link>
-                </div>
-            </SectionBlock>
-        </template>
-    </SectionSplit>
+    <HomeSection
+        :reverse="true"
+        heading="Sandbox"
+        copy="Head over to my sandbox to see what I am currently working on."
+        link="/sandbox"
+        linkText="See More"
+    />
+
+    <HomeSection
+        heading="Documentation"
+        copy="Or checkout the Docs to see some more 'finalized' elements."
+        link="/docs"
+        linkText="Read More"
+    />
+
+    <HomeSection
+        :reverse="true"
+        heading="Section Split Demo"
+        copy="This demo shows how you can effectively split a section of a page."
+        link="/demo/section"
+        linkText="See Demo"
+    />
+
+    <HomeSection
+        heading="Layout Demo"
+        copy="This layout tool is a simple way to use flex without the difficult naming conventions."
+        link="/demo/layout"
+        linkText="See Demo"
+    />
 
 </template>

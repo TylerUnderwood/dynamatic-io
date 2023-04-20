@@ -1,5 +1,6 @@
 <script setup>
-import SectionDocs from "@/components/SectionDocs.vue";
+import Banner from "@/components/Banner.vue";
+import Section from "@/components/Section.vue";
 
 const alignSharedTypes = [
     'center',
@@ -95,7 +96,12 @@ export default {
 </script>
 
 <template>
-    <SectionDocs heading="Layout Selector">
+    <Banner
+        title="Layout"
+        intro="This is a demo of how the [layout] attribute work"
+    />
+
+    <Section heading="Layout Selector">
         <div class="break" style="font-size: 2.4rem;"></div>
         <form action="" class="flex flex-wrap items-end -m-2">
             <div class="w-full p-2">
@@ -229,7 +235,7 @@ export default {
                 </small>
             </label>
         </div>
-    </SectionDocs>
+    </Section>
 </template>
 
 <style>

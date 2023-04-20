@@ -4,23 +4,15 @@ import Section from "@/components/Section.vue";
 </script>
 
 <template>
-    <Banner title="About"/>
+    <Banner
+        title="About"
+    />
 
-    <Section heading="Something">
-        <p class="mt-6">Hello, here is some text.</p>
-        <div class="pt-8"></div>
-        <div class="matrix cells-6 md:cells-12">
-            <div class="Cell cell" v-for="item in 12">M</div>
-        </div>
+    <Section
+        heading="Something"
+    >
+        <p class="mt-6">
+            All I gots for now, it this here link to my <a class="Link" href="https://github.com/TylerUnderwood" target="_blank">github</a>.
+        </p>
     </Section>
 </template>
-
-<style>
-.Cell {
-    border-radius: 4px;
-    border-width: 2px;
-    background-color: var(--theme-offset);
-    padding: 1em;
-    text-align: center;
-}
-</style>

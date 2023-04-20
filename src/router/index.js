@@ -22,6 +22,16 @@ const routes = [
     component: () => import("@views/Sandbox.vue"),
   },
   {
+    path: "/demo/layout",
+    name: "Demo Layout",
+    component: () => import("@views/demo/Layout.vue"),
+  },
+  {
+    path: "/demo/section",
+    name: "Demo Section",
+    component: () => import("@views/demo/Section.vue"),
+  },
+  {
     path: "/docs",
     name: "Docs",
     component: () => import("@views/Docs.vue"),
@@ -55,11 +65,6 @@ const routes = [
         path: "shapes",
         name: "Shapes",
         component: () => import("@views/docs/Shapes.vue"),
-      },
-      {
-        path: "layout",
-        name: "Layout",
-        component: () => import("@views/docs/Layout.vue"),
       },
     ],
   },
