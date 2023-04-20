@@ -33,6 +33,9 @@ module.exports = {
         "page": "var(--space-page)",
         "section": "var(--space-section)",
       },
+      borderWidth: {
+        1: "1px",
+      },
       zIndex: {
         0: "0",
         1: "1",

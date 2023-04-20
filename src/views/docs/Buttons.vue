@@ -34,7 +34,7 @@ export default {
                     "md-full",
                     "lg-full",
                 ],
-                scheme: [
+                theme: [
                     "base",
                     "face",
                     "success",
@@ -213,7 +213,7 @@ export default {
                 :data-type="name === 'type' ? button : null"
                 :data-size="name === 'size' ? button : null"
                 :data-shape="name === 'shape' ? button : null"
-                :data-scheme="name === 'scheme' ? button : null"
+                :data-theme="name === 'theme' ? button : null"
                 :[button]="name === 'state' ? '' : null"
                 :href="`#docs-button-${name}-${button}`"
             >

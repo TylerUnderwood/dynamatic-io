@@ -22,7 +22,7 @@ button {
     --button-color: var(--input-color);
     --button-hover: var(--input-hover);
     --button-active: var(--input-active);
-    --button-face: var(--theme-base);
+    --button-face: var(--light-base);
     --button-height: var(--input-height);
     --button-pad: var(--input-pad);
     --button-timing: var(--input-timing);
@@ -319,10 +319,10 @@ button {
 }
 
 
-/* === button scheme === */
+/* === button theme === */
 
 /* = base button = */
-.Button[data-scheme="base"] {
+.Button[data-theme="base"] {
     --button-color:       var(--theme-base);
     --button-hover:       var(--theme-offset);
     --button-active:      var(--theme-contrast);
@@ -330,7 +330,7 @@ button {
 }
 
 /* = face button = */
-.Button[data-scheme="face"] {
+.Button[data-theme="face"] {
     --button-color:       var(--theme-body);
     --button-hover:       var(--theme-face);
     --button-active:      var(--theme-head);
@@ -338,14 +338,14 @@ button {
 }
 
 /* = success button = */
-.Button[data-scheme="success"] {
+.Button[data-theme="success"] {
     --button-color:       #00aa22;
     --button-hover:       #00aa22;
     --button-active:      #00aa22;
 }
 
 /* = warn button = */
-.Button[data-scheme="warn"] {
+.Button[data-theme="warn"] {
     --button-color:       hsl(52, 100%, 50%);
     --button-hover:       hsl(52, 100%, 70%);
     --button-active:      hsl(48, 100%, 48%);
@@ -353,7 +353,7 @@ button {
 }
 
 /* = error button = */
-.Button[data-scheme="error"] {
+.Button[data-theme="error"] {
     --button-color:       hsl(8, 100%, 50%);
     --button-hover:       hsl(8, 100%, 70%);
     --button-active:      hsl(4, 100%, 40%);

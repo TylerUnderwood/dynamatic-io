@@ -361,11 +361,4 @@ sectionWrapDiff: {{ sectionWrapDiffValue }},
     padding: 2rem;
     text-align: center;
 }
-
-.border-l-1 {
-    border-left-width: 1px;
-}
-.border-r-1 {
-    border-right-width: 1px;
-}
 </style>
