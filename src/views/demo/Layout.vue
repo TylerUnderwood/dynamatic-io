@@ -12,7 +12,7 @@ const alignSharedTypes = [
 const selectFields = [
     {
         name: 'Y Content',
-        slug: 'align-y',
+        slug: 'content-y',
         label: 'alignY',
         types: ['top', 'bottom', ...alignSharedTypes]
     },
@@ -24,7 +24,7 @@ const selectFields = [
     },
     {
         name: 'X Content',
-        slug: 'align-x',
+        slug: 'content-x',
         label: 'alignX',
         types: ['right', 'left', ...alignSharedTypes]
     },
@@ -35,16 +35,22 @@ const selectFields = [
         types: ['right', 'left', 'center', 'baseline']
     }
 ];
+
+const randomSizes = [
+    4,2,4,2,2,5,3,5,4,4,4,2,2,4,4,4,3,5,5,2,2,5,5,2,4,2,3,5,3,3,4,5,5,2,2,2,3,5
+];
 </script>
 
 <script>
 export default {
     data() {
         return {
+            isRow: true,
             squares: 18,
             useNumbersForSquares: false,
             wrapLayoutSquares: true,
-            showSquareBaseline: false
+            showSquareBaseline: false,
+            flexFillSquares: false,
         }
     },
 
@@ -77,6 +83,30 @@ export default {
                 }
             })
         },
+
+        randomSquareSize: () => {
+            return Math.ceil(Math.random() * 4 + 1);
+        },
+
+        isAlignFieldDisabled: ( fieldSlug, isRow )  => {
+            return (fieldSlug === 'items-x' && isRow)
+                || (fieldSlug === 'items-y' && !isRow);
+        },
+
+        flexOrientationConversion: ( fieldSlug, isRow ) => {
+            switch (fieldSlug) {
+                case 'content-y':
+                    return isRow ? 'align-content' : 'justify-content';
+                case 'items-y':
+                    return isRow ? 'align-items' : 'justify-items';
+                case 'content-x':
+                    return isRow ? 'justify-content' : 'align-content';
+                case 'items-x':
+                    return isRow ? 'justify-items' : 'align-items';
+                default:
+                    return '';
+            }
+        }
     },
 
     mounted() {
@@ -103,39 +133,62 @@ export default {
 
     <Section heading="Layout Selector">
         <div class="break" style="font-size: 2.4rem;"></div>
-        <form action="" class="flex flex-wrap items-end -m-2">
+        <div class="flex flex-wrap items-end -m-2">
             <div class="w-full p-2">
                 <fieldset class="Fieldset">
-                    <legend class="Legend">Orientation</legend>
-                    <label
-                        class="Label mr-3"
-                        :for="`radio-orientation-root-${axis}`"
-                        v-for="axis in ['row','column']"
-                    >
-                        <input
-                            :id="`radio-orientation-root-${axis}`"
-                            name="layout"
-                            type="radio"
-                            :value="axis"
-                            :checked="axis === 'row' ? true : null"
+                    <legend class="Legend">
+                        Orientation
+                    </legend>
+                    <div class="flex">
+                        <label
+                            class="Label mr-3"
+                            :for="`radio-orientation-root-${axis}`"
+                            v-for="axis in ['row','column']"
                         >
-                        <span class="Meta ml-1">{{ axis }}</span>
-                    </label>
+                            <input
+                                :id="`radio-orientation-root-${axis}`"
+                                name="layout"
+                                type="radio"
+                                :value="axis"
+                                :checked="axis === 'row' ? true : null"
+                                @change="() => isRow = !isRow"
+                            >
+                            <span class="Meta ml-1">{{ axis }}</span>
+                        </label>
+                        <div class="filler p-2"></div>
+                        <label for="wrapLayoutSquares" class="Label">
+                            <input
+                                type="checkbox"
+                                name="wrapLayoutSquares"
+                                id="wrapLayoutSquares"
+                                v-model="wrapLayoutSquares"
+                            >
+                            <span class="Meta ml-2">
+                                wrap
+                            </span>
+                        </label>
+                    </div>
                 </fieldset>
             </div>
             <div class="w-1/4 p-2" v-for="field in selectFields">
-                <div class="mb-2">
+                <div
+                    class="flex flex-col md:flex-row items-start gap-1 mb-2"
+                    :style="isAlignFieldDisabled( field.slug, isRow ) ? 'opacity: 0.5' : null"
+                >
                     <label class="Label" :for="`select-${field.slug}`">
                         {{ field.name }}
                     </label>
-                    <code class="Code ml-2" style="font-size: 0.7rem;">
-                        [{{ field.slug }}]
+                    <code class="Code" style="font-size: 0.7rem;">
+                        <span style="color: red">
+                            {{ flexOrientationConversion( field.slug, isRow )}}
+                        </span>
                     </code>
                 </div>
                 <select
                     :id="`select-box-${field.slug}`"
                     :name="field.slug"
                     class="Field Field--small"
+                    :disabled="isAlignFieldDisabled( field.slug, isRow ) ? 'true' : null"
                 >
                     <option value="null">None</option>
                     <option
@@ -144,7 +197,7 @@ export default {
                     >{{ value }}</option>
                 </select>
             </div>
-        </form>
+        </div>
         <div class="break"></div>
         <div
             class="LayoutDemo"
@@ -152,21 +205,24 @@ export default {
         >
             <div
                 id="dynamic-box"
-                class="LayoutDemo__container"
+                class="LayoutDemo__container bg-stripes-secondary"
                 layout="row"
-                align-y="top"
+                content-y="top"
                 items-y="null"
-                align-x="left"
+                content-x="left"
                 items-x="null"
                 :style="{ flexWrap: wrapLayoutSquares ? 'wrap' : 'nowrap'}"
             >
                 <div
                     class="LayoutDemo__Square"
-                    :style="`font-size: ${Math.ceil(Math.random() * 4 + 1)}rem;`"
+                    :style="`
+                        font-size: ${randomSizes[index+1]}rem;
+                        ${flexFillSquares ? 'flex: 1 0 auto;' : null}
+                    `"
                     v-for="index in Number(squares)"
                     :key="index"
                 >
-                    <small class="text-head">
+                    <small>
                         <template v-if="useNumbersForSquares">
                             {{ index < 10 ? '0' + index : index }}
                         </template>
@@ -177,7 +233,7 @@ export default {
                 </div>
             </div>
         </div>
-        <div class="break"></div>
+        <div class="break" style="text-size: 0.7rem;"></div>
         <input
             type="range"
             name="amount-of-dynamic-squares"
@@ -212,17 +268,6 @@ export default {
                     useNumbersForSquares
                 </small>
             </label>
-            <label for="wrapLayoutSquares" class="Label p-2">
-                <input
-                    type="checkbox"
-                    name="wrapLayoutSquares"
-                    id="wrapLayoutSquares"
-                    v-model="wrapLayoutSquares"
-                >
-                <small class="Code ml-2">
-                    wrapLayoutSquares
-                </small>
-            </label>
             <label for="showSquareBaseline" class="Label p-2">
                 <input
                     type="checkbox"
@@ -234,6 +279,17 @@ export default {
                     showSquareBaseline
                 </small>
             </label>
+            <label for="flexFillSquares" class="Label p-2">
+                <input
+                    type="checkbox"
+                    name="flexFillSquares"
+                    id="flexFillSquares"
+                    v-model="flexFillSquares"
+                >
+                <small class="Code ml-2">
+                    flexFillSquares
+                </small>
+            </label>
         </div>
     </Section>
 </template>
@@ -243,55 +299,28 @@ export default {
         position: relative;
         display: flex;
         flex-direction: column;
-        margin-bottom: 1.6rem;
-        --layout-demo-axis-offset: 0.5em;
-    }
-    .LayoutDemo::before,
-    .LayoutDemo::after {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 0px solid var(--theme-head);
-        vertical-align: middle;
-        text-align: center;
-    }
-    .LayoutDemo::after {
-        top: 0;
-        right: calc(100% + var(--layout-demo-axis-offset));
-        bottom: calc(var(--layout-demo-axis-offset) * -3);
-        left: unset;
-        border-right-width: 1px;
-        padding-bottom: calc(var(--layout-demo-axis-offset) * 3);
-        padding-right: 0.2em;
-        content: "Y";
-    }
-    .LayoutDemo::before {
-        top: calc(100% + var(--layout-demo-axis-offset));
-        right: 0;
-        bottom: unset;
-        left: calc(var(--layout-demo-axis-offset) * -3);
-        border-top-width: 1px;
-        padding-left: calc(var(--layout-demo-axis-offset) * 3);
-        padding-top: 0.2em;
-        content: "X";
     }
     .LayoutDemo__container {
+        --layout-demo-gap: 0.3rem;
+        padding: var(--layout-demo-gap);
+        gap: var(--layout-demo-gap);
         background-color: var(--theme-offset);
         aspect-ratio: 16/9;
-        overflow: auto;
+        overflow: clip;
         max-width: 100%;
-        resize: horizontal;
     }
     .LayoutDemo__Square {
         position: relative;
         display: flex;
         justify-content: center;
-        box-shadow: inset 0 0 0 1px var(--theme-head);
+        box-shadow: inset 0 0 2px 0 var(--dark-head);
+        border-radius: var(--input-round);
         min-width: 1em;
         min-height: 1em;
         background-color: var(--theme-primary);
         padding: 0.1em;
+        opacity: .96;
+        color: var(--dark-face);
     }
     .LayoutDemo.show-baseline .LayoutDemo__Square::after {
         position: absolute;
@@ -300,5 +329,19 @@ export default {
         width: 2em;
         border-bottom: 1px solid red;
         content: '';
+    }
+
+    .bg-stripes-secondary {
+        background-color: #818cf81a;
+        background-image: linear-gradient(
+            135deg,#6366f180 10%,
+            transparent 0,
+            transparent 50%,
+            #6366f180 0,
+            #6366f180 60%,
+            transparent 0,
+            transparent
+        );
+        background-size: 6px 6px;
     }
 </style>
