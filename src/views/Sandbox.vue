@@ -13,35 +13,50 @@ import DemoBlock from "@/components/DemoBlock.vue";
     <Section
         heading="Links to recent demos"
     >
-        <div class="mt-4 flex flex-wrap gap-4">
-            <router-link
-                to="/demo/layout"
-                class="Button"
-                data-size="small"
-            >
-                <span class="Meta">
-                    Layout
-                </span>
-            </router-link>
-            <router-link
-                to="/demo/section"
-                class="Button"
-                data-size="small"
-            >
-                <span class="Meta">
-                    Section
-                </span>
-            </router-link>
+        <div class="mt-4 flex gap-4">
+            <div class="w-full md:w-1/2">
+                <router-link
+                    to="/demo/layout"
+                    class="Button"
+                    data-size="large"
+                    data-shape="full"
+                >
+                    <span class="Meta">
+                        Layout Demo
+                    </span>
+                </router-link>
+            </div>
+            <div class="w-full md:w-1/2">
+                <router-link
+                    to="/demo/section"
+                    class="Button"
+                    data-size="large"
+                    data-shape="full"
+                >
+                    <span class="Meta">
+                        Section Demo
+                    </span>
+                </router-link>
+            </div>
         </div>
 
     </Section>
 
     <Section
-        heading="Whatever the hell this is."
+        heading="Learning how to build tailwind classes"
     >
-        <div class="break pt-12"></div>
+        <div class="break"></div>
 
-        <div class="matrix cells-2 sm:cells-3 md:cells-6 void bg-stripes-secondary">
+        <a
+            class="Link font-bold"
+            href="https://www.protailwind.com/tutorials/animated-background-stripes"
+        >
+            Tutorial by protailwind.com
+        </a>
+
+        <div class="break" style="font-size: 1.5rem;"></div>
+
+        <div class="matrix cells-2 sm:cells-3 md:cells-6 void">
             <div class="cell" v-for="item in 6">
                 <DemoBlock>
                     <span>M</span>
@@ -51,11 +66,3 @@ import DemoBlock from "@/components/DemoBlock.vue";
     </Section>
 
 </template>
-
-<style>
-.bg-stripes-secondary {
-    background-color: #818cf81a;
-    background-image: linear-gradient(135deg,#6366f180 10%,transparent 0,transparent 50%,#6366f180 0,#6366f180 60%,transparent 0,transparent);
-    background-size: 6px 6px;
-}
-</style>
