@@ -46,11 +46,12 @@ export default {
     data() {
         return {
             isRow: true,
-            squares: 18,
+            squares: 0,
             useNumbersForSquares: false,
             wrapLayoutSquares: true,
             showSquareBaseline: false,
-            flexFillSquares: false,
+            basisFillSquares: false,
+            maxSquares: 36,
         }
     },
 
@@ -120,6 +121,26 @@ export default {
 
         radios.forEach( (radio) => {
             this.radioAttr(radio, box);
+        });
+
+        if (window.matchMedia("(min-width: 719px)").matches) {
+            this.maxSquares = 18;
+            this.squares = Math.ceil(this.maxSquares / 2);
+        } else {
+            this.maxSquares = 36;
+            this.squares = Math.ceil(this.maxSquares / 2);
+        }
+
+        window.addEventListener("resize", (event) => {
+            const isDesktop = window.matchMedia("(min-width: 719px)").matches;
+
+            if (isDesktop && this.maxSquares === 18) {
+                this.maxSquares = 36;
+            }
+            if (!isDesktop && this.maxSquares === 36) {
+                this.squares > 18 ? this.squares = 18 : null;
+                this.maxSquares = 18;
+            }
         });
     }
 }
@@ -217,7 +238,7 @@ export default {
                     class="LayoutDemo__Square"
                     :style="`
                         font-size: ${randomSizes[index+1]}rem;
-                        ${flexFillSquares ? 'flex: 1 0 auto;' : null}
+                        flex: ${basisFillSquares ? '1 0 auto;' : 'unset'};
                     `"
                     v-for="index in Number(squares)"
                     :key="index"
@@ -239,7 +260,7 @@ export default {
             name="amount-of-dynamic-squares"
             label="Amount of Dynamic Squares"
             step="1"
-            max="36"
+            :max="maxSquares"
             list="amount-of-dynamic-squares"
             v-model="squares"
         />
@@ -247,13 +268,12 @@ export default {
             id="amount-of-dynamic-squares"
             name="Amount of Dynamic Squares"
         >
-            <option value="0">0</option>
-            <option value="6">6</option>
-            <option value="12">12</option>
-            <option value="18">18</option>
-            <option value="24">24</option>
-            <option value="30">30</option>
-            <option value="36">36</option>
+            <option
+                :value="(maxSquares / 6) * index"
+                v-for="(number, index) in 7"
+            >
+                {{ (maxSquares / 6) * index }}
+            </option>
         </datalist>
         <div class="break"></div>
         <div class="flex flex-wrap -m-2">
@@ -279,15 +299,15 @@ export default {
                     showSquareBaseline
                 </small>
             </label>
-            <label for="flexFillSquares" class="Label p-2">
+            <label for="basisFillSquares" class="Label p-2">
                 <input
                     type="checkbox"
-                    name="flexFillSquares"
-                    id="flexFillSquares"
-                    v-model="flexFillSquares"
+                    name="basisFillSquares"
+                    id="basisFillSquares"
+                    v-model="basisFillSquares"
                 >
                 <small class="Code ml-2">
-                    flexFillSquares
+                    basisFillSquares
                 </small>
             </label>
         </div>
@@ -305,7 +325,7 @@ export default {
         padding: var(--layout-demo-gap);
         gap: var(--layout-demo-gap);
         background-color: var(--theme-offset);
-        aspect-ratio: 16/9;
+        aspect-ratio: 4/3;
         overflow: clip;
         max-width: 100%;
     }
@@ -343,5 +363,10 @@ export default {
             transparent
         );
         background-size: 6px 6px;
+    }
+    @media (min-width: 479px) {
+        .LayoutDemo__container {
+            aspect-ratio: 16/9;
+        }
     }
 </style>

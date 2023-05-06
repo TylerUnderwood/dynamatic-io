@@ -17,19 +17,21 @@ import HomeSection from "@/components/homepage/HomeSection.vue";
             </p>
             <div class="mt-5 md:mt-8 flex justify-center items-center gap-4">
                 <a
-                    href="https://github.com/TylerUnderwood/dynamatic-io"
                     class="Button"
                     data-shape="simple"
+                    href="https://github.com/TylerUnderwood/dynamatic-io"
+                    target="_blank"
                 >
                     <div class="Button__text Meta">
                         Repo
                     </div>
                 </a>
                 <a
-                    href="https://github.com/TylerUnderwood/dynamatic-io"
                     class="Button"
                     data-type="secondary"
                     data-shape="simple"
+                    href="https://www.npmjs.com/package/dynamatic?activeTab=readme"
+                    target="_blank"
                 >
                     <div class="Button__text Meta">
                         Node Package
