@@ -1,0 +1,167 @@
+/*
+|–––––––––––––––––––––––––
+| Modal
+|–––––––––––––––––––––––––
+*/
+
+/* === content === */
+dialog {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    overflow: visible;
+}
+
+dialog:modal {
+    max-width: unset;
+    max-height: unset;
+}
+
+dialog:not([open]) {
+    display: none;
+}
+
+/* === animations === */
+@keyframes modal_pop_in {
+    from {
+        transform: scale(1.05);
+        opacity: 0;
+        filter: blur(8px);
+    }
+    to {
+        transform: none;
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes modal_pop_out {
+    from {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
+    to {
+        transform: scale(0.95);
+        opacity: 0;
+        filter: blur(8px);
+    }
+}
+
+@keyframes modal_fade_in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modal_fade_out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.Modal {
+    --modal-duration: 300ms;
+    --modal-gutter: var(--section-space-x);
+    display: flex !important;
+    flex-direction: column;
+    padding: var(--modal-gutter);
+    padding-bottom: 0;
+    inset: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.Modal::after {
+    width: 100%;
+    padding-top: var(--modal-gutter);
+    content: "";
+}
+
+.Modal::backdrop {
+    display: none !important;
+}
+
+.Modal__backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+    content: '';
+}
+
+.Modal__container {
+    position: relative;
+    margin: auto;
+}
+
+.Modal__close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    left: unset;
+    border-radius: 9999px;
+    border: 0;
+    background-color: rgba(0,0,0,0);
+    width: 1.5em;
+    height: 1.5em;
+    padding: 0.25em;
+    line-height: 1;
+    font-size: 24px;
+    color: var(--theme-head, #222222);
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+    transition-property: border-color, background-color, color;
+    cursor: pointer;
+}
+.Modal__close::after {
+    display: block;
+    margin-top: 2px;
+    content: "\00d7";
+}
+.Modal__close:hover,
+.Modal__close:focus {
+    background-color: rgba(0,0,255,0.15);
+}
+
+
+.Modal[data-state="active"] {
+    visibility: visible;
+}
+.Modal[data-state="active"] .Modal__container {
+    visibility: visible;
+}
+
+.Modal[data-state="leave"] {
+    animation: modal_fade_out var(--modal-duration) forwards ease-out;
+}
+.Modal[data-state="leave"] .Modal__container {
+    animation: modal_pop_out var(--modal-duration) forwards ease-out;
+}
+
+.Modal[data-state="idle"] {
+    visibility: hidden;
+}
+.Modal[data-state="idle"] .Modal__container {
+    visibility: hidden;
+}
+
+.Modal[data-state="enter"] {
+    animation: modal_fade_in var(--modal-duration) forwards ease-in;
+}
+.Modal[data-state="enter"] .Modal__container {
+    animation: modal_pop_in var(--modal-duration) forwards ease-in;
+}

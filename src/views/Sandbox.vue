@@ -1,6 +1,8 @@
 <script setup>
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
+import Modal from "@/components/Modal.vue";
+import Button from "@/components/Button.vue";
 import DemoBlock from "@/components/DemoBlock.vue";
 </script>
 
@@ -40,6 +42,28 @@ import DemoBlock from "@/components/DemoBlock.vue";
             </div>
         </div>
 
+    </Section>
+
+    <Section
+        heading="Modal"
+    >
+        <div class="break"></div>
+
+        <div>
+            <Button
+                text="Open Modal"
+                size="large"
+                shape="stout"
+                onclick="new window.Modal('demoModal').toggle()"
+            />
+        </div>
+
+        <Modal id="demoModal">
+            <div class="Card">
+                <h2 class="Heading h3">Heading</h2>
+                <p class="Copy mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas, aut saepe unde nesciunt sunt ipsum! Magnam officiis veritatis molestiae debitis soluta hic accusamus, praesentium quod. A iusto sunt tempore?</p>
+            </div>
+        </Modal>
     </Section>
 
     <Section
