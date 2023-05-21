@@ -8,7 +8,6 @@ class Modal
         this.modal = document.getElementById(elementId);
         this.buttons = document.querySelectorAll(`[modal-toggle="${elementId}"]`);
         this.duration = this.modal.dataset.duration ? this.modal.dataset.duration : 300;
-        this.init();
     }
 
     isActive() {
@@ -16,44 +15,38 @@ class Modal
     }
 
     isAnimating() {
-        return this.modal.dataset.state === 'enter' || this.modal.dataset.state === 'leave';
+        return this.modal.dataset.state === 'enter'
+            || this.modal.dataset.state === 'leave';
     }
 
-    setStateAttribute( state ) {
+    setState( state ) {
         this.modal.dataset.state = state;
         this.buttons.forEach( (button) => {
             button.dataset.state = state;
         })
     }
 
-    setModalActive() {
+    open() {
+        this.modal.showModal();
+        this.setState('enter');
+
         document.documentElement.style.overflow = 'hidden';
         document.body.classList.add(this.id + '--active');
-    }
-
-    setModalInactive() {
-        document.documentElement.style.overflow = null;
-        document.body.classList.remove(this.id + '--active');
-    }
-
-    open() {
-        console.log('open');
-        this.modal.showModal();
-        this.setStateAttribute('enter');
-        this.setModalActive();
 
         setTimeout( () => {
-            this.setStateAttribute('active');
+            this.setState('active');
         }, this.duration);
     }
 
     close() {
-        console.log('close');
-        this.setStateAttribute('leave');
+        this.setState('leave');
 
         setTimeout( () => {
-            this.setStateAttribute('idle');
-            this.setModalInactive();
+            this.setState('idle');
+
+            document.documentElement.style.overflow = null;
+            document.body.classList.remove(this.id + '--active');
+
             this.modal.close();
         }, this.duration);
     }
@@ -73,11 +66,9 @@ class Modal
     }
 
     init() {
-        this.setStateAttribute('idle');
+        this.setState('idle');
 
-        document.addEventListener('keydown', ( event ) => {
-            this.escClose(event)
-        });
+        document.addEventListener('keydown', (event) => this.escClose(event));
 
         this.buttons.forEach((button) => {
             button.addEventListener('click', ( event ) => {

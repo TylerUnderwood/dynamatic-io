@@ -24,7 +24,7 @@ dialog:not([open]) {
 /* === animations === */
 @keyframes modal_pop_in {
     from {
-        transform: scale(1.05);
+        transform: scale(1.03);
         opacity: 0;
         filter: blur(8px);
     }
@@ -42,7 +42,7 @@ dialog:not([open]) {
         filter: blur(0);
     }
     to {
-        transform: scale(0.95);
+        transform: scale(0.97);
         opacity: 0;
         filter: blur(8px);
     }
@@ -68,7 +68,7 @@ dialog:not([open]) {
 
 .Modal {
     --modal-duration: 300ms;
-    --modal-gutter: var(--section-space-x);
+    --modal-gutter: var(--space-page);
     display: flex !important;
     flex-direction: column;
     padding: var(--modal-gutter);

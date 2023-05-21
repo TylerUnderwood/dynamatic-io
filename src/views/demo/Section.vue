@@ -296,7 +296,7 @@ sectionWrapDiff: {{ sectionWrapDiffValue }},
     class="Section<span style="color: red;">{{ sectionReverse ? ' Section--reverse' : null }}</span>"
     style="--section-ratio: <span style="color: red;">{{ sectionRatio / 100 }}</span>"
 &gt;
-    &lt;div class="Section__column bg-blue py-8"&gt;
+    &lt;div class="Section__column py-8 bg-blue"&gt;
 
         &lt;div class="Section__block px-page"&gt;
             &lt;div class="Section__wrap md:px-page"&gt;

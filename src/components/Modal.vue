@@ -8,7 +8,7 @@ export default {
     ],
 
     mounted() {
-        new Modal( this.id );
+        new Modal( this.id ).init();
     }
 }
 </script>
