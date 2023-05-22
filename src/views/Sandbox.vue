@@ -15,8 +15,8 @@ import DemoBlock from "@/components/DemoBlock.vue";
     <Section
         heading="Links to recent demos"
     >
-        <div class="mt-4 flex gap-4">
-            <div class="w-full md:w-1/2">
+        <div class="mt-4 flex flex-wrap -m-2">
+            <div class="w-full md:w-1/2 p-2">
                 <router-link
                     to="/demo/layout"
                     class="Button"
@@ -28,7 +28,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
                     </span>
                 </router-link>
             </div>
-            <div class="w-full md:w-1/2">
+            <div class="w-full md:w-1/2 p-2">
                 <router-link
                     to="/demo/section"
                     class="Button"

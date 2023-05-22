@@ -18,7 +18,6 @@ export default {
         :id="id"
         class="Modal"
         modal
-        data-duration="300"
     >
         <button
             class="Modal__backdrop"
