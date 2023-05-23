@@ -8,6 +8,8 @@ export default {
     ],
 
     mounted() {
+        window.Modal = Modal;
+
         new Modal( this.id ).init();
     }
 }
@@ -19,10 +21,10 @@ export default {
         class="Modal"
         modal
     >
-        <button
+        <div
             class="Modal__backdrop"
             :modal-toggle="id"
-        ></button>
+        ></div>
         <div class="Modal__container">
             <button
                 class="Modal__close"

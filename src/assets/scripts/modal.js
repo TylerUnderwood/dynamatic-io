@@ -83,14 +83,15 @@ class Modal
     }
 }
 
-// document.querySelectorAll('[modal]').forEach( element => {
-//     if ( !element.id ) {
-//         console.log("Modal element needs ID to reference");
-//     } else {
-//         new Modal( element.id );
-//     }
-// });
+function initAllModals() {
+    document.querySelectorAll('[modal]').forEach( element => {
+        if ( !element.id ) {
+            console.warn("Modal element needs ID to reference");
+        } else {
+            new Modal( element.id );
+        }
+    });
+}
 
-window.Modal = Modal;
 
 export default Modal;

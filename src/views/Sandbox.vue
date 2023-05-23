@@ -49,17 +49,38 @@ import DemoBlock from "@/components/DemoBlock.vue";
     >
         <div class="break"></div>
 
-        <div>
-            <Button
-                text="Open Modal"
-                size="large"
-                shape="stout"
-                onclick="new window.Modal('demoModal').toggle()"
-            />
+        <div class="flex flex-wrap -m-2">
+            <div class="p-2">
+                <Button
+                    text="Open Modal"
+                    size="large"
+                    shape="stout"
+                    onclick="new window.Modal('demoModal01').toggle()"
+                />
+            </div>
+            <div class="p-2">
+                <Button
+                    text="Open Multi Modal"
+                    size="large"
+                    shape="stout"
+                    onclick="new window.Modal('demoModal02').toggle()"
+                />
+            </div>
         </div>
 
-        <Modal id="demoModal">
+        <Modal id="demoModal01">
             <div class="Card">
+                <h2 class="Heading h3">Heading</h2>
+                <p class="Copy mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas, aut saepe unde nesciunt sunt ipsum! Magnam officiis veritatis molestiae debitis soluta hic accusamus, praesentium quod. A iusto sunt tempore?</p>
+            </div>
+        </Modal>
+
+        <Modal id="demoModal02">
+            <div class="Card">
+                <h2 class="Heading h3">Heading</h2>
+                <p class="Copy mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas, aut saepe unde nesciunt sunt ipsum! Magnam officiis veritatis molestiae debitis soluta hic accusamus, praesentium quod. A iusto sunt tempore?</p>
+            </div>
+            <div class="Card mt-4" v-for="i in 5">
                 <h2 class="Heading h3">Heading</h2>
                 <p class="Copy mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas, aut saepe unde nesciunt sunt ipsum! Magnam officiis veritatis molestiae debitis soluta hic accusamus, praesentium quod. A iusto sunt tempore?</p>
             </div>
