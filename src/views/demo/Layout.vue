@@ -124,20 +124,20 @@ export default {
         });
 
         if (window.matchMedia("(min-width: 719px)").matches) {
-            this.maxSquares = 18;
-            this.squares = Math.ceil(this.maxSquares / 2);
-        } else {
             this.maxSquares = 36;
-            this.squares = Math.ceil(this.maxSquares / 2);
+            this.squares = 18;
+        } else {
+            this.maxSquares = 18;
+            this.squares = 9;
         }
 
         window.addEventListener("resize", (event) => {
-            const isDesktop = window.matchMedia("(min-width: 719px)").matches;
+            const isMobile = window.matchMedia("(min-width: 719px)").matches;
 
-            if (isDesktop && this.maxSquares === 18) {
+            if (isMobile && this.maxSquares === 18) {
                 this.maxSquares = 36;
             }
-            if (!isDesktop && this.maxSquares === 36) {
+            if (!isMobile && this.maxSquares === 36) {
                 this.squares > 18 ? this.squares = 18 : null;
                 this.maxSquares = 18;
             }
@@ -191,7 +191,7 @@ export default {
                     </div>
                 </fieldset>
             </div>
-            <div class="w-1/4 p-2" v-for="field in selectFields">
+            <div class="w-1/2 sm:w-1/4 p-2" v-for="field in selectFields">
                 <div
                     class="flex flex-col md:flex-row items-start gap-1 mb-2"
                     :style="isAlignFieldDisabled( field.slug, isRow ) ? 'opacity: 0.5' : null"

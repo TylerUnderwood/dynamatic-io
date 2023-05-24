@@ -51,12 +51,16 @@ import DemoBlock from "@/components/DemoBlock.vue";
 
         <div class="flex flex-wrap -m-2">
             <div class="p-2">
-                <Button
-                    text="Open Modal"
-                    size="large"
-                    shape="stout"
-                    onclick="new window.Modal('demoModal01').toggle()"
-                />
+                <a
+                    class="Button"
+                    data-size="large"
+                    data-shape="stout"
+                    href="#demoModal01"
+                >
+                    <div class="Button__text Meta">
+                        Open Modal
+                    </div>
+                </a>
             </div>
             <div class="p-2">
                 <Button

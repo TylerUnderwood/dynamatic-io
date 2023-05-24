@@ -5,8 +5,9 @@ class Modal
 {
     constructor( elementId ) {
         this.id = elementId;
-        this.modal = document.getElementById(elementId);
-        this.buttons = document.querySelectorAll(`[modal-toggle="${elementId}"]`);
+        this.modal = document.getElementById(this.id);
+        this.buttonSelectors = `[modal-toggle="${this.id}"], [href="#${this.id}"]`;
+        this.buttons = document.querySelectorAll(this.buttonSelectors);
         this.duration = this.modal.dataset.duration ? this.modal.dataset.duration : 300;
     }
 
