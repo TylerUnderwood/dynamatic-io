@@ -8,7 +8,8 @@ const alignSharedTypes = [
     'between',
     'around',
     'evenly',
-]
+];
+
 const selectFields = [
     {
         name: 'Y Content',
@@ -123,7 +124,7 @@ export default {
             this.radioAttr(radio, box);
         });
 
-        if (window.matchMedia("(min-width: 719px)").matches) {
+        if (window.matchMedia("(width > 719px)").matches) {
             this.maxSquares = 36;
             this.squares = 18;
         } else {
@@ -132,12 +133,12 @@ export default {
         }
 
         window.addEventListener("resize", (event) => {
-            const isMobile = window.matchMedia("(min-width: 719px)").matches;
+            const isDesktop = window.matchMedia("(width > 719px)").matches;
 
-            if (isMobile && this.maxSquares === 18) {
+            if (isDesktop && this.maxSquares === 18) {
                 this.maxSquares = 36;
             }
-            if (!isMobile && this.maxSquares === 36) {
+            if (!isDesktop && this.maxSquares === 36) {
                 this.squares > 18 ? this.squares = 18 : null;
                 this.maxSquares = 18;
             }
@@ -193,7 +194,7 @@ export default {
             </div>
             <div class="w-1/2 sm:w-1/4 p-2" v-for="field in selectFields">
                 <div
-                    class="flex flex-col md:flex-row items-start gap-1 mb-2"
+                    class="flex sm:flex-col md:flex-row items-start gap-1 mb-2"
                     :style="isAlignFieldDisabled( field.slug, isRow ) ? 'opacity: 0.5' : null"
                 >
                     <label class="Label" :for="`select-${field.slug}`">

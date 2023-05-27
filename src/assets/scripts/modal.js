@@ -94,5 +94,6 @@ function initAllModals() {
     });
 }
 
+window.Modal = Modal;
 
 export default Modal;

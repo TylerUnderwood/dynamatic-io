@@ -8,8 +8,6 @@ export default {
     ],
 
     mounted() {
-        window.Modal = Modal;
-
         new Modal( this.id ).init();
     }
 }
