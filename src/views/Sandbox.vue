@@ -2,6 +2,7 @@
 import Banner from "@/components/Banner.vue";
 import Section from "@/components/Section.vue";
 import Modal from "@/components/Modal.vue";
+import Drawer from "@/components/Drawer.vue";
 import Button from "@/components/Button.vue";
 import DemoBlock from "@/components/DemoBlock.vue";
 </script>
@@ -44,9 +45,28 @@ import DemoBlock from "@/components/DemoBlock.vue";
 
     </Section>
 
-    <Section
-        heading="Modal"
-    >
+    <Section heading="Drawer">
+        <Drawer
+            :id="`demo-drawer-${index}`"
+            v-for="index in 3"
+            class="mt-6"
+        >
+            <template #summary>
+                <div class="p-4 bg-contrast rounded">
+                    <h3 class="Heading">This is a summary {{ index }}</h3>
+                </div>
+            </template>
+            <template #content>
+                <div class="flex flex-col mt-4">
+                    <p class="Copy">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos adipisci <a href="#0" class="Link">inventore</a> sunt dolore earum ex repellat voluptate dicta ipsum porro, nesciunt quo, minus illum, optio officiis ad rem sapiente consequatur.
+                    </p>
+                </div>
+            </template>
+        </Drawer>
+    </Section>
+
+    <Section heading="Modal">
         <div class="break"></div>
 
         <div class="flex flex-wrap -m-2">

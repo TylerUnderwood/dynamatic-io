@@ -1,0 +1,32 @@
+[drawer] {
+    overflow: hidden;
+    transition-property: opacity, height;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+[drawer][open] {
+    height: auto;
+}
+
+[drawer]:not([open]) {
+    height: 0;
+}
+
+[drawer][data-state="active"],
+[drawer][data-state="enter"] {
+    opacity: 1;
+}
+
+[drawer][data-state="leave"],
+[drawer][data-state="idle"] {
+    opacity: 0;
+}
+
+[drawer-toggle] {
+    cursor: pointer;
+}
+
+[drawer-toggle]:focus-visible {
+    background-color: blue;
+}
