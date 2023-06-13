@@ -10,13 +10,14 @@ class Drawer
         this.anchors = document.querySelectorAll(`[href="#${id}"]`);
         this.toggles = [...this.buttons, ...this.anchors]
         this.parts = document.querySelectorAll(`[drawer-part="${id}"]`);
+        this.states = ['idle', 'enter', 'active', 'leave'];
         this.duration = 300;
     }
 
     log() {
         console.log({
             id: this.id,
-            height: this.getHeight(),
+            height: this.getInnerHeight(),
             open: this.drawer.hasAttribute('open'),
         })
     }
@@ -27,26 +28,26 @@ class Drawer
 
     isAnimating() {
         return this.drawer.dataset.state === 'enter'
-                || this.drawer.dataset.state === 'leave';
+            || this.drawer.dataset.state === 'leave';
     }
 
-    getHeight() {
+    getInnerHeight() {
         const elements = Array.from(this.drawer.children);
         let height = 0;
 
-        const getTotalHeight = (element) => {
+        const getHeight = (element) => {
             // Get the DOM Node if you pass in a string
             element = (typeof element === 'string') ? document.querySelector(element) : element;
 
             var styles = window.getComputedStyle(element);
             var margin = parseFloat(styles['marginTop']) +
-                                     parseFloat(styles['marginBottom']);
+                         parseFloat(styles['marginBottom']);
 
             return Math.ceil(element.offsetHeight + margin);
         }
 
         elements.forEach(element => {
-            height += getTotalHeight(element);
+            height += getHeight(element);
         })
 
         return height;
@@ -56,38 +57,43 @@ class Drawer
         this.drawer.dataset.state = state;
 
         [...this.toggles, ...this.parts].forEach((part) => {
-            part.dataset.drawerState = state;
+            part.dataset.state = state;
         })
     }
 
-    cycleState() {
-        const states = ['idle', 'enter', 'active', 'leave'];
-        const currentState = this.drawer.dataset.state;
-    }
-
     open() {
-        this.drawer.setAttribute('open', true);
+        if (this.drawer.hasAttribute('open')) {
+            console.warn(`Drawer #${this.id}: is already open`);
+            return;
+        };
+
+        this.drawer.setAttribute('open', '');
         this.setState('enter');
-        this.drawer.style.height = `${this.getHeight()}px`;
+        this.drawer.style.height = `${this.getInnerHeight()}px`;
 
         setTimeout( () => {
             this.setState('active');
-            this.drawer.style.height = null;
+            this.drawer.style.height = 'auto';
         }, this.duration);
     }
 
     close() {
-        this.drawer.style.height = `${this.getHeight()}px`;
-        this.setState('leave');
+        if (this.drawer.dataset.state !== 'active') {
+            console.warn(`Drawer #${this.id}: is already closed`);
+            return;
+        };
+
+        this.drawer.style.height = `${this.getInnerHeight()}px`;
 
         setTimeout( () => {
+            this.setState('leave');
             this.drawer.style.height = 0;
-        }, 0);
+        }, 10);
 
         setTimeout( () => {
             this.setState('idle');
             this.drawer.removeAttribute('open');
-        }, this.duration);
+        }, this.duration + 10);
     }
 
     toggle() {
@@ -95,27 +101,14 @@ class Drawer
         this.isActive() ? this.close() : this.open();
     }
 
-    handleBlur = (event) => {
-        const currentTarget = event.currentTarget;
-
-        if (this.isActive) return;
-
-        requestAnimationFrame(() => {
-            if (!currentTarget.contains(document.activeElement)) {
-                this.open();
-            }
-        });
-    };
-
     init() {
         if (this.drawer.hasAttribute('open')) {
             this.setState('active');
+            this.drawer.style.height = 'auto';
         } else {
             this.setState('idle');
             this.drawer.style.height = 0;
         }
-
-        // this.drawer.addEventListener('blur', this.handleBlur);
 
         this.toggles.forEach((button) => {
             button.addEventListener('click', ( event ) => {

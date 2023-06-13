@@ -1,32 +1,78 @@
 [drawer] {
+    --drawer-duration: 300ms;
     overflow: hidden;
     transition-property: opacity, height;
     transition-duration: 300ms;
     transition-timing-function: ease-in-out;
 }
-
 [drawer][open] {
+    opacity: 1;
     height: auto;
 }
-
 [drawer]:not([open]) {
+    opacity: 0;
     height: 0;
 }
-
-[drawer][data-state="active"],
-[drawer][data-state="enter"] {
-    opacity: 1;
+[drawer]:focus-within {
+    transition-duration: 0ms !important;
+    opacity: 1 !important;
+    height: auto !important;
 }
-
-[drawer][data-state="leave"],
-[drawer][data-state="idle"] {
-    opacity: 0;
-}
-
 [drawer-toggle] {
     cursor: pointer;
 }
 
-[drawer-toggle]:focus-visible {
-    background-color: blue;
+@keyframes drawer_fade_in {
+    from {
+        transform: translate(0, -8px);
+        opacity: 0;
+        filter: blur(2px);
+    }
+    to {
+        transform: translate(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+@keyframes drawer_fade_out {
+    from {
+        transform: translate(0);
+        opacity: 1;
+        filter: blur(0);
+    }
+    to {
+        transform: translate(0, -8px);
+        opacity: 0;
+        filter: blur(2px);
+    }
+}
+
+.Drawer {
+    display: flex;
+    flex-direction: column;
+}
+.Drawer__summary {
+    position: relative;
+    z-index: 2;
+}
+.Drawer__summary:focus-visible {
+    outline: solid 2px var(--theme-primary) !important;
+}
+.Drawer__content {
+    position: relative;
+    z-index: 1;
+}
+.Drawer__content:focus-within {
+    outline: solid 2px var(--theme-primary);
+}
+.Drawer__content[data-state] {
+    animation-direction: forwards;
+    animation-duration: var(--drawer-duration);
+    animation-timing-function: ease-in-out;
+}
+.Drawer__content[data-state="enter"] {
+    animation-name: drawer_fade_in;
+}
+.Drawer__content[data-state="leave"] {
+    animation-name: drawer_fade_out;
 }

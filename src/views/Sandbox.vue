@@ -61,9 +61,20 @@ import DemoBlock from "@/components/DemoBlock.vue";
                     <p class="Copy">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos adipisci <a href="#0" class="Link">inventore</a> sunt dolore earum ex repellat voluptate dicta ipsum porro, nesciunt quo, minus illum, optio officiis ad rem sapiente consequatur.
                     </p>
+                    <p class="Copy mt-4" v-if="index === 2 || index === 3">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, distinctio enim illum earum vitae dignissimos velit, error totam voluptatibus quam accusamus architecto inventore tempore sit numquam? Quo voluptatum commodi excepturi.
+                    </p>
+                    <p class="Copy mt-4" v-if="index === 3" v-for="copy in 100">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae accusamus quidem numquam reiciendis, illum repudiandae recusandae adipisci. Nesciunt consequatur non quasi eligendi officia repellat, molestias nulla expedita debitis possimus facere!
+                    </p>
                 </div>
             </template>
         </Drawer>
+        <div class="mt-4">
+            <code class="Code">
+                new Drawer('demo-drawer-1').toggle()
+            </code>
+        </div>
     </Section>
 
     <Section heading="Modal">
