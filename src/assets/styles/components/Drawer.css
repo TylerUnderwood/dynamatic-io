@@ -1,21 +1,18 @@
 [drawer] {
     --drawer-duration: 300ms;
     overflow: hidden;
-    transition-property: opacity, height;
-    transition-duration: 300ms;
+    transition-property: height;
+    transition-duration: var(--drawer-duration);
     transition-timing-function: ease-in-out;
 }
 [drawer][open] {
-    opacity: 1;
     height: auto;
 }
 [drawer]:not([open]) {
-    opacity: 0;
     height: 0;
 }
 [drawer]:focus-within {
     transition-duration: 0ms !important;
-    opacity: 1 !important;
     height: auto !important;
 }
 [drawer-toggle] {
@@ -55,24 +52,26 @@
     position: relative;
     z-index: 2;
 }
-.Drawer__summary:focus-visible {
-    outline: solid 2px var(--theme-primary) !important;
-}
 .Drawer__content {
     position: relative;
     z-index: 1;
 }
 .Drawer__content:focus-within {
-    outline: solid 2px var(--theme-primary);
+    outline: solid 2px 2px var(--theme-primary);
 }
 .Drawer__content[data-state] {
-    animation-direction: forwards;
     animation-duration: var(--drawer-duration);
     animation-timing-function: ease-in-out;
 }
 .Drawer__content[data-state="enter"] {
     animation-name: drawer_fade_in;
 }
+.Drawer__content[data-state="active"] {
+    visibility: visible;
+}
 .Drawer__content[data-state="leave"] {
     animation-name: drawer_fade_out;
+}
+.Drawer__content[data-state="idle"] {
+    visibility: hidden;
 }
