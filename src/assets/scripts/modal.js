@@ -3,11 +3,14 @@
 
 class Modal
 {
-    constructor( elementId ) {
-        this.id = elementId;
-        this.modal = document.getElementById(this.id);
-        this.buttonSelectors = `[modal-toggle="${this.id}"], [href="#${this.id}"]`;
-        this.buttons = document.querySelectorAll(this.buttonSelectors);
+    constructor( id ) {
+        this.id = id;
+        this.modal = document.getElementById(id);
+        this.buttons = document.querySelectorAll(`[modal-toggle="${id}"]`);
+        this.anchors = document.querySelectorAll(`[href="#${id}"]`);
+        this.toggles = [...this.buttons, ...this.anchors];
+        this.parts = document.querySelectorAll(`[modal-part="${id}"]`);
+        this.states = ['idle', 'enter', 'active', 'leave'];
         this.duration = this.modal.dataset.duration ? this.modal.dataset.duration : 300;
     }
 
@@ -21,16 +24,32 @@ class Modal
     }
 
     setState( state ) {
-        this.modal.dataset.state = state;
-        this.buttons.forEach( (button) => {
-            button.dataset.state = state;
+        const parts = [this.modal, ...this.toggles, ...this.parts];
+
+        parts.forEach((part) => {
+            part.dataset.state = state;
         })
     }
 
+    setOpened() {
+        if(this.modal.hasAttribute('open')) {
+            this.modal.removeAttribute('open');
+        }
+
+        this.modal.showModal();
+        this.setState('active');
+        document.documentElement.style.overflow = 'hidden';
+        document.body.classList.add(this.id + '--active');
+    }
+
     open() {
+        if (this.modal.dataset.state !== 'idle') {
+            console.warn(`Modal #${this.id}: is already opened`);
+            return;
+        };
+
         this.modal.showModal();
         this.setState('enter');
-
         document.documentElement.style.overflow = 'hidden';
         document.body.classList.add(this.id + '--active');
 
@@ -39,15 +58,29 @@ class Modal
         }, this.duration);
     }
 
+    setClosed() {
+        if(!this.modal.hasAttribute('open')) {
+            this.modal.setAttribute('open', '');
+        }
+
+        this.setState('idle');
+        document.documentElement.style.overflow = null;
+        document.body.classList.remove(this.id + '--active');
+        this.modal.close();
+    }
+
     close() {
+        if (this.modal.dataset.state !== 'active') {
+            console.warn(`Modal #${this.id}: is already closed`);
+            return;
+        };
+
         this.setState('leave');
 
         setTimeout( () => {
             this.setState('idle');
-
             document.documentElement.style.overflow = null;
             document.body.classList.remove(this.id + '--active');
-
             this.modal.close();
         }, this.duration);
     }
@@ -67,20 +100,20 @@ class Modal
     }
 
     init() {
-        this.setState('idle');
+        if (this.modal.hasAttribute('open')) {
+            this.setOpened();
+        } else {
+            this.setClosed();
+        };
 
         document.addEventListener('keydown', (event) => this.escClose(event));
 
-        this.buttons.forEach((button) => {
+        this.toggles.forEach((button) => {
             button.addEventListener('click', ( event ) => {
                 event.preventDefault();
                 this.toggle();
             });
         });
-
-        if ( this.modal.dataset.duration ) {
-            this.modal.style.setProperty('--modal-duration', this.duration + 'ms');
-        }
     }
 }
 

@@ -8,18 +8,10 @@ class Drawer
         this.drawer = document.getElementById(id);
         this.buttons = document.querySelectorAll(`[drawer-toggle="${id}"]`);
         this.anchors = document.querySelectorAll(`[href="#${id}"]`);
-        this.toggles = [...this.buttons, ...this.anchors]
+        this.toggles = [...this.buttons, ...this.anchors];
         this.parts = document.querySelectorAll(`[drawer-part="${id}"]`);
         this.states = ['idle', 'enter', 'active', 'leave'];
-        this.duration = 300;
-    }
-
-    log() {
-        console.log({
-            id: this.id,
-            height: this.getInnerHeight(),
-            open: this.drawer.hasAttribute('open'),
-        })
+        this.duration = this.drawer.dataset.duration ? this.drawer.dataset.duration : 300;
     }
 
     isActive() {
@@ -29,6 +21,14 @@ class Drawer
     isAnimating() {
         return this.drawer.dataset.state === 'enter'
             || this.drawer.dataset.state === 'leave';
+    }
+
+    setState( state ) {
+        const parts = [this.drawer, ...this.toggles, ...this.parts];
+
+        parts.forEach((part) => {
+            part.dataset.state = state;
+        })
     }
 
     getInnerHeight() {
@@ -53,14 +53,6 @@ class Drawer
         return height;
     }
 
-    setState(state) {
-        this.drawer.dataset.state = state;
-
-        [...this.toggles, ...this.parts].forEach((part) => {
-            part.dataset.state = state;
-        })
-    }
-
     open() {
         if (this.drawer.hasAttribute('open')) {
             console.warn(`Drawer #${this.id}: is already open`);
@@ -75,6 +67,12 @@ class Drawer
             this.setState('active');
             this.drawer.style.height = 'auto';
         }, this.duration);
+    }
+
+    setOpened() {
+        this.drawer.setAttribute('open', '');
+        this.setState('active');
+        this.drawer.style.height = 'auto';
     }
 
     close() {
@@ -96,6 +94,12 @@ class Drawer
         }, this.duration + 10);
     }
 
+    setClosed() {
+        this.drawer.style.height = 0;
+        this.setState('idle');
+        this.drawer.removeAttribute('open');
+    }
+
     toggle() {
         if ( this.isAnimating() ) return;
         this.isActive() ? this.close() : this.open();
@@ -103,12 +107,10 @@ class Drawer
 
     init() {
         if (this.drawer.hasAttribute('open')) {
-            this.setState('active');
-            this.drawer.style.height = 'auto';
+            this.setOpened();
         } else {
-            this.setState('idle');
-            this.drawer.style.height = 0;
-        }
+            this.setClosed();
+        };
 
         this.toggles.forEach((button) => {
             button.addEventListener('click', ( event ) => {

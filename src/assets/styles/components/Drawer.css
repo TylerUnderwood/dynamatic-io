@@ -52,12 +52,17 @@
     position: relative;
     z-index: 2;
 }
+.Drawer__summary:focus-visible {
+    outline: var(--focus-visible-outline);
+}
 .Drawer__content {
     position: relative;
     z-index: 1;
 }
 .Drawer__content:focus-within {
-    outline: solid 2px 2px var(--theme-primary);
+    outline: var(--focus-visible-outline);
+    outline-style: dotted;
+    outline-offset: 2px;
 }
 .Drawer__content[data-state] {
     animation-duration: var(--drawer-duration);

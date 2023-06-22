@@ -18,6 +18,11 @@ button {
     cursor: pointer;
 }
 
+button:focus-visible {
+    outline: var(--focus-visible-outline);
+    outline-offset: 2px;
+}
+
 .Button {
     --button-color: var(--input-color);
     --button-hover: var(--input-hover);
@@ -84,7 +89,7 @@ button {
 // :focus should override :hover
 .Button[focus-v],
 .Button:focus-visible  {
-    outline: 2px solid var(--input-color);
+    outline: var(--focus-visible-outline);
     outline-offset: 2px;
 }
 

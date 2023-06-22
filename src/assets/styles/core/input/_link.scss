@@ -8,21 +8,23 @@ a {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+}
 
-    &:hover,
-    &:focus {
-        outline: none;
-        color: inherit;
-    }
+a:hover,
+a:focus {
+    outline: none;
+    color: inherit;
+}
 
-    &:focus-visible {
-        outline: 2px solid var(--input-color);
-    }
+a:focus-visible {
+    outline: var(--focus-visible-outline);
 }
 
 .Link {
     color: var(--input-color);
-    transition: color 300ms ease;
+    transition-property: color;
+    transition-duration: var(--input-timing);
+    transition-timing-function: ease;
     cursor: pointer;
 
     &[active] {

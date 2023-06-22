@@ -4,6 +4,10 @@
 |–––––––––––––––––––––––––
 */
 
+:root {
+    --focus-visible-outline: 2px solid var(--input-color);
+}
+
 [data-scheme] {
     --input-color: var(--theme-input);
     --input-hover: var(--theme-accent);
