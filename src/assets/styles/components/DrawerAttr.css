@@ -1,0 +1,26 @@
+/*
+|–––––––––––––––––––––––––
+| COMPONENT: DrawerAttr
+|–––––––––––––––––––––––––
+*/
+
+[drawer] {
+    --drawer-duration: 300ms;
+    overflow: hidden;
+    transition-property: height;
+    transition-duration: var(--drawer-duration);
+    transition-timing-function: ease-in-out;
+}
+[drawer][open] {
+    height: auto;
+}
+[drawer]:not([open]) {
+    height: 0;
+}
+[drawer]:focus-within {
+    transition-duration: 0ms !important;
+    height: auto !important;
+}
+[drawer-toggle] {
+    cursor: pointer;
+}
