@@ -104,7 +104,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
             </div>
         </div>
 
-        <Modal id="demoModal01" open>
+        <Modal id="demoModal01">
             <div class="Card">
                 <h2 class="Heading h3">Heading</h2>
                 <p class="Copy mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas, aut saepe unde nesciunt sunt ipsum! Magnam officiis veritatis molestiae debitis soluta hic accusamus, praesentium quod. A iusto sunt tempore?</p>

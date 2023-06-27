@@ -1,4 +1,4 @@
-@use '../functions/builder' as b;
+@use '../functions/builder' as builder;
 
 /*
 |––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -20,7 +20,7 @@
     flex-wrap: wrap;
 }
 
-@include b.add-breakpoint-prefixes() {
+@include builder.add-breakpoint-prefixes() {
     &matrix {
         display: flex;
         flex-direction: row;
@@ -80,12 +80,12 @@ $cell_numbers: (
     --cell-flex: 0;
 }
 
-@include b.make-classes-from-list( 'cells', --cells-number, $cell_numbers ) {
+@include builder.make-classes-from-list( 'cells', --cells-number, $cell_numbers ) {
     --cell-width: calc( (1 / var(--cells-number)) * 100% );
     --cell-flex: 0;
 };
 
-@include b.make-classes-from-list( 'cell', --cell-width, $cell_widths ) {
+@include builder.make-classes-from-list( 'cell', --cell-width, $cell_widths ) {
     --cell-flex: 0;
 };
 
@@ -95,19 +95,19 @@ $cell_numbers: (
     --cell-flex: 1;
 }
 
-@include b.add-breakpoint-prefixes() {
+@include builder.add-breakpoint-prefixes() {
     &cells-auto,
     &cell-auto {
         --cell-width: unset;
         --cell-flex: 0;
     }
 
-    @include b.make-classes-from-list-for-prefixes( 'cells', --cells-number, $cell_numbers ) {
+    @include builder.make-classes-from-list-for-prefixes( 'cells', --cells-number, $cell_numbers ) {
         --cell-width: calc( (1 / var(--cells-number)) * 100% );
         --cell-flex: 0;
     };
 
-    @include b.make-classes-from-list-for-prefixes( 'cell', --cell-width, $cell_widths ) {
+    @include builder.make-classes-from-list-for-prefixes( 'cell', --cell-width, $cell_widths ) {
         --cell-flex: 0;
     };
 
@@ -178,24 +178,24 @@ $sizes: (
     }
 }
 
-@include b.make-classes-from-list( 'void', --void-y --void-x, $sizes );
-@include b.make-classes-from-list( 'void-x', --void-y , $sizes );
-@include b.make-classes-from-list( 'void-y', --void-x, $sizes );
+@include builder.make-classes-from-list( 'void', --void-y --void-x, $sizes );
+@include builder.make-classes-from-list( 'void-x', --void-y , $sizes );
+@include builder.make-classes-from-list( 'void-y', --void-x, $sizes );
 
-@include b.add-breakpoint-prefixes() {
+@include builder.add-breakpoint-prefixes() {
     &void {
         --void-y: 1em;
         --void-x: 1em;
     }
-    @include b.make-classes-from-list-for-prefixes( 'void', --void-y --void-x, $sizes );
+    @include builder.make-classes-from-list-for-prefixes( 'void', --void-y --void-x, $sizes );
 
     &void-x {
         --void-y: 1em;
     }
-    @include b.make-classes-from-list-for-prefixes( 'void-x', --void-y , $sizes );
+    @include builder.make-classes-from-list-for-prefixes( 'void-x', --void-y , $sizes );
 
     &void-y {
         --void-x: 1em;
     }
-    @include b.make-classes-from-list-for-prefixes( 'void-y', --void-x, $sizes );
+    @include builder.make-classes-from-list-for-prefixes( 'void-y', --void-x, $sizes );
 }
