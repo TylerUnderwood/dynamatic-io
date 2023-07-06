@@ -1,5 +1,5 @@
 {
-  "colors": {
+  "color": {
     "jade": "#22ee88",
     "azure": "#2299ee",
     "blue": {
@@ -64,25 +64,24 @@
     "face": "--light-400",
     "body": "--light-600"
   },
-  "DEFAULT": {
-    "primary": "--theme-primary",
-    "secondary": "--theme-secondary",
-    "accent": "--theme-accent",
-    "input": "--theme-input",
-    "marker": "--theme-marker",
-    "muted": "--theme-muted",
-    "base": "--theme-base",
-    "offset": "--theme-offset",
-    "contrast": "--theme-contrast",
-    "head": "--theme-head",
-    "face": "--theme-face",
-    "body": "--theme-body"
+  "default": {
+    "primary": "--light-primary",
+    "secondary": "--light-secondary",
+    "accent": "--light-accent",
+    "input": "--light-input",
+    "marker": "--light-marker",
+    "muted": "--light-muted",
+    "base": "--light-base",
+    "offset": "--light-offset",
+    "contrast": "--light-contrast",
+    "head": "--light-head",
+    "face": "--light-face",
+    "body": "--light-body"
   },
-  "marker": {
-    "color": "--theme-marker",
-    "muted": "--theme-muted"
-  },
-  "text": {
+  "markup": {
+    "marker": {
+      "color": "--theme-marker"
+    },
     "font": {
       "head": "\"Arial\", sans-serif",
       "face": "\"Arial\", sans-serif",
@@ -100,10 +99,12 @@
       "DEFAULT": "2.2rem",
       "small": "1.6rem"
     },
-    "border-width": {
-      "large": "3px",
-      "DEFAULT": "2px",
-      "small": "1px"
+    "border": {
+      "width": {
+        "large": "3px",
+        "DEFAULT": "2px",
+        "small": "1px"
+      }
     },
     "pad": {
       "large": "1.2rem",

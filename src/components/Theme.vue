@@ -1,49 +1,24 @@
 <script>
 import theme from '@config/theme.json';
-import tokensNative from '@config/tokens-native';
+import themeNeon from '@config/theme-neon.json';
+import tokenBuilder from '@config/token-builder';
 
 export default {
   data() {
     return {
-      theme,
-      tokensNative,
+      theme: theme,
+      themeNeon: themeNeon,
     }
   },
 
   methods: {
-    tokenList( category ) {
-      let tokensStyles = '';
-      category.forEach((token, index) => {
-        tokensStyles += token + (index < category.length - 1 ? '\n  ' : '');
-      });
-      return tokensStyles;
-    },
-
-    buildCssVars( themeTokens ) {
-      let themeStyles = '';
-
-      const addCategoryStyles = ( category, categoryName, rule ) => {
-        themeStyles += `
-/* ${categoryName} */
-${rule} {
-  ${this.tokenList( themeTokens[category] )}
-}\n`
-      };
-
-      for ( const category in themeTokens ) {
-        if ( category === "DEFAULT" ) {
-          addCategoryStyles(category, "Theme", ":root");
-        } else {
-          addCategoryStyles(category, category, ":root");
-        }
-      };
-
-      return themeStyles;
+    setTheme(theme) {
+      document.getElementById('theme').innerHTML = tokenBuilder(theme);
     }
   },
 
   created() {
-    document.getElementById('theme').innerHTML = this.buildCssVars( tokensNative );
+    this.setTheme(this.themeNeon);
   },
 }
 </script>

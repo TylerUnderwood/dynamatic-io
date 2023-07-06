@@ -1,7 +1,9 @@
 'use strict'
-import tokens from './tokens';
+import tokens from "./tokens";
 
-const nativeTokensGenerator = ( tokens ) => {
+const defaultTokens = tokens;
+
+const tokensNative = ( tokens = defaultTokens ) => {
   let categories = {};
   let variables = [];
 
@@ -28,6 +30,7 @@ const nativeTokensGenerator = ( tokens ) => {
   return categories;
 };
 
-const tokensNative = nativeTokensGenerator(tokens);
+console.log("02 - TOKENS_NATIVE");
+console.log(tokensNative(defaultTokens()));
 
 export default tokensNative;

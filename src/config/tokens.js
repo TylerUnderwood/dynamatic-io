@@ -2,7 +2,9 @@
 import pluralize from 'pluralize';
 import theme from './theme.json';
 
-const themeTokensGenerator = ( theme ) => {
+const defaultTheme = theme;
+
+const tokens = ( theme = defaultTheme ) => {
   let categories = {}; // an object of { category: variables }
   let variables = {}; // an object of { token: variable }
 
@@ -25,13 +27,13 @@ const themeTokensGenerator = ( theme ) => {
 
     for ( const token in tokens ) {
       let prefix = '';
-      let blocklist = ["color", "text"];
+      let blocklist = ["color", "markup"];
 
-      // Only add new prefixes that are not in the blocklist
-      if ( !blocklist.some(word => category.includes(word)) ) {
-        prefix = pluralize(category, 1) + '-' + token;
-      } else {
+      // Only add categories to prefixes that are not in the blocklist
+      if ( blocklist.some(word => category.includes(word)) ) {
         prefix = token;
+      } else {
+        prefix = category + '-' + token;
       }
 
       addToken( prefix, tokens[token] );
@@ -44,6 +46,9 @@ const themeTokensGenerator = ( theme ) => {
   return categories;
 };
 
-const tokens = themeTokensGenerator(theme);
+console.log("00 - THEME");
+console.log(defaultTheme);
+console.log("01 - TOKENS");
+console.log(tokens());
 
 export default tokens;

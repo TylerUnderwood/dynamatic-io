@@ -17,10 +17,10 @@ export default {
 
     created() {
         this.themeNames = [
-            ...Object.keys(tokens.light).map(color => color.replace(/light/g, 'theme')),
-            ...Object.keys(tokens.colors).filter(color => /^blue/.test(color)),
-            ...Object.keys(tokens.colors).filter(color => /^dark/.test(color)),
-            ...Object.keys(tokens.colors).filter(color => /^light/.test(color)),
+            ...Object.keys(tokens().light).map(color => color.replace(/light/g, 'theme')),
+            ...Object.keys(tokens().color).filter(color => /^blue/.test(color)),
+            ...Object.keys(tokens().color).filter(color => /^dark/.test(color)),
+            ...Object.keys(tokens().color).filter(color => /^light/.test(color)),
         ]
     }
 }
@@ -70,7 +70,7 @@ export default {
     <SectionDocs heading="Tokens">
         <div class="pt-6"></div>
         <details
-            v-for="category, cline in tokens"
+            v-for="category, cline in tokens()"
             :open="/^colors/.test(cline) ? true : null"
         >
             <summary>
