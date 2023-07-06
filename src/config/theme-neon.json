@@ -27,13 +27,13 @@
     }
   },
   "light": {
-    "primary": "--fuchsia",
+    "primary": "--azure",
     "secondary": "--royal-purple",
     "accent": "--jade",
     "input": "--azure",
     "marker": "--jade",
     "muted": "--grey",
-    "base": "--light",
+    "base": "--light-100",
     "offset": "--light-200",
     "contrast": "--light-400",
     "head": "--dark-100",
@@ -41,13 +41,13 @@
     "body": "--dark-400"
   },
   "dark": {
-    "primary": "--fuchsia",
+    "primary": "--azure",
     "secondary": "--royal-purple",
     "accent": "--jade",
     "input": "--azure",
     "marker": "--jade",
     "muted": "--grey",
-    "base": "--dark",
+    "base": "--dark-100",
     "offset": "--dark-200",
     "contrast": "--dark-400",
     "head": "--light-100",
@@ -101,7 +101,7 @@
       "DEFAULT": "0.8rem",
       "small": "0.5rem"
     },
-    "round": "9999px",
+    "round": "1px",
     "timing": "200ms",
     "easing": "ease"
   },

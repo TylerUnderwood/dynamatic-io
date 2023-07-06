@@ -1,5 +1,17 @@
 <script>
+import theme from '@config/theme.json';
+import themeNeon from '@config/theme-neon.json';
+import tokenBuilder from '@config/token-builder';
+
 export default {
+    data() {
+        return {
+            theme: theme,
+            themeNeon: themeNeon,
+            selectedTheme: "default",
+        }
+    },
+
     methods: {
         setSwitch() {
             const toggle = document.querySelector('#toggle-scheme');
@@ -81,6 +93,21 @@ export default {
 
                 document.body.setAttribute(attr, newValues.join(' '));
             })
+        },
+
+        setTheme(theme) {
+            document.getElementById('theme').innerHTML = tokenBuilder(theme);
+        },
+
+        changeTheme() {
+            switch (this.selectedTheme) {
+                case "neon":
+                    this.setTheme(this.themeNeon)
+                break;
+                    default:
+                    this.setTheme(this.theme)
+                    break;
+            }
         }
     },
 
@@ -95,18 +122,18 @@ export default {
 
 <template>
     <div id="settings" class="SettingsConsole">
-        <!--
         <label for="select-theme">
             <select
-                id="select-theme"
-                name="Select Theme"
+                id="theme-select"
+                class="Field Field--small"
+                name="theme-select"
+                v-model="selectedTheme"
+                @change="changeTheme"
             >
-                <option value="auto">Auto</option>
-                <option value="dark">Dark</option>
-                <option value="light">Light</option>
+                <option value="default">Default</option>
+                <option value="neon">Neon</option>
             </select>
         </label>
-        -->
         <input
             type="checkbox"
             id="toggle-scheme"

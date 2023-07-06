@@ -1,24 +1,10 @@
 <script>
 import theme from '@config/theme.json';
-import themeNeon from '@config/theme-neon.json';
 import tokenBuilder from '@config/token-builder';
 
 export default {
-  data() {
-    return {
-      theme: theme,
-      themeNeon: themeNeon,
-    }
-  },
-
-  methods: {
-    setTheme(theme) {
-      document.getElementById('theme').innerHTML = tokenBuilder(theme);
-    }
-  },
-
   created() {
-    this.setTheme(this.themeNeon);
+    document.getElementById('theme').innerHTML = tokenBuilder(theme);
   },
 }
 </script>
