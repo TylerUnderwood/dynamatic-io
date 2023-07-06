@@ -1,6 +1,6 @@
 <script>
 import theme from '@config/theme.json';
-import tokenBuilder from '@config/token-builder';
+import { tokenBuilder } from "dynamatic";
 
 export default {
   created() {

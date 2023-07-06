@@ -1,6 +1,6 @@
 {
-  "name": "dynamatic",
-  "version": "0.0.1",
+  "name": "dynamatic-io",
+  "version": "0.1.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -9,6 +9,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "dynamatic": "^0.2.0",
     "pinia": "^2.0.13",
     "pluralize": "^8.0.0",
     "postcss-scss": "^4.0.4",

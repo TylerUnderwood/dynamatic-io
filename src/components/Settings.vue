@@ -1,7 +1,7 @@
 <script>
 import theme from '@config/theme.json';
 import themeNeon from '@config/theme-neon.json';
-import tokenBuilder from '@config/token-builder';
+import { tokenBuilder } from 'dynamatic';
 
 export default {
     data() {
