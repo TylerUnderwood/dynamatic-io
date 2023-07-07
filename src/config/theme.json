@@ -115,7 +115,7 @@
     "timing": "300ms",
     "easing": "ease"
   },
-  "screens": {
+  "screen": {
     "sm": "480px",
     "md": "768px",
     "lg": "1024px",
@@ -126,7 +126,7 @@
     "page": "48rem",
     "site": "64rem"
   },
-  "sizes": {
+  "size": {
     "1": "1px",
     "2": "2px",
     "4": "4px",

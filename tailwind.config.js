@@ -8,7 +8,7 @@ module.exports = {
   ],
   theme: {
     // spacing: theme.sizes,
-    screens: theme.screens,
+    screens: theme.screen,
     extend: {
       colors: {
         primary: "var(--theme-primary)",

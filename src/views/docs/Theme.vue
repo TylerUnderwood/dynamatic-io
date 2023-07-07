@@ -9,8 +9,7 @@ import { tokenCategories } from 'dynamatic';
 export default {
     data() {
         return {
-            theme,
-            tokens: tokenCategories(),
+            tokens: tokenCategories(theme),
             themeNames: [],
         }
     },
