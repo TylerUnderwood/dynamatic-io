@@ -9,7 +9,6 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "dynamatic": "^0.2.1",
     "pinia": "^2.0.13",
     "postcss-scss": "^4.0.4",
     "uuid": "^9.0.0",

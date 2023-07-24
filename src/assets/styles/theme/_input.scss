@@ -4,12 +4,10 @@
 |–––––––––––––––––––––––––
 */
 
-:root {
-    --focus-visible-outline: 2px solid var(--input-color);
-}
-
 [data-scheme] {
-    --input-color: var(--theme-input);
-    --input-hover: var(--theme-accent);
-    --input-active: var(--theme-secondary);
+    --input-color: var(--theme-primary);
+    --input-hover: var(--theme-secondary);
+    --input-active: var(--theme-tertiary);
+    --input-outline: 2px solid var(--input-color);
+    --input-backdrop: rgb(64 128 255 / 0.2);
 }

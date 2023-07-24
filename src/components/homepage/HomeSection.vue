@@ -30,16 +30,16 @@ export default {
     computed: {
         topClass() {
             if(this.reverse) {
-                return "md:rounded-bl-3xl"
+                return "md:rounded-bl-[2.4rem]"
             } else {
-                return "md:rounded-tr-3xl"
+                return "md:rounded-tr-[2.4rem]"
             }
         },
         botClass() {
             if(this.reverse) {
-                return "HomeSectionColLeft md:rounded-3xl"
+                return "HomeSectionColLeft md:rounded-[2.4rem]"
             } else {
-                return "HomeSectionColRight md:rounded-3xl"
+                return "HomeSectionColRight md:rounded-[2.4rem]"
             }
         },
         gradientAngle() {
@@ -81,7 +81,7 @@ export default {
                         background: linear-gradient(
                             ${gradientAngle},
                             rgba(255,255,255,0) 60%,
-                            var(--theme-accent) 100%)
+                            var(--theme-primary-up) 100%)
                         ;
                     `"
                 ></div>
@@ -89,7 +89,7 @@ export default {
         </template>
         <template #bot>
             <div
-                class="Arch absolute text-primary text-3xl hidden md:block"
+                class="Arch absolute text-primary text-[2.4rem] hidden md:block"
                 :class="archClass"
             ></div>
             <SectionBlock>

@@ -26,6 +26,7 @@
     --stripes-opacity: 1;
     --stripes-size: 20px;
 }
+
 @keyframes slide {
     from { transform: translateX(0); }
     to { transform: translateX(var(--stripes-size)); }

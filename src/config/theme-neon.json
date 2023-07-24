@@ -15,7 +15,7 @@
       "400": "#181a20",
       "600": "#101218",
       "800": "#080a10",
-      "DEFAULT": "--dark-100"
+      "DEFAULT": "var(--dark-100)"
     },
     "light": {
       "100": "#ffffff",
@@ -23,54 +23,54 @@
       "400": "#eeeeee",
       "600": "#e8e8e8",
       "800": "#dddddd",
-      "DEFAULT": "--light-200"
+      "DEFAULT": "var(--light-200)"
     }
   },
   "light": {
-    "primary": "--azure",
-    "secondary": "--royal-purple",
-    "accent": "--jade",
-    "input": "--azure",
-    "marker": "--jade",
-    "muted": "--grey",
-    "base": "--light-100",
-    "offset": "--light-200",
-    "contrast": "--light-400",
-    "head": "--dark-100",
-    "face": "--dark-200",
-    "body": "--dark-400"
+    "primary": "var(--azure)",
+    "secondary": "var(--royal-purple)",
+    "accent": "var(--jade)",
+    "input": "var(--azure)",
+    "marker": "var(--jade)",
+    "muted": "var(--grey)",
+    "base": "var(--light-100)",
+    "offset": "var(--light-200)",
+    "contrast": "var(--light-400)",
+    "head": "var(--dark-100)",
+    "face": "var(--dark-200)",
+    "body": "var(--dark-400)"
   },
   "dark": {
-    "primary": "--azure",
-    "secondary": "--royal-purple",
-    "accent": "--jade",
-    "input": "--azure",
-    "marker": "--jade",
-    "muted": "--grey",
-    "base": "--dark-100",
-    "offset": "--dark-200",
-    "contrast": "--dark-400",
-    "head": "--light-100",
-    "face": "--light-200",
-    "body": "--light-400"
+    "primary": "var(--azure)",
+    "secondary": "var(--royal-purple)",
+    "accent": "var(--jade)",
+    "input": "var(--azure)",
+    "marker": "var(--jade)",
+    "muted": "var(--grey)",
+    "base": "var(--dark-100)",
+    "offset": "var(--dark-200)",
+    "contrast": "var(--dark-400)",
+    "head": "var(--light-100)",
+    "face": "var(--light-200)",
+    "body": "var(--light-400)"
   },
   "default": {
-    "primary": "--dark-primary",
-    "secondary": "--dark-secondary",
-    "accent": "--dark-accent",
-    "input": "--dark-input",
-    "marker": "--dark-marker",
-    "muted": "--dark-muted",
-    "base": "--dark-base",
-    "offset": "--dark-offset",
-    "contrast": "--dark-contrast",
-    "head": "--dark-head",
-    "face": "--dark-face",
-    "body": "--dark-body"
+    "primary": "var(--dark-primary)",
+    "secondary": "var(--dark-secondary)",
+    "accent": "var(--dark-accent)",
+    "input": "var(--dark-input)",
+    "marker": "var(--dark-marker)",
+    "muted": "var(--dark-muted)",
+    "base": "var(--dark-base)",
+    "offset": "var(--dark-offset)",
+    "contrast": "var(--dark-contrast)",
+    "head": "var(--dark-head)",
+    "face": "var(--dark-face)",
+    "body": "var(--dark-body)"
   },
   "markup": {
     "marker": {
-      "color": "--theme-marker"
+      "color": "var(--theme-marker)"
     },
     "font": {
       "head": "'Roboto Condensed', sans-serif",
@@ -81,9 +81,9 @@
     "tab-size": "2.0rem"
   },
   "input": {
-    "color": "--theme-input",
-    "hover": "--theme-accent",
-    "active": "--theme-secondary",
+    "color": "var(--theme-input)",
+    "hover": "var(--theme-accent)",
+    "active": "var(--theme-secondary)",
     "height": {
       "large": "3.0rem",
       "DEFAULT": "2.4rem",
@@ -133,8 +133,8 @@
     "80": "4.0rem",
     "96": "4.8rem",
     "128": "6.4rem",
-    "break": "--break-size",
-    "tab": "--tab-size",
+    "break": "var(--break-size)",
+    "tab": "var(--tab-size)",
     "DEFAULT": "1em",
     "rem": "1rem"
   },

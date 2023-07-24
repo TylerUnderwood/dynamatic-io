@@ -65,7 +65,7 @@ export default {
 
 .Logo:hover,
 .Logo:focus {
-    background-color: rgba(64, 128, 255, 0.2);
+    background-color: var(--input-backdrop);
 }
 
 .Logo__icon {

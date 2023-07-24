@@ -16,7 +16,7 @@ export default {
 
     created() {
         this.themeNames = [
-            ...Object.keys(this.tokens.light).map(color => color.replace(/light/g, 'theme')),
+            ...Object.keys(this.tokens.DEFAULT).map(color => color),
             ...Object.keys(this.tokens.color).filter(color => /^blue/.test(color)),
             ...Object.keys(this.tokens.color).filter(color => /^dark/.test(color)),
             ...Object.keys(this.tokens.color).filter(color => /^light/.test(color)),
@@ -32,12 +32,14 @@ export default {
             <div
                 v-for="name in themeNames"
                 class="flex flex-col w-1/6"
-                :style="{ color: `var(--${name})` }"
             >
-                <span class="Meta text-face mt-auto mb-2" :style="{fontSize: '0.6rem'}">
+                <span class="Meta mt-auto mb-2" :style="{fontSize: '0.6rem'}">
                     {{ name.replace('theme-', ''), `var(--${name})` }}
                 </span>
-                <div class="w-full bg-current" :style="{paddingTop: '100%'}"></div>
+                <div
+                    class="w-full bg-current"
+                    :style="{paddingTop: '100%', color: `var(--${name})`}"
+                ></div>
             </div>
         </div>
     </SectionDocs>
@@ -73,7 +75,9 @@ export default {
             :open="/^colors/.test(cline) ? true : null"
         >
             <summary>
-                <h3 class="Heading h3">{{ cline }}</h3>
+                <h3 class="Heading h3">
+                    {{ cline === "DEFAULT" ? "theme" : cline }}
+                </h3>
             </summary>
             <code v-for="token, name in category" class="block mt-2">
                 <span>{{ name }}: </span>
