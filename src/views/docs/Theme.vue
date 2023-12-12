@@ -17,9 +17,6 @@ export default {
     created() {
         this.themeNames = [
             ...Object.keys(this.tokens.DEFAULT).map(color => color),
-            ...Object.keys(this.tokens.color).filter(color => /^blue/.test(color)),
-            ...Object.keys(this.tokens.color).filter(color => /^dark/.test(color)),
-            ...Object.keys(this.tokens.color).filter(color => /^light/.test(color)),
         ]
     }
 }
@@ -46,7 +43,7 @@ export default {
 
     <SectionDocs heading="Scheme">
         <div class="pt-6"></div>
-        <div class="bg-primary p-8 md:p-12 lg:p-8" data-scheme=dark>
+        <div class="Card bg-primary p-8 md:p-12 lg:p-8" data-scheme=dark>
             <span class="Heading">Theme Dark</span>
             <code class="Code mt-2" style="font-size: 0.8rem">[data-scheme=dark] .bg-primary</code>
             <p class="Copy mt-2">This container will all ways be dark.</p>
@@ -55,7 +52,7 @@ export default {
                     <p class="List__text">Item {{ item }}</p>
                 </li>
             </ul>
-            <div class="bg-base mt-6 p-8 md:p-12 lg:p-8" data-scheme=body>
+            <div class="Card bg-base mt-6 p-8 md:p-12 lg:p-8" data-scheme=body>
                 <span class="Heading">Theme Body</span>
                 <code class="Code mt-2" style="font-size: 0.8rem">[data-scheme=body] .bg-base</code>
                 <p class="Copy mt-2">This container will follow whatever the <code class="Code">body</code> tag uses.</p>
@@ -84,7 +81,7 @@ export default {
                 <mark v-if="/^#/.test(token)" :style="{backgroundColor: token}">
                     {{ token }}
                 </mark>
-                <mark v-else-if="/^--/.test(token)" :style="{backgroundColor: `var(${token})`}">
+                <mark v-else-if="/^var/.test(token)" :style="{backgroundColor: `${token}`}">
                     {{ token }}
                 </mark>
                 <mark v-else>

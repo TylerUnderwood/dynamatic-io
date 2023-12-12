@@ -28,6 +28,9 @@ ol {
 .List,
 .Markup ul,
 .Markup ol {
+    --list-tab: var(--tab-size);
+    --list-gap: 1.2rem;
+    --marker-color: var(--markup-color);
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -37,9 +40,6 @@ ol {
     gap: var(--list-gap);
     list-style: none;
     counter-reset: list;
-    --list-tab: var(--tab-size);
-    --list-gap: 1.2rem;
-    --marker-color: var(--theme-marker);
 }
 
 // Nested Lists
@@ -82,7 +82,7 @@ ol {
         left: 0;
         width: var(--list-tab);
         text-align: center;
-        color: var(--marker-color);
+        color: var(--markup-color);
     }
 }
 
@@ -112,6 +112,6 @@ ol {
 }
 
 // Custom marker on List
-.List[style*="--marker"] > .List__item::before {
+.List[style*="--marker:"] > .List__item::before {
     content: var(--marker);
 }

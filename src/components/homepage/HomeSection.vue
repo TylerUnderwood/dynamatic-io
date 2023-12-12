@@ -111,34 +111,3 @@ export default {
     </SectionSplit>
 
 </template>
-
-<style>
-.HomeSectionColLeft,
-.HomeSectionColRight {
-    position: relative;
-}
-.HomeSectionColLeft::before,
-.HomeSectionColRight::before {
-    position: absolute;
-    inset: 0;
-    content: '';
-}
-.HomeSectionColLeft > .Section__block,
-.HomeSectionColRight > .Section__block {
-    position: relative;
-}
-@media (min-width: 767px) {
-    .HomeSectionColLeft {
-        box-shadow: inset -24px 24px 12px -24px rgba(0,0,0,0.5);
-    }
-    .HomeSectionColRight {
-        box-shadow: inset 24px -24px 12px -24px rgba(0,0,0,0.5);
-    }
-    .HomeSectionColLeft::before {
-        background: linear-gradient(75deg, var(--theme-base) 90%, rgba(255,255,255,0) 100%);
-    }
-    .HomeSectionColRight::before {
-        background: linear-gradient(255deg, var(--theme-base) 90%, rgba(255,255,255,0) 100%);
-    }
-}
-</style>

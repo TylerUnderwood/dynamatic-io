@@ -47,7 +47,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
 
     <Section heading="Drawer">
         <Drawer
-            :id="`demo-drawer-${index}`"
+            :id="`demoDrawer0${index}`"
             v-for="index in 3"
             class="mt-6"
             :open="index === 1 ? '' : null"
@@ -73,7 +73,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
         </Drawer>
         <div class="mt-4">
             <code class="Code">
-                new Drawer('demo-drawer-1').toggle()
+                new Drawer('demoDrawer01').toggle()
             </code>
         </div>
     </Section>
@@ -119,6 +119,12 @@ import DemoBlock from "@/components/DemoBlock.vue";
                 <small class="mt-4">Hello lol</small>
             </div>
         </Modal>
+
+        <div class="mt-4">
+            <code class="Code">
+                new Modal('demoModal01').toggle()
+            </code>
+        </div>
     </Section>
 
     <Section

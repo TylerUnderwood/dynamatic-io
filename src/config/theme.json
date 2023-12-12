@@ -5,7 +5,7 @@
     "green": "#48D828",
     "azure": "#2299ee",
     "azure-new": "#28A0D8",
-    "daark-bllue": "#1F39AE",
+    "dark-blue": "#1F39AE",
     "blue": {
       "100": "#88a8ff",
       "200": "#6080f8",
@@ -85,8 +85,8 @@
   },
   "round": {
     "sm": "3px",
-    "DEFAULT": "6px",
-    "lg": "12px"
+    "md": "6px",
+    "lg": "9px"
   },
   "border": {
     "DEFAULT": "2px solid var(--theme-contrast)"
@@ -95,42 +95,53 @@
     "DEFAULT": "2px solid var(--input-color)"
   },
   "shadow": {
-    "DEFAULT": "0px 7px 10px 0px rgb(0, 0, 0, / 0.2)"
+    "lg-inset": "inset 0px 0px 20px 4px rgb(0, 0, 0, / 0.2)",
+    "DEFAULT": "0px 7px 10px 0px rgb(0, 0, 0, / 0.2)",
+    "lg": "0px 0px 20px 4px rgb(0, 0, 0, / 0.2)"
   },
   "markup": {
+    "color": "var(--theme-primary)",
+    "muted": "var(--grey-200)"
+  },
+  "font": {
+    "head": "'Arial', sans-serif",
+    "face": "'Arial', sans-serif",
+    "meta": "'Arial', sans-serif"
+  },
+  "heading": {
     "DEFAULT": {
-      "muted": "var(--grey-200)"
-    },
-    "marker": {
-      "color": "var(--theme-marker)"
-    },
-    "font": {
-      "head": "'Arial', sans-serif",
-      "face": "'Arial', sans-serif",
-      "meta": "'Arial', sans-serif"
-    },
-    "heading": {
-      "DEFAULT": {
-        "sm": {
-
-        },
-        "DEFAULT": {
-          "letter-spacing": "0",
-          "line-height": "1.2",
-          "font-size": "1.6rem",
-          "font-weight": "700",
-          "color": "var(--theme-head)"
-        },
-        "lg": {
-
-        }
+      "mobile": {
+        "font-size": "1.2rem"
       },
-      "title": {
-
+      "DEFAULT": {
+        "letter-spacing": "0",
+        "line-height": "1.2",
+        "font-size": "1.6rem",
+        "font-weight": "700",
+        "color": "var(--theme-head)"
       }
     },
-    "break-size": "1.6rem",
-    "tab-size": "2.0rem"
+    "title": {
+      "font-size": "1.6rem"
+    },
+    "h1": {
+      "font-size": "1.6rem"
+    },
+    "h2": {
+      "font-size": "1.6rem"
+    },
+    "h3": {
+      "font-size": "1.6rem"
+    },
+    "h4": {
+      "font-size": "1.6rem"
+    },
+    "h5": {
+      "font-size": "1.6rem"
+    },
+    "h6": {
+      "font-size": "1.6rem"
+    }
   },
   "input": {
     "color": "var(--theme-primary)",
@@ -159,6 +170,11 @@
     "timing": "300ms",
     "easing": "ease"
   },
+  "card": {
+    "shadow": "var(--shadow-lg)",
+    "round": "var(--round-lg)",
+    "background": "var(--theme-base)"
+  },
   "screen": {
     "sm": "480px",
     "md": "768px",
@@ -169,6 +185,10 @@
     "copy": "36rem",
     "page": "48rem",
     "site": "64rem"
+  },
+  "other": {
+    "break-size": "1.6rem",
+    "tab-size": "2.0rem"
   },
   "size": {
     "1": "1px",
@@ -191,5 +211,7 @@
     "tab": "var(--tab-size)",
     "DEFAULT": "1em",
     "rem": "1rem"
+  },
+  "import": {
   }
 }
