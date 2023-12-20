@@ -16,10 +16,14 @@ p {
 // Class
 .Copy,
 .Markup p {
-    margin: 0;
-    max-width: var(--max-w-copy);
-    line-height: 1.6;
-    @include f.clip(1.6, -0.3em, -0.35em);
+    --lhc-height: var(--copy-line-height);
+    --lhc-top: var(--copy-lhc-top);
+    --lhc-bottom: var(--copy-lhc-bottom);
+    line-height: var(--copy-line-height);
+    letter-spacing: var(--copy-letter-spacing);
+    font-size: var(--copy-font-size);
+    font-weight: var(--copy-font-weight);
+    font-family: var(--copy-font-family);
+    color: var(--copy-color);
     hyphens: none;
-    color: var(--theme-body);
 }

@@ -1,11 +1,5 @@
-<script>
-import theme from '@config/theme.json';
-import { tokenBuilder } from "dynamatic";
 
-export default {
-  methods: {
-
-tokenCategories( theme ) {
+const tokenCategories = ( theme ) => {
   let categories = {}; // an object of { category: variables }
   let variables = {}; // an object of { token: variable }
 
@@ -49,9 +43,10 @@ tokenCategories( theme ) {
   }
 
   return categories;
-},
-tokensNative( theme ) {
-    let tokens = this.tokenCategories(theme);
+};
+
+const tokensNative = ( theme ) => {
+    let tokens = tokenCategories(theme);
     let categories = {};
     let variables = [];
 
@@ -72,17 +67,18 @@ tokensNative( theme ) {
     }
 
     return categories;
-},
-tokenBuilder( theme ) {
-    let tokens = this.tokensNative(theme);
-    let themeCSS = '';
-    let schemeColors = [];
+};
 
-    const tokenList = ( category, saveThemeTokens = true ) => {
+const tokenBuilderr = ( theme ) => {
+    let tokens = tokensNative(theme);
+    let themeCSS = '';
+    let schemeColors = {};
+
+    const tokenList = ( category ) => {
         let tokensStyles = '';
         category.forEach((token, index) => {
-            if (/theme/.test(token) && saveThemeTokens) {
-                schemeColors.push(token);
+            if (/^theme/.test(token)) {
+                schemeColors[token] = token;
             } else {
                 tokensStyles += token + (index < category.length - 1 ? '\n  ' : '');
             }
@@ -98,51 +94,29 @@ tokenBuilder( theme ) {
         return importStyles;
     }
 
-    const addCategoryStyles = ( categoryList, categoryName, rule, saveThemeTokens = true ) => {
+    const addCategoryStyles = ( category, categoryName, rule ) => {
         if ( categoryName === 'import' ) {
-            themeCSS = importList(categoryList) + themeCSS;
+            themeCSS = importList(tokens[category]) + themeCSS;
         } else {
             themeCSS += `
 /* ${categoryName} */
 ${rule} {
-  ${tokenList( categoryList, saveThemeTokens)}
+  ${tokenList( tokens[category] )}
 }\n`
         }
     };
 
     for ( const category in tokens ) {
         if ( category === "DEFAULT" ) {
-            addCategoryStyles(tokens[category], "theme", ":root");
+            addCategoryStyles(category, "theme", ":root");
         } else {
-            addCategoryStyles(tokens[category], category, ":root");
+            addCategoryStyles(category, category, ":root");
         }
     };
 
-    debugger
-    addCategoryStyles(schemeColors, "scheme colors", "[data-scheme]", false);
+    addCategoryStyles(schemeColors, "scheme colors", "[data-scheme]");
 
     return themeCSS;
 }
-  },
 
-  created() {
-    document.getElementById('theme').innerHTML = tokenBuilder(theme);
-
-    console.log(this.tokenBuilder(theme));
-  },
-}
-</script>
-
-<template>
-    <noscript>Theme and Core</noscript>
-</template>
-
-<style lang="scss">
-@import "@styles/theme/index.scss";
-</style>
-<style lang="scss">
-@import "@styles/core/index.scss";
-</style>
-<style>
-@import "@styles/components/index.css";
-</style>
+export { tokenCategories, tokensNative, tokenBuilderr };

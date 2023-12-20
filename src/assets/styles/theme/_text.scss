@@ -4,7 +4,14 @@
 |–––––––––––––––––––––––––
 */
 
-// [data-scheme] {
-//     --markup-color: var(--markup-color);
-//     --markup-muted: var(--markup-muted);
-// }
+[data-scheme] {
+    --heading-color: var(--theme-head);
+    --h1-color: var(--theme-head);
+    --h2-color: var(--theme-head);
+    --h3-color: var(--theme-head);
+    --h4-color: var(--theme-head);
+    --h5-color: var(--markup-color);
+    --h6-color: var(--markup-muted);
+    --eyebrow-color: var(--theme-head);
+    --copy-color: var(--theme-body);
+}

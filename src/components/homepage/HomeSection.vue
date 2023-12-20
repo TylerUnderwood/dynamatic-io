@@ -35,13 +35,6 @@ export default {
                 return "md:rounded-tr-[2.4rem]"
             }
         },
-        botClass() {
-            if(this.reverse) {
-                return "HomeSectionColLeft md:rounded-[2.4rem]"
-            } else {
-                return "HomeSectionColRight md:rounded-[2.4rem]"
-            }
-        },
         gradientAngle() {
             if(this.reverse) {
                 return "210deg"
@@ -66,7 +59,7 @@ export default {
         :reverse="reverse"
         classBase="m-0"
         :classTop="`bg-primary ${topClass} overflow-hidden `"
-        :classBot="`relative py-8 justify-center ${botClass}`"
+        :classBot="`relative py-8 justify-center md:rounded-[2.4rem]`"
     >
         <template #top>
             <SectionBlock
@@ -92,7 +85,9 @@ export default {
                 class="Arch absolute text-primary text-[2.4rem] hidden md:block"
                 :class="archClass"
             ></div>
-            <SectionBlock>
+            <SectionBlock
+                classWrap="md:px-10"
+            >
                 <div class="Block Rhythm text-center md:text-left">
                     <h2 class="Heading">
                         {{ heading }}
