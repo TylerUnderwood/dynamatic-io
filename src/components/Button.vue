@@ -30,7 +30,7 @@ export default {
         :data-shape="shape"
         :data-theme="theme"
     >
-        <div class="Button__text Meta">
+        <div class="Button__text Meta lhc">
             {{ text }}
         </div>
     </button>

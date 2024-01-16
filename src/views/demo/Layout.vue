@@ -175,7 +175,7 @@ export default {
                                 :checked="axis === 'row' ? true : null"
                                 @change="() => isRow = !isRow"
                             >
-                            <span class="Meta ml-1">{{ axis }}</span>
+                            <span class="Meta lhc ml-1">{{ axis }}</span>
                         </label>
                         <div class="filler p-2"></div>
                         <label for="wrapLayoutSquares" class="Label">
@@ -185,7 +185,7 @@ export default {
                                 id="wrapLayoutSquares"
                                 v-model="wrapLayoutSquares"
                             >
-                            <span class="Meta ml-2">
+                            <span class="Meta lhc ml-2">
                                 wrap
                             </span>
                         </label>

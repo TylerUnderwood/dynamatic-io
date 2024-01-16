@@ -22,7 +22,7 @@ import HomeSection from "@/components/homepage/HomeSection.vue";
                     href="https://github.com/TylerUnderwood/dynamatic-io"
                     target="_blank"
                 >
-                    <div class="Button__text Meta">
+                    <div class="Button__text Meta lhc">
                         Repo
                     </div>
                 </a>
@@ -33,7 +33,7 @@ import HomeSection from "@/components/homepage/HomeSection.vue";
                     href="https://www.npmjs.com/package/dynamatic?activeTab=readme"
                     target="_blank"
                 >
-                    <div class="Button__text Meta">
+                    <div class="Button__text Meta lhc">
                         Node Package
                     </div>
                 </a>
@@ -57,7 +57,7 @@ import HomeSection from "@/components/homepage/HomeSection.vue";
                 data-size="small"
                 data-theme="face"
             >
-                <span class="Meta">
+                <span class="Meta lhc">
                     Contact
                 </span>
             </router-link>

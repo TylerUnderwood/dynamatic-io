@@ -9,6 +9,6 @@ export default {
 <template>
     <label :for="id" class="Button Submit relative">
         <input :id="id" class="inset opacity-0" type="submit" />
-        <span class="Button__text Meta">submit</span>
+        <span class="Button__text Meta lhc">submit</span>
     </label>
 </template>

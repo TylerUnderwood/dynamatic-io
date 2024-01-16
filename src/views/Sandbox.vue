@@ -24,7 +24,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
                     data-size="large"
                     data-shape="full"
                 >
-                    <span class="Meta">
+                    <span class="Meta lhc">
                         Layout Demo
                     </span>
                 </router-link>
@@ -36,7 +36,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
                     data-size="large"
                     data-shape="full"
                 >
-                    <span class="Meta">
+                    <span class="Meta lhc">
                         Section Demo
                     </span>
                 </router-link>
@@ -89,7 +89,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
                     data-shape="stout"
                     href="#demoModal01"
                 >
-                    <div class="Button__text Meta">
+                    <div class="Button__text Meta lhc">
                         Open Modal
                     </div>
                 </a>

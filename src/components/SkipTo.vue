@@ -1,13 +1,13 @@
 <template>
   <div id="skipto-slots" class="relative">
     <a id="skip-to-main" class="SkipTo" href="#main">
-      <span class= "Meta">Skip to main</span>
+      <span class="Meta lhc">Skip to main</span>
     </a>
     <a id="skip-to-footer" class="SkipTo" href="#footer">
-      <span class= "Meta">Skip to footer</span>
+      <span class="Meta lhc">Skip to footer</span>
     </a>
     <a id="skip-to-settings" class="SkipTo" href="#settings">
-      <span class= "Meta">Skip to settings</span>
+      <span class="Meta lhc">Skip to settings</span>
     </a>
   </div>
 </template>

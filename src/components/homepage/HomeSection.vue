@@ -96,7 +96,7 @@ export default {
                         {{ copy }}
                     </p>
                     <router-link :to="link" class="Button mt-4" data-size="small">
-                        <span class="Button__text Meta">
+                        <span class="Button__text Meta lhc">
                             {{ linkText }}
                         </span>
                     </router-link>

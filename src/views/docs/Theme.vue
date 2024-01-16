@@ -30,7 +30,7 @@ export default {
                 v-for="name in themeNames"
                 class="flex flex-col w-1/6"
             >
-                <span class="Meta mt-auto mb-2" :style="{fontSize: '0.6rem'}">
+                <span class="Meta lhc mt-auto mb-2" :style="{fontSize: '0.6rem'}">
                     {{ name.replace('theme-', ''), `var(--${name})` }}
                 </span>
                 <div

@@ -1,9 +1,7 @@
  ///////////////////////
 // Line Height Clip
 
-.lhc,
-.Meta,
-.Heading {
+.lhc {
     line-height: var(--lhc-height) !important;
 
     &::before,

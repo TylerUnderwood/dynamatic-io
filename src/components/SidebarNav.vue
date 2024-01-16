@@ -10,7 +10,7 @@ export default {
 
 <template>
     <div class="Sidebar__nav">
-        <span class="Heading text-sm uppercase">
+        <span class="Heading text-sm uppercase lhc">
             {{ heading }}
         </span>
         <hr class="Line mt-3 mb-6">
@@ -25,7 +25,7 @@ export default {
                         :to="item.link"
                         v-if="item.isInternal"
                     >
-                        <span class="Meta">
+                        <span class="Meta lhc">
                             {{ item.name }}
                         </span>
                     </router-link>
@@ -34,7 +34,7 @@ export default {
                         :href="item.link"
                         v-else
                     >
-                        <span class="Meta">
+                        <span class="Meta lhc">
                             {{ item.name }}
                         </span>
                     </a>

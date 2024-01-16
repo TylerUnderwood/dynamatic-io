@@ -147,7 +147,7 @@ export default {
                 class="w-1/2 md:w-1/4 p-2"
                 v-for="types, name in buttonTypes"
             >
-                <label :for="`select-button-${name}`" class="Meta" style="font-size: 0.7rem;">
+                <label :for="`select-button-${name}`" class="Meta lhc" style="font-size: 0.7rem;">
                     {{ name }}
                 </label>
                 <select :id="`select-button-${name}`" class="Field Field--small mt-1" :name="name">
@@ -171,7 +171,7 @@ export default {
                 :for="`toggle-button-${button}`"
                 v-for="button in types"
             >
-                <span  class="order-2 Meta" style="font-size: 0.7rem;">
+                <span  class="order-2 Meta lhc" style="font-size: 0.7rem;">
                     {{ button }}
                 </span>
                 <input
@@ -185,7 +185,7 @@ export default {
 
         <div class="flex justify-center items-center p-4 mt-5 border-2" style="min-height: 240px;">
             <button id="dynamic-button" class="Button">
-                <span class="Button__text Meta">
+                <span class="Button__text Meta lhc">
                     Button
                 </span>
             </button>
@@ -217,7 +217,7 @@ export default {
                 :[button]="name === 'state' ? '' : null"
                 :href="`#docs-button-${name}-${button}`"
             >
-                <span class="Button__text Meta">
+                <span class="Button__text Meta lhc">
                     {{ /square/.test(button) ? "&#9432;" : button }}
                 </span>
             </a>

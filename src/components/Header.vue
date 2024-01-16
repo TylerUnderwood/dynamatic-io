@@ -36,7 +36,7 @@ export default {
                         :to="item.url"
                         class="Link Nav__link"
                     >
-                        <span class= "Meta">{{ item.name }}</span>
+                        <span class="Meta lhc">{{ item.name }}</span>
                     </router-link>
                 </li>
             </ul>
@@ -49,7 +49,7 @@ export default {
             class="Button border-0"
             data-shape="simple"
         >
-            <span class="Button__text Meta">Docs</span>
+            <span class="Button__text Meta lhc">Docs</span>
         </router-link>
     </header>
 </template>

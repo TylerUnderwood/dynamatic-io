@@ -92,7 +92,7 @@ export default {
                         class="flex items-center gap-2"
                         for="toggle-section-reverse"
                     >
-                        <span class="Meta" style="font-size: 0.7rem;">
+                        <span class="Meta lhc" style="font-size: 0.7rem;">
                             Reverse
                         </span>
                         <input
@@ -106,7 +106,7 @@ export default {
                         class="flex items-center gap-2"
                         for="page-wrapper-number"
                     >
-                        <span class="Meta" style="font-size: 0.7rem;">
+                        <span class="Meta lhc" style="font-size: 0.7rem;">
                             Wrapper
                         </span>
                         <div>
@@ -121,7 +121,7 @@ export default {
                                 @input="changeWrapperWidth()"
                             />
                         </div>
-                        <span class="Meta" style="font-size: 0.7rem;">
+                        <span class="Meta lhc" style="font-size: 0.7rem;">
                             rem
                         </span>
                     </label>
@@ -212,7 +212,7 @@ export default {
                         data-scheme="body"
                     >
                         <div class="Block">
-                            <span class="Meta">Top Block</span>
+                            <span class="Meta lhc">Top Block</span>
                             <br class="break" style="font-size: 0.4rem;">
                             <code class="Code">{{ sectionWrapLeftValue }}</code>
                         </div>
@@ -237,7 +237,7 @@ export default {
                         data-scheme="dark"
                     >
                         <div class="Block">
-                            <span class="Meta">Bottom Block</span>
+                            <span class="Meta lhc">Bottom Block</span>
                             <br class="break" style="font-size: 0.4rem;">
                             <code class="Code">{{ sectionWrapRightValue }}</code>
                         </div>
@@ -266,7 +266,7 @@ export default {
     <section class="Section my-8 px-page">
         <div class="Section__wrap">
             <details>
-                <summary class="mb-0"><strong>Meta</strong></summary>
+                <summary class="mb-0"><strong>Meta lhc</strong></summary>
                 <div class="flex">
                     <code class="Codeblock w-1/2">
 <pre>
