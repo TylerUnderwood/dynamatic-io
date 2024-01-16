@@ -191,16 +191,19 @@
     }
   },
   "copy": {
-    "DEFAULT": {
-      "letter-spacing": "0",
-      "line-height": "1.6",
-      "lhc-top": "-0.3em",
-      "lhc-bottom": "-0.35em",
-      "font-size": "1rem",
-      "font-weight": "500",
-      "font-family": "var(--font-face)",
-      "color": "var(--theme-body)"
-    }
+    "letter-spacing": "0",
+    "line-height": "1.6",
+    "lhc-top": "-0.3em",
+    "lhc-bottom": "-0.35em",
+    "font-size": "1rem",
+    "font-weight": "500",
+    "font-family": "var(--font-face)",
+    "color": "var(--theme-body)"
+  },
+  "list": {
+    "font-size": "1rem",
+    "line-height": "1.4",
+    "color": "var(--theme-face)"
   },
   "meta": {
     "line-height": "1.2",

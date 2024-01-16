@@ -59,14 +59,14 @@ ol {
     margin: 0;
     padding: 0;
     list-style: inherit;
+    line-height: var(--list-line-height);
+    font-size: var(--list-font-size);
 }
 
 .List__text,
 .Markup li p {
-    font-size: 1rem;
-    line-height: 1.4;
-    @include f.clip(1.4, -0.3em, -0.35em);
-    color: var(--theme-face);
+    line-height: inherit;
+    color: var(--list-color);
 }
 
 .List > .List__item,
@@ -90,7 +90,6 @@ ol {
 .List--bullet > .List__item,
 .Markup ul > li {
     &::before {
-        line-height: 0.8;
         content: "\2022";
     }
 }
@@ -99,7 +98,6 @@ ol {
 .List--numbered > .List__item,
 .Markup ol > li {
     &::before {
-        line-height: 0.8;
         content: counter(list) ".";
     }
 }
