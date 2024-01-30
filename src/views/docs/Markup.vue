@@ -111,5 +111,33 @@ import SectionDocs from "@/components/SectionDocs.vue";
             </p>
             <cite>Lorem ipsum.</cite>
         </blockquote>
+        <h3>Nested lists</h3>
+        <ol>
+            <li>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla tempora exercitationem suscipit vero alias veniam repellendus, ullam quibusdam aliquam similique ut illum!</p>
+            </li>
+            <li>
+                <p>Lorem ipsum dolor sit amet adipisicing elit. Animi omnis, maxime praesentium quo in repudiandae at quos quod a!</p>
+            </li>
+            <ul>
+                <li v-for="index in 2" :key="index">
+                    <p>List item {{ index }}</p>
+                </li>
+            </ul>
+            <li>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro placeat sed tempore totam maxime recusandae vitae. Sit, sequi debitis. Perspiciatis alias autem voluptates ducimus voluptate hic deleniti exercitationem voluptas quo!</p>
+            </li>
+        </ol>
+    </SectionDocs>
+
+    <SectionDocs
+        heading="Long List"
+        class="Markup Rhythm"
+    >
+        <ol>
+            <li v-for="index in 24" :key="index">
+                <p>List item {{ index }}</p>
+            </li>
+        </ol>
     </SectionDocs>
 </template>

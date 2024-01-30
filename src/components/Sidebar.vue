@@ -56,6 +56,6 @@ export default {
         overflow-y: auto;
         overflow-x: visible;
         margin: -1em;
-        padding: 1em;
+        padding: 1em 1em 2em 1em;
     }
 </style>

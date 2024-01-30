@@ -21,22 +21,24 @@ cite {
 // Class
 .Quote,
 .Markup blockquote {
+    --quote-border-width: 4px;
     display: inline-block;
-    margin: 0;
+    margin: 0 0 0 var(--quote-border-width);
     width: 100%;
     max-width: var(--max-w-copy);
-    border-left: var(--quote-border-width) solid var(--theme-marker);
+    border-left: var(--quote-border-width) solid var(--markup-color);
     border-radius: var(--quote-border-width);
-    padding: 0 0 0 calc(var(--tab-size) - var(--quote-border-width));
-    --quote-border-width: 4px;
+    padding: 0 0 0 calc(var(--tab-size) - (var(--quote-border-width) * 2));
 }
 
 .Quote__text,
 .Markup blockquote p {
-    line-height: 1.4;
-    @include f.clip(1.4, -0.3em, -0.35em);
-    font-size: 1.2rem;
-    color: var(--theme-face);
+    --lhc-height: var(--quote-line-height);
+    --lhc-top: var(--quote-lhc-top);
+    --lhc-bottom: var(--quote-lhc-bottom);
+    line-height: var(--quote-line-height);
+    font-size: var(--quote-font-size);
+    color: var(--quote-color);
 }
 
 .Cite,

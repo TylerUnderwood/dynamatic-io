@@ -19,7 +19,7 @@ button {
 }
 
 button:focus-visible {
-    outline: var(--focus-visible-outline);
+    outline: var(--input-outline);
     outline-offset: 2px;
 }
 
@@ -89,7 +89,7 @@ button:focus-visible {
 // :focus should override :hover
 .Button[focus-v],
 .Button:focus-visible  {
-    outline: var(--focus-visible-outline);
+    outline: var(--input-outline);
     outline-offset: 2px;
 }
 

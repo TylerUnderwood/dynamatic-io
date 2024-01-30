@@ -38,14 +38,14 @@
     z-index: 2;
 }
 .Drawer__summary:focus-visible {
-    outline: var(--focus-visible-outline);
+    outline: var(--input-outline);
 }
 .Drawer__content {
     position: relative;
     z-index: 1;
 }
 .Drawer__content:focus-within {
-    outline: var(--focus-visible-outline);
+    outline: var(--input-outline);
     outline-style: dotted;
     outline-offset: 2px;
 }

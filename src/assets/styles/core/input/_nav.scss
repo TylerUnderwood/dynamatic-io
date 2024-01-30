@@ -30,6 +30,6 @@
 
 .Nav__link:hover,
 .Nav__link:focus {
-    background-color: rgb(64 128 255 / 0.2);
+    background-color: var(--input-backdrop);
     color: var(--input-color);
 }

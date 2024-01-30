@@ -138,11 +138,13 @@ export default {
             type="checkbox"
             id="toggle-scheme"
             name="Toggle Scheme"
+            label="Toggle Scheme (light / dark)"
         />
         <input
             type="checkbox"
             id="toggle-identify-guidelines"
             name="Toggle Guidelines"
+            label="Toggle Guidelines"
         />
         <!--
         <input

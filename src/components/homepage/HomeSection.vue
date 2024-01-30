@@ -30,16 +30,9 @@ export default {
     computed: {
         topClass() {
             if(this.reverse) {
-                return "md:rounded-bl-3xl"
+                return "md:rounded-bl-[2.4rem]"
             } else {
-                return "md:rounded-tr-3xl"
-            }
-        },
-        botClass() {
-            if(this.reverse) {
-                return "HomeSectionColLeft md:rounded-3xl"
-            } else {
-                return "HomeSectionColRight md:rounded-3xl"
+                return "md:rounded-tr-[2.4rem]"
             }
         },
         gradientAngle() {
@@ -66,7 +59,7 @@ export default {
         :reverse="reverse"
         classBase="m-0"
         :classTop="`bg-primary ${topClass} overflow-hidden `"
-        :classBot="`relative py-8 justify-center ${botClass}`"
+        :classBot="`relative py-8 justify-center md:rounded-[2.4rem]`"
     >
         <template #top>
             <SectionBlock
@@ -81,7 +74,7 @@ export default {
                         background: linear-gradient(
                             ${gradientAngle},
                             rgba(255,255,255,0) 60%,
-                            var(--theme-accent) 100%)
+                            var(--theme-primary-up) 100%)
                         ;
                     `"
                 ></div>
@@ -89,10 +82,12 @@ export default {
         </template>
         <template #bot>
             <div
-                class="Arch absolute text-primary text-3xl hidden md:block"
+                class="Arch absolute text-primary text-[2.4rem] hidden md:block"
                 :class="archClass"
             ></div>
-            <SectionBlock>
+            <SectionBlock
+                classWrap="md:px-10"
+            >
                 <div class="Block Rhythm text-center md:text-left">
                     <h2 class="Heading">
                         {{ heading }}
@@ -101,7 +96,7 @@ export default {
                         {{ copy }}
                     </p>
                     <router-link :to="link" class="Button mt-4" data-size="small">
-                        <span class="Button__text Meta">
+                        <span class="Button__text Meta lhc">
                             {{ linkText }}
                         </span>
                     </router-link>
@@ -111,34 +106,3 @@ export default {
     </SectionSplit>
 
 </template>
-
-<style>
-.HomeSectionColLeft,
-.HomeSectionColRight {
-    position: relative;
-}
-.HomeSectionColLeft::before,
-.HomeSectionColRight::before {
-    position: absolute;
-    inset: 0;
-    content: '';
-}
-.HomeSectionColLeft > .Section__block,
-.HomeSectionColRight > .Section__block {
-    position: relative;
-}
-@media (min-width: 767px) {
-    .HomeSectionColLeft {
-        box-shadow: inset -24px 24px 12px -24px rgba(0,0,0,0.5);
-    }
-    .HomeSectionColRight {
-        box-shadow: inset 24px -24px 12px -24px rgba(0,0,0,0.5);
-    }
-    .HomeSectionColLeft::before {
-        background: linear-gradient(75deg, var(--theme-base) 90%, rgba(255,255,255,0) 100%);
-    }
-    .HomeSectionColRight::before {
-        background: linear-gradient(255deg, var(--theme-base) 90%, rgba(255,255,255,0) 100%);
-    }
-}
-</style>

@@ -28,6 +28,9 @@ ol {
 .List,
 .Markup ul,
 .Markup ol {
+    --list-tab: var(--tab-size);
+    --list-gap: 1.2rem;
+    --marker-color: var(--markup-color);
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -37,9 +40,6 @@ ol {
     gap: var(--list-gap);
     list-style: none;
     counter-reset: list;
-    --list-tab: var(--tab-size);
-    --list-gap: 1.2rem;
-    --marker-color: var(--theme-marker);
 }
 
 // Nested Lists
@@ -54,19 +54,23 @@ ol {
 
 .List__item,
 .Markup li {
+    --lhc-height: var(--list-line-height);
+    --lhc-top: var(--list-lhc-top);
+    --lhc-bottom: var(--list-lhc-bottom);
     position: relative;
     display: list-item;
     margin: 0;
     padding: 0;
     list-style: inherit;
+    line-height: var(--list-line-height);
+    font-size: var(--list-font-size);
 }
 
 .List__text,
 .Markup li p {
-    font-size: 1rem;
-    line-height: 1.4;
-    @include f.clip(1.4, -0.3em, -0.35em);
-    color: var(--theme-face);
+    line-height: inherit;
+    font-size: inherit;
+    color: var(--list-color);
 }
 
 .List > .List__item,
@@ -82,7 +86,7 @@ ol {
         left: 0;
         width: var(--list-tab);
         text-align: center;
-        color: var(--marker-color);
+        color: var(--markup-color);
     }
 }
 
@@ -90,7 +94,6 @@ ol {
 .List--bullet > .List__item,
 .Markup ul > li {
     &::before {
-        line-height: 0.8;
         content: "\2022";
     }
 }
@@ -99,7 +102,6 @@ ol {
 .List--numbered > .List__item,
 .Markup ol > li {
     &::before {
-        line-height: 0.8;
         content: counter(list) ".";
     }
 }
@@ -112,6 +114,6 @@ ol {
 }
 
 // Custom marker on List
-.List[style*="--marker"] > .List__item::before {
+.List[style*="--marker:"] > .List__item::before {
     content: var(--marker);
 }
