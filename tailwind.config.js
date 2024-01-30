@@ -23,9 +23,6 @@ module.exports = {
         "head": "var(--theme-head)",
         "face": "var(--theme-face)",
         "body": "var(--theme-body)",
-        "input": "var(--input-color)",
-        "markup": "var(--markup-color)",
-        "muted": "var(--markup-muted)",
       },
       maxWidth: {
         "site": "var(--max-w-site)",

@@ -4,7 +4,8 @@ export default {
     return {
       nav: [
         { url: '/', name: 'Home'},
-        { url: '/about', name: 'About'}
+        { url: '/sandbox', name: 'Sandbox'},
+        { url: '/tokens', name: 'Tokens'},
       ]
     }
   }
@@ -12,20 +13,20 @@ export default {
 </script>
 
 <template>
-    <footer id="footer" class="Footer flex items-center">
-      <div class="page-wrapper max-w-site">
-        <nav class="Nav">
-          <ul class="Nav__list">
-            <li class="Nav__item" v-for="item in nav">
-              <router-link :to="item.url" class="Link Nav__link ">
-                <span class="Meta lhc">{{ item.name }}</span>
-              </router-link>
-            </li>
-          </ul>
-        </nav>
-      </div>
+  <footer id="footer" class="Footer flex items-center">
+    <div class="page-wrapper max-w-site">
+      <nav class="Nav">
+        <ul class="Nav__list">
+          <li class="Nav__item" v-for="item in nav">
+            <router-link :to="item.url" class="Link Nav__link ">
+              <span class="Meta lhc">{{ item.name }}</span>
+            </router-link>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-    </footer>
+  </footer>
 </template>
 
 <style>
