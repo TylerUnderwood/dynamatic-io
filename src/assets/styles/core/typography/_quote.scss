@@ -33,10 +33,12 @@ cite {
 
 .Quote__text,
 .Markup blockquote p {
-    line-height: 1.4;
-    @include f.clip(1.4, -0.3em, -0.35em);
-    font-size: 1.2rem;
-    color: var(--theme-face);
+    --lhc-height: var(--quote-line-height);
+    --lhc-top: var(--quote-lhc-top);
+    --lhc-bottom: var(--quote-lhc-bottom);
+    line-height: var(--quote-line-height);
+    font-size: var(--quote-font-size);
+    color: var(--quote-color);
 }
 
 .Cite,

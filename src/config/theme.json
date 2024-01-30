@@ -201,8 +201,17 @@
     "color": "var(--theme-body)"
   },
   "list": {
-    "font-size": "1rem",
     "line-height": "1.4",
+    "lhc-top": "-0.3em",
+    "lhc-bottom": "-0.35em",
+    "font-size": "1rem",
+    "color": "var(--theme-face)"
+  },
+  "quote": {
+    "line-height": "1.4",
+    "lhc-top": "-0.3em",
+    "lhc-bottom": "-0.35em",
+    "font-size": "1.2rem",
     "color": "var(--theme-face)"
   },
   "meta": {

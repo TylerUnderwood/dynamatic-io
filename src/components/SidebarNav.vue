@@ -13,8 +13,8 @@ export default {
         <span class="Heading text-sm uppercase lhc">
             {{ heading }}
         </span>
-        <hr class="Line mt-3 mb-6">
-        <nav class="Nav">
+        <hr class="Line mt-3">
+        <nav class="Nav mt-6">
             <ul class="Nav__list flex-wrap lg:flex-col">
                 <li
                     class="Nav__item"
