@@ -109,6 +109,16 @@
     "color": "var(--theme-primary)",
     "muted": "var(--grey-200)"
   },
+  "copy": {
+    "letter-spacing": "0",
+    "line-height": "1.6",
+    "lhc-top": "-0.3em",
+    "lhc-bottom": "-0.35em",
+    "font-size": "1rem",
+    "font-weight": "500",
+    "font-family": "var(--font-face)",
+    "color": "var(--theme-body)"
+  },
   "heading": {
     "DEFAULT": {
       "letter-spacing": "0",
@@ -168,16 +178,6 @@
       "font-family": "var(--font-head)",
       "color": "var(--theme-head)"
     }
-  },
-  "copy": {
-    "letter-spacing": "0",
-    "line-height": "1.6",
-    "lhc-top": "-0.3em",
-    "lhc-bottom": "-0.35em",
-    "font-size": "1rem",
-    "font-weight": "500",
-    "font-family": "var(--font-face)",
-    "color": "var(--theme-body)"
   },
   "list": {
     "line-height": "1.4",
