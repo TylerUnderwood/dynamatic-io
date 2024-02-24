@@ -31,13 +31,14 @@ ol {
     --list-tab: var(--tab-size);
     --list-gap: 1.2rem;
     --marker-color: var(--markup-color);
-    display: flex;
-    flex-direction: column;
+    --lhc-height: var(--list-line-height);
+    --lhc-top: var(--list-lhc-top);
+    --lhc-bottom: var(--list-lhc-bottom);
+    display: block;
     margin: 0;
     width: 100%;
     max-width: var(--max-w-copy);
     padding: 0;
-    gap: var(--list-gap);
     list-style: none;
     counter-reset: list;
 }
@@ -52,12 +53,9 @@ ol {
     margin-left: var(--list-tab);
 }
 
+// List Item
 .List__item,
 .Markup li {
-    --lhc-height: var(--list-line-height);
-    --lhc-top: var(--list-lhc-top);
-    --lhc-bottom: var(--list-lhc-bottom);
-    position: relative;
     display: list-item;
     margin: 0;
     padding: 0;
@@ -66,26 +64,26 @@ ol {
     font-size: var(--list-font-size);
 }
 
-.List__text,
-.Markup li p {
+// List Text and Marker
+.List__item > .List__text,
+.List__item::marker,
+.Markup li > * {
     line-height: inherit;
     font-size: inherit;
     color: var(--list-color);
 }
 
+
 .List > .List__item,
 .Markup ul > li,
 .Markup ol > li {
-    padding-left: var(--list-tab);
+    margin-top: calc(var(--list-gap) + var(--lhc-top));
+    margin-left: calc(var(--list-tab) * .7);
+    margin-bottom: var(--lhc-bottom);
+    padding-left: calc(var(--list-tab) * .3);
     counter-increment: list;
 
-    &::before {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: var(--list-tab);
-        text-align: center;
+    &::marker {
         color: var(--markup-color);
     }
 }
@@ -93,7 +91,7 @@ ol {
 // Unordered List
 .List--bullet > .List__item,
 .Markup ul > li {
-    &::before {
+    &::marker {
         content: "\2022";
     }
 }
@@ -101,19 +99,19 @@ ol {
 // Ordered List
 .List--numbered > .List__item,
 .Markup ol > li {
-    &::before {
+    &::marker {
         content: counter(list) ".";
     }
 }
 
 // Checkmark List
 .List--checkmark > .List__item {
-    &::before {
+    &::marker {
         content: "\2713";
     }
 }
 
 // Custom marker on List
-.List[style*="--marker:"] > .List__item::before {
+.List[style*="--marker:"] > .List__item::marker {
     content: var(--marker);
 }

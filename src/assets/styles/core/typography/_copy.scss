@@ -17,6 +17,7 @@ p {
     --lhc-height: var(--copy-line-height);
     --lhc-top: var(--copy-lhc-top);
     --lhc-bottom: var(--copy-lhc-bottom);
+    max-width: var(--max-w-copy);
     line-height: var(--copy-line-height);
     letter-spacing: var(--copy-letter-spacing);
     font-size: var(--copy-font-size);

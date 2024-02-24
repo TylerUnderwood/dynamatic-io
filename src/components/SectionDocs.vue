@@ -60,7 +60,7 @@ export default {
     >
         <h2
             :id="headingId"
-            class="Heading h2"
+            class="Heading h2 lhc"
             v-if="heading"
         >
             {{ heading }}

@@ -54,18 +54,18 @@ import DemoBlock from "@/components/DemoBlock.vue";
         >
             <template #summary>
                 <div class="p-4 bg-contrast rounded">
-                    <h3 class="Heading">This is a summary {{ index }}</h3>
+                    <h3 class="Heading h4 lhc">This is a summary {{ index }}</h3>
                 </div>
             </template>
             <template #content>
-                <div class="flex flex-col mt-4 gap-4">
-                    <p class="Copy">
+                <div class="Markup Rhythm mt-4">
+                    <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos adipisci <a href="#0" class="Link">inventore</a> sunt dolore earum ex repellat voluptate dicta ipsum porro, nesciunt quo, minus illum, optio officiis ad rem sapiente consequatur.
                     </p>
-                    <p class="Copy" v-if="index === 2 || index === 3">
+                    <p v-if="index === 2 || index === 3">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, distinctio enim illum earum vitae dignissimos velit, error totam voluptatibus quam accusamus architecto inventore tempore sit numquam? Quo voluptatum commodi excepturi.
                     </p>
-                    <p class="Copy" v-if="index === 3" v-for="copy in 20">
+                    <p v-if="index === 3" v-for="copy in 20">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae accusamus quidem numquam reiciendis, illum repudiandae recusandae adipisci. Nesciunt consequatur non quasi eligendi officia repellat, molestias nulla expedita debitis possimus facere!
                     </p>
                 </div>
@@ -106,14 +106,14 @@ import DemoBlock from "@/components/DemoBlock.vue";
 
         <Modal id="demoModal01">
             <div class="Card">
-                <h2 class="Heading h3">Heading</h2>
+                <h2 class="Heading h3 lhc">Heading</h2>
                 <p class="Copy mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas, aut saepe unde nesciunt sunt ipsum! Magnam officiis veritatis molestiae debitis soluta hic accusamus, praesentium quod. A iusto sunt tempore?</p>
             </div>
         </Modal>
 
         <Modal id="demoModal02">
             <div class="Card Col" style="min-height: 110vh;">
-                <h2 class="Heading h3">Heading</h2>
+                <h2 class="Heading h3 lhc">Heading</h2>
                 <p class="Copy mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas, aut saepe unde nesciunt sunt ipsum! Magnam officiis veritatis molestiae debitis soluta hic accusamus, praesentium quod. A iusto sunt tempore?</p>
                 <div class="filler"></div>
                 <small class="mt-4">Hello lol</small>

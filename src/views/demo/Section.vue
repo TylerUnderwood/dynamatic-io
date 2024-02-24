@@ -266,7 +266,7 @@ export default {
     <section class="Section my-8 px-page">
         <div class="Section__wrap">
             <details>
-                <summary class="mb-0"><strong>Meta lhc</strong></summary>
+                <summary class="mb-0"><strong>Meta</strong></summary>
                 <div class="flex">
                     <code class="Codeblock w-1/2">
 <pre>
@@ -342,6 +342,25 @@ sectionWrapDiff: {{ sectionWrapDiffValue }},
                 </div>
             </details>
         </div>
+    </section>
+
+    <section class="Section flex-row my-section bg-stripes-secondary">
+        <div
+            class="space bg-primary"
+            style="font-size: var(--space-page)"
+        ></div>
+        <div class="Section__wrap bg-white">
+            <h2 class="Heading lhc">
+                This is a normal section
+            </h2>
+            <p class="Copy lhc mt-4">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit asperiores sit assumenda? Sed, impedit facere velit quis laboriosam odio temporibus tenetur a omnis nam, expedita possimus consectetur dicta. Corrupti, dicta!
+            </p>
+        </div>
+        <div
+            class="space bg-primary"
+            style="font-size: var(--space-page)"
+        ></div>
     </section>
 </template>
 

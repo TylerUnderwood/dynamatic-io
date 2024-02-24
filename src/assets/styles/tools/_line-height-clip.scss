@@ -2,6 +2,7 @@
 // Line Height Clip
 
 .lhc {
+    display: block !important;
     line-height: var(--lhc-height) !important;
 
     &::before,

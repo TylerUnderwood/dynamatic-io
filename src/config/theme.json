@@ -203,7 +203,7 @@
     "hover": "var(--theme-secondary)",
     "active": "var(--theme-tertiary)",
     "outline": "2px solid var(--input-color)",
-    "backdrop": "rgb(64 128 255 / 0.2)",
+    "backdrop": "rgb(64 128 255 / var(--alpha, 0.2))",
     "height": {
       "large": "2.8rem",
       "DEFAULT": "2.2rem",

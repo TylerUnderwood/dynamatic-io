@@ -325,7 +325,7 @@ export default {
         --layout-demo-gap: 0.3rem;
         padding: var(--layout-demo-gap);
         gap: var(--layout-demo-gap);
-        background-color: var(--theme-offset);
+        /* background-color: var(--theme-offset); */
         aspect-ratio: 4/3;
         overflow: clip;
         max-width: 100%;
@@ -352,19 +352,6 @@ export default {
         content: '';
     }
 
-    .bg-stripes-secondary {
-        background-color: #818cf81a;
-        background-image: linear-gradient(
-            135deg,#6366f180 10%,
-            transparent 0,
-            transparent 50%,
-            #6366f180 0,
-            #6366f180 60%,
-            transparent 0,
-            transparent
-        );
-        background-size: 6px 6px;
-    }
     @media (min-width: 479px) {
         .LayoutDemo__container {
             aspect-ratio: 16/9;

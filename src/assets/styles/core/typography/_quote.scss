@@ -1,4 +1,3 @@
-@use '../../functions' as f;
 /*
 |–––––––––––––––––––––––––
 | Quotes
@@ -42,7 +41,7 @@ cite {
 }
 
 .Cite,
-.Markup cite {
+.Markup blockquote cite {
     display: block;
     margin: 0;
     padding: 0;

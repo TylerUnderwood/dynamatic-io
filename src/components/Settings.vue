@@ -122,17 +122,23 @@ export default {
 
 <template>
     <div id="settings" class="SettingsConsole">
-        <label for="select-theme">
+        <label for="select-theme" visually-hidden>
+            Select Theme
+        </label>
+        <div>
             <select
-                id="theme-select"
+                id="select-theme"
                 class="Field Field--small"
-                name="theme-select"
+                name="Select Theme"
                 v-model="selectedTheme"
                 @change="changeTheme"
             >
                 <option value="default">Default</option>
                 <option value="neon">Neon</option>
             </select>
+        </div>
+        <label for="toggle-scheme" visually-hidden>
+            Toggle Scheme (light / dark)
         </label>
         <input
             type="checkbox"
@@ -140,6 +146,9 @@ export default {
             name="Toggle Scheme"
             label="Toggle Scheme (light / dark)"
         />
+        <label for="toggle-identify-guidelines" visually-hidden>
+            Toggle Guidelines
+        </label>
         <input
             type="checkbox"
             id="toggle-identify-guidelines"

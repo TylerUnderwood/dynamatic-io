@@ -43,18 +43,20 @@ export default {
 
     <SectionDocs heading="Scheme">
         <div class="pt-6"></div>
-        <div class="Card bg-primary p-8 md:p-12 lg:p-8" data-scheme=dark>
+        <div class="Card bg-primary p-8" data-scheme=dark>
             <span class="Heading">Theme Dark</span>
-            <code class="Code mt-2" style="font-size: 0.8rem">[data-scheme=dark] .bg-primary</code>
+            &nbsp;
+            <code class="Code" style="font-size: 0.8rem">[data-scheme=dark] .bg-primary</code>
             <p class="Copy mt-2">This container will all ways be dark.</p>
             <ul class="List List--bullet List--colorFace mt-4">
                 <li class="List__item" v-for="item in 4">
                     <p class="List__text">Item {{ item }}</p>
                 </li>
             </ul>
-            <div class="Card bg-base mt-6 p-8 md:p-12 lg:p-8" data-scheme=body>
+            <div class="Card bg-base mt-6 p-8" data-scheme=body>
                 <span class="Heading">Theme Body</span>
-                <code class="Code mt-2" style="font-size: 0.8rem">[data-scheme=body] .bg-base</code>
+                &nbsp;
+                <code class="Code" style="font-size: 0.8rem">[data-scheme=body] .bg-base</code>
                 <p class="Copy mt-2">This container will follow whatever the <code class="Code">body</code> tag uses.</p>
                 <ul class="List List--bullet mt-4">
                     <li class="List__item" v-for="item in 4">
@@ -104,7 +106,7 @@ mark::after {
 }
 
 /* .theme-dark.bg-primary .List > .List__item::before, */
-.List--colorFace > .List__item::before {
+.List--colorFace > .List__item::marker {
     color: var(--theme-face);
 }
 </style>

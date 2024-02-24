@@ -45,7 +45,7 @@ button:focus-visible {
     min-width: 8rem;
     height: var(--button-height);
     background-color: var(--button-color);
-    padding: 0 1.4rem;
+    padding: 0 var(--button-pad);
     vertical-align: middle;
     white-space: nowrap;
     text-align: center;
@@ -71,7 +71,8 @@ button:focus-visible {
 }
 
 // [active] should override [stealth]
-.Button[active] {
+.Button[active],
+.Button:active {
     border-color: transparent;
     background-color: var(--button-active);
     color: var(--button-face);
@@ -136,7 +137,8 @@ button:focus-visible {
     color: inherit;
 }
 
-.Button[data-type="secondary"][active] {
+.Button[data-type="secondary"][active],
+.Button[data-type="secondary"]:active {
     border-color: var(--button-active);
     background-color: transparent;
     color: var(--button-active);
@@ -173,7 +175,8 @@ button:focus-visible {
     color: inherit;
 }
 
-.Button[data-type="tertiary"][active] {
+.Button[data-type="tertiary"][active],
+.Button[data-type="tertiary"]:active {
     border-color: transparent;
     background-color: rgb(40 72 216 / 0.05);
     color: var(--button-color);
@@ -245,7 +248,6 @@ button:focus-visible {
 }
 
 /* = tiny button = */
-.Button--tiny,
 .Button[data-size="tiny"] {
     min-width: unset;
     border-width: 1px;
@@ -267,7 +269,6 @@ button:focus-visible {
 /* === button shape === */
 
 /* = stout button = */
-.Button--stout,
 .Button[data-shape="stout"] {
     min-width: unset;
     padding-left: var(--button-pad);
@@ -275,7 +276,6 @@ button:focus-visible {
 }
 
 /* = simple button = */
-.Button--simple,
 .Button[data-shape="simple"] {
     min-width: unset;
     height: fit-content;
@@ -283,7 +283,6 @@ button:focus-visible {
 }
 
 /* = square button = */
-.Button--square,
 .Button[data-shape="square"] {
     min-width: unset;
     width: var(--button-height);
@@ -292,7 +291,6 @@ button:focus-visible {
 }
 
 /* = full button = */
-.Button--full,
 .Button[data-shape="full"] {
     flex: 1 0 auto;
     width: 100%;
@@ -329,37 +327,39 @@ button:focus-visible {
 /* = base button = */
 .Button[data-theme="base"] {
     --button-color:       var(--theme-base);
-    --button-hover:       var(--theme-offset);
-    --button-active:      var(--theme-contrast);
+    --button-hover:       color-mix(in oklab, var(--button-color), black 10%);
+    --button-active:      color-mix(in oklab, var(--button-color), black 10%);
     --button-face:        var(--theme-face);
 }
 
 /* = face button = */
 .Button[data-theme="face"] {
     --button-color:       var(--theme-body);
-    --button-hover:       var(--theme-face);
-    --button-active:      var(--theme-head);
+    --button-hover:       color-mix(in oklab, var(--button-color), white 35%);
+    --button-active:      color-mix(in oklab, var(--button-color), white 35%);
     --button-face:        var(--theme-base);
 }
 
 /* = success button = */
 .Button[data-theme="success"] {
     --button-color:       #00aa22;
-    --button-hover:       #00aa22;
-    --button-active:      #00aa22;
+    --button-hover:       color-mix(in oklab, var(--button-color), black 20%);
+    --button-active:      color-mix(in oklab, var(--button-color), black 20%);
+    --button-face:        var(--theme-base);
 }
 
 /* = warn button = */
 .Button[data-theme="warn"] {
     --button-color:       hsl(52, 100%, 50%);
-    --button-hover:       hsl(52, 100%, 70%);
-    --button-active:      hsl(48, 100%, 48%);
+    --button-hover:       color-mix(in oklab, var(--button-color), black 10%);
+    --button-active:      color-mix(in oklab, var(--button-color), black 10%);
     --button-face:        var(--light-face);
 }
 
 /* = error button = */
 .Button[data-theme="error"] {
     --button-color:       hsl(8, 100%, 50%);
-    --button-hover:       hsl(8, 100%, 70%);
-    --button-active:      hsl(4, 100%, 40%);
+    --button-hover:       color-mix(in oklab, var(--button-color), black 20%);
+    --button-active:      color-mix(in oklab, var(--button-color), black 20%);
+    --button-face:        var(--theme-base);
 }
