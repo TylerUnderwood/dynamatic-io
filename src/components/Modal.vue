@@ -22,6 +22,7 @@ export default {
         <div
             class="Modal__backdrop"
             :modal-toggle="id"
+            aria-hidden="true"
         ></div>
         <div class="Modal__container">
             <button

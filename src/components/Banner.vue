@@ -19,7 +19,7 @@ export default {
             <h1 id="title" class="Heading h1 Title lhc">
                 {{ title }}
             </h1>
-            <p class="Copy mt-4" v-if="intro">
+            <p class="Copy lhc mt-4" v-if="intro">
                 {{ intro }}
             </p>
         </div>
