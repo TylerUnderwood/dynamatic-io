@@ -24,7 +24,7 @@ a:focus-visible {
     color: var(--input-color);
     transition-property: color;
     transition-duration: var(--input-timing);
-    transition-timing-function: ease;
+    transition-timing-function: var(--input-easing);
     cursor: pointer;
 
     &[active] {

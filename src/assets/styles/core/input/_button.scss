@@ -157,8 +157,9 @@ button:focus-visible {
     color: var(--button-color) !important;
 }
 
-.Button[data-type="secondary"].Button__text {
+.Button[data-type="secondary"] .Button__text {
     font-size: 0.7rem;
+    font-weight: 600;
 }
 
 
@@ -178,21 +179,21 @@ button:focus-visible {
 .Button[data-type="tertiary"][active],
 .Button[data-type="tertiary"]:active {
     border-color: transparent;
-    background-color: rgb(40 72 216 / 0.05);
-    color: var(--button-color);
+    background-color: var(--input-backdrop);
+    color: var(--button-hover);
 }
 
 .Button[data-type="tertiary"][hover],
 .Button[data-type="tertiary"]:hover {
     border-color: transparent;
-    background-color: rgb(40 72 216 / 0.1);
-    color: var(--button-color);
+    background-color: var(--input-backdrop);
+    color: var(--button-hover);
 }
 
 .Button[data-type="tertiary"][disabled] {
-    border-color: transparent !important;
-    background-color: rgb(40 72 216 / 0.1) !important;
-    color: var(--button-color) !important;
+    border-color: transparent;
+    background-color: var(--input-backdrop);
+    color: var(--button-color);
 }
 
 
@@ -209,8 +210,7 @@ button:focus-visible {
     --button-pad: var(--input-pad-large);
 }
 
-.Button[data-size="large"].Button__text {
-    font-weight: 700;
+.Button[data-size="large"] .Button__text {
     font-size: 0.9rem;
 }
 
@@ -234,7 +234,7 @@ button:focus-visible {
     --button-pad: var(--input-pad-small);
 }
 
-.Button[data-size="small"].Button__text {
+.Button[data-size="small"] .Button__text {
     font-weight: 300;
     font-size: 0.7rem;
 }
@@ -257,7 +257,7 @@ button:focus-visible {
     --button-pad: 0.4rem;
 }
 
-.Button[data-size="tiny"].Button__text {
+.Button[data-size="tiny"] .Button__text {
     font-size: 0.6rem;
 }
 

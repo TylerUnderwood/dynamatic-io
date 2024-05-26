@@ -28,7 +28,7 @@ export default {
 
 <style>
     .Banner {
-        padding: var(--space-page) var(--space-page);
+        padding: var(--space-page);
         background-color: var(--theme-primary)
     }
 </style>

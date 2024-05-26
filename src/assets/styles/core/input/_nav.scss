@@ -24,12 +24,12 @@
 
 .Nav__link {
     padding: var(--nav-link-pad);
-    border-radius: 2px;
-    transition: background-color 300ms ease;
+    border-radius: var(--input-round);
+    transition-property: background-color;
 }
 
 .Nav__link:hover,
 .Nav__link:focus {
     background-color: var(--input-backdrop);
-    color: var(--input-color);
+    color: var(--input-hover);
 }

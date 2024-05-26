@@ -10,8 +10,8 @@ import Section from "@/components/Section.vue";
     <Banner title="Tokens"/>
 
     <Section heading="00 - Theme">
-        <details class="mt-8">
-            <summary>see more</summary>
+        <details class="mt-4">
+            <summary><span class="Link">see more</span></summary>
             <code class="Codeblock text-xs">
 <pre>
 {{ theme }}
@@ -21,8 +21,8 @@ import Section from "@/components/Section.vue";
     </Section>
 
     <Section heading="01 - Token Categories">
-        <details class="mt-8">
-            <summary>see more</summary>
+        <details class="mt-4">
+            <summary><span class="Link">see more</span></summary>
             <code class="Codeblock text-xs">
 <pre>
 {{ tokenCategories(theme) }}
@@ -32,8 +32,8 @@ import Section from "@/components/Section.vue";
     </Section>
 
     <Section heading="02 - Tokens Native">
-        <details class="mt-8">
-            <summary>see more</summary>
+        <details class="mt-4">
+            <summary><span class="Link">see more</span></summary>
             <code class="Codeblock text-xs">
 <pre>
 {{  tokensNative(theme) }}
@@ -43,8 +43,8 @@ import Section from "@/components/Section.vue";
     </Section>
 
     <Section heading="03 - Token Builder">
-        <details class="mt-8" open>
-            <summary>see more</summary>
+        <details class="mt-4" open>
+            <summary><span class="Link">see more</span></summary>
             <code class="Codeblock text-xs">
 <pre>
 {{ tokenBuilder(theme) }}

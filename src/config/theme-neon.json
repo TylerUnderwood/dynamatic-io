@@ -91,7 +91,7 @@
     "meta": "'Roboto Mono', sans-serif"
   },
   "markup": {
-    "color": "var(--theme-primary)",
+    "color": "var(--theme-primary-up)",
     "muted": "var(--grey-200)"
   },
   "copy": {
