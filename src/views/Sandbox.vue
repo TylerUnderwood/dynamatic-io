@@ -42,7 +42,6 @@ import DemoBlock from "@/components/DemoBlock.vue";
                 </router-link>
             </div>
         </div>
-
     </Section>
 
     <Section heading="Drawer">
@@ -53,7 +52,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
             :open="index === 1 ? '' : null"
         >
             <template #summary>
-                <div class="p-4 bg-contrast rounded">
+                <div class="Card Card--hover">
                     <h3 class="Heading h4 lhc">This is a summary {{ index }}</h3>
                 </div>
             </template>
@@ -105,14 +104,14 @@ import DemoBlock from "@/components/DemoBlock.vue";
         </div>
 
         <Modal id="demoModal01">
-            <div class="Card">
+            <div class="Card Card--lg">
                 <h2 class="Heading h3 lhc">Heading</h2>
                 <p class="Copy mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas, aut saepe unde nesciunt sunt ipsum! Magnam officiis veritatis molestiae debitis soluta hic accusamus, praesentium quod. A iusto sunt tempore?</p>
             </div>
         </Modal>
 
         <Modal id="demoModal02">
-            <div class="Card Col" style="min-height: 110vh;">
+            <div class="Card Card--lg Col" style="min-height: 110vh;">
                 <h2 class="Heading h3 lhc">Heading</h2>
                 <p class="Copy mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas, aut saepe unde nesciunt sunt ipsum! Magnam officiis veritatis molestiae debitis soluta hic accusamus, praesentium quod. A iusto sunt tempore?</p>
                 <div class="filler"></div>

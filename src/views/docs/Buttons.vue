@@ -6,6 +6,25 @@ import SectionDocs from "@/components/SectionDocs.vue";
 export default {
     data() {
         return {
+            // demoButtonType: "default",
+            // demoButtonSize: "default",
+            // demoButtonShape: "default",
+            // demoButtonTheme: "default",
+            // demoButtonStealth: false,
+            // demoButtonActive: false,
+            // demoButtonHover: false,
+            // demoButtonFocusV: false,
+            // demoButtonDisabled: false,
+
+            // :data-type="demoButtonType"
+            // :data-size="demoButtonSize"
+            // :data-shape="demoButtonShape"
+            // :data-theme="demoButtonTheme"
+            // :stealth="demoButtonStealth"
+            // :active="demoButtonActive"
+            // :hover="demoButtonHover"
+            // :focus-v="demoButtonFocusV"
+            // :disabled="demoButtonDisabled"
             buttonTree: {
                 type: [
                     "default",
@@ -126,14 +145,17 @@ export default {
     mounted() {
         const selectors = document.querySelectorAll("[id*=select-button-]");
         const toggles = document.querySelectorAll("[id*=toggle-button-]");
-        const button = document.querySelector("#dynamic-button");
+        const buttonLight = document.querySelector("#demo-button-light");
+        const buttonDark = document.querySelector("#demo-button-dark");
 
         selectors.forEach( (selector) => {
-            this.selectDataset(selector, button);
+            this.selectDataset(selector, buttonLight);
+            this.selectDataset(selector, buttonDark);
         });
 
         toggles.forEach( (toggle) => {
-            this.toggleAttr(toggle, button);
+            this.toggleAttr(toggle, buttonLight);
+            this.toggleAttr(toggle, buttonDark);
         });
     }
 }
@@ -183,12 +205,24 @@ export default {
             </label>
         </div>
 
-        <div class="flex justify-center items-center p-4 mt-5 border-2" style="min-height: 240px;">
-            <button id="dynamic-button" class="Button">
-                <span class="Button__text Meta lhc">
-                    Button
-                </span>
-            </button>
+        <div class="flex mt-5" style="min-height: 240px;">
+            <div
+                :class="[
+                    'flex justify-center items-center p-4 flex-1 bg-base border-t-2 border-b-2',
+                    {
+                        'border-l-2 rounded-s': item === 'light',
+                        'border-r-2 rounded-e': item === 'dark'
+                    }
+                ]"
+                :data-scheme="item"
+                v-for="item in ['light', 'dark']"
+            >
+                <button :id="`demo-button-${item}`" class="Button">
+                    <span class="Button__text Meta lhc">
+                        Button
+                    </span>
+                </button>
+            </div>
         </div>
     </SectionDocs>
 
@@ -230,6 +264,6 @@ export default {
         content: "ⓘ" !important;
     }
     #dynamic-button[data-shape="square"] .Button__text {
-        display: none;
+        display: none !important;
     }
 </style>
