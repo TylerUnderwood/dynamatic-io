@@ -1,30 +1,28 @@
 <script setup>
+import { ref } from "vue"
 import SectionDocs from "@/components/SectionDocs.vue";
+
+const demoButtonStates = ref([])
+const demoButton =  ref({
+                type: "default",
+                size: "default",
+                shape: "default",
+                theme: "default",
+                states: demoButtonStates,
+            })
+const schemeTuple = ['body', 'inverse'];
+
+
+
+const hasAttr = (attrName) => {
+            return demoButton.value[attrName] !== "default" || demoButton.value[attrName] !== "none";
+        };
 </script>
 
 <script>
 export default {
     data() {
         return {
-            // demoButtonType: "default",
-            // demoButtonSize: "default",
-            // demoButtonShape: "default",
-            // demoButtonTheme: "default",
-            // demoButtonStealth: false,
-            // demoButtonActive: false,
-            // demoButtonHover: false,
-            // demoButtonFocusV: false,
-            // demoButtonDisabled: false,
-
-            // :data-type="demoButtonType"
-            // :data-size="demoButtonSize"
-            // :data-shape="demoButtonShape"
-            // :data-theme="demoButtonTheme"
-            // :stealth="demoButtonStealth"
-            // :active="demoButtonActive"
-            // :hover="demoButtonHover"
-            // :focus-v="demoButtonFocusV"
-            // :disabled="demoButtonDisabled"
             buttonTree: {
                 type: [
                     "default",
@@ -35,7 +33,7 @@ export default {
                     "stealth",
                     "active",
                     "hover",
-                    "focus-v",
+                    "focused",
                     "disabled",
                 ],
                 size: [
@@ -45,6 +43,7 @@ export default {
                     "tiny",
                 ],
                 shape: [
+                    "default",
                     "stout",
                     "square",
                     "simple",
@@ -54,6 +53,7 @@ export default {
                     "lg-full",
                 ],
                 theme: [
+                    "default",
                     "base",
                     "face",
                     "success",
@@ -118,7 +118,7 @@ export default {
 
                     if ( !option.selected ) continue;
 
-                    if ( option.value === "" || option.value === "default" ) {
+                    if ( option.value === "default" ) {
                         delete element.dataset[name];
                     } else {
                         element.dataset[name] = option.value;
@@ -145,17 +145,17 @@ export default {
     mounted() {
         const selectors = document.querySelectorAll("[id*=select-button-]");
         const toggles = document.querySelectorAll("[id*=toggle-button-]");
-        const buttonLight = document.querySelector("#demo-button-light");
-        const buttonDark = document.querySelector("#demo-button-dark");
+        const button1 = document.querySelector("#demo-button-1");
+        const button2 = document.querySelector("#demo-button-2");
 
         selectors.forEach( (selector) => {
-            this.selectDataset(selector, buttonLight);
-            this.selectDataset(selector, buttonDark);
+            this.selectDataset(selector, button1);
+            this.selectDataset(selector, button2);
         });
 
         toggles.forEach( (toggle) => {
-            this.toggleAttr(toggle, buttonLight);
-            this.toggleAttr(toggle, buttonDark);
+            this.toggleAttr(toggle, button1);
+            this.toggleAttr(toggle, button2);
         });
     }
 }
@@ -169,19 +169,25 @@ export default {
                 class="w-1/2 md:w-1/4 p-2"
                 v-for="types, name in buttonTypes"
             >
-                <label :for="`select-button-${name}`" class="Meta lhc" style="font-size: 0.7rem;">
+                <label
+                    :for="`select-button-${name}`"
+                    class="Meta lhc"
+                    style="font-size: 0.7rem;"
+                >
                     {{ name }}
                 </label>
-                <select :id="`select-button-${name}`" class="Field Field--small mt-1" :name="name">
-                    <option value="" v-if="!types.includes('default')" selected>
-                        none
-                    </option>
+                <select
+                    :id="`select-button-${name}`"
+                    class="Field Field--small mt-1"
+                    :name="name"
+                    v-model="demoButton[name]"
+                >
                     <option
-                        v-for="button in types"
-                        :value="button"
-                        :selected="button === 'default'"
+                        v-for="option in types"
+                        :value="option"
+                        :selected="option === 'default'"
                     >
-                        {{ button }}
+                        {{ option }}
                     </option>
                 </select>
             </div>
@@ -190,17 +196,18 @@ export default {
         <div class="flex flex-wrap gap-4 mt-5" v-for="types in buttonStates">
             <label
                 class="flex items-center gap-2"
-                :for="`toggle-button-${button}`"
-                v-for="button in types"
+                :for="`toggle-button-${buttonState}`"
+                v-for="buttonState in types"
             >
                 <span  class="order-2 Meta lhc" style="font-size: 0.7rem;">
-                    {{ button }}
+                    {{ buttonState }}
                 </span>
                 <input
-                    :id="`toggle-button-${button}`"
-                    :name="button"
-                    :value="button"
+                    :id="`toggle-button-${buttonState}`"
+                    :name="buttonState"
+                    :value="buttonState"
                     type="checkbox"
+                    v-model="demoButtonStates"
                 />
             </label>
         </div>
@@ -208,22 +215,54 @@ export default {
         <div class="flex mt-5" style="min-height: 240px;">
             <div
                 :class="[
-                    'flex justify-center items-center p-4 flex-1 bg-base border-t-2 border-b-2',
+                    'flex flex-col justify-center items-center gap-2 p-4 flex-1 bg-base border-t-2 border-b-2',
                     {
-                        'border-l-2 rounded-s': item === 'light',
-                        'border-r-2 rounded-e': item === 'dark'
+                        'border-l-2 rounded-s': item === schemeTuple[0],
+                        'border-r-2 rounded-e': item === schemeTuple[1]
                     }
                 ]"
                 :data-scheme="item"
-                v-for="item in ['light', 'dark']"
+                v-for="(item, index) in schemeTuple"
+                :key="index"
             >
-                <button :id="`demo-button-${item}`" class="Button">
+                <button
+                    :id="`demo-button-${index+1}`"
+                    class="Button"
+                >
                     <span class="Button__text Meta lhc">
-                        Button
+                        {{ demoButton.shape !== "square" ? "Button" : "B" }}
                     </span>
                 </button>
+
+                <a href="#0" class="Link">Link</a>
+                <div class="max-w-[50%]">
+                    <input type="text" class="Field" placeholder="Field">
+                </div>
             </div>
         </div>
+
+        <div class="pt-3"></div>
+
+        <code class="Codeblock text-xs">
+<pre>
+&lt;button
+    class="Button"{{ demoButton.type !== 'default' ? `
+    data-type="${demoButton.type}"` : '' }}{{ demoButton.size !== 'default' ? `
+    data-size="${demoButton.size}"` : '' }}{{ demoButton.shape !== 'default' ? `
+    data-shape="${demoButton.shape}"` : '' }}{{ demoButton.theme !== 'default' ? `
+    data-theme="${demoButton.theme}"` : '' }}{{ demoButton.states.length > 0 ? `
+    ${demoButton.states.join(" ")}` : null }}
+&gt;
+</pre>
+        </code>
+
+        <div class="pt-3"></div>
+
+        <code class="Codeblock text-xs">
+<pre>
+{{ demoButton }}
+</pre>
+        </code>
     </SectionDocs>
 
     <SectionDocs
@@ -252,7 +291,7 @@ export default {
                 :href="`#docs-button-${name}-${button}`"
             >
                 <span class="Button__text Meta lhc">
-                    {{ /square/.test(button) ? "&#9432;" : button }}
+                    {{ /square/.test(button) ? "B" : button }}
                 </span>
             </a>
         </div>

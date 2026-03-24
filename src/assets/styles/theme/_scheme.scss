@@ -40,6 +40,22 @@ body[data-scheme="normal"] [data-scheme="body"] {
         --theme-body: var(--light-body);
         color-scheme: light;
     }
+
+    [data-scheme="preferred"] [data-scheme="inverse"] {
+        --theme-primary-up: var(--dark-primary-up);
+        --theme-primary: var(--dark-primary);
+        --theme-primary-down: var(--dark-primary-down);
+        --theme-secondary: var(--dark-secondary);
+        --theme-tertiary: var(--dark-tertiary);
+        --theme-accent: var(--dark-accent);
+        --theme-base: var(--dark-base);
+        --theme-offset: var(--dark-offset);
+        --theme-contrast: var(--dark-contrast);
+        --theme-head: var(--dark-head);
+        --theme-face: var(--dark-face);
+        --theme-body: var(--dark-body);
+        color-scheme: dark;
+    }
 }
 @media (prefers-color-scheme: dark) {
     [data-scheme="preferred"],
@@ -58,11 +74,28 @@ body[data-scheme="normal"] [data-scheme="body"] {
         --theme-body: var(--dark-body);
         color-scheme: dark;
     }
+
+    [data-scheme="preferred"] [data-scheme="inverse"] {
+        --theme-primary-up: var(--light-primary-up);
+        --theme-primary: var(--light-primary);
+        --theme-primary-down: var(--light-primary-down);
+        --theme-secondary: var(--light-secondary);
+        --theme-tertiary: var(--light-tertiary);
+        --theme-accent: var(--light-accent);
+        --theme-base: var(--light-base);
+        --theme-offset: var(--light-offset);
+        --theme-contrast: var(--light-contrast);
+        --theme-head: var(--light-head);
+        --theme-face: var(--light-face);
+        --theme-body: var(--light-body);
+        color-scheme: light;
+    }
 }
 
 
 /* ===== Light Mode ===== */
 [data-scheme="light"],
+[data-scheme="dark"] [data-scheme="inverse"],
 body[data-scheme="light"] [data-scheme="body"] {
     --theme-primary-up: var(--light-primary-up);
     --theme-primary: var(--light-primary);
@@ -81,6 +114,8 @@ body[data-scheme="light"] [data-scheme="body"] {
 
 /* ===== Dark Mode ===== */
 [data-scheme="dark"],
+[data-scheme="light"] [data-scheme="inverse"],
+[data-scheme="normal"] [data-scheme="inverse"],
 body[data-scheme="dark"] [data-scheme="body"] {
     --theme-primary-up: var(--dark-primary-up);
     --theme-primary: var(--dark-primary);
