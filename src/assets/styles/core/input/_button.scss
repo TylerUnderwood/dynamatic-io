@@ -292,14 +292,12 @@ button:focus-visible {
 
 /* = full button = */
 .Button[data-shape="full"] {
-    flex: 1 0 auto;
     width: 100%;
     max-width: unset;
 }
 
 @include media.below( sm ) {
     .Button[data-shape="sm-full"] {
-        flex: 1 0 auto;
         width: 100%;
         max-width: unset;
     }
@@ -307,7 +305,6 @@ button:focus-visible {
 
 @include media.below( md ) {
     .Button[data-shape="md-full"] {
-        flex: 1 0 auto;
         width: 100%;
         max-width: unset;
     }
@@ -315,7 +312,6 @@ button:focus-visible {
 
 @include media.below( lg ) {
     .Button[data-shape="lg-full"] {
-        flex: 1 0 auto;
         width: 100%;
         max-width: unset;
     }
@@ -324,19 +320,11 @@ button:focus-visible {
 
 /* === button theme === */
 
-/* = base button = */
-.Button[data-theme="base"] {
-    --button-color:       var(--theme-base);
-    --button-hover:       color-mix(in oklab, var(--button-color), black 10%);
-    --button-active:      color-mix(in oklab, var(--button-color), black 10%);
-    --button-face:        var(--theme-face);
-}
-
 /* = face button = */
 .Button[data-theme="face"] {
-    --button-color:       var(--theme-body);
-    --button-hover:       color-mix(in oklab, var(--button-color), white 35%);
-    --button-active:      color-mix(in oklab, var(--button-color), white 35%);
+    --button-color:       var(--theme-face);
+    --button-hover:       color-mix(in oklab, var(--button-color), var(--theme-base) 20%);
+    --button-active:      color-mix(in oklab, var(--button-color), var(--theme-base) 20%);
     --button-face:        var(--theme-base);
 }
 
@@ -351,8 +339,8 @@ button:focus-visible {
 /* = warn button = */
 .Button[data-theme="warn"] {
     --button-color:       hsl(52, 100%, 50%);
-    --button-hover:       color-mix(in oklab, var(--button-color), black 10%);
-    --button-active:      color-mix(in oklab, var(--button-color), black 10%);
+    --button-hover:       color-mix(in oklab, var(--button-color), black 20%);
+    --button-active:      color-mix(in oklab, var(--button-color), black 20%);
     --button-face:        var(--light-face);
 }
 

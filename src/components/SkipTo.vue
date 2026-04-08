@@ -35,7 +35,7 @@ export default {
   box-shadow: var(--shadow);
   outline: 2px solid var(--theme-primary) !important;
   outline-offset: 0;
-  border-radius: 2px;
+  border-radius: var(--round-sm);
   background-color: var(--theme-base);
   padding: 1.2em;
   font-weight: 700;

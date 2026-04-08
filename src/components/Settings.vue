@@ -1,3 +1,7 @@
+<script setup>
+// import Checkbox from './Checkbox.vue';
+</script>
+
 <script>
 import theme from '@config/theme.json';
 import themeNeon from '@config/theme-neon.json';
@@ -169,13 +173,15 @@ export default {
 .SettingsConsole {
     position: fixed;
     top: unset;
-    right: 0;
-    bottom: 0;
+    right: 0.5rem;
+    bottom: 0.5rem;
     left: unset;
     display: flex;
+    align-items: center;
+    box-shadow: var(--shadow);
     border-width: 2px;
     border-bottom-width: 0;
-    border-radius: 3px;
+    border-radius: var(--round-sm);
     background-color: var(--theme-offset);
     padding: 0.5em;
     gap: 0.5em;

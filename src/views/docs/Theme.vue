@@ -46,7 +46,7 @@ export default {
         <div class="Card bg-primary p-8" data-scheme=dark>
             <span class="Heading">Theme Dark</span>
             &nbsp;
-            <code class="Code" style="font-size: 0.8rem">[data-scheme=dark] .bg-primary</code>
+            <code class="Code" style="font-size: 0.8rem">[data-scheme=dark]</code>
             <p class="Copy mt-2">This container will all ways be dark.</p>
             <ul class="List List--bullet List--colorFace mt-4">
                 <li class="List__item" v-for="item in 4">
@@ -56,7 +56,7 @@ export default {
             <div class="Card bg-base mt-6 p-8" data-scheme=body>
                 <span class="Heading">Theme Body</span>
                 &nbsp;
-                <code class="Code" style="font-size: 0.8rem">[data-scheme=body] .bg-base</code>
+                <code class="Code" style="font-size: 0.8rem">[data-scheme=body]</code>
                 <p class="Copy mt-2">This container will follow whatever the <code class="Code">body</code> tag uses.</p>
                 <ul class="List List--bullet mt-4">
                     <li class="List__item" v-for="item in 4">

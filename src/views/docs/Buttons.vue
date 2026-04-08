@@ -54,7 +54,6 @@ export default {
                 ],
                 theme: [
                     "default",
-                    "base",
                     "face",
                     "success",
                     "warn",
@@ -233,11 +232,6 @@ export default {
                         {{ demoButton.shape !== "square" ? "Button" : "B" }}
                     </span>
                 </button>
-
-                <a href="#0" class="Link">Link</a>
-                <div class="max-w-[50%]">
-                    <input type="text" class="Field" placeholder="Field">
-                </div>
             </div>
         </div>
 
@@ -253,14 +247,6 @@ export default {
     data-theme="${demoButton.theme}"` : '' }}{{ demoButton.states.length > 0 ? `
     ${demoButton.states.join(" ")}` : null }}
 &gt;
-</pre>
-        </code>
-
-        <div class="pt-3"></div>
-
-        <code class="Codeblock text-xs">
-<pre>
-{{ demoButton }}
 </pre>
         </code>
     </SectionDocs>
