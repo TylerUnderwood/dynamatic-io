@@ -104,8 +104,8 @@
   },
   "shadow": {
     "lg-inset": "inset 0px 0px 20px 4px rgb(0 0 0 / 0.2)",
-    "DEFAULT": "0px 2px 4px 2px rgb(0 0 0 / 0.1)",
-    "lg": "0px 4px 8px 4px rgb(0 0 0 / 0.2)"
+    "DEFAULT": "0px 4px 8px 2px rgb(0 0 0 / 0.2)",
+    "lg": "0px 6px 12px 4px rgb(0 0 0 / 0.2)"
   },
   "font": {
     "head": "'Arial', sans-serif",

@@ -16,28 +16,29 @@
 .SkipTo {
   position: fixed;
   z-index: -999;
-  top: 100vh;
-  left: 100vh;
-  translate: -10%;
+  top: 1rem;
+  left: 50%;
+  translate: -50% -20%;
   opacity: 0;
+  box-shadow: var(--shadow);
   outline: 2px solid var(--theme-primary) !important;
   outline-offset: 0;
+  border-radius: 2px;
   background-color: var(--theme-base);
   padding: 1.2em;
   font-weight: 700;
   font-size: 0.8rem;
-  transition: all 0ms 200ms, translate 200ms ease, opacity 200ms ease;
+  transition: scale 200ms ease,
+              translate 200ms ease,
+              opacity 200ms ease;
 }
 
 .SkipTo:hover,
 .SkipTo:focus,
 .SkipTo:focus-visible {
   z-index: 999;
-  top: 0;
-  left: 0;
-  translate: 0;
+  translate: -50% 0;
   opacity: 1;
-  transition: translate 200ms ease, opacity 200ms ease;
 }
 
 .SkipTo .triangle {
