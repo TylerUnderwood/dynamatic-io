@@ -1,14 +1,25 @@
+<script>
+export default {
+  data() {
+    return {
+      skipButtons: [
+        { href: '#main', name: 'main'},
+        { href: '#footer', name: 'footer'},
+        { href: '#settings', name: 'settings'},
+      ]
+    }
+  }
+}
+</script>
+
 <template>
-  <div id="skipto-slots" class="relative">
-    <a id="skip-to-main" class="SkipTo" href="#main">
-      <span class="Meta lhc">Skip to main</span>
-    </a>
-    <a id="skip-to-footer" class="SkipTo" href="#footer">
-      <span class="Meta lhc">Skip to footer</span>
-    </a>
-    <a id="skip-to-settings" class="SkipTo" href="#settings">
-      <span class="Meta lhc">Skip to settings</span>
-    </a>
+  <div id="skipto-slots" class="relative pointer-events-none">
+    <template v-for="item in skipButtons">
+      <a :id="`skip-to-${ item.name }`" class="SkipTo" :href="item.href">
+        <span class="Meta lhc">Skip to {{ item.name }}</span>
+        <span class="Triangle Triangle--r"></span>
+      </a>
+    </template>
   </div>
 </template>
 
@@ -19,6 +30,7 @@
   top: 1rem;
   left: 50%;
   translate: -50% -20%;
+  display: inline-flex;
   opacity: 0;
   box-shadow: var(--shadow);
   outline: 2px solid var(--theme-primary) !important;
@@ -41,7 +53,8 @@
   opacity: 1;
 }
 
-.SkipTo .triangle {
-  font-size: 1.3em;
+.SkipTo .Triangle {
+  margin-left: 0.8em;
+  font-size: 0.8em;
 }
 </style>
