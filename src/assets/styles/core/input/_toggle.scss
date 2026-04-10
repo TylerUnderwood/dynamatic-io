@@ -1,0 +1,91 @@
+.toggle {
+	display: inline-flex;
+	align-items: center;
+	font-size: 24px;
+	cursor: pointer;
+
+	&__switch {
+		position: relative;
+		display: inline-flex;
+		border-radius: 9999px;
+		width: 2em;
+		height: 1em;
+		border: 3px solid $primary;
+		background-color: $primary;
+
+		&::before {
+			position: relative;
+			left: 0%;
+			transform: translateX(0%);
+			width: 18px;
+			border-radius: 9999px;
+			background-color: $accent;
+			transition: left 300ms ease-in-out,
+						transform 300ms ease-in-out;
+			content: '';
+		}
+
+		:checked + &::before {
+			left: 100%;
+			transform: translateX(-100%);
+		}
+	}
+
+	& > .label {
+		margin-left: 0.6rem;
+	}
+
+	&__value {
+		animation: fadein 300ms forwards;
+	}
+
+	@keyframes fadein {
+		from { opacity: 0; }
+		to   { opacity: 1; }
+	}
+
+	$self: &;
+
+	@include between( mobile, tablet ) {
+		font-size: 20px;
+
+		#{$self}__switch {
+			border-width: 2px;
+
+			&::before {
+				width: 16px;
+			}
+		}
+	}
+
+	@include below( mobile ) {
+		font-size: 16px;
+
+		#{$self}__switch {
+			border-width: 2px;
+
+			&::before {
+				width: 12px;
+			}
+		}
+	}
+
+	&--small {
+		font-size: 16px;
+
+		#{$self}__switch {
+			border-width: 2px;
+
+			&::before {
+				width: 12px;
+			}
+		}
+	}
+}
+
+
+.input--override {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}

@@ -212,21 +212,21 @@
     "outline": "2px solid var(--input-color)",
     "backdrop": "rgb(64 128 255 / var(--alpha, 0.2))",
     "height": {
-      "large": "2.8rem",
+      "lg": "2.8rem",
       "DEFAULT": "2.2rem",
-      "small": "1.6rem"
+      "sm": "1.6rem"
     },
     "border": {
       "width": {
-        "large": "3px",
+        "lg": "3px",
         "DEFAULT": "2px",
-        "small": "1px"
+        "sm": "1px"
       }
     },
     "pad": {
-      "large": "1.2rem",
+      "lg": "1.2rem",
       "DEFAULT": "0.8rem",
-      "small": "0.5rem"
+      "sm": "0.5rem"
     },
     "round": "var(--round-sm)",
     "timing": "300ms",

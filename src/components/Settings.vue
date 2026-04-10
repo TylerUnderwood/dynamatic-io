@@ -1,5 +1,6 @@
 <script setup>
-// import Checkbox from './Checkbox.vue';
+import Checkbox from './inputs/Checkbox.vue';
+import Toggle from './inputs/toggle.vue';
 </script>
 
 <script>
@@ -63,6 +64,8 @@ export default {
             const toggle = document.querySelector('#toggle-scheme');
 
             toggle.addEventListener('change', (event) => {
+                this.pauseTransitions()
+
                 if (event.currentTarget.checked) {
                     document.body.dataset.scheme = "dark";
                 } else {
@@ -101,6 +104,14 @@ export default {
 
         setTheme(theme) {
             document.getElementById('theme').innerHTML = tokenBuilder(theme);
+        },
+
+        pauseTransitions() {
+            document.body.setAttribute("instant-transitions", "")
+
+            setTimeout(() => {
+                document.body.removeAttribute("instant-transitions")
+            }, 100)
         },
 
         changeTheme() {
@@ -144,11 +155,10 @@ export default {
         <label for="toggle-scheme" visually-hidden>
             Toggle Scheme (light / dark)
         </label>
-        <input
-            type="checkbox"
+        <Checkbox
             id="toggle-scheme"
             name="Toggle Scheme"
-            label="Toggle Scheme (light / dark)"
+            class="Checkbox--sm"
         />
         <label for="toggle-identify-guidelines" visually-hidden>
             Toggle Guidelines
@@ -186,5 +196,10 @@ export default {
     padding: 0.5em;
     gap: 0.5em;
     font-size: 0.7rem;
+}
+
+[instant-transitions] * {
+    transition-duration: 0ms !important;
+    transition-delay: 0ms !important;
 }
 </style>

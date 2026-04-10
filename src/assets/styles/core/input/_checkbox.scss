@@ -1,0 +1,66 @@
+.Checkbox {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Checkbox--sm {
+    font-size: calc(var(--input-height-sm) * 0.66);
+}
+.Checkbox--md {
+    font-size: calc(var(--input-height) * 0.66);
+}
+.Checkbox--lg {
+    font-size: calc(var(--input-height-lg) * 0.66);
+}
+
+.Checkbox__input {
+	position: absolute;
+    inset: 0;
+	opacity: 0;
+    visibility: hidden;
+}
+
+.Checkbox__box {
+    position: relative;
+	z-index: -1;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    border-radius: var(--round);
+    border: 2px solid var(--theme-contrast);
+    background-color: var(--theme-base);
+    padding: 1px;
+    transition: background-color 200ms ease 200ms;
+}
+
+:checked + .Checkbox__box {
+    background-color: var(--input-color);
+    transition: background-color 200ms ease;
+}
+
+:checked + .Checkbox__box .Checkbox__polyline {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 200ms ease 200ms;
+}
+
+.Checkbox__icon {
+    position: relative;
+    width: 100%;
+    height: inherit;
+    fill: transparent;
+}
+
+.Checkbox__polyline {
+    fill: none;
+    stroke: var(--dark-face);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 18px;
+    stroke-dashoffset: 18px;
+    transition: stroke-dashoffset 200ms ease;
+}
