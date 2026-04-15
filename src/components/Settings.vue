@@ -77,6 +77,10 @@ export default {
         toggleBodyAttrValue( id, attr, value ) {
             const toggle = document.querySelector(`#${id}`);
 
+            if (toggle === null) {
+                return
+            }
+
             if (document.body.getAttribute(attr) === null) {
                 document.body.setAttribute(attr, "")
             }
@@ -168,6 +172,7 @@ export default {
             id="toggle-identify-guidelines"
             name="Toggle Guidelines"
             label="Toggle Guidelines"
+            visually-hidden
         />
         <Checkbox
             id="toggle-identify-components"
@@ -190,7 +195,7 @@ export default {
     border-width: 2px;
     border-bottom-width: 0;
     border-radius: var(--round-sm);
-    background-color: var(--theme-offset);
+    background-color: var(--theme-base);
     padding: 0.5em 0.5em 0.5em 1em;
     gap: 1em;
     font-size: 0.7rem;
