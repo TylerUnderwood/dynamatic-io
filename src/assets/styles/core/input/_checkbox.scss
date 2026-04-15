@@ -5,26 +5,16 @@
     cursor: pointer;
 }
 
-.Checkbox--sm {
-    font-size: calc(var(--input-height-sm) * 0.66);
-}
-.Checkbox--md {
-    font-size: calc(var(--input-height) * 0.66);
-}
-.Checkbox--lg {
-    font-size: calc(var(--input-height-lg) * 0.66);
-}
-
 .Checkbox__input {
-	position: absolute;
+    position: absolute;
     inset: 0;
-	opacity: 0;
+    opacity: 0;
     visibility: hidden;
 }
 
 .Checkbox__box {
     position: relative;
-	z-index: -1;
+    z-index: -1;
     display: flex;
     align-items: center;
     flex-shrink: 0;

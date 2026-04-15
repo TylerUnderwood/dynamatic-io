@@ -52,7 +52,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
             :open="index === 1 ? '' : null"
         >
             <template #summary>
-                <div class="Card Card--hover border-b-[3px] border-contrast hover:border-primary">
+                <div class="Card Card--hover">
                     <h3 class="Heading h4 lhc">This is a summary {{ index }}</h3>
                 </div>
             </template>

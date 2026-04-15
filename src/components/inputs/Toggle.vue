@@ -1,30 +1,27 @@
-
 <script>
 export default {
-  props: [
-    'id',
-    'name',
-    'value'
-  ]
+  props: {
+    id: String,
+    name: String,
+    label: String,
+    size: {
+        type: String,
+        default: 'text-lg',
+    },
+  }
 }
 </script>
 
 <template>
-    <label className="toggle" :for="id">
+    <label :class="`Toggle ${size}`" :for="id">
         <input
-            className="toggle__input input--override"
+            class="Toggle__input"
             type="checkbox"
             :id="id"
             :name="name"
-            :checked="value"
+            :label="label"
         />
 
-        <div className="toggle__switch"></div>
-
-
-        <div className="label" v-if="labelOn && labelOff">
-            <span className="toggle__value">{{ labelOn }}</span>
-            <span className="toggle__value">{{ labelOff }}</span>
-        </div>
+        <div class="Toggle__switch"></div>
     </label>
 </template>

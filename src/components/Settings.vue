@@ -64,7 +64,7 @@ export default {
             const toggle = document.querySelector('#toggle-scheme');
 
             toggle.addEventListener('change', (event) => {
-                this.pauseTransitions()
+                // this.pauseTransitions()
 
                 if (event.currentTarget.checked) {
                     document.body.dataset.scheme = "dark";
@@ -106,13 +106,13 @@ export default {
             document.getElementById('theme').innerHTML = tokenBuilder(theme);
         },
 
-        pauseTransitions() {
-            document.body.setAttribute("instant-transitions", "")
+        // pauseTransitions() {
+        //     document.body.setAttribute("instant-transitions", "")
 
-            setTimeout(() => {
-                document.body.removeAttribute("instant-transitions")
-            }, 100)
-        },
+        //     setTimeout(() => {
+        //         document.body.removeAttribute("instant-transitions")
+        //     }, 100)
+        // },
 
         changeTheme() {
             switch (this.selectedTheme) {
@@ -137,6 +137,14 @@ export default {
 
 <template>
     <div id="settings" class="SettingsConsole">
+        <Toggle
+            id="toggle-scheme"
+            name="Toggle Scheme"
+            label="Toggle Scheme (light / dark)"
+        />
+        <label for="toggle-identify-guidelines" visually-hidden>
+            Toggle Guidelines
+        </label>
         <label for="select-theme" visually-hidden>
             Select Theme
         </label>
@@ -155,23 +163,13 @@ export default {
         <label for="toggle-scheme" visually-hidden>
             Toggle Scheme (light / dark)
         </label>
+        <!--
         <Checkbox
-            id="toggle-scheme"
-            name="Toggle Scheme"
-            class="Checkbox--sm"
-        />
-        <label for="toggle-identify-guidelines" visually-hidden>
-            Toggle Guidelines
-        </label>
-        <input
-            type="checkbox"
             id="toggle-identify-guidelines"
             name="Toggle Guidelines"
             label="Toggle Guidelines"
         />
-        <!--
-        <input
-            type="checkbox"
+        <Checkbox
             id="toggle-identify-components"
             name="Toggle Identify Components"
         />
@@ -193,13 +191,13 @@ export default {
     border-bottom-width: 0;
     border-radius: var(--round-sm);
     background-color: var(--theme-offset);
-    padding: 0.5em;
-    gap: 0.5em;
+    padding: 0.5em 0.5em 0.5em 1em;
+    gap: 1em;
     font-size: 0.7rem;
 }
 
-[instant-transitions] * {
+/* [instant-transitions] * {
     transition-duration: 0ms !important;
     transition-delay: 0ms !important;
-}
+} */
 </style>

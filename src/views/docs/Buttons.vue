@@ -11,12 +11,6 @@ const demoButton =  ref({
                 states: demoButtonStates,
             })
 const schemeTuple = ['body', 'inverse'];
-
-
-
-const hasAttr = (attrName) => {
-            return demoButton.value[attrName] !== "default" || demoButton.value[attrName] !== "none";
-        };
 </script>
 
 <script>

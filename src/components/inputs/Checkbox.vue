@@ -1,19 +1,25 @@
 <script>
 export default {
-  props: [
-    'id',
-    'name'
-  ]
+  props: {
+    id: String,
+    name: String,
+    label: String,
+    size: {
+        type: String,
+        default: 'text-lg',
+    },
+  }
 }
 </script>
 
 <template>
-    <label class="Checkbox" :for="id">
+    <label :class="`Checkbox ${size}`" :for="id">
         <input
             class="Checkbox__input"
             type="checkbox"
             :id="id"
             :name="name"
+            :label="label"
         />
 
         <div class="Checkbox__box">
