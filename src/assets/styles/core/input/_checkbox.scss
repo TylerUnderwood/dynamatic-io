@@ -9,12 +9,10 @@
     position: absolute;
     inset: 0;
     opacity: 0;
-    visibility: hidden;
 }
 
 .Checkbox__box {
     position: relative;
-    z-index: -1;
     display: flex;
     align-items: center;
     flex-shrink: 0;
@@ -26,15 +24,13 @@
     padding: 1px;
     transition: background-color 200ms ease 200ms;
 }
-
-:checked + .Checkbox__box {
+input:focus-visible + .Checkbox__box {
+    outline: var(--input-outline);
+    outline-offset: 2px;
+}
+input:checked + .Checkbox__box {
     background-color: var(--input-color);
     transition: background-color 200ms ease;
-}
-
-:checked + .Checkbox__box .Checkbox__polyline {
-    stroke-dashoffset: 0;
-    transition: stroke-dashoffset 200ms ease 200ms;
 }
 
 .Checkbox__icon {
@@ -53,4 +49,8 @@
     stroke-dasharray: 18px;
     stroke-dashoffset: 18px;
     transition: stroke-dashoffset 200ms ease;
+}
+input:checked + .Checkbox__box .Checkbox__polyline {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 200ms ease 200ms;
 }

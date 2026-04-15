@@ -137,14 +137,14 @@ export default {
 
 <template>
     <div id="settings" class="SettingsConsole">
+        <label for="toggle-scheme" visually-hidden>
+            Toggle Scheme (light / dark)
+        </label>
         <Toggle
             id="toggle-scheme"
             name="Toggle Scheme"
             label="Toggle Scheme (light / dark)"
         />
-        <label for="toggle-identify-guidelines" visually-hidden>
-            Toggle Guidelines
-        </label>
         <label for="select-theme" visually-hidden>
             Select Theme
         </label>
@@ -160,10 +160,10 @@ export default {
                 <option value="neon">Neon</option>
             </select>
         </div>
-        <label for="toggle-scheme" visually-hidden>
-            Toggle Scheme (light / dark)
-        </label>
         <!--
+        <label for="toggle-identify-guidelines" visually-hidden>
+            Toggle Guidelines
+        </label>
         <Checkbox
             id="toggle-identify-guidelines"
             name="Toggle Guidelines"

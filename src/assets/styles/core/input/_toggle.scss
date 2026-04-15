@@ -10,7 +10,6 @@
 	position: absolute;
     inset: 0;
 	opacity: 0;
-    visibility: hidden;
 }
 
 .Toggle__switch {
@@ -22,6 +21,11 @@
     border: 3px solid var(--input-color);
     background-color: var(--input-color);
 }
+input:focus-visible + .Toggle__switch {
+    outline: var(--input-outline);
+    outline-offset: 2px;
+}
+
 .Toggle__switch::before {
     position: relative;
     left: 0%;
@@ -34,7 +38,7 @@
                 transform 300ms ease-in-out;
     content: '';
 }
-:checked + .Toggle__switch::before {
+input:checked + .Toggle__switch::before {
     left: 100%;
     transform: translateX(-100%);
 }
