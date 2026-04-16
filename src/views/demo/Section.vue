@@ -349,7 +349,7 @@ sectionWrapDiff: {{ sectionWrapDiffValue }},
             class="space bg-primary"
             style="font-size: var(--space-page)"
         ></div>
-        <div class="Section__wrap bg-white">
+        <div class="Section__wrap bg-base">
             <h2 class="Heading lhc">
                 This is a normal section
             </h2>

@@ -88,7 +88,7 @@ button:focus-visible {
 }
 
 // :focus should override :hover
-.Button[focus-v],
+.Button[focused],
 .Button:focus-visible  {
     outline: var(--input-outline);
     outline-offset: 2px;
@@ -202,19 +202,19 @@ button:focus-visible {
 /* = large button = */
 .Button[data-size="large"] {
     min-width: 12rem;
-    border-width: var(--input-border-width-large);
+    border-width: var(--input-border-width-lg);
     height: var(--button-height);
     padding: 0 2.4rem;
     font-weight: 700;
-    --button-height: var(--input-height-large);
-    --button-pad: var(--input-pad-large);
+    --button-height: var(--input-height-lg);
+    --button-pad: var(--input-pad-lg);
 }
 
 .Button[data-size="large"] .Button__text {
     font-size: 0.9rem;
 }
 
-.Button[data-size="large"].Button__icon {
+.Button[data-size="large"] .Button__icon {
     font-size: 1.2rem;
 }
 
@@ -226,12 +226,12 @@ button:focus-visible {
 /* = small button = */
 .Button[data-size="small"] {
     min-width: 6em;
-    border-width: var(--input-border-width-small);
+    border-width: var(--input-border-width-sm);
     height: var(--button-height);
     padding: 0 1.2rem;
     font-weight: 300;
-    --button-height: var(--input-height-small);
-    --button-pad: var(--input-pad-small);
+    --button-height: var(--input-height-sm);
+    --button-pad: var(--input-pad-sm);
 }
 
 .Button[data-size="small"] .Button__text {
@@ -239,7 +239,7 @@ button:focus-visible {
     font-size: 0.7rem;
 }
 
-.Button[data-size="small"].Button__icon {
+.Button[data-size="small"] .Button__icon {
     font-size: 0.8rem;
 }
 
@@ -252,7 +252,6 @@ button:focus-visible {
     min-width: unset;
     border-width: 1px;
     padding: 0.3rem 0.4rem;
-    font-size: 0.6rem;
     --button-height: 1.2rem;
     --button-pad: 0.4rem;
 }
@@ -261,7 +260,7 @@ button:focus-visible {
     font-size: 0.6rem;
 }
 
-.Button[data-size="tiny"].Button__icon {
+.Button[data-size="tiny"] .Button__icon {
     font-size: 0.8rem;
 }
 
@@ -277,9 +276,22 @@ button:focus-visible {
 
 /* = simple button = */
 .Button[data-shape="simple"] {
+    --button-height: 1.6em;
     min-width: unset;
-    height: fit-content;
-    padding: 0.5em;
+    padding: 0 0.5em;
+}
+
+.Button[data-shape="simple"][data-size="large"] {
+    --button-height: 2.0em;
+    padding: 0 0.7em;
+}
+.Button[data-shape="simple"][data-size="small"] {
+    --button-height: 1.4em;
+    padding: 0 0.4em;
+}
+.Button[data-shape="simple"][data-size="tiny"] {
+    --button-height: 1.2em;
+    padding: 0 0.3em;
 }
 
 /* = square button = */
@@ -292,14 +304,12 @@ button:focus-visible {
 
 /* = full button = */
 .Button[data-shape="full"] {
-    flex: 1 0 auto;
     width: 100%;
     max-width: unset;
 }
 
 @include media.below( sm ) {
     .Button[data-shape="sm-full"] {
-        flex: 1 0 auto;
         width: 100%;
         max-width: unset;
     }
@@ -307,7 +317,6 @@ button:focus-visible {
 
 @include media.below( md ) {
     .Button[data-shape="md-full"] {
-        flex: 1 0 auto;
         width: 100%;
         max-width: unset;
     }
@@ -315,7 +324,6 @@ button:focus-visible {
 
 @include media.below( lg ) {
     .Button[data-shape="lg-full"] {
-        flex: 1 0 auto;
         width: 100%;
         max-width: unset;
     }
@@ -324,19 +332,11 @@ button:focus-visible {
 
 /* === button theme === */
 
-/* = base button = */
-.Button[data-theme="base"] {
-    --button-color:       var(--theme-base);
-    --button-hover:       color-mix(in oklab, var(--button-color), black 10%);
-    --button-active:      color-mix(in oklab, var(--button-color), black 10%);
-    --button-face:        var(--theme-face);
-}
-
 /* = face button = */
 .Button[data-theme="face"] {
-    --button-color:       var(--theme-body);
-    --button-hover:       color-mix(in oklab, var(--button-color), white 35%);
-    --button-active:      color-mix(in oklab, var(--button-color), white 35%);
+    --button-color:       var(--theme-face);
+    --button-hover:       color-mix(in oklab, var(--button-color), var(--theme-base) 20%);
+    --button-active:      color-mix(in oklab, var(--button-color), var(--theme-base) 20%);
     --button-face:        var(--theme-base);
 }
 
@@ -351,8 +351,8 @@ button:focus-visible {
 /* = warn button = */
 .Button[data-theme="warn"] {
     --button-color:       hsl(52, 100%, 50%);
-    --button-hover:       color-mix(in oklab, var(--button-color), black 10%);
-    --button-active:      color-mix(in oklab, var(--button-color), black 10%);
+    --button-hover:       color-mix(in oklab, var(--button-color), black 20%);
+    --button-active:      color-mix(in oklab, var(--button-color), black 20%);
     --button-face:        var(--light-face);
 }
 

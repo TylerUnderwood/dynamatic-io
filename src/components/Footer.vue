@@ -18,20 +18,19 @@ export default {
       <nav class="Nav">
         <ul class="Nav__list">
           <li class="Nav__item" v-for="item in nav">
-            <router-link :to="item.url" class="Link Nav__link ">
+            <router-link :to="item.url" class="Link Nav__link">
               <span class="Meta lhc">{{ item.name }}</span>
             </router-link>
           </li>
         </ul>
       </nav>
     </div>
-
   </footer>
 </template>
 
 <style>
 .Footer {
-  padding: var(--space-page) var(--space-page);
+  padding: var(--space-page);
   background-color: var(--theme-offset)
 }
 </style>

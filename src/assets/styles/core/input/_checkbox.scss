@@ -1,0 +1,61 @@
+.Checkbox {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.Checkbox__input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+}
+
+.Checkbox__box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    border-radius: var(--round);
+    border: 2px solid var(--theme-contrast);
+    background-color: var(--theme-base);
+    padding: 1px;
+    transition-property: background-color;
+    transition-timing-function: ease;
+    transition-duration: 200ms;
+    transition-delay: 100ms;
+}
+input:focus-visible + .Checkbox__box {
+    outline: var(--input-outline);
+    outline-offset: 2px;
+}
+input:checked + .Checkbox__box {
+    background-color: var(--input-color);
+    transition-delay: 0ms;
+}
+
+.Checkbox__icon {
+    position: relative;
+    width: 100%;
+    height: inherit;
+    fill: transparent;
+}
+
+.Checkbox__polyline {
+    fill: none;
+    stroke: var(--dark-face);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 18px;
+    stroke-dashoffset: 18px;
+    transition-property: stroke-dashoffset;
+    transition-timing-function: ease;
+    transition-duration: 200ms;
+}
+input:checked + .Checkbox__box .Checkbox__polyline {
+    stroke-dashoffset: 0;
+    transition-delay: 100ms;
+}

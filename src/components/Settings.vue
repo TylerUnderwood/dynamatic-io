@@ -1,3 +1,7 @@
+<script setup>
+import Toggle from './inputs/Toggle.vue';
+</script>
+
 <script>
 import theme from '@config/theme.json';
 import themeNeon from '@config/theme-neon.json';
@@ -59,6 +63,8 @@ export default {
             const toggle = document.querySelector('#toggle-scheme');
 
             toggle.addEventListener('change', (event) => {
+                // this.pauseTransitions()
+
                 if (event.currentTarget.checked) {
                     document.body.dataset.scheme = "dark";
                 } else {
@@ -69,6 +75,10 @@ export default {
 
         toggleBodyAttrValue( id, attr, value ) {
             const toggle = document.querySelector(`#${id}`);
+
+            if (toggle === null) {
+                return
+            }
 
             if (document.body.getAttribute(attr) === null) {
                 document.body.setAttribute(attr, "")
@@ -99,6 +109,14 @@ export default {
             document.getElementById('theme').innerHTML = tokenBuilder(theme);
         },
 
+        // pauseTransitions() {
+        //     document.body.setAttribute("instant-transitions", "")
+
+        //     setTimeout(() => {
+        //         document.body.removeAttribute("instant-transitions")
+        //     }, 100)
+        // },
+
         changeTheme() {
             switch (this.selectedTheme) {
                 case "neon":
@@ -114,7 +132,7 @@ export default {
     mounted() {
         this.setSwitch();
         this.toggleScheme();
-        this.toggleBodyAttrValue('toggle-identify-guidelines', 'identify', 'guidelines');
+        // this.toggleBodyAttrValue('toggle-identify-guidelines', 'identify', 'guidelines');
         // this.toggleBodyAttrValue('toggle-identify-components', 'identify', 'components');
     }
 }
@@ -122,6 +140,14 @@ export default {
 
 <template>
     <div id="settings" class="SettingsConsole">
+        <label for="toggle-scheme" visually-hidden>
+            Toggle Scheme (light / dark)
+        </label>
+        <Toggle
+            id="toggle-scheme"
+            name="Toggle Scheme"
+            label="Toggle Scheme (light / dark)"
+        />
         <label for="select-theme" visually-hidden>
             Select Theme
         </label>
@@ -137,27 +163,17 @@ export default {
                 <option value="neon">Neon</option>
             </select>
         </div>
-        <label for="toggle-scheme" visually-hidden>
-            Toggle Scheme (light / dark)
-        </label>
-        <input
-            type="checkbox"
-            id="toggle-scheme"
-            name="Toggle Scheme"
-            label="Toggle Scheme (light / dark)"
-        />
+        <!--
         <label for="toggle-identify-guidelines" visually-hidden>
             Toggle Guidelines
         </label>
-        <input
-            type="checkbox"
+        <Checkbox
             id="toggle-identify-guidelines"
             name="Toggle Guidelines"
             label="Toggle Guidelines"
+            visually-hidden
         />
-        <!--
-        <input
-            type="checkbox"
+        <Checkbox
             id="toggle-identify-components"
             name="Toggle Identify Components"
         />
@@ -169,16 +185,23 @@ export default {
 .SettingsConsole {
     position: fixed;
     top: unset;
-    right: 0;
-    bottom: 0;
+    right: 0.5rem;
+    bottom: 0.5rem;
     left: unset;
     display: flex;
+    align-items: center;
+    box-shadow: var(--shadow);
     border-width: 2px;
     border-bottom-width: 0;
-    border-radius: 3px;
-    background-color: var(--theme-offset);
-    padding: 0.5em;
-    gap: 0.5em;
+    border-radius: var(--round-sm);
+    background-color: var(--theme-base);
+    padding: 0.5em 0.5em 0.5em 1em;
+    gap: 1em;
     font-size: 0.7rem;
 }
+
+/* [instant-transitions] * {
+    transition-duration: 0ms !important;
+    transition-delay: 0ms !important;
+} */
 </style>
