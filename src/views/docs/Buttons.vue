@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue"
 import SectionDocs from "@/components/SectionDocs.vue";
+import Checkbox from "@/components/inputs/Checkbox.vue"
 
 const demoButtonStates = ref([])
 const demoButton =  ref({
@@ -195,11 +196,10 @@ export default {
                 <span  class="order-2 Meta lhc" style="font-size: 0.7rem;">
                     {{ buttonState }}
                 </span>
-                <input
+                <Checkbox
                     :id="`toggle-button-${buttonState}`"
                     :name="buttonState"
                     :value="buttonState"
-                    type="checkbox"
                     v-model="demoButtonStates"
                 />
             </label>

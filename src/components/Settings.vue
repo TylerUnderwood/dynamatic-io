@@ -1,5 +1,4 @@
 <script setup>
-import Checkbox from './inputs/Checkbox.vue';
 import Toggle from './inputs/toggle.vue';
 </script>
 
@@ -133,7 +132,7 @@ export default {
     mounted() {
         this.setSwitch();
         this.toggleScheme();
-        this.toggleBodyAttrValue('toggle-identify-guidelines', 'identify', 'guidelines');
+        // this.toggleBodyAttrValue('toggle-identify-guidelines', 'identify', 'guidelines');
         // this.toggleBodyAttrValue('toggle-identify-components', 'identify', 'components');
     }
 }

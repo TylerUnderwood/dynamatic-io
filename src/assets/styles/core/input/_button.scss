@@ -214,7 +214,7 @@ button:focus-visible {
     font-size: 0.9rem;
 }
 
-.Button[data-size="large"].Button__icon {
+.Button[data-size="large"] .Button__icon {
     font-size: 1.2rem;
 }
 
@@ -239,7 +239,7 @@ button:focus-visible {
     font-size: 0.7rem;
 }
 
-.Button[data-size="small"].Button__icon {
+.Button[data-size="small"] .Button__icon {
     font-size: 0.8rem;
 }
 
@@ -261,7 +261,7 @@ button:focus-visible {
     font-size: 0.6rem;
 }
 
-.Button[data-size="tiny"].Button__icon {
+.Button[data-size="tiny"] .Button__icon {
     font-size: 0.8rem;
 }
 
@@ -277,9 +277,19 @@ button:focus-visible {
 
 /* = simple button = */
 .Button[data-shape="simple"] {
+    --button-height: 1.7em;
     min-width: unset;
-    height: fit-content;
-    padding: 0.5em;
+    padding: 0 0.5em;
+}
+
+.Button[data-shape="simple"][data-size="large"] {
+    --button-height: 2.2em;
+}
+.Button[data-shape="simple"][data-size="small"] {
+    --button-height: 1.6em;
+}
+.Button[data-shape="simple"][data-size="tiny"] {
+    --button-height: 1.4em;
 }
 
 /* = square button = */

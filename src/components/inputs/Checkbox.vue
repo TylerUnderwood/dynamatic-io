@@ -4,6 +4,7 @@ export default {
     id: String,
     name: String,
     label: String,
+    value: String,
     size: {
         type: String,
         default: 'text-lg',
@@ -20,6 +21,7 @@ export default {
             :id="id"
             :name="name"
             :label="label"
+            :value="value"
         />
 
         <div class="Checkbox__box">

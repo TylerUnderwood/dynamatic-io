@@ -22,7 +22,10 @@
     border: 2px solid var(--theme-contrast);
     background-color: var(--theme-base);
     padding: 1px;
-    transition: background-color 200ms ease 200ms;
+    transition-property: background-color;
+    transition-timing-function: ease;
+    transition-duration: 200ms;
+    transition-delay: 100ms;
 }
 input:focus-visible + .Checkbox__box {
     outline: var(--input-outline);
@@ -30,7 +33,7 @@ input:focus-visible + .Checkbox__box {
 }
 input:checked + .Checkbox__box {
     background-color: var(--input-color);
-    transition: background-color 200ms ease;
+    transition-delay: 0ms;
 }
 
 .Checkbox__icon {
@@ -48,9 +51,11 @@ input:checked + .Checkbox__box {
     stroke-linejoin: round;
     stroke-dasharray: 18px;
     stroke-dashoffset: 18px;
-    transition: stroke-dashoffset 200ms ease;
+    transition-property: stroke-dashoffset;
+    transition-timing-function: ease;
+    transition-duration: 200ms;
 }
 input:checked + .Checkbox__box .Checkbox__polyline {
     stroke-dashoffset: 0;
-    transition: stroke-dashoffset 200ms ease 200ms;
+    transition-delay: 100ms;
 }

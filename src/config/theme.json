@@ -203,7 +203,7 @@
   "meta": {
     "line-height": "1.2",
     "lhc-top": "-0.2em",
-    "lhc-bottom": "-0.3em"
+    "lhc-bottom": "-0.25em"
   },
   "input": {
     "color": "var(--theme-primary)",
@@ -244,9 +244,9 @@
     "xl": "2560px"
   },
   "max-w": {
-    "copy": "36rem",
-    "page": "48rem",
-    "site": "64rem"
+    "copy": "36em",
+    "page": "48em",
+    "site": "64em"
   },
   "other": {
     "break-size": "1.6rem",
