@@ -1,5 +1,5 @@
 <script setup>
-import Toggle from './inputs/toggle.vue';
+import Toggle from './inputs/Toggle.vue';
 </script>
 
 <script>

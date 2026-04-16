@@ -252,7 +252,6 @@ button:focus-visible {
     min-width: unset;
     border-width: 1px;
     padding: 0.3rem 0.4rem;
-    font-size: 0.6rem;
     --button-height: 1.2rem;
     --button-pad: 0.4rem;
 }
@@ -277,19 +276,22 @@ button:focus-visible {
 
 /* = simple button = */
 .Button[data-shape="simple"] {
-    --button-height: 1.7em;
+    --button-height: 1.6em;
     min-width: unset;
     padding: 0 0.5em;
 }
 
 .Button[data-shape="simple"][data-size="large"] {
-    --button-height: 2.2em;
+    --button-height: 2.0em;
+    padding: 0 0.7em;
 }
 .Button[data-shape="simple"][data-size="small"] {
-    --button-height: 1.6em;
+    --button-height: 1.4em;
+    padding: 0 0.4em;
 }
 .Button[data-shape="simple"][data-size="tiny"] {
-    --button-height: 1.4em;
+    --button-height: 1.2em;
+    padding: 0 0.3em;
 }
 
 /* = square button = */
