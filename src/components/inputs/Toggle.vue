@@ -25,3 +25,7 @@ export default {
         <div class="Toggle__switch"></div>
     </label>
 </template>
+
+<style>
+@import "@styles/components/Toggle.css";
+</style>

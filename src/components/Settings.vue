@@ -1,5 +1,6 @@
 <script setup>
 import Toggle from './inputs/Toggle.vue';
+// import Checkbox from './inputs/Checkbox.vue';
 </script>
 
 <script>
@@ -63,7 +64,7 @@ export default {
             const toggle = document.querySelector('#toggle-scheme');
 
             toggle.addEventListener('change', (event) => {
-                // this.pauseTransitions()
+                this.pauseTransitions()
 
                 if (event.currentTarget.checked) {
                     document.body.dataset.scheme = "dark";
@@ -109,13 +110,13 @@ export default {
             document.getElementById('theme').innerHTML = tokenBuilder(theme);
         },
 
-        // pauseTransitions() {
-        //     document.body.setAttribute("instant-transitions", "")
+        pauseTransitions() {
+            document.body.setAttribute("instant-transitions", "")
 
-        //     setTimeout(() => {
-        //         document.body.removeAttribute("instant-transitions")
-        //     }, 100)
-        // },
+            setTimeout(() => {
+                document.body.removeAttribute("instant-transitions")
+            }, 100)
+        },
 
         changeTheme() {
             switch (this.selectedTheme) {
@@ -171,8 +172,10 @@ export default {
             id="toggle-identify-guidelines"
             name="Toggle Guidelines"
             label="Toggle Guidelines"
-            visually-hidden
         />
+        <label for="toggle-identify-components" visually-hidden>
+            Toggle Components
+        </label>
         <Checkbox
             id="toggle-identify-components"
             name="Toggle Identify Components"
@@ -200,8 +203,10 @@ export default {
     font-size: 0.7rem;
 }
 
-/* [instant-transitions] * {
-    transition-duration: 0ms !important;
-    transition-delay: 0ms !important;
-} */
+[instant-transitions] {
+    --input-timing: 0ms;
+}
+[instant-transitions] .SettingsConsole .Toggle {
+    --input-timing: 300ms;
+}
 </style>
