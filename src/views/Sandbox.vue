@@ -52,7 +52,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
             :open="index === 1 ? '' : null"
         >
             <template #summary>
-                <div class="Card Card--hover">
+                <div class="Card Card--hover border-l-[4px] border-primary">
                     <h3 class="Heading h4 lhc">This is a summary {{ index }}</h3>
                 </div>
             </template>
@@ -113,7 +113,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
         <Modal id="demoModal02">
             <div class="Card Card--lg Col" style="min-height: 110vh;">
                 <h2 class="Heading h3 lhc">Heading</h2>
-                <p class="Copy mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas, aut saepe unde nesciunt sunt ipsum! Magnam officiis veritatis molestiae debitis soluta hic accusamus, praesentium quod. A iusto sunt tempore?</p>
+                <p class="Copy mt-4" v-for="index in 5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptas, aut saepe unde nesciunt sunt ipsum! Magnam officiis veritatis molestiae debitis soluta hic accusamus, praesentium quod. A iusto sunt tempore?</p>
                 <div class="filler"></div>
                 <small class="mt-4">Hello lol</small>
             </div>

@@ -31,3 +31,7 @@ export default {
         </div>
     </label>
 </template>
+
+<style>
+@import "@styles/components/Checkbox.css";
+</style>

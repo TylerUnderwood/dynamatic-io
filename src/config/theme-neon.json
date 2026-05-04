@@ -70,8 +70,9 @@
   },
   "round": {
     "sm": "2px",
-    "md": "8px",
-    "lg": "16px"
+    "md": "4px",
+    "lg": "8px",
+    "DEFAULT": "var(--round-md)"
   },
   "border": {
     "color": "var(--theme-contrast)",
@@ -81,9 +82,9 @@
     "DEFAULT": "2px solid var(--input-color)"
   },
   "shadow": {
-    "lg-inset": "inset 0px 0px 20px 4px rgb(0, 0, 0, / 0.2)",
-    "DEFAULT": "0px 7px 10px 0px rgb(0, 0, 0, / 0.2)",
-    "lg": "0px 0px 20px 4px rgb(0, 0, 0, / 0.2)"
+    "lg-inset": "inset 0px 0px 20px 4px rgb(0 0 0 / 0.2)",
+    "DEFAULT": "0px 2px 4px 2px rgb(0 0 0 / 0.2)",
+    "lg": "0px 4px 8px 4px rgb(0 0 0 / 0.3)"
   },
   "font": {
     "head": "'Roboto Condensed', sans-serif",
