@@ -190,6 +190,7 @@
     "active": "var(--theme-tertiary)",
     "outline": "2px solid var(--input-color)",
     "backdrop": "rgb(64 128 255 / 0.2)",
+    "backdrop-face": "color-mix(in srgb,var(--input-color), var(--theme-face) 50%)",
     "height": {
       "lg": "2.8rem",
       "DEFAULT": "2.2rem",

@@ -6,4 +6,9 @@
 
 [modal] {
     display: block;
+    visibility: hidden;
+}
+
+[modal][open] {
+    visibility: visible;
 }

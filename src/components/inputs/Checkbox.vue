@@ -1,6 +1,5 @@
-<script>
-export default {
-  props: {
+<script setup>
+defineProps({
     id: String,
     name: String,
     label: String,
@@ -9,8 +8,11 @@ export default {
         type: String,
         default: 'text-lg',
     },
-  }
-}
+  });
+
+defineOptions({ inheritAttrs: false });
+
+const model = defineModel()
 </script>
 
 <template>
@@ -22,6 +24,8 @@ export default {
             :name="name"
             :label="label"
             :value="value"
+            v-model="model"
+            v-bind="$attrs"
         />
 
         <div class="Checkbox__box">

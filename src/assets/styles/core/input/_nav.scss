@@ -5,8 +5,8 @@
 */
 
 .Nav {
-    display: flex;
     --nav-link-pad: 0.5em;
+    display: flex;
 }
 
 .Nav__list {
@@ -23,13 +23,13 @@
 }
 
 .Nav__link {
-    padding: var(--nav-link-pad);
     border-radius: var(--input-round);
+    padding: var(--nav-link-pad);
     transition-property: background-color;
 }
 
 .Nav__link:hover,
 .Nav__link:focus {
     background-color: var(--input-backdrop);
-    color: var(--input-hover);
+    color: var(--input-backdrop-face);
 }

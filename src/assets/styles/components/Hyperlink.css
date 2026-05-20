@@ -10,7 +10,9 @@
                       linear-gradient(transparent calc(100% - 0.2em), var(--input-hover) 0);
     background-size: 0 100%, 100% 100%;
     color: inherit;
-    transition: background 300ms ease;
+    transition-property: background;
+    transition-duration: var(--input-timing);
+    transition-timing-function: var(--input-easing);
 }
 
 .Hyperlink[active] {

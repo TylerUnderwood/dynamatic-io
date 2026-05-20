@@ -21,7 +21,7 @@ export default {
                     v-for="(item, index) in items" :key="index"
                 >
                     <router-link
-                        class="Link Nav__link"
+                        class="Nav__link Link"
                         :to="item.link"
                         v-if="item.isInternal"
                     >
@@ -30,7 +30,7 @@ export default {
                         </span>
                     </router-link>
                     <a
-                        class="Link Nav__link"
+                        class="Nav__link Link"
                         :href="item.link"
                         v-else
                     >
