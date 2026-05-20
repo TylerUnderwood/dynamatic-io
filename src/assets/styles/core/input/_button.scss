@@ -28,6 +28,7 @@ button:focus-visible {
     --button-hover: var(--input-hover);
     --button-active: var(--input-active);
     --button-face: var(--light-base);
+    --button-min-w: 8rem;
     --button-height: var(--input-height);
     --button-pad: var(--input-pad);
     --button-timing: var(--input-timing);
@@ -42,7 +43,7 @@ button:focus-visible {
     border-style: solid;
     border-color: transparent;
     border-radius: var(--input-round);
-    min-width: 8rem;
+    min-width: min(var(--button-min-w), 100%);
     height: var(--button-height);
     background-color: var(--button-color);
     padding: 0 var(--button-pad);
@@ -180,20 +181,20 @@ button:focus-visible {
 .Button[data-type="tertiary"]:active {
     border-color: transparent;
     background-color: var(--input-backdrop);
-    color: var(--button-hover);
+    color: var(--input-backdrop-face);
 }
 
 .Button[data-type="tertiary"][hover],
 .Button[data-type="tertiary"]:hover {
     border-color: transparent;
     background-color: var(--input-backdrop);
-    color: var(--button-hover);
+    color: var(--input-backdrop-face);
 }
 
 .Button[data-type="tertiary"][disabled] {
     border-color: transparent;
-    background-color: var(--input-backdrop);
-    color: var(--button-color);
+    background-color: var(--button-base);
+    color: var(--button-face);
 }
 
 
@@ -201,13 +202,13 @@ button:focus-visible {
 
 /* = large button = */
 .Button[data-size="large"] {
-    min-width: 12rem;
+    --button-min-w: 12rem;
+    --button-height: var(--input-height-lg);
+    --button-pad: var(--input-pad-lg);
     border-width: var(--input-border-width-lg);
     height: var(--button-height);
     padding: 0 2.4rem;
     font-weight: 700;
-    --button-height: var(--input-height-lg);
-    --button-pad: var(--input-pad-lg);
 }
 
 .Button[data-size="large"] .Button__text {
@@ -225,13 +226,13 @@ button:focus-visible {
 
 /* = small button = */
 .Button[data-size="small"] {
-    min-width: 6em;
+    --button-min-w: 6rem;
+    --button-height: var(--input-height-sm);
+    --button-pad: var(--input-pad-sm);
     border-width: var(--input-border-width-sm);
     height: var(--button-height);
     padding: 0 1.2rem;
     font-weight: 300;
-    --button-height: var(--input-height-sm);
-    --button-pad: var(--input-pad-sm);
 }
 
 .Button[data-size="small"] .Button__text {
@@ -249,11 +250,11 @@ button:focus-visible {
 
 /* = tiny button = */
 .Button[data-size="tiny"] {
+    --button-height: 1.2rem;
+    --button-pad: 0.4rem;
     min-width: unset;
     border-width: 1px;
     padding: 0.3rem 0.4rem;
-    --button-height: 1.2rem;
-    --button-pad: 0.4rem;
 }
 
 .Button[data-size="tiny"] .Button__text {

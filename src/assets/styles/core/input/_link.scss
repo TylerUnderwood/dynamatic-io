@@ -21,7 +21,7 @@ a:focus-visible {
 }
 
 .Link {
-    color: var(--input-color);
+    color: var(--input-face);
     transition-property: color;
     transition-duration: var(--input-timing);
     transition-timing-function: var(--input-easing);

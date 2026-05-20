@@ -205,22 +205,16 @@ export default {
             </label>
         </div>
 
-        <div class="flex mt-5" style="min-height: 240px;">
+        <div class="flex flex-col md:flex-row mt-5 border-contrast border-2 rounded overflow-hidden">
             <div
-                :class="[
-                    'flex flex-col justify-center items-center gap-2 p-4 flex-1 bg-base border-t-2 border-b-2',
-                    {
-                        'border-l-2 rounded-s': item === schemeTuple[0],
-                        'border-r-2 rounded-e': item === schemeTuple[1]
-                    }
-                ]"
-                :data-scheme="item"
+                class="flex justify-center items-center p-4 flex-1 bg-base min-h-[10rem] md:min-h-[12rem] overflow-clip"
                 v-for="(item, index) in schemeTuple"
+                :data-scheme="item"
                 :key="index"
             >
                 <button
                     :id="`demo-button-${index+1}`"
-                    class="Button"
+                    class="Button DemoButton"
                 >
                     <span class="Button__text Meta lhc">
                         {{ demoButton.shape !== "square" ? "Button" : "B" }}
@@ -279,10 +273,10 @@ export default {
 </template>
 
 <style>
-    #dynamic-button[data-shape="square"]::before {
+    .DemoButton[data-shape="square"]::before {
         content: "ⓘ" !important;
     }
-    #dynamic-button[data-shape="square"] .Button__text {
+    .DemoButton[data-shape="square"] .Button__text {
         display: none !important;
     }
 </style>
