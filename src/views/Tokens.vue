@@ -2,12 +2,12 @@
 import theme from '@config/theme.json';
 import { tokenCategories, tokensNative, tokenBuilder } from 'dynamatic';
 // components
-import Banner from "@/components/Banner.vue";
-import Section from "@/components/Section.vue";
+import Hero from "@/components/hero/Hero.vue";
+import Section from "@/components/section/Section.vue";
 </script>
 
 <template>
-    <Banner title="Tokens"/>
+    <Hero title="Tokens"/>
 
     <Section heading="00 - Theme">
         <details class="mt-4">

@@ -5,10 +5,19 @@ import { useTableOfContentsStore } from '@/stores/TableOfContents';
 
 <script>
 export default {
-    props: [
-        'id',
-        'heading'
-    ],
+    props: {
+        id: String,
+        heading: String,
+        classBase: {
+            type: String,
+            default: 'px-page my-section',
+        },
+        classWrap: String,
+        wrapWidth: {
+            type: String,
+            default: null,
+        },
+    },
 
     data() {
         return {
@@ -23,6 +32,7 @@ export default {
             // if no id and has heading, make id from heading
             if (this.id == null && this.heading != null) {
                 id = this.heading.trim().toLowerCase().split(' ').join('-');
+            // if no heading and no id
             } else if (this.id == null) {
                 id = uuid();
             } else {
@@ -55,24 +65,25 @@ export default {
 <template>
     <section
         :id="sectionId"
-        class="SectionDocs"
+        class="Section"
+        :class="classBase"
         :aria-labelledby="heading != null ? headingId : null"
     >
-        <h2
-            :id="headingId"
-            class="Heading h2 lhc"
-            v-if="heading"
+        <div
+            class="Section__wrap"
+            :class="classWrap"
+            :style="wrapWidth != null ? `--section-wrap: ${wrapWidth};` : null"
         >
-            {{ heading }}
-        </h2>
+            <h2
+                :id="headingId"
+                class="Heading h2 lhc"
+                v-if="heading"
+            >
+                {{ heading }}
+            </h2>
 
-        <slot/>
+            <slot/>
 
+        </div>
     </section>
 </template>
-
-<style>
-.SectionDocs + .SectionDocs {
-    margin-top: var(--space-section);
-}
-</style>

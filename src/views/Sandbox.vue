@@ -1,14 +1,14 @@
 <script setup>
-import Banner from "@/components/Banner.vue";
-import Section from "@/components/Section.vue";
+import Hero from "@/components/hero/Hero.vue";
+import Section from "@/components/section/Section.vue";
 import Modal from "@/components/Modal.vue";
 import Drawer from "@/components/Drawer.vue";
-import Button from "@/components/Button.vue";
+import Button from "@/components/inputs/Button.vue";
 import DemoBlock from "@/components/DemoBlock.vue";
 </script>
 
 <template>
-    <Banner
+    <Hero
         title="Sandbox"
         intro="This is whatever I am currently working on"
     />

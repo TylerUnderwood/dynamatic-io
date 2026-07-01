@@ -1,6 +1,6 @@
 <script setup>
-import SectionSplit from "@/components/SectionSplit.vue";
-import SectionBlock from "@/components/SectionBlock.vue";
+import SectionSplit from "@/components/section/SectionSplit.vue";
+import SectionBlock from "@/components/section/SectionBlock.vue";
 </script>
 
 <script>

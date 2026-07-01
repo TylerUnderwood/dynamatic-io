@@ -5,8 +5,8 @@ export const useTableOfContentsStore = defineStore({
   state: () => ({
     items: [
       {
-        id: 'temp-link-id',
-        name: 'Temp Heading',
+        id: 'demo-link-id',
+        name: 'Demo Heading',
       },
     ],
   }),

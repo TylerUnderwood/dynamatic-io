@@ -1,6 +1,6 @@
 <script setup>
-import SectionDocs from "@/components/SectionDocs.vue";
-import Field from "@/components/Field.vue";
+import SectionDocs from "@/components/section/SectionDocs.vue";
+import Field from "@/components/inputs/Field.vue";
 
 const inputTypes = {
     "string": [

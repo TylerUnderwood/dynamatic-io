@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue"
-import SectionDocs from "@/components/SectionDocs.vue";
+import SectionDocs from "@/components/section/SectionDocs.vue";
 import Checkbox from "@/components/inputs/Checkbox.vue"
 
 const demoButtonStates = ref([])

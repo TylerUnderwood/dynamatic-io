@@ -1,6 +1,6 @@
 <script setup>
-import Banner from "@/components/Banner.vue";
-import Section from "@/components/Section.vue";
+import Hero from "@/components/hero/Hero.vue";
+import Section from "@/components/section/Section.vue";
 </script>
 
 <script>
@@ -61,7 +61,7 @@ export default {
 </script>
 
 <template>
-    <Banner
+    <Hero
         title="Section"
         intro="This is a showcase of the .Section component"
     />

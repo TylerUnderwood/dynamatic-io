@@ -1,6 +1,6 @@
 <script setup>
-import Banner from "@/components/Banner.vue";
-import Section from "@/components/Section.vue";
+import Hero from "@/components/hero/Hero.vue";
+import Section from "@/components/section/Section.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import SidebarNav from "@/components/SidebarNav.vue";
 import { useTableOfContentsStore } from '@/stores/TableOfContents';
@@ -48,13 +48,13 @@ export default {
 </script>
 
 <template>
-  <Banner title="Docs" />
+  <Hero title="Docs" />
 
-  <section class="DocsTemplate my-section px-page">
-    <div class="DocsTemplate__wrap">
+  <div class="DocsLayout my-section px-page">
+    <div class="DocsLayout__wrap">
 
       <!-- Navigation -->
-      <div class="DocsTemplate__leftBar">
+      <div class="DocsLayout__leftBar">
         <Sidebar>
           <SidebarNav
             heading="Navigation"
@@ -64,7 +64,7 @@ export default {
       </div>
 
       <!-- Table of Contents -->
-      <div class="DocsTemplate__rightBar">
+      <div class="DocsLayout__rightBar">
         <Sidebar>
           <SidebarNav
             heading="Table of Contents"
@@ -74,22 +74,22 @@ export default {
       </div>
 
       <!-- Main -->
-      <div class="DocsTemplate__main page-wrapper">
+      <article class="DocsLayout__main page-wrapper">
         <router-view></router-view>
-      </div>
+      </article>
 
     </div>
-  </section>
+  </div>
 </template>
 
 <style>
-  .DocsTemplate {
+  .DocsLayout {
     display: flex;
     --sidebar-width: 11rem;
     --sidebar-gap: 1.6rem;
   }
 
-  .DocsTemplate__wrap {
+  .DocsLayout__wrap {
     display: grid;
     gap: var(--sidebar-gap);
     grid-template:
@@ -103,26 +103,26 @@ export default {
     margin: auto;
   }
 
-  .DocsTemplate__leftBar {
+  .DocsLayout__leftBar {
     grid-area: left;
   }
 
-  .DocsTemplate__rightBar {
+  .DocsLayout__rightBar {
     grid-area: right;
   }
 
-  .DocsTemplate__main {
+  .DocsLayout__main {
     grid-area: main;
   }
 
-  .DocsTemplate__leftBar,
-  .DocsTemplate__rightBar {
+  .DocsLayout__leftBar,
+  .DocsLayout__rightBar {
     display: flex;
     width: 100%;
   }
 
   @media screen and (min-width: 1024px) {
-    .DocsTemplate__wrap {
+    .DocsLayout__wrap {
       grid-template:
         " left main right "
         / var(--sidebar-width) 1fr var(--sidebar-width)

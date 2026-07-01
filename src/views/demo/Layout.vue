@@ -1,6 +1,6 @@
 <script setup>
-import Banner from "@/components/Banner.vue";
-import Section from "@/components/Section.vue";
+import Hero from "@/components/hero/Hero.vue";
+import Section from "@/components/section/Section.vue";
 
 const alignSharedTypes = [
     'center',
@@ -148,7 +148,7 @@ export default {
 </script>
 
 <template>
-    <Banner
+    <Hero
         title="Layout"
         intro="This is a demo of how the [layout] attribute work"
     />

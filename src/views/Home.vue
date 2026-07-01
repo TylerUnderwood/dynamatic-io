@@ -1,11 +1,11 @@
 <script setup>
-import Banner from "@/components/Banner.vue";
-import Section from "@/components/Section.vue";
+import Hero from "@/components/hero/Hero.vue";
+import Section from "@/components/section/Section.vue";
 import HomeSection from "@/components/homepage/HomeSection.vue";
 </script>
 
 <template>
-    <Banner
+    <Hero
         title="Home"
         intro="Welcome to Dynamatic"
     />

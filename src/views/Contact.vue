@@ -1,12 +1,12 @@
 <script setup>
-import Banner from "@/components/Banner.vue";
-import Section from "@/components/Section.vue";
-import Field from "@/components/Field.vue";
+import Hero from "@/components/hero/Hero.vue";
+import Section from "@/components/section/Section.vue";
+import Field from "@/components/inputs/Field.vue";
 import Submit from "@/components/Submit.vue";
 </script>
 
 <template>
-    <Banner title="Contact"/>
+    <Hero title="Contact"/>
 
     <Section heading="Form That Does Nothing">
 

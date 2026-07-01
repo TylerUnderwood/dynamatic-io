@@ -1,5 +1,5 @@
 <script setup>
-import SectionDocs from "@/components/SectionDocs.vue";
+import SectionDocs from "@/components/section/SectionDocs.vue";
 
 const shapes = {
     "Arch": {

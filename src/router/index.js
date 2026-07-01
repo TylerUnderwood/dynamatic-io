@@ -40,6 +40,7 @@ const routes = [
     path: "/docs",
     name: "Docs",
     component: () => import("@views/Docs.vue"),
+    meta: { template: "Docs" },
     children: [
       {
         path: "",

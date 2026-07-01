@@ -9,9 +9,8 @@ export default {
 
 <template>
     <section
-        id="banner"
-        class="Banner"
-        role="banner"
+        id="Hero"
+        class="Hero"
         aria-labelledby="title"
         data-scheme="dark"
     >
@@ -27,7 +26,7 @@ export default {
 </template>
 
 <style>
-    .Banner {
+    .Hero {
         padding: var(--space-page);
         background-color: var(--theme-primary)
     }
