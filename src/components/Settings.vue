@@ -4,16 +4,18 @@ import Toggle from './inputs/Toggle.vue';
 </script>
 
 <script>
-import theme from '@config/theme.json';
+import themeDefault from '@config/theme.json';
 import themeNeon from '@config/theme-neon.json';
+import themeWebBrutalism from '@config/theme-web-brutalism.json';
 import { tokenBuilder } from 'dynamatic';
 
 export default {
     data() {
         return {
-            theme: theme,
+            themeDefault: themeDefault,
             themeNeon: themeNeon,
-            selectedTheme: "default",
+            themeWebBrutalism: themeWebBrutalism,
+            selectedTheme: "brutalism",
         }
     },
 
@@ -120,11 +122,15 @@ export default {
 
         changeTheme() {
             switch (this.selectedTheme) {
+                case "brutalism":
+                    this.setTheme(this.themeWebBrutalism)
+                    break;
                 case "neon":
                     this.setTheme(this.themeNeon)
+                    break;
                 break;
                     default:
-                    this.setTheme(this.theme)
+                    this.setTheme(this.themeDefault)
                     break;
             }
         }
@@ -160,6 +166,7 @@ export default {
                 v-model="selectedTheme"
                 @change="changeTheme"
             >
+                <option value="brutalism">Web Brutalism</option>
                 <option value="default">Default</option>
                 <option value="neon">Neon</option>
             </select>

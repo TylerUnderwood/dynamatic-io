@@ -1,10 +1,11 @@
 <script>
 import theme from '@config/theme.json';
+import themeWebBrutalism from '@config/theme-web-brutalism.json';
 import { tokenBuilder } from "dynamatic";
 
 export default {
   created() {
-    document.getElementById('theme').innerHTML = tokenBuilder(theme);
+    document.getElementById('theme').innerHTML = tokenBuilder(themeWebBrutalism);
   },
 }
 </script>
