@@ -93,7 +93,7 @@
     "body": "var(--carbon-700)"
   },
   "dark": {
-    "primary-face": "var(--cerulean-300)",
+    "primary-face": "var(--cerulean-400)",
     "primary": "var(--cerulean-500)",
     "primary-base": "var(--cerulean-600)",
     "secondary": "var(--azure)",
@@ -102,7 +102,7 @@
     "base": "var(--carbon-800)",
     "offset": "var(--carbon-700)",
     "contrast": "var(--carbon-600)",
-    "head": "var(--slate-100)",
+    "head": "var(--slate-50)",
     "face": "var(--slate-200)",
     "body": "var(--slate-300)"
   },
