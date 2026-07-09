@@ -131,9 +131,9 @@
     "secondary": "var(--azure)",
     "tertiary": "var(--purple)",
     "accent": "var(--yellow)",
-    "base": "var(--dark-900)",
-    "offset": "var(--dark-800)",
-    "contrast": "var(--dark-600)",
+    "base": "var(--dark-800)",
+    "offset": "var(--dark-900)",
+    "contrast": "var(--dark-950)",
     "head": "var(--light-50)",
     "face": "var(--light-100)",
     "body": "var(--light-200)"
@@ -166,8 +166,8 @@
     "DEFAULT": "2px solid var(--input-color)"
   },
   "shadow": {
-    "lg-inset": "inset 0px 0px 20px 4px rgb(0 0 0 / 0.2)",
-    "DEFAULT": "0px 2px 4px 2px rgb(0 0 0 / 0.2)",
+    "lg-inset": "inset 0px 0px 20px 4px rgb(0 0 0 / 0.3)",
+    "DEFAULT": "0px 2px 4px 2px rgb(0 0 0 / 0.3)",
     "lg": "0px 4px 8px 4px rgb(0 0 0 / 0.3)"
   },
   "font": {

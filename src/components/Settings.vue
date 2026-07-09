@@ -146,7 +146,7 @@ export default {
 </script>
 
 <template>
-    <div id="settings" class="SettingsConsole">
+    <div id="settings" class="SettingsConsole" instant-transitions-exception>
         <label for="toggle-scheme" visually-hidden>
             Toggle Scheme (light / dark)
         </label>
@@ -201,8 +201,6 @@ export default {
     display: flex;
     align-items: center;
     box-shadow: var(--shadow);
-    border-width: 2px;
-    border-bottom-width: 0;
     border-radius: var(--round-sm);
     background-color: var(--theme-base);
     padding: 0.5em 0.5em 0.5em 1em;
@@ -213,7 +211,7 @@ export default {
 [instant-transitions] {
     --input-timing: 0ms;
 }
-[instant-transitions] .SettingsConsole .Toggle {
+[instant-transitions] [instant-transitions-exception] {
     --input-timing: 300ms;
 }
 </style>
