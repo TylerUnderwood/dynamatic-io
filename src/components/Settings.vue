@@ -1,4 +1,8 @@
 <script setup>
+/**
+ * @see https://www.tints.dev/palette/v1:Y2VydWxlYW58NDA0OEYwfDUwMHxwfDB8MHwwfDEwMHxtfmF6dXJlfDQwQTBGMHw1MDB8cHwwfDB8MHwxMDB8bX52aW9sZXR8OTA0MEYwfDUwMHxwfDB8MHwwfDEwMHxtfnNsYXRlfEYwRjJGNHwzMDB8cHwwfDB8MHwxMDB8bX5jYXJib258MjAyNDI4fDcwMHxwfDB8MHwwfDEwMHxt
+ */
+
 import Toggle from './inputs/Toggle.vue';
 // import Checkbox from './inputs/Checkbox.vue';
 </script>
@@ -6,7 +10,6 @@ import Toggle from './inputs/Toggle.vue';
 <script>
 import themeDefault from '@config/theme.json';
 import themeNeon from '@config/theme-neon.json';
-import themeWebBrutalism from '@config/theme-web-brutalism.json';
 import { tokenBuilder } from 'dynamatic';
 
 export default {
@@ -14,8 +17,7 @@ export default {
         return {
             themeDefault: themeDefault,
             themeNeon: themeNeon,
-            themeWebBrutalism: themeWebBrutalism,
-            selectedTheme: "brutalism",
+            selectedTheme: "default",
         }
     },
 
@@ -122,9 +124,6 @@ export default {
 
         changeTheme() {
             switch (this.selectedTheme) {
-                case "brutalism":
-                    this.setTheme(this.themeWebBrutalism)
-                    break;
                 case "neon":
                     this.setTheme(this.themeNeon)
                     break;
@@ -166,7 +165,6 @@ export default {
                 v-model="selectedTheme"
                 @change="changeTheme"
             >
-                <option value="brutalism">Web Brutalism</option>
                 <option value="default">Default</option>
                 <option value="neon">Neon</option>
             </select>

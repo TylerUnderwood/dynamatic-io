@@ -27,9 +27,9 @@
     }
   },
   "light": {
-    "primary-up": "var(--azure)",
+    "primary-face": "var(--azure)",
     "primary": "var(--royal-purple)",
-    "primary-down": "var(--fuchsia)",
+    "primary-base": "var(--fuchsia)",
     "secondary": "var(--azure)",
     "tertiary": "var(--fuchsia)",
     "accent": "var(--jade)",
@@ -41,9 +41,9 @@
     "body": "var(--dark-400)"
   },
   "dark": {
-    "primary-up": "var(--azure)",
+    "primary-face": "var(--azure)",
     "primary": "var(--royal-purple)",
-    "primary-down": "var(--fuchsia)",
+    "primary-base": "var(--fuchsia)",
     "secondary": "var(--azure)",
     "tertiary": "var(--fuchsia)",
     "accent": "var(--jade)",
@@ -55,9 +55,9 @@
     "body": "var(--light-400)"
   },
   "DEFAULT": {
-    "primary-up": "var(--light-primary-up)",
+    "primary-face": "var(--light-primary-face)",
     "primary": "var(--light-primary)",
-    "primary-down": "var(--light-primary-down)",
+    "primary-base": "var(--light-primary-base)",
     "secondary": "var(--light-secondary)",
     "tertiary": "var(--light-tertiary)",
     "accent": "var(--light-accent)",
@@ -92,7 +92,7 @@
     "meta": "'Roboto Mono', sans-serif"
   },
   "markup": {
-    "color": "var(--theme-primary-up)",
+    "color": "var(--theme-primary-face)",
     "muted": "var(--grey-200)"
   },
   "copy": {

@@ -15,6 +15,15 @@ export default {
         linkText: String,
     },
     computed: {
+        firstLastClass() {
+            if (this.isFirst) {
+                return 'HomeSection--first'
+            } else if (this.isLast) {
+                return 'HomeSection--last'
+            } else {
+                return ''
+            }
+        },
         archClass() {
             if (this.reverse && !this.isFirst) {
                 return "Arch--tr top-0 right-0"
@@ -32,12 +41,7 @@ export default {
 
     <SectionSplit
         :reverse="reverse"
-        :classBase="[
-            'HomeSection',
-            { 'HomeSection--first': isFirst },
-            { 'HomeSection--last': isLast },
-            'm-0',
-        ]"
+        :classBase="`HomeSection ${firstLastClass} m-0`"
         classTop="HomeSection__top HomeSection__blockGradient bg-primary overflow-hidden"
         classBot="HomeSection__bot relative py-8 md:py-10 justify-center"
     >

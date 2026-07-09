@@ -46,7 +46,6 @@ const homeSections = [
             <div class="mt-5 md:mt-8 flex justify-center items-center gap-4">
                 <a
                     class="Button"
-                    data-shape="simple"
                     href="https://github.com/TylerUnderwood/dynamatic-io"
                     target="_blank"
                 >
@@ -57,7 +56,6 @@ const homeSections = [
                 <a
                     class="Button"
                     data-type="secondary"
-                    data-shape="simple"
                     href="https://www.npmjs.com/package/dynamatic?activeTab=readme"
                     target="_blank"
                 >

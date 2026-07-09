@@ -11,9 +11,9 @@ module.exports = {
     screens: theme.screen,
     extend: {
       colors: {
-        "primary-up": "var(--theme-primary-up)",
+        "primary-face": "var(--theme-primary-face)",
         "primary": "var(--theme-primary)",
-        "primary-down": "var(--theme-primary-down)",
+        "primary-base": "var(--theme-primary-base)",
         "secondary": "var(--theme-secondary)",
         "tertiary": "var(--theme-tertiary)",
         "accent": "var(--theme-accent)",
