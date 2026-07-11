@@ -1,4 +1,5 @@
 {
+  "see": "https://www.tints.dev/palette/v1:Y2VydWxlYW58NDA0OEYwfDUwMHxwfDB8MHwwfDEwMHxtfmF6dXJlfDQwQTBGMHw1MDB8cHwwfDB8MHwxMDB8bX52aW9sZXR8OTA0MEYwfDUwMHxwfDB8MHwwfDEwMHxtfnNsYXRlfEYwRjJGNHwzMDB8cHwwfDB8MHwxMDB8bX5jYXJib258MjAyNDI4fDcwMHxwfDB8MHwwfDEwMHxt",
   "color": {
     "cerulean": {
       "50": "#ECECFE",
@@ -71,12 +72,6 @@
       "950": "#060709",
       "DEFAULT": "var(--carbon-700)"
     }
-  },
-  "theme": {
-    "primary": "var(--cerulean)",
-    "secondary": "var(--azure)",
-    "tertiary": "var(--violet)",
-    "accent": "var(--yellow)"
   },
   "light": {
     "primary-face": "var(--cerulean-600)",

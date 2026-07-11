@@ -1,25 +1,10 @@
 <script setup>
 import SectionDocs from "@/components/section/SectionDocs.vue";
-</script>
-
-<script>
 import theme from '@config/theme.json';
 import { tokenCategories } from 'dynamatic';
 
-export default {
-    data() {
-        return {
-            tokens: tokenCategories(theme),
-            themeNames: [],
-        }
-    },
-
-    created() {
-        this.themeNames = [
-            ...Object.keys(this.tokens.DEFAULT).map(color => color),
-        ]
-    }
-}
+const tokens = tokenCategories(theme)
+const themeNames = [...Object.keys(tokens.DEFAULT).map(color => color)]
 </script>
 
 <template>
@@ -71,38 +56,49 @@ export default {
         <div class="pt-6"></div>
         <details
             v-for="category, cline in tokens"
-            :open="/^colors/.test(cline) ? true : null"
+            :open="/^color/.test(cline) ? true : null"
         >
             <summary>
                 <h3 class="Heading h3">
                     {{ cline === "DEFAULT" ? "theme" : cline }}
                 </h3>
             </summary>
-            <code v-for="token, name in category" class="block mt-2">
-                <span>{{ name }}: </span>
-                <mark v-if="/^#/.test(token)" :style="{backgroundColor: token}">
-                    {{ token }}
-                </mark>
-                <mark v-else-if="/^var/.test(token)" :style="{backgroundColor: `${token}`}">
-                    {{ token }}
-                </mark>
-                <mark v-else>
-                    {{ token }}
-                </mark>
+            <code v-for="token, name in category" class="flex mt-2">
+                <span class="mr-2">{{ name }}: {{ token }}</span>
+                <div
+                    v-if="/^#/.test(token) || /^var/.test(token)"
+                    class="VarBox"
+                    :style="{'--varBox-color': token, '--varBox-length': token}"
+                ></div>
             </code>
         </details>
     </SectionDocs>
 </template>
 
 <style>
-mark {
-    background-color: var(--theme-accent);
-    color: black;
-    mix-blend-mode: multiply;
+@property --varBox-color {
+  syntax: "<color>";
+  initial-value: currentColor;
+  inherits: false;
 }
-mark::before,
-mark::after {
-    content: "\00a0";
+
+@property --varBox-length {
+  syntax: "<length>";
+  initial-value: 1em;
+  inherits: false;
+}
+
+.VarBox {
+    flex-shrink: 0;
+    background-color: var(--varBox-color);
+    width: var(--varBox-length);
+    height: 1em;
+}
+.VarBox::after {
+    display: block;
+    background-color: transparent;
+    height: 1em;
+    content: "";
 }
 
 /* .theme-dark.bg-primary .List > .List__item::before, */

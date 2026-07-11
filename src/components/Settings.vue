@@ -1,8 +1,4 @@
 <script setup>
-/**
- * @see https://www.tints.dev/palette/v1:Y2VydWxlYW58NDA0OEYwfDUwMHxwfDB8MHwwfDEwMHxtfmF6dXJlfDQwQTBGMHw1MDB8cHwwfDB8MHwxMDB8bX52aW9sZXR8OTA0MEYwfDUwMHxwfDB8MHwwfDEwMHxtfnNsYXRlfEYwRjJGNHwzMDB8cHwwfDB8MHwxMDB8bX5jYXJib258MjAyNDI4fDcwMHxwfDB8MHwwfDEwMHxt
- */
-
 import Toggle from './inputs/Toggle.vue';
 // import Checkbox from './inputs/Checkbox.vue';
 </script>
