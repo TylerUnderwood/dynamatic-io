@@ -1,7 +1,4 @@
 {
-  "see": {
-    "link": "https://www.tints.dev/palette/v1:bGF2YS1yZWR8ZmYyMDAwfDUwMHxsfDB8MHwxMHwxMDB8bX5sYXZhfGZmNDAwMHw1MDB8bHwwfDB8MTB8MTAwfG1-bGF2YS1vcmFuZ2V8ZmY2MDAwfDUwMHxsfDB8MHwxMHwxMDB8bX5uZW9ufGQ4ZmYwMHw1MDB8bHwwfDB8MTB8MTAwfG1-bmVvbi1ncmVlbnxjMGZmMDB8NTAwfGx8MHwwfDEwfDEwMHxtfmphZGV8MDBmZjgwfDUwMHxsfDB8MHwxMHwxMDB8bX50cm9waWNhbHwwMGZmYzB8NTAwfGx8MHwwfDEwfDEwMHxtfmF6dXJlfDAwODBmZnw1MDB8bHwwfDB8MTB8MTAwfG1-bGF2ZW5kZXJ8ODAwMGZmfDUwMHxsfDB8MHwxMHwxMDB8bX5yb3lhbHxjMDAwZmZ8NTAwfGx8MHwwfDEwfDEwMHxtfmZ1Y2hzaWF8ZmYwMDgwfDUwMHxsfDB8MHwxMHwxMDB8bX5zdGFyYnVyc3R8ZmYwMDQwfDUwMHxsfDB8MHwxMHwxMDB8bQ"
-  },
   "color": {
     "old": {
       "lava-red": "#ff2000",
@@ -431,5 +428,8 @@
   },
   "import": {
     "fonts": "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;500;600;700&family=Roboto+Mono:wght@300;500;700&family=Roboto:wght@100;300;500;700;900&display=swap"
+  },
+  "info": {
+    "pellet-gen": "https://www.tints.dev/palette/v1:bGF2YS1yZWR8ZmYyMDAwfDUwMHxsfDB8MHwxMHwxMDB8bX5sYXZhfGZmNDAwMHw1MDB8bHwwfDB8MTB8MTAwfG1-bGF2YS1vcmFuZ2V8ZmY2MDAwfDUwMHxsfDB8MHwxMHwxMDB8bX5uZW9ufGQ4ZmYwMHw1MDB8bHwwfDB8MTB8MTAwfG1-bmVvbi1ncmVlbnxjMGZmMDB8NTAwfGx8MHwwfDEwfDEwMHxtfmphZGV8MDBmZjgwfDUwMHxsfDB8MHwxMHwxMDB8bX50cm9waWNhbHwwMGZmYzB8NTAwfGx8MHwwfDEwfDEwMHxtfmF6dXJlfDAwODBmZnw1MDB8bHwwfDB8MTB8MTAwfG1-bGF2ZW5kZXJ8ODAwMGZmfDUwMHxsfDB8MHwxMHwxMDB8bX5yb3lhbHxjMDAwZmZ8NTAwfGx8MHwwfDEwfDEwMHxtfmZ1Y2hzaWF8ZmYwMDgwfDUwMHxsfDB8MHwxMHwxMDB8bX5zdGFyYnVyc3R8ZmYwMDQwfDUwMHxsfDB8MHwxMHwxMDB8bQ"
   }
 }

@@ -4,13 +4,7 @@ import theme from '@config/theme.json';
 import { tokenCategories } from 'dynamatic';
 
 const tokens = tokenCategories(theme)
-// const tokens = [...tokenCategories(theme).map(category => category !== 'see')]
 const themeNames = [...Object.keys(tokens.DEFAULT).map(color => color)]
-
-// TODO: update to remove category "see"
-console.log(tokens)
-
-// TODO: update to also show length, with proper css property syntax checks
 </script>
 
 <template>
@@ -69,13 +63,13 @@ console.log(tokens)
                     {{ cline === "DEFAULT" ? "theme" : cline }}
                 </h3>
             </summary>
-            <code v-for="token, name in category" class="flex mt-2">
-                <span class="mr-2">{{ name }}: {{ token }}</span>
+            <div v-for="token, name in category" class="flex mt-2">
+                <code class="mr-3">{{ name }}: {{ token }};</code>
                 <div
                     class="VarBox"
                     :style="{'--varBox-color': token, '--varBox-length': token}"
                 ></div>
-            </code>
+            </div>
         </details>
     </SectionDocs>
 </template>
@@ -96,16 +90,39 @@ console.log(tokens)
 .VarBox {
     display: flex;
     flex-shrink: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--theme-face);
+    border-radius: 2px;
     background-color: var(--varBox-color);
     min-width: 1em;
     height: 1em;
+    overflow: visible;
 }
 
 .VarBox::before {
     flex-shrink: 0;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-color: var(--theme-base);
     background-color: currentColor;
+    background: linear-gradient(
+        0deg,
+        currentColor 0%,
+        currentColor 50%,
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0) 100%);
     min-width: var(--varBox-length);
-    height: 1em;
+    height: calc(1em + 1px);
     content: '';
+}
+
+/* TODO: Find a permanent solution to primary color bullet points on a primary background-color */
+/* .theme-dark.bg-primary .List > .List__item::before, */
+.List--colorFace > .List__item::marker {
+    color: var(--theme-face);
 }
 </style>
