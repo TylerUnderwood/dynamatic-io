@@ -103,9 +103,9 @@ console.log(tokens)
 }
 
 .VarBox::before {
+    flex-shrink: 0;
     background-color: currentColor;
-    max-width: var(--varBox-length);
-    width: 100%;
+    min-width: var(--varBox-length);
     height: 1em;
     content: '';
 }
