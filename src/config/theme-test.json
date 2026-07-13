@@ -103,9 +103,9 @@
     "secondary": "var(--secondary-500)",
     "tertiary": "var(--tertiary-500)",
     "accent": "var(--accent)",
-    "base": "var(--dark-800)",
-    "offset": "var(--dark-700)",
-    "contrast": "var(--dark-600)",
+    "base": "var(--dark-900)",
+    "offset": "var(--dark-800)",
+    "contrast": "var(--dark-700)",
     "head": "var(--light-50)",
     "face": "var(--light-300)",
     "body": "var(--light-400)"

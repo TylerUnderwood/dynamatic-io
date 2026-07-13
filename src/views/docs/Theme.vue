@@ -1,33 +1,62 @@
 <script setup>
-import SectionDocs from "@/components/section/SectionDocs.vue";
 import theme from '@config/theme.json';
 import { tokenCategories } from 'dynamatic';
+import SectionDocs from "@/components/section/SectionDocs.vue";
 
 const tokens = tokenCategories(theme)
-// const tokens = [...tokenCategories(theme).map(category => category !== 'see')]
-const themeNames = [...Object.keys(tokens.DEFAULT).map(color => color)]
+const themeSwatches = [...Object.keys(tokens.DEFAULT).map(key => {
+    return {
+        name: key.replace('theme-', ''),
+        val: `var(--${key})`,
+        hex: window.getComputedStyle(document.documentElement)
+                    .getPropertyValue(`--${key}`)
+                    .trim()
+    }
+})]
 
-// TODO: update to remove category "see"
-console.log(tokens)
+console.log(themeSwatches)
 
-// TODO: update to also show length, with proper css property syntax checks
+async function copyToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    console.log('Copied to clipboard:', text);
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+  }
+}
 </script>
 
 <template>
-    <SectionDocs heading="Colors">
+    <SectionDocs heading="Dynamic Colors">
         <div class="pt-6"></div>
-        <div class="flex flex-wrap gap-y-6">
+        <div class="flex flex-wrap -m-1" style="font-size: 0.9rem;">
             <div
-                v-for="name in themeNames"
-                class="flex flex-col w-1/6"
+                v-for="swatch in themeSwatches"
+                class="flex flex-col w-1/3 sm:w-1/6 md:w-1/4 lg:w-1/6 p-1"
             >
-                <span class="Meta lhc mt-auto mb-2" :style="{fontSize: '0.6rem'}">
-                    {{ name.replace('theme-', ''), `var(--${name})` }}
-                </span>
-                <div
-                    class="w-full bg-current"
-                    :style="{paddingTop: '100%', color: `var(--${name})`}"
-                ></div>
+                <div :id="`swatchCard-${swatch.name}`" class="Card rounded-tl-[1em] p-0 overflow-clip">
+                    <button
+                        class="block w-full aspect-square rounded-br-[1em]"
+                        :style="{backgroundColor: swatch.val,}"
+                        @click="copyToClipboard(swatch.val)"
+                    ></button>
+                    <div class="flex flex-col p-3 pt-5 relative">
+                        <div
+                            class="Arch Arch--tl absolute top-0 left-0"
+                            :style="{fontSize: '1em', color: swatch.val}"
+                        ></div>
+                        <button @click="copyToClipboard(swatch.hex)">
+                            <span class="Meta lhc tracking-[0] text-xs font-[600] font-mono">
+                                {{ swatch.hex }}
+                           </span>
+                            <!-- <i class="mar-l-xxs fa fa-clone" style="font-size: 0.7rem;" aria-hidden="true"></i> -->
+                        </button>
+                        <div class="spacer" style="font-size: .5rem"></div>
+                        <button class="flex text-xs" @click="copyToClipboard(swatch.name)">
+                            <code class="Code">{{ swatch.name }}</code>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </SectionDocs>
@@ -69,13 +98,13 @@ console.log(tokens)
                     {{ cline === "DEFAULT" ? "theme" : cline }}
                 </h3>
             </summary>
-            <code v-for="token, name in category" class="flex mt-2">
-                <span class="mr-2">{{ name }}: {{ token }}</span>
+            <div v-for="token, name in category" class="flex mt-2">
+                <code class="mr-3">{{ name }}: {{ token }};</code>
                 <div
                     class="VarBox"
                     :style="{'--varBox-color': token, '--varBox-length': token}"
                 ></div>
-            </code>
+            </div>
         </details>
     </SectionDocs>
 </template>
@@ -96,16 +125,39 @@ console.log(tokens)
 .VarBox {
     display: flex;
     flex-shrink: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--theme-face);
+    border-radius: 2px;
     background-color: var(--varBox-color);
     min-width: 1em;
     height: 1em;
+    overflow: visible;
 }
 
 .VarBox::before {
     flex-shrink: 0;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-color: var(--theme-base);
     background-color: currentColor;
+    background: linear-gradient(
+        0deg,
+        currentColor 0%,
+        currentColor 50%,
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0) 100%);
     min-width: var(--varBox-length);
-    height: 1em;
+    height: calc(1em + 1px);
     content: '';
+}
+
+/* TODO: Find a permanent solution to primary color bullet points on a primary background-color */
+/* .theme-dark.bg-primary .List > .List__item::before, */
+.List--colorFace > .List__item::marker {
+    color: var(--theme-face);
 }
 </style>
