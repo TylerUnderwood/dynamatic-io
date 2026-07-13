@@ -1,25 +1,16 @@
 <script setup>
 import SectionDocs from "@/components/section/SectionDocs.vue";
-</script>
-
-<script>
 import theme from '@config/theme.json';
 import { tokenCategories } from 'dynamatic';
 
-export default {
-    data() {
-        return {
-            tokens: tokenCategories(theme),
-            themeNames: [],
-        }
-    },
+const tokens = tokenCategories(theme)
+// const tokens = [...tokenCategories(theme).map(category => category !== 'see')]
+const themeNames = [...Object.keys(tokens.DEFAULT).map(color => color)]
 
-    created() {
-        this.themeNames = [
-            ...Object.keys(this.tokens.DEFAULT).map(color => color),
-        ]
-    }
-}
+// TODO: update to remove category "see"
+console.log(tokens)
+
+// TODO: update to also show length, with proper css property syntax checks
 </script>
 
 <template>
@@ -71,42 +62,50 @@ export default {
         <div class="pt-6"></div>
         <details
             v-for="category, cline in tokens"
-            :open="/^colors/.test(cline) ? true : null"
+            :open="/^color/.test(cline) ? true : null"
         >
             <summary>
                 <h3 class="Heading h3">
                     {{ cline === "DEFAULT" ? "theme" : cline }}
                 </h3>
             </summary>
-            <code v-for="token, name in category" class="block mt-2">
-                <span>{{ name }}: </span>
-                <mark v-if="/^#/.test(token)" :style="{backgroundColor: token}">
-                    {{ token }}
-                </mark>
-                <mark v-else-if="/^var/.test(token)" :style="{backgroundColor: `${token}`}">
-                    {{ token }}
-                </mark>
-                <mark v-else>
-                    {{ token }}
-                </mark>
+            <code v-for="token, name in category" class="flex mt-2">
+                <span class="mr-2">{{ name }}: {{ token }}</span>
+                <div
+                    class="VarBox"
+                    :style="{'--varBox-color': token, '--varBox-length': token}"
+                ></div>
             </code>
         </details>
     </SectionDocs>
 </template>
 
 <style>
-mark {
-    background-color: var(--theme-accent);
-    color: black;
-    mix-blend-mode: multiply;
-}
-mark::before,
-mark::after {
-    content: "\00a0";
+@property --varBox-color {
+  syntax: '<color>';
+  initial-value: transparent;
+  inherits: true;
 }
 
-/* .theme-dark.bg-primary .List > .List__item::before, */
-.List--colorFace > .List__item::marker {
-    color: var(--theme-face);
+@property --varBox-length {
+  syntax: '<length>';
+  initial-value: 0px;
+  inherits: true;
+}
+
+.VarBox {
+    display: flex;
+    flex-shrink: 0;
+    background-color: var(--varBox-color);
+    min-width: 1em;
+    height: 1em;
+}
+
+.VarBox::before {
+    flex-shrink: 0;
+    background-color: currentColor;
+    min-width: var(--varBox-length);
+    height: 1em;
+    content: '';
 }
 </style>

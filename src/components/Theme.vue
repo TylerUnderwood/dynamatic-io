@@ -1,10 +1,10 @@
 <script>
-import theme from '@config/theme.json';
+import themeDefault from '@config/theme.json';
 import { tokenBuilder } from "dynamatic";
 
 export default {
   created() {
-    document.getElementById('theme').innerHTML = tokenBuilder(theme);
+    document.getElementById('theme').innerHTML = tokenBuilder(themeDefault);
   },
 }
 </script>

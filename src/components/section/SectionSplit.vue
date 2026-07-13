@@ -31,7 +31,7 @@ export default {
         :id="id"
         :class="[
             'Section',
-            { 'Section--reverse': reverse },
+            reverse ? 'Section--reverse' : 'Section--forward',
             classBase,
         ]"
         :style="`--section-ratio: ${ratio / 100};`"
