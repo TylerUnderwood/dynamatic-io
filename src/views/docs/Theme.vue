@@ -72,7 +72,6 @@ console.log(tokens)
             <code v-for="token, name in category" class="flex mt-2">
                 <span class="mr-2">{{ name }}: {{ token }}</span>
                 <div
-                    v-if="/^#/.test(token) || /^var/.test(token) || /px$/.test(token)"
                     class="VarBox"
                     :style="{'--varBox-color': token, '--varBox-length': token}"
                 ></div>
