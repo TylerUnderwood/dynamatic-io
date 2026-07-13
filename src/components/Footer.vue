@@ -30,7 +30,10 @@ export default {
 
 <style>
 .Footer {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px inset, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px inset;
+  border-color: var(--theme-contrast);
+  border-top-width: 1px;
   padding: var(--space-page);
-  background-color: var(--theme-offset)
+  background-color: var(--theme-offset);
 }
 </style>
