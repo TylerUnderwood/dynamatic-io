@@ -32,7 +32,7 @@ async function copyToClipboard(text) {
         <div class="flex flex-wrap -m-1" style="font-size: 0.9rem;">
             <div
                 v-for="swatch in themeSwatches"
-                class="flex flex-col w-1/6 p-1"
+                class="flex flex-col w-1/3 sm:w-1/6 md:w-1/4 lg:w-1/6 p-1"
             >
                 <div :id="`swatchCard-${swatch.name}`" class="Card rounded-tl-[1em] p-0 overflow-clip">
                     <button
@@ -52,7 +52,7 @@ async function copyToClipboard(text) {
                             <!-- <i class="mar-l-xxs fa fa-clone" style="font-size: 0.7rem;" aria-hidden="true"></i> -->
                         </button>
                         <div class="spacer" style="font-size: .5rem"></div>
-                        <button class="flex text-sm" @click="copyToClipboard(swatch.name)">
+                        <button class="flex text-xs" @click="copyToClipboard(swatch.name)">
                             <code class="Code">{{ swatch.name }}</code>
                         </button>
                     </div>
