@@ -4,7 +4,13 @@ import theme from '@config/theme.json';
 import { tokenCategories } from 'dynamatic';
 
 const tokens = tokenCategories(theme)
+// const tokens = [...tokenCategories(theme).map(category => category !== 'see')]
 const themeNames = [...Object.keys(tokens.DEFAULT).map(color => color)]
+
+// TODO: update to remove category "see"
+console.log(tokens)
+
+// TODO: update to also show length, with proper css property syntax checks
 </script>
 
 <template>
@@ -66,7 +72,7 @@ const themeNames = [...Object.keys(tokens.DEFAULT).map(color => color)]
             <code v-for="token, name in category" class="flex mt-2">
                 <span class="mr-2">{{ name }}: {{ token }}</span>
                 <div
-                    v-if="/^#/.test(token) || /^var/.test(token)"
+                    v-if="/^#/.test(token) || /^var/.test(token) || /px$/.test(token)"
                     class="VarBox"
                     :style="{'--varBox-color': token, '--varBox-length': token}"
                 ></div>
@@ -77,32 +83,30 @@ const themeNames = [...Object.keys(tokens.DEFAULT).map(color => color)]
 
 <style>
 @property --varBox-color {
-  syntax: "<color>";
-  initial-value: currentColor;
-  inherits: false;
+  syntax: '<color>';
+  initial-value: transparent;
+  inherits: true;
 }
 
 @property --varBox-length {
-  syntax: "<length>";
-  initial-value: 1em;
-  inherits: false;
+  syntax: '<length>';
+  initial-value: 0px;
+  inherits: true;
 }
 
 .VarBox {
+    display: flex;
     flex-shrink: 0;
     background-color: var(--varBox-color);
-    width: var(--varBox-length);
+    min-width: 1em;
     height: 1em;
-}
-.VarBox::after {
-    display: block;
-    background-color: transparent;
-    height: 1em;
-    content: "";
 }
 
-/* .theme-dark.bg-primary .List > .List__item::before, */
-.List--colorFace > .List__item::marker {
-    color: var(--theme-face);
+.VarBox::before {
+    background-color: currentColor;
+    max-width: var(--varBox-length);
+    width: 100%;
+    height: 1em;
+    content: '';
 }
 </style>
