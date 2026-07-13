@@ -199,9 +199,9 @@
     }
   },
   "light": {
-    "primary-face": "var(--azure)",
-    "primary": "var(--royal)",
-    "primary-base": "var(--fuchsia)",
+    "primary-face": "var(--royal-700)",
+    "primary": "var(--royal-500)",
+    "primary-base": "var(--royal-300)",
     "secondary": "var(--azure)",
     "tertiary": "var(--fuchsia)",
     "accent": "var(--jade)",
@@ -213,9 +213,9 @@
     "body": "var(--dark-400)"
   },
   "dark": {
-    "primary-face": "var(--azure)",
-    "primary": "var(--royal)",
-    "primary-base": "var(--fuchsia)",
+    "primary-face": "var(--royal-300)",
+    "primary": "var(--royal-500)",
+    "primary-base": "var(--royal-700)",
     "secondary": "var(--azure)",
     "tertiary": "var(--fuchsia)",
     "accent": "var(--jade)",
