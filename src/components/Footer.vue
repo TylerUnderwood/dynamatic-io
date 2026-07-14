@@ -24,6 +24,9 @@ export default {
           </li>
         </ul>
       </nav>
+      <div id="resource-attribution" class="sr-only">
+        Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
+      </div>
     </div>
   </footer>
 </template>
