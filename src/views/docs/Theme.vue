@@ -1,7 +1,14 @@
 <script setup>
+import { ref, onBeforeUnmount } from 'vue'
 import theme from '@config/theme.json';
 import { tokenCategories } from 'dynamatic';
 import SectionDocs from "@/components/section/SectionDocs.vue";
+
+const showCopyMessage = ref(false);
+const swatchCopyMessage = ref('')
+const swatchCopyTimeout = ref(null)
+const msgX = ref(0)
+const msgY = ref(0)
 
 const tokens = tokenCategories(theme)
 const themeSwatches = [...Object.keys(tokens.DEFAULT).map(key => {
@@ -14,16 +21,39 @@ const themeSwatches = [...Object.keys(tokens.DEFAULT).map(key => {
     }
 })]
 
-console.log(themeSwatches)
+async function copyToClipboard(text, event) {
+    const mousePosition = { x: event.clientX, y: event.clientY }
 
-async function copyToClipboard(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-    console.log('Copied to clipboard:', text);
-  } catch (err) {
-    console.error('Failed to copy text: ', err);
-  }
+    const showMessage = (message) => {
+        if (swatchCopyTimeout.value) {
+            clearTimeout(swatchCopyTimeout.value)
+        }
+
+        swatchCopyMessage.value = message
+        msgX.value = event.clientY
+        msgY.value = event.clientX
+        showCopyMessage.value = true
+
+        swatchCopyTimeout.value = setTimeout(() => {
+            showCopyMessage.value = false
+        }, 1800)
+    }
+
+    try {
+        await navigator.clipboard.writeText(text);
+        showMessage(text)
+    } catch (err) {
+        console.error('Failed to copy text: ', err);
+        showMessage('Error copying to clipboard')
+    }
 }
+
+onBeforeUnmount(() => {
+    if (swatchCopyTimeout.value) {
+        clearTimeout(swatchCopyTimeout.value);
+        swatchCopyTimeout.value = null;
+    }
+});
 </script>
 
 <template>
@@ -32,32 +62,40 @@ async function copyToClipboard(text) {
         <div class="flex flex-wrap -m-1" style="font-size: 0.9rem;">
             <div
                 v-for="swatch in themeSwatches"
-                class="flex flex-col w-1/3 sm:w-1/6 md:w-1/4 lg:w-1/6 p-1"
+                class="w-1/3 sm:w-1/6 md:w-1/4 lg:w-1/6 p-1"
             >
                 <div :id="`swatchCard-${swatch.name}`" class="Card rounded-tl-[1em] p-0 overflow-clip">
                     <button
                         class="block w-full aspect-square rounded-br-[1em]"
                         :style="{backgroundColor: swatch.val,}"
-                        @click="copyToClipboard(swatch.val)"
+                        @click="copyToClipboard(swatch.val, $event)"
                     ></button>
-                    <div class="flex flex-col p-3 pt-5 relative">
+                    <div class="flex flex-col items-start p-3 pt-5 relative">
                         <div
                             class="Arch Arch--tl absolute top-0 left-0"
                             :style="{fontSize: '1em', color: swatch.val}"
                         ></div>
-                        <button @click="copyToClipboard(swatch.hex)">
-                            <span class="Meta lhc tracking-[0] text-xs font-[600] font-mono">
+                        <button @click="copyToClipboard(swatch.hex, $event)" class="flex gap-2 -m-1 p-1">
+                            <span class="Meta lhc tracking-[0] font-[600] font-mono">
                                 {{ swatch.hex }}
                            </span>
-                            <!-- <i class="mar-l-xxs fa fa-clone" style="font-size: 0.7rem;" aria-hidden="true"></i> -->
+                           <i class="fi fi-rr-copy" style="font-size: 0.7rem; margin-bottom: -0.1rem" aria-hidden="true"></i>
                         </button>
                         <div class="spacer" style="font-size: .5rem"></div>
-                        <button class="flex text-xs" @click="copyToClipboard(swatch.name)">
+                        <button class="flex text-xs" @click="copyToClipboard(swatch.name, $event)">
                             <code class="Code">{{ swatch.name }}</code>
                         </button>
                     </div>
                 </div>
             </div>
+        </div>
+        <div
+            class="SwatchCopyMessage"
+            :data-open="showCopyMessage"
+            :style="{ top: `${msgX}px`, left: `${msgY}px`}"
+        >
+            <strong>Copied:</strong>
+            <code class="Code">{{ swatchCopyMessage }}</code>
         </div>
     </SectionDocs>
 
@@ -110,6 +148,39 @@ async function copyToClipboard(text) {
 </template>
 
 <style>
+.SwatchCopyMessage {
+    --copy-message-timing: 300ms;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    position: fixed;
+    z-index: 9999;
+    translate: -50% -100%;
+    box-shadow: var(--shadow);
+    border-radius: var(--round);
+    padding: 0.5em 0.6em;
+    background-color: var(--theme-base);
+    font-size: 0.8rem;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition-property: opacity, visibility;
+    transition-duration: var(--copy-message-timing), 0ms;
+    transition-timing-function: ease-in, linear;
+    transition-delay: 0ms, 0ms;
+}
+.SwatchCopyMessage[data-open="true"] {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0ms, 0ms;
+}
+.SwatchCopyMessage[data-open="false"] {
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 0ms, var(--copy-message-timing);
+}
+
+
 @property --varBox-color {
   syntax: '<color>';
   initial-value: transparent;
