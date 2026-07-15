@@ -3,12 +3,7 @@ import { ref, onBeforeUnmount } from 'vue'
 import theme from '@config/theme.json';
 import { tokenCategories } from 'dynamatic';
 import SectionDocs from "@/components/section/SectionDocs.vue";
-
-const showCopyMessage = ref(false);
-const swatchCopyMessage = ref('')
-const swatchCopyTimeout = ref(null)
-const msgX = ref(0)
-const msgY = ref(0)
+import SwatchCard from '@/components/SwatchCard.vue'
 
 const tokens = tokenCategories(theme)
 const themeSwatches = [...Object.keys(tokens.DEFAULT).map(key => {
@@ -20,6 +15,28 @@ const themeSwatches = [...Object.keys(tokens.DEFAULT).map(key => {
                     .trim()
     }
 })]
+
+var themePallet = [...Object.keys(tokens.color).reduce((result, color) => {
+    const number = Number(color.match(/\d+/))
+
+    if (number !== 0) {
+        result.push({
+            name: color,
+            val: tokens.color[color],
+            number,
+        })
+    }
+
+    return result
+}, [])];
+console.log(themePallet)
+
+// Copy to Clipboard functionality
+const showCopyMessage = ref(false);
+const swatchCopyMessage = ref('')
+const swatchCopyTimeout = ref(null)
+const msgX = ref(0)
+const msgY = ref(0)
 
 async function copyToClipboard(text, event) {
     const mousePosition = { x: event.clientX, y: event.clientY }
@@ -64,38 +81,33 @@ onBeforeUnmount(() => {
                 v-for="swatch in themeSwatches"
                 class="w-1/3 sm:w-1/6 md:w-1/4 lg:w-1/6 p-1"
             >
-                <div :id="`swatchCard-${swatch.name}`" class="Card rounded-tl-[1em] p-0 overflow-clip">
-                    <button
-                        class="block w-full aspect-square rounded-br-[1em]"
-                        :style="{backgroundColor: swatch.val,}"
-                        @click="copyToClipboard(swatch.val, $event)"
-                    ></button>
-                    <div class="flex flex-col items-start p-3 pt-5 relative">
-                        <div
-                            class="Arch Arch--tl absolute top-0 left-0"
-                            :style="{fontSize: '1em', color: swatch.val}"
-                        ></div>
-                        <button @click="copyToClipboard(swatch.hex, $event)" class="flex gap-2 -m-1 p-1">
-                            <span class="Meta lhc tracking-[0] font-[600] font-mono">
-                                {{ swatch.hex }}
-                           </span>
-                           <i class="fi fi-rr-copy" style="font-size: 0.7rem; margin-bottom: -0.1rem" aria-hidden="true"></i>
-                        </button>
-                        <div class="spacer" style="font-size: .5rem"></div>
-                        <button class="flex text-xs" @click="copyToClipboard(swatch.name, $event)">
-                            <code class="Code">{{ swatch.name }}</code>
-                        </button>
-                    </div>
-                </div>
+                <SwatchCard
+                    :name="swatch.name"
+                    :val="swatch.val"
+                    :hex="swatch.hex"
+                    :copyToClipboard="copyToClipboard"
+                ></SwatchCard>
+            </div>
+            <div
+                class="SwatchCopyMessage"
+                :data-open="showCopyMessage"
+                :style="{ top: `${msgX}px`, left: `${msgY}px`}"
+            >
+                <strong>Copied:</strong>
+                <code class="Code">{{ swatchCopyMessage }}</code>
             </div>
         </div>
-        <div
-            class="SwatchCopyMessage"
-            :data-open="showCopyMessage"
-            :style="{ top: `${msgX}px`, left: `${msgY}px`}"
-        >
-            <strong>Copied:</strong>
-            <code class="Code">{{ swatchCopyMessage }}</code>
+    </SectionDocs>
+
+    <SectionDocs heading="Pallet">
+        <div class="pt-6"></div>
+        <div class="flex flex-wrap gap-y-3">
+            <div v-for="color in themePallet" class="flex flex-col items-start w-[calc(1/11*100%)] relative group">
+                <code class="Code absolute opacity-0 group-hover:opacity-100 bottom-1 left-1" style="font-size: 0.6rem">
+                    {{ color.number }}
+                </code>
+                <div class="aspect-square w-full" :style="{backgroundColor: color.val}"></div>
+            </div>
         </div>
     </SectionDocs>
 

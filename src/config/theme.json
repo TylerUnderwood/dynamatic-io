@@ -83,9 +83,9 @@
     "accent": "#f0e840"
   },
   "light": {
-    "primary-face": "var(--primary-600)",
+    "primary-face": "var(--primary-700)",
     "primary": "var(--primary-500)",
-    "primary-base": "var(--primary-400)",
+    "primary-base": "var(--primary-300)",
     "secondary": "var(--secondary-500)",
     "tertiary": "var(--tertiary-500)",
     "accent": "var(--accent)",
@@ -97,9 +97,9 @@
     "body": "var(--dark-700)"
   },
   "dark": {
-    "primary-face": "var(--primary-400)",
+    "primary-face": "var(--primary-300)",
     "primary": "var(--primary-500)",
-    "primary-base": "var(--primary-600)",
+    "primary-base": "var(--primary-700)",
     "secondary": "var(--secondary-500)",
     "tertiary": "var(--tertiary-500)",
     "accent": "var(--accent)",
@@ -107,8 +107,8 @@
     "offset": "var(--dark-700)",
     "contrast": "var(--dark-600)",
     "head": "var(--light-50)",
-    "face": "var(--light-300)",
-    "body": "var(--light-400)"
+    "face": "var(--light-200)",
+    "body": "var(--light-300)"
   },
   "DEFAULT": {
     "primary-face": "var(--light-primary-face)",
