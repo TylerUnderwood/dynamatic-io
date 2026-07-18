@@ -65,16 +65,16 @@ export default {
     background-color: var(--swatch-color);
 }
 
+/* Shadow that follows midline s-curve*/
 .SwatchCard__colorShadowLeft,
 .SwatchCard__colorShadowLeftBlock,
 .SwatchCard__colorShadowRight,
 .SwatchCard__colorShadowRightBlock {
-    --swatch-shadow: rgba(0, 0, 0, 0.2) -3px -3px 12px -2px;
+    --swatch-shadow: rgba(0, 0, 0, 0.125) -3px -3px 12px -2px;
     position: absolute;
     inset: 0;
     width: 100%;
 }
-
 .SwatchCard__colorShadowLeft {
     background-color: var(--swatch-color);
     border-bottom-right-radius: var(--swatch-round);
@@ -95,12 +95,12 @@ export default {
     bottom: unset;
     box-shadow: var(--swatch-shadow);
 }
-/* .SwatchCard__colorShadowRightBlock {
+.SwatchCard__colorShadowRightBlock {
     background: linear-gradient(
-        270deg,
+        180deg,
         var(--swatch-color) 0%,
-        transparent 100%);
-} */
+        transparent calc(100% - var(--swatch-round)));
+}
 .SwatchCard__ArchLeft,
 .SwatchCard__ArchRight {
     position: absolute;
@@ -121,7 +121,7 @@ export default {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     padding: 0.75em;
     padding-top: 1.25em;
     background-color: var(--theme-base);

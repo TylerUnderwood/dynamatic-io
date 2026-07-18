@@ -33,6 +33,11 @@ module.exports = {
         "page": "var(--space-page)",
         "section": "var(--space-section)",
       },
+      shadow: {
+        sm: "var(--shadow-sm)",
+        md: "var(--shadow-md)",
+        lg: "var(--shadow-lg)",
+      },
       borderWidth: {
         1: "1px",
       },
