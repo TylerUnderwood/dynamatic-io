@@ -101,12 +101,6 @@ onBeforeUnmount(() => {
 
     <SectionDocs heading="Pallet">
         <div class="pt-6"></div>
-        <div class="flex gap-8">
-            <div class="w-full aspect-square bg-base shadow-sm"></div>
-            <div class="w-full aspect-square bg-base shadow-md"></div>
-            <div class="w-full aspect-square bg-base shadow-lg"></div>
-        </div>
-        <div class="pt-6"></div>
         <div class="flex flex-wrap gap-y-3">
             <div v-for="color in themePallet" class="flex flex-col items-start w-[calc(1/11*100%)] relative group">
                 <code class="Code absolute opacity-0 group-hover:opacity-100 bottom-1 left-1" style="font-size: 0.6rem">
