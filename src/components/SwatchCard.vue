@@ -47,12 +47,12 @@ export default {
     border-color: var(--theme-base);
     border-right-width: 2px;
     border-top-left-radius: var(--swatch-round);
-    background: linear-gradient(
+    /* background: linear-gradient(
         90deg,
         var(--swatch-color) 0%,
         var(--swatch-color) 50%,
         var(--theme-base) 50%,
-        var(--theme-base) 100%);
+        var(--theme-base) 100%); */
     overflow: clip;
 }
 
