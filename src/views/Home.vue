@@ -79,7 +79,7 @@ const homeSections = [
         />
     </template>
 
-    <div class="spacer" style="font-size: var(--space-section);"></div>
+    <div class="spacer size-[var(--space-section)]"></div>
 
     <Section
         classBase="hidden px-page bg-primary py-3 mb-5 md:mb-0"

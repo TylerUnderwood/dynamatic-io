@@ -200,7 +200,7 @@ export default {
                     <label class="Label" :for="`select-${field.slug}`">
                         {{ field.name }}
                     </label>
-                    <code class="Code" style="font-size: 0.7rem;">
+                    <code class="Code size-[0.7em]">
                         <span style="color: red">
                             {{ flexOrientationConversion( field.slug, isRow )}}
                         </span>

@@ -1,1 +1,5 @@
 @tailwind utilities;
+
+@utility size-* {
+  text-size: --value(integer);
+}

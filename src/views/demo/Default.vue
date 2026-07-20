@@ -9,7 +9,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
 
 <template>
     <Hero
-        title="Demos DEFAULT"
+        title="Demos"
         intro="These are components that will be available with Dynamatic"
     />
 

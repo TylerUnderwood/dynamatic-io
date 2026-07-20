@@ -25,10 +25,10 @@ const props = defineProps({
                 <span class="Meta lhc tracking-[0] font-[600] font-mono">
                     {{ hex }}
                 </span>
-                <i class="fi fi-rr-copy" style="font-size: 0.7rem; margin-bottom: -0.1rem" aria-hidden="true"></i>
+                <i class="fi fi-rr-copy size-[0.7rem] -mb-[0.1rem]" aria-hidden="true"></i>
             </button>
-            <div class="spacer" style="font-size: .5rem"></div>
-            <button class="flex text-xs" @click="copyToClipboard(name, $event)">
+            <div class="spacer size-[0.5rem]"></div>
+            <button class="flex size-[0.75rem]" @click="copyToClipboard(name, $event)">
                 <code class="Code whitespace-nowrap">{{ name }}</code>
             </button>
         </div>
