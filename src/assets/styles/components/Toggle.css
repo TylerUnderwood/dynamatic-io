@@ -1,5 +1,11 @@
 .Toggle {
     --toggle-border-width: 3px;
+    --toggle-border-color: transparent;
+    --toggle-bg: var(--input-color);
+    --toggle-radius: 9999px;
+    --toggle-nub-radius: var(--toggle-radius);
+    --toggle-timing: var(--input-timing);
+    --toggle-timing: 1200ms;
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -15,37 +21,58 @@
 .Toggle__switch {
     position: relative;
     display: inline-flex;
-    border-radius: 9999px;
     width: 2em;
     height: 1em;
-    border-width: 3px;
+    border-width: var(--toggle-border-width);
     border-style: solid;
-    border-color: var(--input-color);
-    background-color: var(--input-color);
-}
-input:focus-visible + .Toggle__switch {
-    outline: var(--input-outline);
-    outline-offset: 2px;
-}
-input:checked + .Toggle__switch {
-    border-color: var(--input-color);
-    background-color: var(--input-color);
+    border-color: var(--toggle-border-color);
+    transition-timing-function: ease-in-out;
+    transition-duration: var(--toggle-timing);
 }
 
+/* Input background */
 .Toggle__switch::before {
+    display: block;
+    position: absolute;
+    inset: calc(var(--toggle-border-width) * -1);
+    background-color: var(--input-color);
+    background: var(--toggle-bg);
+    border-radius: var(--toggle-radius);
+    transition-property: background;
+    transition-timing-function: inherit;
+    transition-duration: inherit;
+    content: '';
+}
+
+/* Input nub */
+.Toggle__switch::after {
+    display: block;
     position: relative;
     left: 0%;
     transform: translateX(0%);
     width: calc(1em - (var(--toggle-border-width) * 2));
     aspect-ratio: 1;
-    border-radius: 9999px;
     background-color: var(--theme-base);
-    transition-property: left, transform;
-    transition-timing-function: ease-in-out;
-    transition-duration: var(--input-timing);
+    border-radius: var(--toggle-nub-radius);
+    transition-property: left, translate;
+    transition-timing-function: inherit;
+    transition-duration: inherit;
     content: '';
 }
-input:checked + .Toggle__switch::before {
+
+/* Input focused */
+input:focus-visible + .Toggle__switch {
+    outline: var(--input-outline);
+    outline-offset: 2px;
+}
+
+/* Input checked */
+input:checked + .Toggle__switch {
+    --toggle-border-color: transparent;
+    --toggle-bg: var(--input-color);
+}
+
+input:checked + .Toggle__switch::after {
     left: 100%;
     transform: translateX(-100%);
     background-color: var(--theme-base);
