@@ -18,14 +18,11 @@ export default {
             class="SwatchCard__color"
             @click="copyToClipboard(val, $event)"
         >
-            <div class="SwatchCard__colorShadowLeft"></div>
-            <div class="SwatchCard__colorShadowLeftBlock"></div>
-            <div class="SwatchCard__ArchLeft Arch Arch--tl"></div>
-            <div class="SwatchCard__colorShadowRight"></div>
-            <div class="SwatchCard__colorShadowRightBlock"></div>
-            <div class="SwatchCard__ArchRight Arch Arch--br"></div>
+            <div class="SwatchCard__shadowLayer01"></div>
+            <div class="SwatchCard__shadowLayer02"></div>
         </button>
         <div class="SwatchCard__content">
+            <div class="SwatchCard__ArchBR Arch Arch--br"></div>
             <button @click="copyToClipboard(hex, $event)" class="flex items-center gap-2 -m-1 p-1">
                 <span class="Meta lhc tracking-[0] font-[600] font-mono">
                     {{ hex }}
@@ -42,17 +39,20 @@ export default {
 
 <style lang="css">
 .SwatchCard {
-    --swatch-round: 1em;
+    --swatch-round: 1rem;
     padding: 0;
     border-color: var(--theme-base);
-    border-right-width: 2px;
+    border-right-width: 1px;
     border-top-left-radius: var(--swatch-round);
-    /* background: linear-gradient(
+    background: linear-gradient(
         90deg,
         var(--swatch-color) 0%,
         var(--swatch-color) 50%,
         var(--theme-base) 50%,
-        var(--theme-base) 100%); */
+        var(--theme-base) 100%);
+    background-position-y: var(--swatch-round);
+    background-repeat: no-repeat;
+    background-size: 100% calc(100% - (var(--swatch-round) * 2));
     overflow: clip;
 }
 
@@ -66,28 +66,29 @@ export default {
 }
 
 /* Shadow that follows midline s-curve*/
-.SwatchCard__colorShadowLeft,
-.SwatchCard__colorShadowLeftBlock,
-.SwatchCard__colorShadowRight,
-.SwatchCard__colorShadowRightBlock {
-    --swatch-shadow: rgba(0, 0, 0, 0.125) -3px -3px 12px -2px;
+.SwatchCard__shadowLayer01::before,
+.SwatchCard__shadowLayer01::after,
+.SwatchCard__shadowLayer02::before,
+.SwatchCard__shadowLayer02::after {
+    --swatch-shadow: rgba(0, 0, 0, 0.125) -3px -3px 8px -2px;
     position: absolute;
     inset: 0;
     width: 100%;
+    content: '';
 }
-.SwatchCard__colorShadowLeft {
+.SwatchCard__shadowLayer01::before {
     background-color: var(--swatch-color);
     border-bottom-right-radius: var(--swatch-round);
     box-shadow: var(--swatch-shadow) inset;
     left: unset;
 }
-.SwatchCard__colorShadowLeftBlock {
+.SwatchCard__shadowLayer01::after {
     background: linear-gradient(
         90deg,
         var(--swatch-color) 0%,
         transparent 100%);
 }
-.SwatchCard__colorShadowRight {
+.SwatchCard__shadowLayer02::before {
     background-color: var(--theme-base);
     border-top-left-radius: var(--swatch-round);
     height: var(--swatch-round);
@@ -95,26 +96,11 @@ export default {
     bottom: unset;
     box-shadow: var(--swatch-shadow);
 }
-.SwatchCard__colorShadowRightBlock {
+.SwatchCard__shadowLayer02::after {
     background: linear-gradient(
         180deg,
         var(--swatch-color) 0%,
         transparent calc(100% - var(--swatch-round)));
-}
-.SwatchCard__ArchLeft,
-.SwatchCard__ArchRight {
-    position: absolute;
-    font-size: 1em;
-    bottom: 0;
-}
-.SwatchCard__ArchLeft {
-    left: 0;
-    translate: 0 100%;
-    color: var(--swatch-color);
-}
-.SwatchCard__ArchRight {
-    right: 0;
-    color: var(--theme-base);
 }
 
 .SwatchCard__content {
@@ -126,5 +112,13 @@ export default {
     padding-top: 1.25em;
     background-color: var(--theme-base);
     border-top-left-radius: var(--swatch-round);
+}
+.SwatchCard__ArchBR {
+    position: absolute;
+    top: 0;
+    right: 0;
+    translate: 0 -100%;
+    font-size: var(--swatch-round);
+    color: var(--theme-base);
 }
 </style>
