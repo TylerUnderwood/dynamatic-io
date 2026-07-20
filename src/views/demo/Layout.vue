@@ -154,7 +154,7 @@ export default {
     />
 
     <Section heading="Layout Selector">
-        <div class="break" style="font-size: 2.4rem;"></div>
+        <div class="spacer text-[2.4rem]"></div>
         <div class="flex flex-wrap items-end -m-2">
             <div class="w-full p-2">
                 <fieldset class="Fieldset">
@@ -220,7 +220,7 @@ export default {
                 </select>
             </div>
         </div>
-        <div class="break"></div>
+        <div class="spacer"></div>
         <div
             class="LayoutDemo"
             :class="{ 'show-baseline': showSquareBaseline }"
@@ -255,7 +255,7 @@ export default {
                 </div>
             </div>
         </div>
-        <div class="break" style="text-size: 0.7rem;"></div>
+        <div class="spacer size-[0.7rem]"></div>
         <input
             type="range"
             name="amount-of-dynamic-squares"

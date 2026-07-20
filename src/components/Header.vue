@@ -6,8 +6,8 @@ export default {
         return {
             nav: [
                 { url: "/about", name: "About" },
-                { url: "/contact", name: "Contact" },
-                { url: "/sandbox", name: "Sandbox" }
+                { url: "/tinkering", name: "Tinkering" },
+                { url: "/demo", name: "Demos" }
             ]
         };
     },
