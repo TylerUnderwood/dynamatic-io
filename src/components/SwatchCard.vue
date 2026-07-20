@@ -1,15 +1,13 @@
-<script>
-export default {
-    props: {
-        name: String,
-        val: String,
-        hex: String,
-        copyToClipboard: {
-            type: Function,
-            required: true
-        },
+<script setup>
+const props = defineProps({
+    name: String,
+    val: String,
+    hex: String,
+    copyToClipboard: {
+        type: Function,
+        required: true
     },
-};
+});
 </script>
 
 <template>
