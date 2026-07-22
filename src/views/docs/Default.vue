@@ -18,7 +18,7 @@ import SectionDocs from "@/components/section/SectionDocs.vue";
     </SectionDocs>
 
     <SectionDocs heading="Folder Structure" v-if="$isDev">
-        <div class="break" style="font-size: 2.4rem"></div>
+        <div class="break size-48"></div>
         <code class="Codeblock">
 <pre>
 ┃ /styles
