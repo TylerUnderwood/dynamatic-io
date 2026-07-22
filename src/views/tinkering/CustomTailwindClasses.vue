@@ -24,7 +24,7 @@ import DemoBlock from "@/components/DemoBlock.vue";
             Tutorial by protailwind.com
         </a>
 
-        <div class="break" style="font-size: 1.5rem;"></div>
+        <div class="break size-24"></div>
 
         <div class="matrix cells-2 sm:cells-3 md:cells-6 void">
             <div class="cell" v-for="item in 6">
