@@ -29,10 +29,9 @@ var themePallet = [...Object.keys(tokens.color).reduce((result, color) => {
 
     return result
 }, [])];
-console.log(themePallet)
 
 // Copy to Clipboard functionality
-const showCopyMessage = ref(false);
+const showCopyMessage = ref(false)
 const swatchCopyMessage = ref('')
 const swatchCopyTimeout = ref(null)
 const msgX = ref(0)

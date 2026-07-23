@@ -9,15 +9,10 @@ import SectionDocs from "@/components/section/SectionDocs.vue";
         <p class="Copy mt-4">
             Thanks for checking out the docs!
         </p>
-        <p class="Copy mt-4">
-            Check out what I am currently working on.
-            <router-link to="/sandbox" class="Link">
-                Sandbox
-            </router-link>
-        </p>
     </SectionDocs>
-    <SectionDocs heading="Folder Structure">
-        <div class="break" style="font-size: 2.4rem"></div>
+
+    <SectionDocs heading="Folder Structure" v-if="$isDev">
+        <div class="break size-48"></div>
         <code class="Codeblock">
 <pre>
 ┃ /styles

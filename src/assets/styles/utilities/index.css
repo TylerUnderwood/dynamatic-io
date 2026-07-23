@@ -1,1 +1,7 @@
 @tailwind utilities;
+
+/* next gen tailwind feature, TODO: need to upgrade
+@utility size-* {
+  text-size: --value(integer);
+}
+*/
