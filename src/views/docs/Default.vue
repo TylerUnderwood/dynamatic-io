@@ -9,12 +9,6 @@ import SectionDocs from "@/components/section/SectionDocs.vue";
         <p class="Copy mt-4">
             Thanks for checking out the docs!
         </p>
-        <p class="Copy mt-4">
-            Check out what I am currently working on.
-            <router-link to="/sandbox" class="Link">
-                Sandbox
-            </router-link>
-        </p>
     </SectionDocs>
 
     <SectionDocs heading="Folder Structure" v-if="$isDev">

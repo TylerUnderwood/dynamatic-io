@@ -53,12 +53,12 @@ const routes = [
         component: () => import("@views/demo/Tokens.vue"),
       },
       {
-        name: "DemoLayout",
+        name: "Layout",
         path: "layout",
         component: () => import("@views/demo/Layout.vue"),
       },
       {
-        name: "DemoSection",
+        name: "Section",
         path: "section",
         component: () => import("@views/demo/Section.vue"),
       },

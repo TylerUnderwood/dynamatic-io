@@ -1,10 +1,10 @@
 <script setup>
+import { computed } from "vue"
+import { useRoutesList } from "@/utils/useRoutesList"
 import Hero from "@/components/hero/Hero.vue";
 import Section from "@/components/section/Section.vue";
-import Modal from "@/components/Modal.vue";
-import Drawer from "@/components/Drawer.vue";
-import Button from "@/components/inputs/Button.vue";
-import DemoBlock from "@/components/DemoBlock.vue";
+
+const demosLinks = computed(() => useRoutesList("Demos"))
 </script>
 
 <template>
@@ -14,7 +14,8 @@ import DemoBlock from "@/components/DemoBlock.vue";
     />
 
     <Section
-        heading="WIP demos"
+        heading="Current WIP demos"
+        class="hidden"
     >
         <div class="mt-4 flex flex-wrap -m-2">
             <div class="w-full md:w-1/2 p-2">
@@ -42,6 +43,16 @@ import DemoBlock from "@/components/DemoBlock.vue";
                 </router-link>
             </div>
         </div>
+    </Section>
+
+    <Section heading="List of all Demos">
+        <ul class="mt-4">
+            <li class="[&:not(:first-child)]:mt-2" v-for="link in demosLinks">
+                <router-link :to="link.path" class="Button" data-size="small" data-shape="stout">
+                    <span class="Meta lhc">{{ link.name }}</span>
+                </router-link>
+            </li>
+        </ul>
     </Section>
 
 </template>

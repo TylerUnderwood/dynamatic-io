@@ -1,9 +1,9 @@
 <script setup>
+import { useTableOfContentsStore } from '@/stores/TableOfContents';
 import Hero from "@/components/hero/Hero.vue";
 import Section from "@/components/section/Section.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import SidebarNav from "@/components/SidebarNav.vue";
-import { useTableOfContentsStore } from '@/stores/TableOfContents';
 </script>
 
 <script>
