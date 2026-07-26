@@ -6,7 +6,7 @@ import SectionDocs from "@/components/section/SectionDocs.vue";
 
 <template>
     <SectionDocs heading="Welcome">
-        <p class="Copy mt-4">
+        <p class="Paragraph mt-4">
             Thanks for checking out the docs!
         </p>
     </SectionDocs>
