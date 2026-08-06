@@ -4,6 +4,15 @@
 |–––––––––––––––––––––––––
 */
 
+[modal] {
+    display: block;
+    visibility: hidden;
+}
+
+[modal][open] {
+    visibility: visible;
+}
+
 /* === animations === */
 @keyframes modal_pop_in {
     from {

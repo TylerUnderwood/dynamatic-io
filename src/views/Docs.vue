@@ -74,7 +74,7 @@ export default {
       </div>
 
       <!-- Main -->
-      <article class="DocsLayout__main page-wrapper">
+      <article class="DocsLayout__main wrapper">
         <router-view></router-view>
       </article>
 
