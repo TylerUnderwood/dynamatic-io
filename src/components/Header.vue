@@ -1,5 +1,5 @@
 <script>
-import Logo from '../assets/icons/Logo.vue';
+import Logo from '@/components/icons/Logo.vue';
 
 export default {
     data() {
