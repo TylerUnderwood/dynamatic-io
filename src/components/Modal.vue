@@ -37,5 +37,5 @@ export default {
 </template>
 
 <style>
-@import "@styles/components/Modal.css";
+@import "dynamatic/dist/styles/components/Modal.css";
 </style>

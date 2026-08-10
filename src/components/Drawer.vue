@@ -29,5 +29,5 @@ export default {
 </template>
 
 <style>
-@import "@styles/components/Drawer.css";
+@import "dynamatic/dist/styles/components/Drawer.css";
 </style>
