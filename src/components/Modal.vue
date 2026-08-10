@@ -37,6 +37,5 @@ export default {
 </template>
 
 <style>
-@import "@styles/components/ModalAttr.css";
 @import "@styles/components/Modal.css";
 </style>

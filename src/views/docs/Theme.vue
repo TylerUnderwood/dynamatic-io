@@ -29,10 +29,9 @@ var themePallet = [...Object.keys(tokens.color).reduce((result, color) => {
 
     return result
 }, [])];
-console.log(themePallet)
 
 // Copy to Clipboard functionality
-const showCopyMessage = ref(false);
+const showCopyMessage = ref(false)
 const swatchCopyMessage = ref('')
 const swatchCopyTimeout = ref(null)
 const msgX = ref(0)
@@ -117,7 +116,7 @@ onBeforeUnmount(() => {
             <span class="Heading">Theme Dark</span>
             &nbsp;
             <code class="Code" style="font-size: 0.8rem">[data-scheme=dark]</code>
-            <p class="Copy mt-2">This container will all ways be dark.</p>
+            <p class="Paragraph mt-2">This container will all ways be dark.</p>
             <ul class="List List--bullet List--colorFace mt-4">
                 <li class="List__item" v-for="item in 4">
                     <p class="List__text">Item {{ item }}</p>
@@ -127,7 +126,7 @@ onBeforeUnmount(() => {
                 <span class="Heading">Theme Body</span>
                 &nbsp;
                 <code class="Code" style="font-size: 0.8rem">[data-scheme=body]</code>
-                <p class="Copy mt-2">This container will follow whatever the <code class="Code">body</code> tag uses.</p>
+                <p class="Paragraph mt-2">This container will follow whatever the <code class="Code">body</code> tag uses.</p>
                 <ul class="List List--bullet mt-4">
                     <li class="List__item" v-for="item in 4">
                         <p class="List__text">Item {{ item }}</p>

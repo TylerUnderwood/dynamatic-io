@@ -60,7 +60,7 @@ export default {
                     <h2 class="Heading">
                         {{ heading }}
                     </h2>
-                    <p class="Copy mx-auto md:mx-unset">
+                    <p class="Paragraph mx-auto md:mx-unset">
                         {{ copy }}
                     </p>
                     <router-link :to="link" class="Button mt-4" data-size="small">

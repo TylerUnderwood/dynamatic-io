@@ -7,7 +7,7 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}"
   ],
   theme: {
-    // spacing: theme.sizes,
+    size: theme.size,
     screens: theme.screen,
     extend: {
       colors: {
@@ -56,6 +56,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('./plugins/stripes.js'),
+    require('./plugins/tailwind/stripes.js'),
+    require('./plugins/tailwind/size.js'),
   ],
 };

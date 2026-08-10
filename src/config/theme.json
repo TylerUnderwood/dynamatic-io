@@ -1,13 +1,11 @@
 {
   "pallet": {
-    "DEFAULT": {
-      "cerulean": "#4048F0",
-      "azure": "#40A0F0",
-      "violet": "#9040F0",
-      "slate": "#F0F2F4",
-      "carbon": "#202428",
-      "yellow": "#f0e840"
-    }
+    "cerulean": "#4048F0",
+    "azure": "#40A0F0",
+    "violet": "#9040F0",
+    "slate": "#F0F2F4",
+    "carbon": "#202428",
+    "yellow": "#f0e840"
   },
   "color": {
     "primary": {
@@ -144,13 +142,13 @@
     "DEFAULT": "var(--shadow-md)"
   },
   "font": {
-    "head": "'Arial', sans-serif",
+    "head": "'Arial', serif",
     "face": "'Arial', sans-serif",
-    "meta": "'Arial', sans-serif"
+    "meta": "'Arial', monospace"
   },
   "markup": {
     "color": "var(--theme-primary)",
-    "muted": "var(--dark-400)"
+    "muted": "var(--light-500)"
   },
   "copy": {
     "letter-spacing": "0",
@@ -298,6 +296,7 @@
     "10": "0.5rem",
     "12": "0.6rem",
     "14": "0.7rem",
+    "15": "0.75rem",
     "16": "0.8rem",
     "20": "1.0rem",
     "24": "1.2rem",

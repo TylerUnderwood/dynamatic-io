@@ -15,11 +15,11 @@ export default {
         aria-labelledby="title"
         data-scheme="dark"
     >
-        <div class="page-wrapper">
+        <div class="wrapper">
             <h1 id="title" class="Heading h1 Title lhc">
                 {{ title }}
             </h1>
-            <p class="Copy lhc mt-4" v-if="intro">
+            <p class="Paragraph lhc mt-4" v-if="intro">
                 {{ intro }}
             </p>
         </div>

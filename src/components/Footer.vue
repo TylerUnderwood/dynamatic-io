@@ -4,8 +4,8 @@ export default {
     return {
       nav: [
         { url: '/', name: 'Home'},
-        { url: '/sandbox', name: 'Sandbox'},
-        { url: '/tokens', name: 'Tokens'},
+        { url: '/about', name: 'About'},
+        { url: '/tinkering', name: 'Tinkering'},
       ]
     }
   }
@@ -14,7 +14,7 @@ export default {
 
 <template>
   <footer id="footer" class="Footer flex items-center">
-    <div class="page-wrapper max-w-site">
+    <div class="wrapper wrapper max-w-site">
       <nav class="Nav">
         <ul class="Nav__list">
           <li class="Nav__item" v-for="item in nav">
