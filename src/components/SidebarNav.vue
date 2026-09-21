@@ -1,11 +1,16 @@
-<script>
-export default {
-    props: [
-        'heading',
-        'items',
-        'isInternal'
-    ],
-}
+<script setup>
+import SidebarNavItems from "@/components/SidebarNavItems.vue";
+// type Link = { path: string; name: string };
+// type Nav = { name: string; items: Link[] }[] | Link[];
+
+const props = defineProps({
+    heading: String,
+    nav: Array,
+});
+
+const isCategoryList = props.nav[0]?.hasOwnProperty('items');
+
+console.log("SidebarNav.vue: isCategoryList", props.nav, isCategoryList);
 </script>
 
 <template>
@@ -15,32 +20,23 @@ export default {
         </span>
         <hr class="Line mt-3">
         <nav class="Nav mt-6">
-            <ul class="Nav__list flex-wrap lg:flex-col">
-                <li
-                    class="Nav__item"
-                    v-for="(item, index) in items" :key="index"
-                >
-                    <router-link
-                        class="Nav__link Link"
-                        :to="item.link"
-                        v-if="item.isInternal"
-                    >
+            <template v-if="isCategoryList">
+                <ul :for="(category, index) in nav" :key="index">
+                    <li>
                         <span class="Meta lhc">
-                            {{ item.name }}
+                            {{ category.name }}
                         </span>
-                    </router-link>
-                    <a
-                        class="Nav__link Link"
-                        :href="item.link"
-                        v-else
-                    >
-                        <span class="Meta lhc">
-                            {{ item.name }}
-                        </span>
-                    </a>
-
-                </li>
-            </ul>
+                        <SidebarNavItems
+                            :items="category.items"
+                        />
+                    </li>
+                </ul>
+            </template>
+            <template v-else>
+                <SidebarNavItems
+                    :items="nav"
+                />
+            </template>
         </nav>
     </div>
 </template>
