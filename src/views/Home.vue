@@ -40,7 +40,7 @@ const homeSections = [
 
     <Section>
         <div class="m-auto Rhythm text-center">
-            <p class="Copy mx-auto md:mx-unset">
+            <p class="Paragraph mx-auto md:mx-unset">
                 Dynamatic is a native CSS framework with modern design technologies, built from configured theme tokens. And this, is a promotional SPA build using the Dynamatic framework.
             </p>
             <div class="mt-5 md:mt-8 flex justify-center items-center gap-4">
@@ -79,14 +79,14 @@ const homeSections = [
         />
     </template>
 
-    <div class="spacer" style="font-size: var(--space-section);"></div>
+    <div class="spacer size-[var(--space-section)]"></div>
 
     <Section
         classBase="hidden px-page bg-primary py-3 mb-5 md:mb-0"
         data-scheme="dark"
     >
         <div class="flex flex-col md:flex-row items-center text-center">
-            <p class="Copy">
+            <p class="Paragraph">
                 Want to contribute and or chat about design and development?
             </p>
             <div class="filler"></div>

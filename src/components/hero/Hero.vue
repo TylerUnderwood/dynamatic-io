@@ -15,11 +15,11 @@ export default {
         aria-labelledby="title"
         data-scheme="dark"
     >
-        <div class="page-wrapper">
+        <div class="wrapper">
             <h1 id="title" class="Heading h1 Title lhc">
                 {{ title }}
             </h1>
-            <p class="Copy lhc mt-4" v-if="intro">
+            <p class="Paragraph lhc mt-4" v-if="intro">
                 {{ intro }}
             </p>
         </div>
@@ -38,7 +38,7 @@ export default {
             --hp-hero-tilt: 15deg;
         }
         50% {
-            --hp-hero-tilt: 60deg;
+            --hp-hero-tilt: 75deg;
         }
         100% {
             --hp-hero-tilt: 15deg;
@@ -61,13 +61,13 @@ export default {
     .Hero--pop {
         background: linear-gradient(
             var(--hp-hero-tilt),
-            var(--theme-secondary) 0%,
+            var(--theme-tertiary) 0%,
             var(--theme-primary) 40%,
             var(--theme-primary) 60%,
-            var(--theme-tertiary) 100%
+            var(--theme-secondary) 100%
         );
         animation-name: hp-hero-tilt;
-        animation-duration: 8000ms;
+        animation-duration: 6000ms;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
     }

@@ -29,6 +29,5 @@ export default {
 </template>
 
 <style>
-@import "@styles/components/DrawerAttr.css";
 @import "@styles/components/Drawer.css";
 </style>

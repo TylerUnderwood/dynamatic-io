@@ -1,11 +1,13 @@
 {
   "pallet": {
-    "cerulean": "#4048F0",
-    "azure": "#40A0F0",
-    "violet": "#9040F0",
-    "slate": "#F0F2F4",
-    "carbon": "#202428",
-    "yellow": "#f0e840"
+    "DEFAULT": {
+      "cerulean": "#4048F0",
+      "azure": "#40A0F0",
+      "violet": "#9040F0",
+      "slate": "#F0F2F4",
+      "carbon": "#202428",
+      "yellow": "#f0e840"
+    }
   },
   "color": {
     "primary": {
@@ -81,9 +83,9 @@
     "accent": "#f0e840"
   },
   "light": {
-    "primary-face": "var(--primary-700)",
+    "primary-face": "var(--primary-600)",
     "primary": "var(--primary-500)",
-    "primary-base": "var(--primary-300)",
+    "primary-base": "var(--primary-400)",
     "secondary": "var(--secondary-500)",
     "tertiary": "var(--tertiary-500)",
     "accent": "var(--accent)",
@@ -95,18 +97,18 @@
     "body": "var(--dark-700)"
   },
   "dark": {
-    "primary-face": "var(--primary-300)",
+    "primary-face": "var(--primary-400)",
     "primary": "var(--primary-500)",
-    "primary-base": "var(--primary-700)",
+    "primary-base": "var(--primary-600)",
     "secondary": "var(--secondary-500)",
     "tertiary": "var(--tertiary-500)",
     "accent": "var(--accent)",
-    "base": "var(--dark-800)",
-    "offset": "var(--dark-700)",
-    "contrast": "var(--dark-600)",
+    "base": "var(--dark-900)",
+    "offset": "var(--dark-800)",
+    "contrast": "var(--dark-700)",
     "head": "var(--light-50)",
-    "face": "var(--light-200)",
-    "body": "var(--light-300)"
+    "face": "var(--light-300)",
+    "body": "var(--light-400)"
   },
   "DEFAULT": {
     "primary-face": "var(--light-primary-face)",
@@ -136,19 +138,18 @@
     "DEFAULT": "2px solid var(--input-color)"
   },
   "shadow": {
-    "sm": "rgba(0, 0, 0, 0.25) 0px 0.1rem 0.2rem 0px",
-    "md": "rgba(0, 0, 0, 0.25) 0px 0.1rem 0.4rem 0px",
-    "lg": "rgba(0, 0, 0, 0.25) 0px 0.2rem 0.4rem 2px",
-    "DEFAULT": "var(--shadow-md)"
+    "lg-inset": "inset 0px 0px 20px 4px rgb(0 0 0 / 0.3)",
+    "DEFAULT": "0px 2px 4px 2px rgb(0 0 0 / 0.3)",
+    "lg": "0px 4px 8px 4px rgb(0 0 0 / 0.3)"
   },
   "font": {
-    "head": "'Arial', serif",
+    "head": "'Arial', sans-serif",
     "face": "'Arial', sans-serif",
-    "meta": "'Arial', monospace"
+    "meta": "'Arial', sans-serif"
   },
   "markup": {
     "color": "var(--theme-primary)",
-    "muted": "var(--light-500)"
+    "muted": "var(--dark-400)"
   },
   "copy": {
     "letter-spacing": "0",
@@ -296,7 +297,6 @@
     "10": "0.5rem",
     "12": "0.6rem",
     "14": "0.7rem",
-    "15": "0.75rem",
     "16": "0.8rem",
     "20": "1.0rem",
     "24": "1.2rem",

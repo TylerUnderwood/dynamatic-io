@@ -1,13 +1,13 @@
 <script>
-import Logo from '../assets/icons/Logo.vue';
+import Logo from '@/components/icons/Logo.vue';
 
 export default {
     data() {
         return {
             nav: [
                 { url: "/about", name: "About" },
-                { url: "/contact", name: "Contact" },
-                { url: "/sandbox", name: "Sandbox" }
+                { url: "/tinkering", name: "Tinkering" },
+                { url: "/demo", name: "Demos" }
             ]
         };
     },
