@@ -1,8 +1,17 @@
 <script setup>
+import { ref } from 'vue';
+import { useThemeStore } from '@/stores/Theme';
 import Toggle from './inputs/Toggle.vue';
 // import Checkbox from './inputs/Checkbox.vue';
+
+const theme = useThemeStore();
+
+const toggleScheme = ref(theme.currentScheme === 'dark');
+
+const selectTheme = ref(theme.name || 'default');
 </script>
 
+<!--
 <script>
 import themeDefault from '@config/theme.json';
 import themeNeon from '@config/theme-neon.json';
@@ -139,6 +148,7 @@ export default {
     }
 }
 </script>
+-->
 
 <template>
     <div id="settings" class="SettingsConsole" instant-transitions-exception>
@@ -149,6 +159,8 @@ export default {
             id="toggle-scheme"
             name="Toggle Scheme"
             label="Toggle Scheme (light / dark)"
+            v-model="toggleScheme"
+            @change="theme.setScheme(toggleScheme ? 'dark' : 'light')"
         />
         <label for="select-theme" visually-hidden>
             Select Theme
@@ -158,8 +170,8 @@ export default {
                 id="select-theme"
                 class="Field Field--small"
                 name="Select Theme"
-                v-model="selectedTheme"
-                @change="changeTheme"
+                v-model="selectTheme"
+                @change="theme.update(selectTheme)"
             >
                 <option value="default">Default</option>
                 <option value="neon">Neon</option>
