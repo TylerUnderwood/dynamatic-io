@@ -1,12 +1,7 @@
-<script>
-import themeDefault from '@config/theme.json';
-import { tokenBuilder } from "dynamatic";
+<script setup>
+import { useThemeStore } from '@/stores/Theme';
 
-export default {
-  created() {
-    document.getElementById('theme').innerHTML = tokenBuilder(themeDefault);
-  },
-}
+useThemeStore().build();
 </script>
 
 <template>
