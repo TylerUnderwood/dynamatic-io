@@ -1,12 +1,13 @@
 <script setup>
-import { computed } from 'vue';
 import { useThemeStore } from '@/stores/Theme';
 import Toggle from './inputs/Toggle.vue';
 // import Checkbox from './inputs/Checkbox.vue';
 
 const themeStore = useThemeStore();
-const themeOptions = Object.keys(themeStore.list);
-const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+const selectThemeOptions = Object.keys(themeStore.list).map(themeId => ({
+    value: themeId,
+    label: themeId.charAt(0).toUpperCase() + themeId.slice(1),
+}));
 </script>
 
 <!--
@@ -169,12 +170,12 @@ export default {
                 v-model="themeStore.id"
             >
                 <option 
-                    v-for="themeId in themeOptions" 
-                    :value="themeId"
-                    :key="themeId"
-                    :selected="themeId === themeStore.id"
+                    v-for="themeOption in selectThemeOptions" 
+                    :value="themeOption.value"
+                    :key="themeOption.value"
+                    :selected="themeOption.value === themeStore.id"
                 >
-                    {{ capitalize(themeId) }}
+                    {{ themeOption.label }}
                 </option>
             </select>
         </div>
@@ -186,13 +187,6 @@ export default {
             id="toggle-identify-guidelines"
             name="Toggle Guidelines"
             label="Toggle Guidelines"
-        />
-        <label for="toggle-identify-components" visually-hidden>
-            Toggle Components
-        </label>
-        <Checkbox
-            id="toggle-identify-components"
-            name="Toggle Identify Components"
         />
         -->
     </div>
