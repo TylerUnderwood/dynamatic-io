@@ -166,7 +166,7 @@ export default {
                 id="select-theme"
                 class="Field Field--small"
                 name="Select Theme"
-                @change="themeStore.id = $event.target.value"
+                v-model="themeStore.id"
             >
                 <option 
                     v-for="themeId in themeOptions" 
