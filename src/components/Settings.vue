@@ -1,14 +1,12 @@
 <script setup>
-import { ref } from 'vue';
+import { computed } from 'vue';
 import { useThemeStore } from '@/stores/Theme';
 import Toggle from './inputs/Toggle.vue';
 // import Checkbox from './inputs/Checkbox.vue';
 
-const theme = useThemeStore();
-
-const toggleScheme = ref(theme.currentScheme === 'dark');
-
-const selectTheme = ref(theme.name || 'default');
+const themeStore = useThemeStore();
+const themeOptions = Object.keys(themeStore.list);
+const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 </script>
 
 <!--
@@ -152,15 +150,13 @@ export default {
 
 <template>
     <div id="settings" class="SettingsConsole" instant-transitions-exception>
-        <label for="toggle-scheme" visually-hidden>
-            Toggle Scheme (light / dark)
+        <label for="toggle-dark-mode" visually-hidden>
+            Toggle Dark Mode
         </label>
         <Toggle
-            id="toggle-scheme"
-            name="Toggle Scheme"
-            label="Toggle Scheme (light / dark)"
-            v-model="toggleScheme"
-            @change="theme.setScheme(toggleScheme ? 'dark' : 'light')"
+            id="toggle-dark-mode"
+            name="Toggle Dark Mode"
+            v-model="themeStore.isDarkMode"
         />
         <label for="select-theme" visually-hidden>
             Select Theme
@@ -170,11 +166,16 @@ export default {
                 id="select-theme"
                 class="Field Field--small"
                 name="Select Theme"
-                v-model="selectTheme"
-                @change="theme.update(selectTheme)"
+                @change="themeStore.id = $event.target.value"
             >
-                <option value="default">Default</option>
-                <option value="neon">Neon</option>
+                <option 
+                    v-for="themeId in themeOptions" 
+                    :value="themeId"
+                    :key="themeId"
+                    :selected="themeId === themeStore.id"
+                >
+                    {{ capitalize(themeId) }}
+                </option>
             </select>
         </div>
         <!--

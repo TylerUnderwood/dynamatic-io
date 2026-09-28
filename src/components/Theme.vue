@@ -1,7 +1,7 @@
 <script setup>
 import { useThemeStore } from '@/stores/Theme';
 
-useThemeStore().build();
+useThemeStore().init();
 </script>
 
 <template>

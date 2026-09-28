@@ -1,18 +1,11 @@
 <script setup>
-import { ref } from 'vue';
 import { useThemeStore } from '@/stores/Theme';
 // components
 import Hero from "@/components/hero/Hero.vue";
 import Section from "@/components/section/Section.vue";
 import Checkbox from '@/components/inputs/Checkbox.vue';
 
-const theme = useThemeStore();
-
-const userSchemePreference = ref(theme.userSchemePreference);
-const saveTempSchemeValue = ref(localStorage.getItem('saveTempSchemeValue') === 'true');
-const handleSaveTempSchemeValueChange = () => {
-    localStorage.setItem('saveTempSchemeValue', saveTempSchemeValue.value);
-};
+const themeStore = useThemeStore();
 </script>
 
 <template>
@@ -27,8 +20,7 @@ const handleSaveTempSchemeValueChange = () => {
                         id="default-scheme-preference"
                         name="default-scheme-preference"
                         class="Field"
-                        v-model="userSchemePreference"
-                        @change="theme.setUserSchemePreference(userSchemePreference)"
+                        v-model="themeStore.userSchemePreference"
                     >
                         <option value="system">System</option>
                         <option value="light">Light</option>
@@ -42,8 +34,7 @@ const handleSaveTempSchemeValueChange = () => {
                     <span class="Meta">Save Temporary Scheme Value</span>
                     <Checkbox
                         id="save-temp-scheme-value"
-                        v-model="saveTempSchemeValue"
-                        @change="handleSaveTempSchemeValueChange"
+                        v-model="themeStore.shouldStoreTempScheme"
                     />
                 </label>
                 <p class="Copy mt-3" style="font-size: 0.8rem;">

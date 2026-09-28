@@ -30,9 +30,9 @@ const routes = [
         component: () => import("@views/tinkering/Default.vue"),
       },
       {
-        path: "components",
-        name: "Components",
-        component: () => import("@views/tinkering/Components.vue"),
+        name: "Tokens",
+        path: "tokens",
+        component: () => import("@views/tinkering/Tokens.vue"),
       },
       {
         path: "custom-tailwind-classes",
@@ -53,9 +53,9 @@ const routes = [
         component: () => import("@views/demo/Default.vue"),
       },
       {
-        name: "Tokens",
-        path: "tokens",
-        component: () => import("@views/demo/Tokens.vue"),
+        path: "components",
+        name: "Components",
+        component: () => import("@views/demo/Components.vue"),
       },
       {
         name: "Layout",
