@@ -6,7 +6,6 @@ export default {
         return {
             nav: [
                 { url: "/about", name: "About" },
-                { url: "/tinkering", name: "Tinkering" },
                 { url: "/demo", name: "Demos" }
             ]
         };
