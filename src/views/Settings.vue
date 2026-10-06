@@ -9,9 +9,9 @@ const themeStore = useThemeStore();
 </script>
 
 <template>
-    <Hero title="User"/>
+    <Hero title="Settings"/>
 
-    <Section heading="Settings">
+    <Section heading="Theme preferences">
         <form action="null" id="settings" class="flex flex-col gap-6 mt-5">
             <div>
                 <label for="default-scheme-preference" class="flex gap-3 items-center justify-start">
@@ -30,7 +30,7 @@ const themeStore = useThemeStore();
                         </select>
                     </div>
                 </label>
-                <p class="Copy mt-3" style="font-size: 0.8rem;">
+                <p class="Copy mt-2 italic" style="font-size: 0.7rem;">
                     No Preference will use the theme's default scheme preference.
                 </p>
             </div>
@@ -42,7 +42,7 @@ const themeStore = useThemeStore();
                         v-model="themeStore.shouldStoreTempScheme"
                     />
                 </label>
-                <p class="Copy mt-3" style="font-size: 0.8rem;">
+                <p class="Copy mt-2 italic" style="font-size: 0.7rem;">
                     Current scheme (<i>using the bottom right toggle</i>) will save for 24 hours, and will reset to the user scheme preference after that time.
                 </p>
             </div>

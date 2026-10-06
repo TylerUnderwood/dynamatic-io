@@ -118,7 +118,7 @@ export const useThemeStore = defineStore('Theme', {
       this.updateSchemeExpiration();
 
       setTimeout(() => {
-          document.body.removeAttribute('instant-transitions')
+        document.body.removeAttribute('instant-transitions')
       }, 10)
     },
     onChangeScheme() {

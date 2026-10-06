@@ -1,6 +1,7 @@
 <script setup>
 import { useRouter } from 'vue-router';
 import { computed } from 'vue';
+import { getRoutesFromNameList } from '@/utils/getRoutesFromNameList';
 
 const router = useRouter();
 
@@ -13,9 +14,7 @@ const navItemNames = [
 ]
 
 const navItems = computed(() => {
-  return navItemNames.map(name => {
-    return router.getRoutes().find(route => route.name === name);
-  });
+  return getRoutesFromNameList(router, navItemNames, 'Footer');
 });
 </script>
 
