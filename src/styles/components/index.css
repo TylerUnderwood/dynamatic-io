@@ -1,10 +1,11 @@
-@import "./Rhythm.css";
-@import "./Section.css";
-@import "./Hyperlink.css";
-@import "./shapes/arch.css";
-@import "./shapes/circle.css";
-@import "./shapes/hexagon.css";
-@import "./shapes/square.css";
-@import "./shapes/triangle.css";
+@import "dynamatic/dist/styles/components/Rhythm.css";
+@import "dynamatic/dist/styles/components/Section.css";
+@import "dynamatic/dist/styles/components/Card.css";
+@import "dynamatic/dist/styles/components/input/Hyperlink.css";
+@import "dynamatic/dist/styles/components/shapes/Arch.css";
+@import "dynamatic/dist/styles/components/shapes/Circle.css";
+@import "dynamatic/dist/styles/components/shapes/Hexagon.css";
+@import "dynamatic/dist/styles/components/shapes/Square.css";
+@import "dynamatic/dist/styles/components/shapes/Triangle.css";
 
 @tailwind components;

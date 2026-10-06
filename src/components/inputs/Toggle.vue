@@ -33,5 +33,5 @@ const model = defineModel()
 </template>
 
 <style>
-@import "@styles/components/Toggle.css";
+@import "dynamatic/dist/styles/components/input/Toggle.css";
 </style>

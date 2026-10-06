@@ -1,5 +1,5 @@
 {
-  "pallet": {
+  "color": {
     "cerulean": "#4048F0",
     "azure": "#40A0F0",
     "violet": "#9040F0",
@@ -7,7 +7,7 @@
     "carbon": "#202428",
     "yellow": "#f0e840"
   },
-  "color": {
+  "pallet": {
     "primary": {
       "50": "#ECECFE",
       "100": "#D9DAFD",
@@ -142,9 +142,9 @@
     "DEFAULT": "var(--shadow-md)"
   },
   "font": {
-    "head": "'Arial', serif",
+    "head": "'Arial', sans-serif",
     "face": "'Arial', sans-serif",
-    "meta": "'Arial', monospace"
+    "meta": "'Arial', sans-serif"
   },
   "markup": {
     "color": "var(--theme-primary)",
@@ -284,10 +284,6 @@
     "page": "48em",
     "site": "64em"
   },
-  "other": {
-    "break-size": "1.6rem",
-    "tab-size": "2.0rem"
-  },
   "size": {
     "1": "1px",
     "2": "2px",
@@ -306,8 +302,8 @@
     "80": "4.0rem",
     "96": "4.8rem",
     "128": "6.4rem",
-    "break": "var(--break-size)",
-    "tab": "var(--tab-size)",
+    "break": "1.6rem",
+    "tab": "2.0rem",
     "DEFAULT": "1em",
     "rem": "1rem"
   },

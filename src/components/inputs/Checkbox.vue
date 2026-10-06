@@ -37,5 +37,5 @@ const model = defineModel()
 </template>
 
 <style>
-@import "@styles/components/Checkbox.css";
+@import "dynamatic/dist/styles/components/input/Checkbox.css";
 </style>
