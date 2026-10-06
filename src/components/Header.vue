@@ -1,19 +1,17 @@
-<script>
+<script setup>
+import { useRouter } from 'vue-router';
+import { computed } from 'vue';
+import { getRoutesFromNameList } from '@/utils/getRoutesFromNameList';
 import Logo from '@/components/icons/Logo.vue';
 
-export default {
-    data() {
-        return {
-            nav: [
-                { url: "/about", name: "About" },
-                { url: "/tinkering", name: "Tinkering" },
-                { url: "/demo", name: "Demos" }
-            ]
-        };
-    },
+const navItemNames = [
+  'About',
+  'Demos',
+]
 
-    components: { Logo }
-}
+const navItems = computed(() => {
+  return getRoutesFromNameList(useRouter(), navItemNames, 'Header');
+});
 </script>
 
 <template>
@@ -31,9 +29,9 @@ export default {
 
         <nav class="Nav">
             <ul class="Nav__list">
-                <li class="Nav__item" v-for="item in nav">
+                <li class="Nav__item" v-for="item in navItems">
                     <router-link
-                        :to="item.url"
+                        :to="item.path"
                         class="Link Nav__link"
                     >
                         <span class="Meta lhc">{{ item.name }}</span>

@@ -18,25 +18,6 @@ import Section from "@/components/section/Section.vue";
             </p>
         </div>
     </Section>
-
-    <Section heading="Form That Does Nothing" v-if="$isDev">
-
-        <form class="flex md:items-end mt-8" action="">
-            <button class="Button rounded-full mr-2 z-9" data-type="tertiary" data-shape="square">
-                <div class="Button__icon">&#9432;</div>
-            </button>
-            <div class="Soloform flex-1 md:items-end">
-                <Field
-                    name="Vue Field Component"
-                    type="email"
-                    placeholder
-                    label
-                />
-                <Submit id="submit-vue-field" />
-            </div>
-        </form>
-
-    </Section>
 </template>
 
 <style>

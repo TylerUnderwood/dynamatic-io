@@ -8,7 +8,7 @@ import Page from "@/templates/Page.vue";
 import Docs from "@/templates/Docs.vue";
 import Footer from "@/components/Footer.vue";
 import Guidelines from "@/components/Guidelines.vue";
-import Settings from "@/components/Settings.vue";
+import SettingsWidget from "@/components/SettingsWidget.vue";
 import Utilities from "@/components/Utilities.vue";
 
 const route = useRoute();
@@ -40,7 +40,7 @@ watch(() => route.meta.template, (newTemplate) => {
 
   <Footer class="z-2" />
 
-  <Settings class="z-6" />
+  <SettingsWidget class="z-6" />
 
   <Guidelines class="z-0" />
 
