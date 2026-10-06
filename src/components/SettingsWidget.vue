@@ -11,19 +11,21 @@ const selectThemeOptions = Object.keys(themeStore.list).map(themeId => ({
 </script>
 
 <template>
-    <div id="settings" class="SettingsConsole" instant-transitions-exception>
-        <label for="toggle-dark-mode" visually-hidden>
-            Toggle Dark Mode
-        </label>
-        <Toggle
-            id="toggle-dark-mode"
-            name="Toggle Dark Mode"
-            v-model="themeStore.isDarkMode"
-        />
-        <label for="select-theme" visually-hidden>
-            Select Theme
-        </label>
+    <div id="settings" class="SettingsConsole">
+        <div instant-transitions-exception>
+            <label for="toggle-dark-mode" visually-hidden>
+                Toggle Dark Mode
+            </label>
+            <Toggle
+                id="toggle-dark-mode"
+                name="Toggle Dark Mode"
+                v-model="themeStore.isDarkMode"
+            />
+        </div>
         <div>
+            <label for="select-theme" visually-hidden>
+                Select Theme
+            </label>
             <select
                 id="select-theme"
                 class="Field Field--small"

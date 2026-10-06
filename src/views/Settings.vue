@@ -13,22 +13,27 @@ const themeStore = useThemeStore();
 
     <Section heading="Settings">
         <form action="null" id="settings" class="flex flex-col gap-6 mt-5">
-            <label for="default-scheme-preference" class="flex gap-3 items-center justify-start">
-                <span class="Meta">Default Scheme Preference</span>
-                <div>
-                    <select
-                        id="default-scheme-preference"
-                        name="default-scheme-preference"
-                        class="Field"
-                        v-model="themeStore.userSchemePreference"
-                    >
-                        <option value="system">System</option>
-                        <option value="light">Light</option>
-                        <option value="dark">Dark</option>
-                        <option value="nopreference">No Preference</option>
-                    </select>
-                </div>
-            </label>
+            <div>
+                <label for="default-scheme-preference" class="flex gap-3 items-center justify-start">
+                    <span class="Meta">Default Scheme Preference</span>
+                    <div>
+                        <select
+                            id="default-scheme-preference"
+                            name="default-scheme-preference"
+                            class="Field"
+                            v-model="themeStore.userSchemePreference"
+                        >
+                            <option value="system">System</option>
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                            <option value="nopreference">No Preference</option>
+                        </select>
+                    </div>
+                </label>
+                <p class="Copy mt-3" style="font-size: 0.8rem;">
+                    No Preference will use the theme's default scheme preference.
+                </p>
+            </div>
             <div>
                 <label for="save-temp-scheme-value" class="flex gap-3 items-center justify-start">
                     <span class="Meta">Save Temporary Scheme Value</span>

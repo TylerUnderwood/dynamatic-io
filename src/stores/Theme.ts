@@ -36,7 +36,7 @@ const themes: Record<string, Theme> = {
 type ThemeId = keyof typeof themes;
 
 const savedThemeId = localStorage.getItem('themeId') as ThemeId | null;
-const savedScheme = localStorage.getItem('themeScheme') as Scheme;
+const savedScheme = localStorage.getItem('scheme') as Scheme;
 const savedUserSchemePreference = localStorage.getItem('userSchemePreference') as SchemePreference;
 const savedShouldStoreTempScheme = localStorage.getItem('shouldStoreTempScheme') === 'true';
 
@@ -55,12 +55,10 @@ const resolveSchemeFromPreference = ( preference: SchemePreference, id: ThemeId 
   switch (preference) {
     case 'system':
       return systemScheme;
-    case 'dark':
-      return 'dark';
-    case 'light':
-      return 'light';
-    default:
+    case 'nopreference':
       return themes[id].defaultScheme;
+    default:
+      return preference;
   }
 }
 
@@ -101,29 +99,35 @@ export const useThemeStore = defineStore('Theme', {
     onChangeId() {
       localStorage.setItem('themeId', this.id);
 
-      this.scheme = this.list[this.id].defaultScheme;
+      this.scheme = resolveSchemeFromPreference(this.userSchemePreference, this.id);
 
       this.build();
+    },
+    updateSchemeExpiration() {
+      if (this.shouldStoreTempScheme) {
+        saveSchemeExpiration();
+      } else {
+        localStorage.removeItem('schemeExperation');
+      }
     },
     updateScheme() {
       document.body.dataset.scheme = this.scheme;
       document.body.setAttribute('instant-transitions', '')
+      localStorage.setItem('scheme', this.scheme);
+
+      this.updateSchemeExpiration();
 
       setTimeout(() => {
           document.body.removeAttribute('instant-transitions')
-      }, 100)
+      }, 10)
     },
     onChangeScheme() {
+      // Sync the isDarkMode state with the scheme
       if (this.isDarkMode !== (this.scheme === 'dark')) {
         this.isDarkMode = this.scheme === 'dark';
       }
 
       this.updateScheme();
-
-      if (this.shouldStoreTempScheme && !isSchemeExpired()) {
-        localStorage.setItem('themeScheme', this.scheme);
-        saveSchemeExpiration();
-      }
     },
     onChangeIsDarkMode() {
       this.scheme = this.isDarkMode ? 'dark' : 'light';
@@ -134,6 +138,7 @@ export const useThemeStore = defineStore('Theme', {
     },
     onChangeShouldStoreTempScheme() {
       localStorage.setItem('shouldStoreTempScheme', this.shouldStoreTempScheme.toString());
+      this.updateSchemeExpiration();
     },
     init() {
       watch(() => this.id, this.onChangeId);

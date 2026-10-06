@@ -1,17 +1,22 @@
-<script>
-export default {
-  data() {
-    return {
-      nav: [
-        { url: '/', name: 'Home'},
-        { url: '/about', name: 'About'},
-        { url: '/demos', name: 'Demos'},
-        { url: '/tinkering', name: 'Tinkering'},
-        { url: '/user', name: 'User'},
-      ]
-    }
-  }
-}
+<script setup>
+import { useRouter } from 'vue-router';
+import { computed } from 'vue';
+
+const router = useRouter();
+
+const navItemNames = [
+  'Home',
+  'About',
+  'Demos',
+  'Tinkering',
+  'Settings',
+]
+
+const navItems = computed(() => {
+  return navItemNames.map(name => {
+    return router.getRoutes().find(route => route.name === name);
+  });
+});
 </script>
 
 <template>
@@ -19,8 +24,8 @@ export default {
     <div class="wrapper wrapper max-w-site">
       <nav class="Nav">
         <ul class="Nav__list">
-          <li class="Nav__item" v-for="item in nav">
-            <router-link :to="item.url" class="Link Nav__link">
+          <li class="Nav__item" v-for="item in navItems">
+            <router-link :to="item.path" class="Link Nav__link">
               <span class="Meta lhc">{{ item.name }}</span>
             </router-link>
           </li>
