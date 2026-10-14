@@ -1,50 +1,48 @@
 <script setup>
+import { computed, onBeforeMount } from 'vue';
+import { useRouter } from 'vue-router';
 import { useTableOfContentsStore } from '@/stores/TableOfContents';
 import Hero from "@/components/hero/Hero.vue";
-import Section from "@/components/section/Section.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import SidebarNav from "@/components/SidebarNav.vue";
+
+const router = useRouter();
+const tableOfContentsStore = useTableOfContentsStore();
+
+const nav = computed(() => {
+  const routerItems = router.getRoutes()
+    .filter(route => route.name === "Docs")[0]
+    .children.filter(route => route.path !== "");
+
+  return routerItems.map(item => {
+    return {
+      name: item.name,
+      path: `/docs/${item.path}`,
+    };
+  });
+});
+
+const toc = computed(() => {
+  const tocItems = tableOfContentsStore.items;
+
+  return tocItems.map(item => {
+    return {
+      name: item.name,
+      path: `#${item.id}`,
+    };
+  });
+});
+
+onBeforeMount(() => {
+  tableOfContentsStore.clear();
+});
+
+console.log("Docs.vue: nav", nav.value);
+console.log("Docs.vue: toc", toc.value);
 </script>
 
 <script>
-export default {
-  data() {
-    return {
-      tableOfContents: useTableOfContentsStore(),
-    }
-  },
 
-  computed: {
-    nav() {
-      const routerItems = this.$router.getRoutes()
-        .filter(route => route.name === "Docs")[0]
-        .children.filter(route => route.path !== "");
-
-      return routerItems.map(item => {
-        return item = {
-          name: item.name,
-          link: `/docs/${item.path}`,
-          isInternal: true,
-        };
-      });
-    },
-
-    toc() {
-      const tocItems = this.tableOfContents.items;
-
-      return tocItems.map(item => {
-        return item = {
-          name: item.name,
-          link: `#${item.id}`,
-        };
-      });
-    },
-  },
-
-  beforeMount() {
-    this.tableOfContents.clear();
-  },
-};
 </script>
 
 <template>
@@ -58,7 +56,7 @@ export default {
         <Sidebar>
           <SidebarNav
             heading="Navigation"
-            :items="nav"
+            :nav="nav"
           />
         </Sidebar>
       </div>
@@ -68,7 +66,7 @@ export default {
         <Sidebar>
           <SidebarNav
             heading="Table of Contents"
-            :items="toc"
+            :nav="toc"
           />
         </Sidebar>
       </div>

@@ -16,13 +16,13 @@ const themeSwatches = [...Object.keys(tokens.DEFAULT).map(key => {
     }
 })]
 
-var themePallet = [...Object.keys(tokens.color).reduce((result, color) => {
+var themePallet = [...Object.keys(tokens.pallet).reduce((result, color) => {
     const number = Number(color.match(/\d+/))
 
     if (number !== 0) {
         result.push({
             name: color,
-            val: tokens.color[color],
+            val: tokens.pallet[color],
             number,
         })
     }
@@ -140,7 +140,7 @@ onBeforeUnmount(() => {
         <div class="pt-6"></div>
         <details
             v-for="category, cline in tokens"
-            :open="/^color/.test(cline) ? true : null"
+            :open="/^pallet/.test(cline) ? true : null"
         >
             <summary>
                 <h3 class="Heading h3">
@@ -148,7 +148,7 @@ onBeforeUnmount(() => {
                 </h3>
             </summary>
             <div v-for="token, name in category" class="flex mt-2">
-                <code class="mr-3">{{ name }}: {{ token }};</code>
+                <code class="mr-3">{{ name.replace('pallet-', '') }}: {{ token }};</code>
                 <div
                     class="VarBox"
                     :style="{'--varBox-color': token, '--varBox-length': token}"

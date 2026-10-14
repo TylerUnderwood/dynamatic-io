@@ -19,15 +19,3 @@
 @import './input/button';
 @import './input/field';
 @import './input/form';
-
-:root {
-    --stripes-rgb: 0 0 0;
-    --stripes-angle: -45deg;
-    --stripes-opacity: 1;
-    --stripes-size: 20px;
-}
-
-@keyframes slide {
-    from { transform: translateX(0); }
-    to { transform: translateX(var(--stripes-size)); }
-}
