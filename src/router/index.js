@@ -78,14 +78,15 @@ const routes = [
   {
     name: "Docs",
     path: "/docs",
+    redirect: { name: 'Theme' },
     component: () => import("@views/Docs.vue"),
     meta: { template: "Docs" },
     children: [
-      {
-        name: "Welcome",
-        path: "",
-        component: () => import("@views/docs/Default.vue"),
-      },
+      // {
+      //   name: "Welcome",
+      //   path: "",
+      //   component: () => import("@views/docs/Default.vue"),
+      // },
       {
         name: "Theme",
         path: "theme",

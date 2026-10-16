@@ -1,53 +1,73 @@
-<script setup>
-import { ref, onBeforeUnmount } from 'vue'
-import theme from '@config/theme.json';
+<script setup lang="ts">
+import { computed, ref, onBeforeUnmount, watch } from 'vue'
 import { tokenCategories } from 'dynamatic';
+import { useThemeStore } from '@/stores/Theme';
 import SectionDocs from "@/components/section/SectionDocs.vue";
 import SwatchCard from '@/components/SwatchCard.vue'
 
-const tokens = tokenCategories(theme)
-const themeSwatches = [...Object.keys(tokens.DEFAULT).map(key => {
-    return {
-        name: key.replace('theme-', ''),
-        val: `var(--${key})`,
-        hex: window.getComputedStyle(document.documentElement)
-                    .getPropertyValue(`--${key}`)
-                    .trim()
-    }
-})]
+type SwatchCardItem = {
+    name: string;
+    val: string;
+    hex: string;
+}
 
-var themePallet = [...Object.keys(tokens.color).reduce((result, color) => {
-    const number = Number(color.match(/\d+/))
+type PalletCardItem = {
+    name: string;
+    val: string;
+    number: number;
+}
 
-    if (number !== 0) {
-        result.push({
+const themeStore = useThemeStore();
+const theme = computed(() => themeStore.getCurrent());
+const tokensByCategory = ref(tokenCategories(theme.value.tokens));
+const themeSwatches = ref<SwatchCardItem[]>([]);
+const themePallet = ref<PalletCardItem[]>([]);
+
+const getThemeSwatches = () => {
+    return Object.keys(tokensByCategory.value.DEFAULT).map(key => {
+        return {
+            name: key.replace('theme-', ''),
+            val: `var(--${key})`,
+            hex: window.getComputedStyle(document.documentElement)
+                .getPropertyValue(`--${key}`)
+                .trim()
+        }
+    });
+}
+
+const getThemePallet = () => {
+    return Object.keys(tokensByCategory.value.color)
+        .map(color => ({
             name: color,
-            val: tokens.color[color],
-            number,
-        })
-    }
+            val: tokensByCategory.value.color[color],
+            number: Number(color.match(/\d+/)),
+        }))
+        .filter(swatch => swatch.number !== 0);
+}
 
-    return result
-}, [])];
+watch(theme, (newTheme) => {
+    tokensByCategory.value = tokenCategories(newTheme.tokens);
+    themeSwatches.value = getThemeSwatches()
+    themePallet.value = getThemePallet()
+}, { immediate: true })
 
-// Copy to Clipboard functionality
+
+// Copy to Clipboard functionality - TODO: Move to a global component
 const showCopyMessage = ref(false)
 const swatchCopyMessage = ref('')
-const swatchCopyTimeout = ref(null)
+const swatchCopyTimeout = ref<ReturnType<typeof setTimeout> | null>(null)
 const msgX = ref(0)
 const msgY = ref(0)
 
-async function copyToClipboard(text, event) {
-    const mousePosition = { x: event.clientX, y: event.clientY }
-
-    const showMessage = (message) => {
+async function copyToClipboard(text: string, event: Event) {
+    const showMessage = (message: string) => {
         if (swatchCopyTimeout.value) {
             clearTimeout(swatchCopyTimeout.value)
         }
 
         swatchCopyMessage.value = message
-        msgX.value = event.clientY
-        msgY.value = event.clientX
+        msgX.value = (event as MouseEvent).clientY
+        msgY.value = (event as MouseEvent).clientX
         showCopyMessage.value = true
 
         swatchCopyTimeout.value = setTimeout(() => {
@@ -78,6 +98,7 @@ onBeforeUnmount(() => {
         <div class="flex flex-wrap -m-1" style="font-size: 0.9rem;">
             <div
                 v-for="swatch in themeSwatches"
+                :key="swatch.name"
                 class="w-1/3 sm:w-1/6 md:w-1/4 lg:w-1/6 p-1"
             >
                 <SwatchCard
@@ -101,11 +122,21 @@ onBeforeUnmount(() => {
     <SectionDocs heading="Pallet">
         <div class="pt-6"></div>
         <div class="flex flex-wrap gap-y-3">
-            <div v-for="color in themePallet" class="flex flex-col items-start w-[calc(1/11*100%)] relative group">
-                <code class="Code absolute opacity-0 group-hover:opacity-100 bottom-1 left-1" style="font-size: 0.6rem">
+            <div 
+                v-for="color in themePallet" 
+                :key="color.name"
+                class="flex flex-col items-start w-[calc(1/11*100%)] relative group"
+            >
+                <code 
+                    class="Code absolute opacity-0 group-hover:opacity-100 bottom-1 left-1" 
+                    style="font-size: 0.6rem"
+                >
                     {{ color.number }}
                 </code>
-                <div class="aspect-square w-full" :style="{backgroundColor: color.val}"></div>
+                <div 
+                    class="aspect-square w-full" 
+                    :style="{backgroundColor: color.val}"
+                ></div>
             </div>
         </div>
     </SectionDocs>
@@ -139,8 +170,8 @@ onBeforeUnmount(() => {
     <SectionDocs heading="Tokens">
         <div class="pt-6"></div>
         <details
-            v-for="category, cline in tokens"
-            :open="/^color/.test(cline) ? true : null"
+            v-for="category, cline in tokensByCategory"
+            :open="/^none/.test(cline)"
         >
             <summary>
                 <h3 class="Heading h3">

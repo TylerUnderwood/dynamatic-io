@@ -69,6 +69,7 @@ const initialScheme: Scheme =
     : resolveSchemeFromPreference(savedUserSchemePreference, initialThemeId);
 
 interface ThemeStore {
+  hasLoaded: Promise<boolean>;
   list: typeof themes;
   id: ThemeId;
   scheme: Scheme;
@@ -79,6 +80,7 @@ interface ThemeStore {
 
 export const useThemeStore = defineStore('Theme', {
   state: (): ThemeStore => ({
+    hasLoaded: new Promise((resolve) => resolve(false)),
     list: readonly(themes),
     id: initialThemeId,
     scheme: initialScheme,
@@ -87,6 +89,9 @@ export const useThemeStore = defineStore('Theme', {
     shouldStoreTempScheme: savedShouldStoreTempScheme || false,
   }),
   actions: {
+    getCurrent() {
+      return this.list[this.id];
+    },
     build() {
       const themeStyleSheet = document.getElementById(styleSheetId) as HTMLStyleElement;
 
@@ -140,15 +145,33 @@ export const useThemeStore = defineStore('Theme', {
       localStorage.setItem('shouldStoreTempScheme', this.shouldStoreTempScheme.toString());
       this.updateSchemeExpiration();
     },
-    init() {
-      watch(() => this.id, this.onChangeId);
-      watch(() => this.scheme, this.onChangeScheme);
-      watch(() => this.isDarkMode, this.onChangeIsDarkMode);
-      watch(() => this.userSchemePreference, this.onChangeUserSchemePreference);
-      watch(() => this.shouldStoreTempScheme, this.onChangeShouldStoreTempScheme);
+    async init() {
+      this.hasLoaded.then(async (hasLoaded) => {
+        const isHotReload = import.meta.hot !== undefined;
 
-      this.updateScheme();
-      this.build();
+        if (hasLoaded && !isHotReload) {
+          throw new Error('Theme store already initialized');
+        }
+      });
+
+      this.hasLoaded = new Promise((resolve) => {
+        watch(() => this.id, this.onChangeId);
+        watch(() => this.scheme, this.onChangeScheme);
+        watch(() => this.isDarkMode, this.onChangeIsDarkMode);
+        watch(() => this.userSchemePreference, this.onChangeUserSchemePreference);
+        watch(() => this.shouldStoreTempScheme, this.onChangeShouldStoreTempScheme);
+  
+        this.updateScheme();
+        this.build();
+
+        resolve(true);
+      });
+
+      try {
+        await this.hasLoaded;
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
 });

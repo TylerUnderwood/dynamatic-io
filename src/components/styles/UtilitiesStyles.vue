@@ -1,5 +1,5 @@
 <template>
-    <noscript>Tools and Utilities</noscript>
+    <!-- Tools and Utilities styles loaded -->
 </template>
 
 <style lang="scss">
