@@ -34,7 +34,7 @@ defineProps<{
             <div class="spacer size-[0.5rem]"></div>
             <button 
                 class="flex size-[0.75rem]" 
-                @click="copyToClipboard(name, $event)"
+                @click="copyToClipboard(val, $event)"
             >
                 <code class="Code whitespace-nowrap">
                     {{ name }}
