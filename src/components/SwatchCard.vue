@@ -1,13 +1,10 @@
-<script setup>
-const props = defineProps({
-    name: String,
-    val: String,
-    hex: String,
-    copyToClipboard: {
-        type: Function,
-        required: true
-    },
-});
+<script setup lang="ts">
+defineProps<{
+    name: string;
+    val: string;
+    hex: string;
+    copyToClipboard: (val: string, event: Event) => void;
+}>();
 </script>
 
 <template>

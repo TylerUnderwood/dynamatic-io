@@ -1,11 +1,5 @@
-<script setup>
-import { useThemeStore } from '@/stores/Theme';
-
-useThemeStore().init();
-</script>
-
 <template>
-    <noscript>Theme and Core</noscript>
+    <!-- Theme and Core styles loaded -->
 </template>
 
 <style lang="scss">
