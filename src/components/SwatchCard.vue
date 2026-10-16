@@ -8,7 +8,11 @@ defineProps<{
 </script>
 
 <template>
-    <div :id="`swatchCard-${name}`" class="SwatchCard Card" :style="{'--swatch-color': hex}">
+    <div 
+        :id="`swatchCard-${name}`" 
+        class="SwatchCard Card" 
+        :style="{'--swatch-color': val}"
+    >
         <button
             class="SwatchCard__color"
             @click="copyToClipboard(val, $event)"
@@ -18,15 +22,23 @@ defineProps<{
         </button>
         <div class="SwatchCard__content">
             <div class="SwatchCard__ArchBR Arch Arch--br"></div>
-            <button @click="copyToClipboard(hex, $event)" class="flex items-center gap-2 -m-1 p-1">
+            <button 
+                class="flex items-center gap-2 -m-1 p-1"
+                @click="copyToClipboard(hex, $event)"
+            >
                 <span class="Meta lhc tracking-[0] font-[600] font-mono">
                     {{ hex }}
                 </span>
                 <i class="fi fi-rr-copy size-[0.7rem] -mb-[0.1rem]" aria-hidden="true"></i>
             </button>
             <div class="spacer size-[0.5rem]"></div>
-            <button class="flex size-[0.75rem]" @click="copyToClipboard(name, $event)">
-                <code class="Code whitespace-nowrap">{{ name }}</code>
+            <button 
+                class="flex size-[0.75rem]" 
+                @click="copyToClipboard(name, $event)"
+            >
+                <code class="Code whitespace-nowrap">
+                    {{ name }}
+                </code>
             </button>
         </div>
     </div>
