@@ -94,6 +94,9 @@ onBeforeUnmount(() => {
 
 <template>
     <SectionDocs heading="Dynamic Colors">
+        <p class="Paragraph mt-3 text-sm">
+            These colors are meant to change based on the current scheme, <br/>for dynamic light and dark modes.
+        </p>
         <div class="pt-6"></div>
         <div class="flex flex-wrap -m-1" style="font-size: 0.9rem;">
             <div
@@ -122,19 +125,19 @@ onBeforeUnmount(() => {
     <SectionDocs heading="Pallet">
         <div class="pt-6"></div>
         <div class="flex flex-wrap gap-y-3">
-            <div 
-                v-for="color in themePallet" 
+            <div
+                v-for="color in themePallet"
                 :key="color.name"
                 class="flex flex-col items-start w-[calc(1/11*100%)] relative group"
             >
-                <code 
-                    class="Code absolute opacity-0 group-hover:opacity-100 bottom-1 left-1" 
+                <code
+                    class="Code absolute opacity-0 group-hover:opacity-100 bottom-1 left-1"
                     style="font-size: 0.6rem"
                 >
                     {{ color.number }}
                 </code>
-                <div 
-                    class="aspect-square w-full" 
+                <div
+                    class="aspect-square w-full"
                     :style="{backgroundColor: color.val}"
                 ></div>
             </div>
