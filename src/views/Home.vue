@@ -41,7 +41,7 @@ const homeSections = [
     <Section>
         <div class="m-auto Rhythm text-center">
             <p class="Paragraph mx-auto md:mx-unset">
-                Dynamatic is a native CSS framework with modern design technologies, built from configured theme tokens. And this, is a promotional SPA build using the Dynamatic framework.
+                Dynamatic is a library of style components and tools built from a theme configuration using native CSS variables. This library is designed to pair with Tailwind and synchronize design between the two. Offering the speed of Tailwind and the stability of a design system.
             </p>
             <div class="mt-5 md:mt-8 flex justify-center items-center gap-4">
                 <a
@@ -64,6 +64,9 @@ const homeSections = [
                     </div>
                 </a>
             </div>
+            <p class="Paragraph mx-auto md:mx-unset mt-3 text-xs">
+                Dynamatic is a work in progress and will continue to grow and evolve over time.
+            </p>
         </div>
     </Section>
 
